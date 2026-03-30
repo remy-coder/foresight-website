@@ -1,28 +1,26 @@
 <?php get_header(); ?>
 
-<section class="py-20 px-6 max-w-7xl mx-auto text-center">
-    <h1 class="text-5xl md:text-7xl font-extrabold mb-8">
-        Eradicating <span class="text-blue-400">Avoidable Blindness</span>.
-    </h1>
-    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-        Dedicated to the prevention of blindness through sustainable eye care programs.
-    </p>
-    <div class="flex justify-center gap-4">
-        <button class="bg-orange-600 px-8 py-4 rounded-xl font-bold">DONATE NOW</button>
-        <button class="bg-white/10 px-8 py-4 rounded-xl font-bold">OUR IMPACT</button>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="max-w-4xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-[1.1] text-white">
+            Eradicating <span class="text-blue-400">Avoidable Blindness</span>.
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+            Foresight Australia is a not-for-profit organisation dedicated to the prevention of avoidable blindness through sustainable eye care programs.
+        </p>
+        <div class="flex flex-col sm:row gap-4">
+            <a href="#" class="bg-[#ff6b00] text-white px-10 py-4 rounded-xl font-bold text-center">DONATE NOW</a>
+            <a href="#" class="bg-white/10 text-white border border-white/10 px-10 py-4 rounded-xl font-bold text-center">OUR IMPACT</a>
+        </div>
     </div>
 </section>
 
-<section class="py-20 bg-white/5">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-        <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
-            <h3 class="text-2xl font-bold mb-4">Global Reach</h3>
-            <p class="text-gray-400">Active in Indonesia, Bangladesh, and regional Australia.</p>
-        </div>
-        <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
-            <h3 class="text-2xl font-bold mb-4">Local Empowerment</h3>
-            <p class="text-gray-400">Training local health workers for long-term sustainability.</p>
-        </div>
+<section class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="flex flex-wrap gap-4">
+        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-blue-600 text-white">Australia</button>
+        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-white/5 text-gray-400 border border-white/10">Indonesia</button>
+        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-white/5 text-gray-400 border border-white/10">Bangladesh</button>
+        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-white/5 text-gray-400 border border-white/10">Solomon Islands</button>
     </div>
 </section>
 
