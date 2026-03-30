@@ -1165,11 +1165,8 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
             <button
               key={country}
               onClick={() => setFilter(country)}
-              className={`px-6 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${`
-                  filter === country
-                    ? 'bg-primary border-primary text-white shadow-lg'
-                    : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'
-                }`}
+              className={`px-6 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${filter === country ? 'bg-primary border-primary text-white shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
+
             >
                 {country}
               </button>
