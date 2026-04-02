@@ -501,7 +501,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="http://www.foresight.org.au/wp-content/uploads/2026/03/Brown-Illustrated-Welcome-December-Poster-5.png"
+            src="/media/images/home-hero-sumba-consultation.png"
             alt="Eye care clinic"
             className="w-full h-full object-cover brightness-[0.35] scale-105"
             referrerPolicy="no-referrer"
@@ -568,7 +568,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* 3-Pillar Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Pillar 1 */}
@@ -611,7 +611,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Andre Story Section */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary/5 rounded-[3rem] p-8 md:p-20 border border-primary/10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -644,7 +644,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Stats Section - Bento Style */}
-      <section className="py-24 md:py-32 bg-[#FAFAFA] relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#FAFAFA] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-end mb-16 md:mb-24">
             <div className="max-w-2xl">
@@ -676,7 +676,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 md:py-32 bg-[#0F172A] text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[160px] rounded-full"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 blur-[120px] rounded-full"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -723,7 +723,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Projects Preview */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8 md:gap-12">
             <div className="max-w-3xl">
@@ -780,7 +780,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Call to Donate */}
-      <section className="py-24 md:py-48 bg-white">
+      <section className="py-16 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -824,7 +824,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Partners Section */}
-      <section className="py-24 md:py-32 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-gray-400 font-display font-black tracking-[0.4em] text-[11px] uppercase mb-12 md:mb-16">Our Trusted Partners</h2>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
@@ -852,38 +852,54 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
 
 function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] overflow-hidden">
+    <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#FAFAFA] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Intro */}
-        <div className="max-w-5xl mb-16 md:mb-24 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10 shadow-sm"
-          >
-            <span>Our Story</span>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-6xl md:text-8xl font-display font-extrabold mb-8 md:mb-12 leading-[1.05] md:leading-[0.95] tracking-tighter"
-          >
-            A clear vision for a <span className="text-primary relative inline-block">brighter<svg className="absolute w-full h-3 -bottom-1 left-0 text-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" /></svg></span> future.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-lg md:text-2xl text-gray-500 leading-relaxed font-display font-medium max-w-4xl"
-          >
-            Foresight Australia is a dedicated not-for-profit organisation leading the fight against preventable blindness through clinical excellence, sustainable development, and global partnerships since 1977.
-          </motion.p>
-        </div>
+        <section className="mb-16 md:mb-24 mt-10">
+          <div className="bg-white rounded-[3rem] p-8 md:p-16 border border-gray-100 shadow-xl overflow-hidden relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+              <div className="order-2 lg:order-1 relative z-10">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-8"
+                >
+                  <Award className="w-4 h-4 fill-primary/20" />
+                  <span>Our Foundation</span>
+                </motion.div>
+                
+                <Quote className="w-12 h-12 md:w-16 md:h-16 text-primary/20 mb-6 md:mb-8" />
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-10 leading-[1.1] tracking-tight text-gray-900"
+                >
+                  "Restoring someone’s sight means not only giving them the chance to regain their vision, but also being able to live a better life as a result."
+                </motion.h1>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                >
+                  <h3 className="text-xl md:text-2xl font-display font-extrabold text-primary mb-4">Professor Frank Billson AO</h3>
+                  <p className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium">
+                    Foresight Australia was founded by Professor Frank Billson AO and Major General Paul Cullen AC. For more than four decades, we have worked to prevent avoidable blindness through sustainable eye care and local skills transfer.
+                  </p>
+                </motion.div>
+              </div>
+              <div className="order-1 lg:order-2 relative">
+                 <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full"></div>
+                 <img src="/media/images/Profpicture.png" alt="Professor Frank Billson AO" className="relative rounded-3xl shadow-2xl z-10 w-full object-cover aspect-square md:aspect-[4/5]"/>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Video Section */}
-        <div id="media" className="mb-32 md:mb-48">
+        <div id="media" className="mb-16 md:mb-24">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 mb-4">Learn more about our work and impact</h3>
           </div>
@@ -907,7 +923,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* Objectives Section (NEW) */}
-        <div id="objectives" className="mb-32 md:mb-48">
+        <div id="objectives" className="mb-16 md:mb-24">
           <div className="bg-white p-10 md:p-24 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -mr-10 -mt-10"></div>
             <div className="relative z-10">
@@ -935,7 +951,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* Mission & Vision Section */}
-        <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-32 md:mb-48">
+        <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-24">
           <motion.div
             whileHover={{ y: -10 }}
             className="lg:col-span-7 bg-[#0F172A] p-10 md:p-24 rounded-3xl md:rounded-[4rem] text-white relative overflow-hidden group shadow-2xl"
@@ -988,7 +1004,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* History Timeline preserves lines 877-920 layout */}
-        <div id="history" className="mb-32 md:mb-48">
+        <div id="history" className="mb-16 md:mb-24">
           <div className="max-w-3xl mb-16 md:mb-24">
             <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center gap-4">
               <span className="w-12 h-px bg-primary"></span> Our History
@@ -1268,7 +1284,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
 
         <div className="mb-20">
           <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-4">Active Projects</h2>
-          <p className="text-lg text-gray-500 font-display font-medium mb-10">Our current work focuses on long-term partnerships and sustainable eye care systems.</p>
+          <p className="text-lg text-gray-500 font-display font-medium mb-10">Our current work focuses on long-term partnerships, local capacity building, and sustainable eye care systems.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {filteredProjects.filter(p => ['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
               <motion.div
@@ -1307,7 +1323,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
 
         <div>
           <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-4 border-t border-gray-200 pt-16">Legacy Projects</h2>
-          <p className="text-lg text-gray-500 font-display font-medium mb-10">These projects reflect Foresight Australia’s long history of impact across the region.</p>
+          <p className="text-lg text-gray-500 font-display font-medium mb-10">These projects reflect Foresight Australia’s long history of partnership and impact across the region.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {filteredProjects.filter(p => !['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
               <motion.div

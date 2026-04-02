@@ -1,9 +1,11 @@
 <?php
-function foresight_enqueue_assets() {
-    // This loads your CSS
-    wp_enqueue_style('foresight-styles', get_template_directory_uri() . '/style.css');
-    
-    // Add Google Fonts (Inter)
-    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+function foresight_scripts()
+{
+    // Loads your Tailwind/Antigravity CSS
+    wp_enqueue_style('foresight-main-style', get_template_directory_uri() . '/main.css');
+
+    // Loads Framer Motion (via CDN since it's now a PHP site)
+    wp_enqueue_script('framer-motion', 'https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js', array(), null, true);
 }
-add_action('wp_enqueue_scripts', 'foresight_enqueue_assets');
+add_action('wp_enqueue_scripts', 'foresight_scripts');
+?>

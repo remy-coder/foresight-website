@@ -1,6 +1,7 @@
-<footer class="py-12 border-t border-white/10 text-center text-gray-400">
-    <p>&copy; <?php echo date('Y'); ?> Foresight Australia. All Rights Reserved.</p>
+<footer>
+    <!-- Paste your Footer HTML here -->
 </footer>
-<?php wp_footer(); ?>
+<?php wp_footer(); ?> <!-- Critical for scripts to load -->
 </body>
+
 </html>
