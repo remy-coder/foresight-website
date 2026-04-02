@@ -1,27 +1,44 @@
-<?php get_header(); ?>
+<section class="py-24 md:py-32 bg-[#050b18] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-end mb-16 md:mb-24">
+            <!-- Bento Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 text-primary">
+                        <!-- Your Icon Here -->
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Global Reach</h3>
+                    <p class="text-gray-400 leading-relaxed">Active in Indonesia, Bangladesh, and regional Australia.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 text-primary">
+                        <!-- Your Icon Here -->
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Local Empowerment</h3>
+                    <p class="text-gray-400 leading-relaxed">Training local health workers to ensure long-term clinical
+                        sustainability.</p>
+                </div>
+            </div>
 
-<section class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="max-w-4xl">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-[1.1] text-white">
-            Eradicating <span class="text-blue-400">Avoidable Blindness</span>.
-        </h1>
-        <p class="text-xl text-gray-400 mb-10 leading-relaxed">
-            Foresight Australia is a not-for-profit organisation dedicated to the prevention of avoidable blindness through sustainable eye care programs.
-        </p>
-        <div class="flex flex-col sm:row gap-4">
-            <a href="#" class="bg-[#ff6b00] text-white px-10 py-4 rounded-xl font-bold text-center">DONATE NOW</a>
-            <a href="#" class="bg-white/10 text-white border border-white/10 px-10 py-4 rounded-xl font-bold text-center">OUR IMPACT</a>
+            <!-- Mission Text -->
+            <div class="max-w-xl">
+                <span class="text-accent uppercase tracking-widest text-sm font-bold mb-6 block">Our Mission</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 leading-[1.1]">
+                    A Visionary Approach to <span class="text-primary">Global Health</span>
+                </h2>
+                <p class="text-lg text-gray-300 mb-10 leading-relaxed">
+                    Founded in 1977, Foresight Australia has been a pioneer in sustainable eye health. We don't just
+                    provide treatment; we build capacity.
+                </p>
+                <a href="/about"
+                    class="inline-flex items-center text-white font-bold hover:text-primary transition-colors">
+                    OUR MISSION AND OBJECTIVES
+                    <span class="ml-2">→</span>
+                </a>
+            </div>
         </div>
     </div>
 </section>
-
-<section class="py-12 px-6 max-w-7xl mx-auto">
-    <div class="flex flex-wrap gap-4">
-        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-blue-600 text-white">Australia</button>
-        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-white/5 text-gray-400 border border-white/10">Indonesia</button>
-        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-white/5 text-gray-400 border border-white/10">Bangladesh</button>
-        <button class="px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[11px] bg-white/5 text-gray-400 border border-white/10">Solomon Islands</button>
-    </div>
-</section>
-
-<?php get_footer(); ?>
