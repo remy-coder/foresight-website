@@ -503,14 +503,14 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
           <img
             src="/media/images/home-hero-sumba-consultation.png"
             alt="Eye care clinic"
-            className="w-full h-full object-cover brightness-[0.35] scale-105"
+            className="w-full h-full object-cover brightness-75 scale-105"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/60 to-[#FAFAFA]"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20 md:py-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 md:py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -539,25 +539,25 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 />
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-6 md:mb-8 text-balance tracking-tighter">
                 Eradicating <span className="text-secondary">Avoidable Blindness</span>.<br />
                 Restoring <span className="italic font-serif text-secondary opacity-80">Sight</span>.
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-300 mb-10 md:mb-14 leading-relaxed max-w-2xl font-display font-medium">
+              <p className="text-base md:text-lg text-gray-300 mb-8 md:mb-10 leading-relaxed max-w-2xl font-display font-medium">
                 9 out of 10 people who are blind don't need to be. Help us change that.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <button
                   onClick={() => onNavigate('donate')}
-                  className="w-full sm:w-auto px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-4"
+                  className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-3"
                 >
                   Donate Now <ArrowRight className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => onNavigate('impact')}
-                  className="w-full sm:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center"
+                  className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center"
                 >
                   Our Impact
                 </button>
@@ -568,7 +568,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* 3-Pillar Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-10 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Pillar 1 */}
@@ -611,7 +611,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Andre Story Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-10 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary/5 rounded-[3rem] p-8 md:p-20 border border-primary/10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -644,14 +644,14 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Stats Section - Bento Style */}
-      <section className="py-16 md:py-24 bg-[#FAFAFA] relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#FAFAFA] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-end mb-16 md:mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-end mb-12 md:mb-16">
             <div className="max-w-2xl">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Our Impact (2025)</h2>
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Measurable outcomes in sustainable eye care.</h3>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Our Impact (2025)</h2>
+              <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Measurable outcomes in sustainable eye care.</h3>
             </div>
-            <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed">
+            <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed">
               We track our progress with rigorous data and factual reports, ensuring every contribution supports life-changing treatment and sustainable healthcare infrastructure.
             </p>
           </div>
@@ -676,7 +676,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[160px] rounded-full"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 blur-[120px] rounded-full"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -723,7 +723,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Projects Preview */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8 md:gap-12">
             <div className="max-w-3xl">
@@ -780,7 +780,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
       </section>
 
       {/* Call to Donate */}
-      <section className="py-16 md:py-32 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -799,21 +799,21 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary"></div>
             <div className="relative z-10 max-w-5xl mx-auto">
-              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-8 md:mb-12">Support Our Mission</h2>
-              <h3 className="text-4xl md:text-8xl font-display font-extrabold mb-10 md:mb-14 leading-[1.1] tracking-tight">Help us bring the gift of sight to those in need.</h3>
-              <p className="text-xl md:text-2xl text-secondary opacity-90 mb-12 md:mb-20 leading-relaxed font-display font-medium">
+              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 md:mb-8">Support Our Mission</h2>
+              <h3 className="text-3xl md:text-6xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] tracking-tight">Help us bring the gift of sight to those in need.</h3>
+              <p className="text-base md:text-xl text-secondary opacity-90 mb-10 md:mb-14 leading-relaxed font-display font-medium">
                 Your contribution directly funds life-changing surgeries, training for local doctors, and essential equipment for underserved communities. Every dollar helps restore vision and hope.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
                 <button
                   onClick={() => onNavigate('donate')}
-                  className="w-full sm:w-auto px-16 py-8 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40"
+                  className="w-full sm:w-auto px-12 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40"
                 >
                   Make a Donation
                 </button>
                 <button
                   onClick={() => onNavigate('get-involved')}
-                  className="w-full sm:w-auto px-16 py-8 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all backdrop-blur-xl"
+                  className="w-full sm:w-auto px-12 py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl"
                 >
                   Other ways to help
                 </button>
@@ -852,12 +852,12 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
 
 function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[#FAFAFA] overflow-hidden">
+    <div className="pt-16 pb-12 md:pt-24 md:pb-16 bg-[#FAFAFA] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Intro */}
-        <section className="mb-16 md:mb-24 mt-10">
-          <div className="bg-white rounded-[3rem] p-8 md:p-16 border border-gray-100 shadow-xl overflow-hidden relative">
+        <section className="mb-12 md:mb-16 mt-6">
+          <div className="bg-white rounded-[2.5rem] p-6 md:p-12 border border-gray-100 shadow-xl overflow-hidden relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
               <div className="order-2 lg:order-1 relative z-10">
                 <motion.div
@@ -868,40 +868,40 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                   <Award className="w-4 h-4 fill-primary/20" />
                   <span>Our Foundation</span>
                 </motion.div>
-                
+
                 <Quote className="w-12 h-12 md:w-16 md:h-16 text-primary/20 mb-6 md:mb-8" />
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-10 leading-[1.1] tracking-tight text-gray-900"
+                  className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold mb-8 leading-[1.1] tracking-tight text-gray-900"
                 >
                   "Restoring someone’s sight means not only giving them the chance to regain their vision, but also being able to live a better life as a result."
                 </motion.h1>
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
                 >
-                  <h3 className="text-xl md:text-2xl font-display font-extrabold text-primary mb-4">Professor Frank Billson AO</h3>
-                  <p className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium">
+                  <h3 className="text-lg md:text-xl font-display font-extrabold text-primary mb-3">Professor Frank Billson AO</h3>
+                  <p className="text-base md:text-lg text-gray-500 leading-relaxed font-display font-medium">
                     Foresight Australia was founded by Professor Frank Billson AO and Major General Paul Cullen AC. For more than four decades, we have worked to prevent avoidable blindness through sustainable eye care and local skills transfer.
                   </p>
                 </motion.div>
               </div>
               <div className="order-1 lg:order-2 relative">
-                 <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full"></div>
-                 <img src="/media/images/Profpicture.png" alt="Professor Frank Billson AO" className="relative rounded-3xl shadow-2xl z-10 w-full object-cover aspect-square md:aspect-[4/5]"/>
+                <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full"></div>
+                <img src="/media/images/Profpicture.png" alt="Professor Frank Billson AO" className="relative rounded-3xl shadow-2xl z-10 w-full object-cover aspect-square md:aspect-[4/5]" />
               </div>
             </div>
           </div>
         </section>
 
         {/* Video Section */}
-        <div id="media" className="mb-16 md:mb-24">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 mb-4">Learn more about our work and impact</h3>
+        <div id="media" className="mb-12 md:mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-xl md:text-2xl font-display font-extrabold text-gray-900 mb-4">Learn more about our work and impact</h3>
           </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -923,11 +923,11 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* Objectives Section (NEW) */}
-        <div id="objectives" className="mb-16 md:mb-24">
-          <div className="bg-white p-10 md:p-24 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl relative overflow-hidden">
+        <div id="objectives" className="mb-12 md:mb-16">
+          <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -mr-10 -mt-10"></div>
             <div className="relative z-10">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-12">Our Objectives</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-10">Our Objectives</h2>
               <div className="space-y-10">
                 {[
                   "To alleviate poverty and create an environment that allows the CURE and PREVENTION of blindness through skills transfer.",
@@ -937,10 +937,10 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                   "To seek solutions that address blindness and poverty, acknowledging that blindness is a cause and a consequence of poverty."
                 ].map((objective, i) => (
                   <div key={i} className="flex gap-8 group">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary font-display font-black group-hover:bg-primary group-hover:text-white transition-all">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-primary/5 flex items-center justify-center text-primary font-display font-black group-hover:bg-primary group-hover:text-white transition-all text-sm">
                       {i + 1}
                     </div>
-                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-display font-medium">
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed font-display font-medium">
                       {objective}
                     </p>
                   </div>
@@ -951,20 +951,20 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* Mission & Vision Section */}
-        <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-24">
+        <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 mb-12 md:mb-16">
           <motion.div
             whileHover={{ y: -10 }}
-            className="lg:col-span-7 bg-[#0F172A] p-10 md:p-24 rounded-3xl md:rounded-[4rem] text-white relative overflow-hidden group shadow-2xl"
+            className="lg:col-span-7 bg-[#0F172A] p-8 md:p-16 rounded-3xl md:rounded-[3rem] text-white relative overflow-hidden group shadow-2xl"
           >
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
-            <h2 className="text-accent font-display font-black uppercase tracking-[0.3em] text-[11px] mb-10 md:mb-16">Our Mission</h2>
+            <h2 className="text-accent font-display font-black uppercase tracking-[0.3em] text-[11px] mb-8 md:mb-10">Our Mission</h2>
             <div className="relative z-10">
-              <p className="text-3xl md:text-5xl font-display font-extrabold leading-[1.1] tracking-tight mb-12">
+              <p className="text-2xl md:text-4xl font-display font-extrabold leading-[1.1] tracking-tight mb-10">
                 To prevent avoidable blindness and restore sight through sustainable eye care.
               </p>
-              <ul className="space-y-6 text-gray-400 font-display font-medium text-lg md:text-xl">
+              <ul className="space-y-4 text-gray-400 font-display font-medium text-base md:text-lg">
                 {[
                   'Prevent avoidable blindness through early intervention.',
                   'Establish sustainable eye care systems in underserved regions.',
@@ -1004,12 +1004,12 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* History Timeline preserves lines 877-920 layout */}
-        <div id="history" className="mb-16 md:mb-24">
-          <div className="max-w-3xl mb-16 md:mb-24">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center gap-4">
+        <div id="history" className="mb-12 md:mb-16">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4 md:mb-6 flex items-center gap-4">
               <span className="w-12 h-px bg-primary"></span> Our History
             </h2>
-            <h3 className="text-4xl md:text-6xl font-display font-extrabold text-gray-900 tracking-tighter leading-tight">Decades of Dedication</h3>
+            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-tight">Decades of Dedication</h3>
           </div>
 
           <div className="relative">
@@ -1128,15 +1128,15 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </div>
 
           {/* About Page CTA */}
-          <div className="mt-24 md:mt-32 text-center pb-20">
+          <div className="mt-16 md:mt-24 text-center pb-12">
             <div className="max-w-3xl mx-auto px-4">
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 tracking-tight">Support our global mission</h3>
-              <p className="text-gray-500 font-display font-medium text-lg md:text-xl mb-12">
+              <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Support our global mission</h3>
+              <p className="text-gray-500 font-display font-medium text-base md:text-lg mb-8">
                 Join the thousands who are making sight restoration possible in communities that need it most.
               </p>
               <button
                 onClick={() => onNavigate && onNavigate('donate')}
-                className="px-12 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
+                className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Restore sight today <ArrowRight className="w-5 h-5" />
               </button>
@@ -1159,16 +1159,16 @@ function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
   ];
 
   return (
-    <div className="relative w-full bg-[#0F172A] rounded-[3rem] md:rounded-[5rem] overflow-hidden p-8 md:p-20 mb-24 md:mb-32 shadow-3xl group">
+    <div className="relative w-full bg-[#0F172A] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden p-6 md:p-12 mb-12 md:mb-16 shadow-3xl group">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-primary/40 via-transparent to-transparent"></div>
       </div>
 
       <div className="relative z-10 w-full">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-primary font-display font-black tracking-[0.4em] text-xs uppercase mb-4">Interactive Global Reach</h2>
-          <h3 className="text-3xl md:text-5xl font-display font-extrabold text-white tracking-tight">Where We Work Across the <span className="text-primary">Asia-Pacific</span></h3>
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-primary font-display font-black tracking-[0.4em] text-xs uppercase mb-3">Interactive Global Reach</h2>
+          <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-tight">Where We Work Across the <span className="text-primary">Asia-Pacific</span></h3>
         </div>
 
         <div className="relative aspect-[16/8] max-w-5xl mx-auto">
@@ -1236,20 +1236,20 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
     : PROJECTS.filter(p => p.location.toLowerCase() === filter.toLowerCase());
 
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mb-16 md:mb-24">
+        <div className="max-w-5xl mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-8"
           >
             <span>Our Global Reach</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl md:text-8xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter"
           >
             Where We <span className="text-primary">Work</span>.
           </motion.h1>
@@ -1257,7 +1257,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
+            className="text-base md:text-lg text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
           >
             Foresight Australia partners with local communities across Asia and the Pacific to build sustainable eye care systems that last for generations.
           </motion.p>
@@ -1376,27 +1376,27 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
   return (
     <div className="bg-white min-h-screen">
       {/* SECTION 1: Intro */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] overflow-hidden">
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA] overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-primary hover:text-primary transition-colors group mb-12"
+            className="flex items-center gap-2 text-primary hover:text-primary transition-colors group mb-8"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             <span className="font-display font-black uppercase tracking-widest text-[11px]">Back to Locations</span>
           </button>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-20 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-6">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>{project.location}</span>
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-8xl font-display font-extrabold mb-10 leading-[0.95] tracking-tighter text-gray-900">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold mb-8 leading-[0.95] tracking-tighter text-gray-900">
                 {project.title}
               </h1>
-              <p className="text-xl md:text-2xl text-gray-500 font-display font-medium leading-relaxed max-w-3xl">
+              <p className="text-base md:text-xl text-gray-500 font-display font-medium leading-relaxed max-w-3xl">
                 {project.intro}
               </p>
             </div>
@@ -1404,12 +1404,12 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-3xl aspect-[4/5]"
+                className="relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-3xl aspect-[4/5]"
               >
                 <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
               </motion.div>
-              <div className="absolute -bottom-8 -left-8 bg-white p-6 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 hidden md:block">
-                <div className="text-4xl font-display font-black text-primary tracking-tighter">Active</div>
+              <div className="absolute -bottom-6 -left-6 bg-white p-4 md:p-8 rounded-[2rem] shadow-2xl border border-gray-100 hidden md:block">
+                <div className="text-3xl font-display font-black text-primary tracking-tighter">Active</div>
                 <div className="text-[11px] font-black text-gray-400 uppercase tracking-widest mt-1">Project Status</div>
               </div>
             </div>
@@ -1418,15 +1418,15 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       </section>
 
       {/* SECTION 2: Why it matters */}
-      <section className="py-24 md:py-40 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
             <div className="md:col-span-4">
-              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">The Challenge</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">The Challenge</h2>
+              <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
             </div>
             <div className="md:col-span-8">
-              <p className="text-lg md:text-2xl text-gray-600 font-display font-medium leading-relaxed">
+              <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
                 {project.whyItMatters}
               </p>
             </div>
@@ -1435,14 +1435,14 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       </section>
 
       {/* SECTION 3: What we do */}
-      <section className="py-24 md:py-40 bg-[#0F172A] text-white relative overflow-hidden rounded-[4rem] md:rounded-[6rem] mx-4 md:mx-10 overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10 overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[160px] rounded-full"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
             <div>
-              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-12">Our Solution</h2>
-              <h3 className="text-3xl md:text-6xl font-display font-extrabold text-white mb-10 leading-[1.1] tracking-tight">What we do</h3>
-              <p className="text-lg md:text-2xl text-gray-400 font-display font-medium leading-relaxed mb-12">
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-10">Our Solution</h2>
+              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white mb-8 leading-[1.1] tracking-tight">What we do</h3>
+              <p className="text-base md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-10">
                 {project.whatWeDo}
               </p>
               <div className="grid grid-cols-2 gap-6">
@@ -1462,11 +1462,11 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       </section>
 
       {/* SECTION 4: Key achievements */}
-      <section className="py-24 md:py-40 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 md:mb-24">
-            <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">Our Progress</h2>
-            <h3 className="text-3xl md:text-6xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Key achievements</h3>
+          <div className="mb-12 md:mb-16">
+            <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Our Progress</h2>
+            <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Key achievements</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {project.achievements.map((achievement, i) => (
@@ -1484,29 +1484,29 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       </section>
 
       {/* SECTION 5: What’s next */}
-      <section className="py-24 md:py-40 bg-primary/5 rounded-[4rem] md:rounded-[6rem] mx-4 md:mx-10 mb-24 md:mb-40 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-primary/5 rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10 mb-16 md:mb-24 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-12">Looking Ahead</h2>
-          <h3 className="text-3xl md:text-6xl font-display font-extrabold text-gray-900 mb-10 leading-[1.1] tracking-tight">What’s next</h3>
-          <p className="text-xl md:text-3xl text-gray-600 font-display font-medium leading-relaxed max-w-4xl mx-auto">
+          <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">Looking Ahead</h2>
+          <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight">What’s next</h3>
+          <p className="text-lg md:text-2xl text-gray-600 font-display font-medium leading-relaxed max-w-4xl mx-auto">
             {project.nextSteps}
           </p>
         </div>
       </section>
 
       {/* SECTION 6: Support this work */}
-      <section className="py-24 md:py-40 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#1a1a1a] p-12 md:p-32 rounded-[3.5rem] md:rounded-[5rem] text-white text-center relative overflow-hidden shadow-3xl">
+          <div className="bg-[#1a1a1a] p-10 md:p-24 rounded-[3rem] md:rounded-[4rem] text-white text-center relative overflow-hidden shadow-3xl">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 blur-[120px] rounded-full"></div>
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-6xl font-display font-extrabold mb-10 leading-[1.1] tracking-tight">Support this work</h3>
-              <p className="text-xl md:text-2xl text-gray-400 font-display font-medium leading-relaxed mb-16 max-w-2xl mx-auto">
+              <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 leading-[1.1] tracking-tight">Support this work</h3>
+              <p className="text-lg md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
                 Join us in establishing sustainable eye care systems in {project.location}. Your support restores sight and changes lives.
               </p>
               <button
                 onClick={() => onNavigate && onNavigate('donate')}
-                className="px-12 py-8 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
+                className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Restore sight today <ArrowRight className="w-5 h-5 transition-transform" />
               </button>
@@ -1520,20 +1520,20 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
 
 function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mb-24 md:mb-32">
+        <div className="max-w-5xl mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-8"
           >
             <span>Our Impact</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 md:mb-12 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter"
           >
             Measurable <span className="text-primary">Impact</span>. <br />Real Stories.
           </motion.h1>
@@ -1541,16 +1541,16 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
+            className="text-base md:text-lg text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
           >
             Every screening, every pair of glasses, and every surgery represents a life transformed. We track our progress with rigorous data and factual reports to ensure accountability.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 mb-24 md:mb-32">
-          <div className="col-span-full mb-8 md:mb-12">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Impact Data</h2>
-            <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight">Transparency & Results</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-16 md:mb-24">
+          <div className="col-span-full mb-6 md:mb-10">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Impact Data</h2>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 tracking-tight">Transparency & Results</h3>
           </div>
           {IMPACT_STATS.map((stat, i) => (
             <motion.div
@@ -1559,27 +1559,27 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -15 }}
-              className="p-8 md:p-16 bg-white border border-gray-100 shadow-xl rounded-[3rem] text-center hover:shadow-3xl transition-all duration-700"
+              className="p-6 md:p-12 bg-white border border-gray-100 shadow-xl rounded-[2rem] text-center hover:shadow-3xl transition-all duration-700"
             >
-              <div className="text-4xl md:text-7xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
+              <div className="text-3xl md:text-6xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
               <div className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em] leading-tight">{stat.label}</div>
             </motion.div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-32 items-center mb-24 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
           >
-            <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-xs uppercase mb-8">Success Story</h2>
-            <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 md:mb-10 leading-[1.1] tracking-tight">Cahara's Clarity</h3>
-            <div className="bg-primary/5 p-8 md:p-16 rounded-3xl md:rounded-[4rem] relative shadow-xl border border-primary/10">
-              <Quote className="w-12 h-12 md:w-16 md:h-16 text-primary/10 absolute top-6 right-6 md:top-10 md:right-10" />
-              <p className="text-lg md:text-2xl text-gray-700 leading-relaxed italic font-display font-extrabold mb-8 md:mb-12 relative z-10 tracking-tight">
+            <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-xs uppercase mb-6">Success Story</h2>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 md:mb-8 leading-[1.1] tracking-tight">Cahara's Clarity</h3>
+            <div className="bg-primary/5 p-8 md:p-12 rounded-3xl md:rounded-[3rem] relative shadow-xl border border-primary/10">
+              <Quote className="w-10 h-10 md:w-12 md:h-12 text-primary/10 absolute top-4 right-4 md:top-8 md:right-8" />
+              <p className="text-base md:text-xl text-gray-700 leading-relaxed italic font-display font-extrabold mb-6 md:mb-10 relative z-10 tracking-tight">
                 "I couldn’t see the blackboard at school, even from the front row. I was scared to sing because I couldn’t read the lyrics, and I thought something was wrong with me."
               </p>
-              <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-8 md:mb-12 font-display font-medium">
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed mb-6 md:mb-10 font-display font-medium">
                 Ten-year-old Cahara from Sumba was diagnosed with severe myopia. Within minutes, she was fitted with corrective lenses. "When I put them on, I saw everything clearly—the trees, my teacher’s smile, and the words on the chalkboard."
               </p>
               <div className="font-display font-black text-primary uppercase tracking-[0.2em] text-xs">— Cahara, Sumba, Indonesia</div>
@@ -1605,29 +1605,29 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </motion.div>
         </div>
 
-        <div className="bg-[#0F172A] p-12 md:p-40 rounded-3xl md:rounded-[5rem] text-white relative overflow-hidden shadow-3xl mb-24 md:mb-32">
+        <div className="bg-[#0F172A] p-10 md:p-24 rounded-3xl md:rounded-[4rem] text-white relative overflow-hidden shadow-3xl mb-16 md:mb-24">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[160px] rounded-full"></div>
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 blur-[120px] rounded-full"></div>
-          <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-xs uppercase mb-12 md:mb-20 text-center">Global Statistics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 relative z-10">
+          <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-xs uppercase mb-8 md:mb-12 text-center">Global Statistics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 relative z-10">
             {[
               { val: '80%', desc: 'Of global blindness is preventable or treatable with existing medical interventions.' },
               { val: '94%', desc: 'Of vision loss for Aboriginal adults is preventable through early detection.' },
               { val: '285M', desc: 'People are blind or vision impaired globally, requiring urgent eye care services.' }
             ].map((stat, i) => (
               <div key={i} className="text-center group">
-                <div className="text-3xl md:text-6xl font-display font-black text-primary mb-4 md:mb-8 tracking-tighter group-hover:scale-110 transition-transform duration-500">{stat.val}</div>
-                <p className="text-gray-400 text-lg md:text-xl font-display font-medium leading-relaxed max-w-[200px] mx-auto">{stat.desc}</p>
+                <div className="text-3xl md:text-5xl font-display font-black text-primary mb-3 md:mb-6 tracking-tighter group-hover:scale-110 transition-transform duration-500">{stat.val}</div>
+                <p className="text-gray-400 text-base md:text-lg font-display font-medium leading-relaxed max-w-[200px] mx-auto">{stat.desc}</p>
               </div>
             ))}
           </div>
         </div>
         {/* Patient Stories Section */}
-        <div className="mb-24 md:mb-32">
-          <div className="max-w-5xl mx-auto text-center mb-12 md:mb-20">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Real Impact</h2>
-            <h3 className="text-2xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight">Patient Stories</h3>
-            <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed mt-6 max-w-2xl mx-auto">
+        <div className="mb-16 md:mb-24">
+          <div className="max-w-5xl mx-auto text-center mb-10 md:mb-16">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Real Impact</h2>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 tracking-tight">Patient Stories</h3>
+            <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed mt-4 max-w-2xl mx-auto">
               Behind every statistic is a human life transformed by the power of restored vision. Read their inspiring journeys.
             </p>
           </div>
@@ -1686,8 +1686,8 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                     <div className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{patient.location}</div>
                   </div>
                 </div>
-                <div className="p-8 md:p-10 flex-grow flex flex-col bg-white">
-                  <p className="text-gray-600 text-base md:text-lg leading-relaxed font-display font-medium mb-6 flex-grow">
+                <div className="p-6 md:p-8 flex-grow flex flex-col bg-white">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed font-display font-medium mb-4 flex-grow">
                     {patient.story}
                   </p>
                   <button onClick={() => onNavigate && onNavigate(`story-${patient.name.toLowerCase()}`)} className="text-xs font-display font-black text-primary uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all w-fit">
@@ -1700,10 +1700,10 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* Resources Section */}
-        <div className="max-w-5xl mx-auto text-center mb-16 md:mb-32">
-          <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-8">Transparency</h2>
-          <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 md:mb-12 leading-[1.1] tracking-tight">Annual Reports & Publications</h3>
-          <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed mb-12 md:mb-16 max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto text-center mb-12 md:mb-16">
+          <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Transparency</h2>
+          <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 md:mb-8 leading-[1.1] tracking-tight">Annual Reports & Publications</h3>
+          <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto">
             We are committed to full transparency and accountability. Access our latest financial statements, annual reports, and governance policies.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
@@ -1752,20 +1752,20 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
 
 function GetInvolvedPage() {
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mb-24 md:mb-32">
+        <div className="max-w-5xl mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-8"
           >
             <span>Get Involved</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-8 md:mb-12 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter"
           >
             Join the <span className="text-primary">Mission</span>. <br />Make a Difference.
           </motion.h1>
@@ -1773,35 +1773,35 @@ function GetInvolvedPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
+            className="text-base md:text-lg text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
           >
             Join us in our mission to eliminate avoidable blindness. We offer several pathways for involvement, from professional volunteering to strategic partnerships.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-24 md:mb-32">
-          <div className="col-span-full mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-12 md:mb-16">
+          <div className="col-span-full mb-6 md:mb-8">
             <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4 md:mb-6">Get Involved</h2>
-            <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight">Ways You Can Help</h3>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 tracking-tight">Ways You Can Help</h3>
           </div>
           {[
             {
               title: 'Volunteer',
-              icon: <Users className="w-10 h-10" />,
+              icon: <Users className="w-8 h-8" />,
               desc: 'Contribute your skills to our clinical missions or support our administrative operations in Australia.',
               action: 'Apply Now',
               color: 'bg-primary'
             },
             {
               title: 'Partner',
-              icon: <Globe className="w-10 h-10" />,
+              icon: <Globe className="w-8 h-8" />,
               desc: 'We collaborate with governments and NGOs to implement sustainable eye health infrastructure.',
               action: 'Become a Partner',
               color: 'bg-accent'
             },
             {
               title: 'Donate',
-              icon: <Heart className="w-10 h-10" />,
+              icon: <Heart className="w-8 h-8" />,
               desc: 'Your financial contributions directly fund diagnostic screenings, corrective eyewear, and surgeries.',
               action: 'Donate Today',
               color: 'bg-accent'
@@ -1813,13 +1813,13 @@ function GetInvolvedPage() {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -20 }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 md:p-16 bg-white rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl hover:shadow-3xl transition-all duration-700 group"
+              className="p-6 md:p-10 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl hover:shadow-3xl transition-all duration-700 group"
             >
-              <div className={`${item.color} p-5 md:p-6 rounded-2xl md:rounded-[2rem] w-fit mb-8 md:mb-10 text-white group-hover:rotate-12 transition-transform duration-500 shadow-lg`}>
+              <div className={`${item.color} p-4 md:p-5 rounded-2xl md:rounded-[1.5rem] w-fit mb-6 md:mb-8 text-white group-hover:rotate-12 transition-transform duration-500 shadow-lg`}>
                 {item.icon}
               </div>
-              <h3 className="text-2xl md:text-3xl font-display font-extrabold mb-4 md:mb-6 text-gray-900 tracking-tight">{item.title}</h3>
-              <p className="text-base md:text-xl text-gray-500 mb-8 md:mb-10 leading-relaxed font-display font-medium">{item.desc}</p>
+              <h3 className="text-xl md:text-2xl font-display font-extrabold mb-3 md:mb-4 text-gray-900 tracking-tight">{item.title}</h3>
+              <p className="text-sm md:text-lg text-gray-500 mb-6 md:mb-8 leading-relaxed font-display font-medium">{item.desc}</p>
               <button className="mt-auto font-display font-black text-primary uppercase tracking-[0.2em] text-xs flex items-center gap-3 group-hover:gap-5 transition-all">
                 {item.action} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </button>
@@ -1827,7 +1827,7 @@ function GetInvolvedPage() {
           ))}
         </div>
 
-        <div className="relative rounded-3xl md:rounded-[5rem] overflow-hidden bg-gray-900 p-12 md:p-40 text-white shadow-3xl mb-24 md:mb-32">
+        <div className="relative rounded-3xl md:rounded-[4rem] overflow-hidden bg-gray-900 p-10 md:p-24 text-white shadow-3xl mb-12 md:mb-16">
           <div className="absolute inset-0 opacity-40">
             <img
               src="https://images.unsplash.com/photo-1516841273335-e39b37888115?q=80&w=2047&auto=format&fit=crop"
@@ -1839,12 +1839,12 @@ function GetInvolvedPage() {
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
           <div className="relative z-10 max-w-3xl">
-            <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-xs uppercase mb-8 md:mb-10">Legacy Giving</h2>
-            <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] tracking-tight">A gift that ensures a lasting legacy.</h3>
-            <p className="text-lg md:text-xl text-gray-300 mb-10 md:mb-14 leading-relaxed font-display font-medium">
+            <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-xs uppercase mb-6 md:mb-8">Legacy Giving</h2>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold mb-6 md:mb-8 leading-[1.1] tracking-tight">A gift that ensures a lasting legacy.</h3>
+            <p className="text-base md:text-lg text-gray-300 mb-8 md:mb-10 leading-relaxed font-display font-medium">
               By including a gift in your Will, you ensure that Foresight Australia can continue its vital work in the prevention of blindness for generations to come.
             </p>
-            <button className="px-10 py-5 md:px-12 md:py-6 bg-white text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105">
+            <button className="px-8 py-4 md:px-10 md:py-5 bg-white text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105">
               Request Information Pack
             </button>
           </div>
@@ -1864,23 +1864,23 @@ function ContactPage() {
 
   if (submitted) {
     return (
-      <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] min-h-[60vh] flex items-center justify-center">
+      <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA] min-h-[60vh] flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="max-w-xl w-full mx-auto px-4 text-center"
         >
-          <div className="bg-white p-12 md:p-24 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-10 text-primary">
-              <CheckCircle2 className="w-10 h-10" />
+          <div className="bg-white p-10 md:p-16 rounded-3xl md:rounded-[3rem] shadow-3xl border border-gray-100">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 text-primary">
+              <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Message Sent!</h2>
-            <p className="text-lg md:text-xl text-gray-500 font-display font-medium mb-12">
+            <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-4 text-gray-900 tracking-tight">Message Sent!</h2>
+            <p className="text-base md:text-lg text-gray-500 font-display font-medium mb-10">
               Thank you for reaching out to Foresight Australia. We've received your message and will get back to you shortly at foresight@foresight.org.au.
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="px-10 py-5 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20"
+              className="px-8 py-4 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20"
             >
               Send another message
             </button>
@@ -1891,20 +1891,20 @@ function ContactPage() {
   }
 
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mb-24 md:mb-32">
+        <div className="max-w-5xl mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-8"
           >
             <span>Contact Us</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-8 md:mb-12 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-6 md:mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter"
           >
             Get in <span className="text-primary">Touch</span>. <br />We're Here.
           </motion.h1>
@@ -1912,27 +1912,27 @@ function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
+            className="text-base md:text-lg text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
           >
             For enquiries regarding our programs, partnerships, or how to support our work, please contact our Sydney office.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-32 mb-24 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 mb-16 md:mb-24">
           <div>
-            <div className="space-y-10 md:space-y-20">
+            <div className="space-y-8 md:space-y-16">
               {[
-                { icon: <MapPin className="w-8 h-8 md:w-10 md:h-10" />, title: 'Our Office', content: 'PO Box 663, HORNSBY NSW 2077' },
-                { icon: <Phone className="w-8 h-8 md:w-10 md:h-10" />, title: 'Phone', content: '+61 2 8021 3632' },
-                { icon: <Mail className="w-8 h-8 md:w-10 md:h-10" />, title: 'Email', content: 'foresight@foresight.org.au' }
+                { icon: <MapPin className="w-6 h-6 md:w-8 md:h-8" />, title: 'Our Office', content: 'PO Box 663, HORNSBY NSW 2077' },
+                { icon: <Phone className="w-6 h-6 md:w-8 md:h-8" />, title: 'Phone', content: '+61 2 8021 3632' },
+                { icon: <Mail className="w-6 h-6 md:w-8 md:h-8" />, title: 'Email', content: 'foresight@foresight.org.au' }
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-6 md:gap-10 group">
-                  <div className="bg-white p-6 md:p-8 rounded-2xl md:rounded-[2rem] shadow-xl group-hover:bg-primary group-hover:text-white transition-all duration-500 text-primary border border-gray-100">
+                <div key={i} className="flex items-start gap-5 md:gap-8 group">
+                  <div className="bg-white p-5 md:p-6 rounded-2xl md:rounded-[1.5rem] shadow-xl group-hover:bg-primary group-hover:text-white transition-all duration-500 text-primary border border-gray-100">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-display font-extrabold mb-2 md:mb-4 text-gray-900 tracking-tight">{item.title}</h3>
-                    <p className="text-base md:text-xl text-gray-500 leading-relaxed font-display font-medium">
+                    <h3 className="text-lg md:text-xl font-display font-extrabold mb-2 text-gray-900 tracking-tight">{item.title}</h3>
+                    <p className="text-sm md:text-lg text-gray-500 leading-relaxed font-display font-medium">
                       {item.content}
                     </p>
                   </div>
@@ -1944,7 +1944,7 @@ function ContactPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="bg-white p-8 md:p-24 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden"
+            className="bg-white p-6 md:p-16 rounded-3xl md:rounded-[3rem] shadow-3xl border border-gray-100 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-bl-full -mr-16 -mt-16"></div>
             <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10 relative z-10">
@@ -1985,9 +1985,9 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
     <div className="bg-[#FAFAFA]">
       {/* SECTION 1: Hero */}
-      <section className="pt-32 pb-20 md:pt-48 md:pb-32 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent"></div>
+      <section className="pt-24 pb-12 md:pt-32 md:pb-24 bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-40"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -1995,18 +1995,18 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/20 border border-primary/30 text-white text-xs font-black uppercase tracking-[0.2em] mb-8">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/20 border border-primary/30 text-white text-xs font-black uppercase tracking-[0.2em] mb-6">
               <Heart className="w-4 h-4 fill-white" /> Make an Impact
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1] tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold mb-6 leading-[1.1] tracking-tighter">
               Restore Sight. <span className="text-secondary italic font-serif block mt-2">Change a Life.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-12">
+            <p className="text-base md:text-xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-10">
               Your donation helps provide eye care, surgery, and training in underserved communities. Every contribution brings light to someone's world.
             </p>
             <button
               onClick={scrollToForm}
-              className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105"
+              className="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-3 shadow-2xl shadow-accent/30 hover:scale-105"
             >
               Restore sight today <ArrowRight className="w-5 h-5" />
             </button>
@@ -2024,11 +2024,11 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
       </section>
 
       {/* SECTION 2: Impact */}
-      <section className="py-24 md:py-32 border-b border-gray-100 bg-white">
+      <section className="py-16 md:py-24 border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Choose your impact</h2>
-            <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Choose your impact</h2>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight">
               "Your support helps deliver life-changing eye care to those who need it most."
             </h3>
           </div>
@@ -2061,7 +2061,7 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
       </section>
 
       {/* SECTION 3: Donation Form */}
-      <section id="donation-form" className="py-20 md:py-32 bg-white relative overflow-hidden">
+      <section id="donation-form" className="py-12 md:py-24 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full"></div>
 
@@ -2348,27 +2348,27 @@ function StoryPage({ storyId, onBack, onNavigate }: { storyId: string, onBack: (
 
 function NewsPage() {
   return (
-    <div className="pt-32 pb-16 md:pt-48 md:pb-24 bg-[#FAFAFA] min-h-screen">
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-8"
           >
             <span>Latest Updates</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 md:mb-12 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-6 md:mb-10 leading-[1.1] md:leading-[0.95] tracking-tighter"
           >
             News & <span className="text-primary">Announcements</span>.
           </motion.h1>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <motion.article 
+          <motion.article
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col"
@@ -2393,7 +2393,7 @@ function NewsPage() {
             </div>
           </motion.article>
 
-          <motion.article 
+          <motion.article
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -2444,30 +2444,30 @@ function ReportsPoliciesPage() {
   ];
 
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mb-24 md:mb-32">
+        <div className="max-w-5xl mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-8"
           >
             <span>Transparency</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 md:mb-12 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-6 md:mb-10 leading-[1.1] md:leading-[0.95] tracking-tighter"
           >
             Reports <span className="text-primary">& Policies</span>
           </motion.h1>
         </div>
 
-        <div className="space-y-24 md:space-y-32">
+        <div className="space-y-16 md:space-y-24">
           {/* SECTION 1: Annual Reports */}
           <section id="annual-reports">
-            <h2 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Annual Reports</h2>
-            <p className="text-lg text-gray-500 font-display font-medium leading-relaxed mb-12 max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">Annual Reports</h2>
+            <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed mb-8 md:mb-10 max-w-3xl">
               Explore our annual reports to see how your support is making a measurable impact.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -2496,8 +2496,8 @@ function ReportsPoliciesPage() {
 
           {/* SECTION 2: Policies */}
           <section id="governance-policies">
-            <h2 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Governance & Policies</h2>
-            <p className="text-lg text-gray-500 font-display font-medium leading-relaxed mb-12 max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">Governance & Policies</h2>
+            <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed mb-8 md:mb-10 max-w-3xl">
               Foresight Australia is committed to transparency, accountability, and ethical practice. The following policies guide our work.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
