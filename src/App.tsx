@@ -1978,129 +1978,161 @@ function ContactPage() {
 }
 
 function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
-  const scrollToForm = () => {
-    document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [amount, setAmount] = useState<string | null>(null);
+  const [frequency, setFrequency] = useState<'single' | 'monthly'>('monthly');
+  const [project, setProject] = useState('All Foresight Projects');
+
+  const tiers = [
+    { amount: '$35', title: 'The First Step', outcome: 'Provide a comprehensive eye screening for a child or adult in a remote community.' },
+    { amount: '$150', title: 'The Gift of Sight', outcome: 'Fund a cataract surgery and restore someone’s vision in under 30 minutes.' },
+    { amount: '$500', title: 'Train a Healer', outcome: 'Support the training of a local nurse or clinician, creating long-term impact.' },
+    { amount: '$2,500', title: 'Equip a Clinic', outcome: 'Help provide essential equipment to deliver ongoing eye care services.' }
+  ];
 
   return (
-    <div className="bg-[#FAFAFA]">
-      {/* SECTION 1: Hero */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-24 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-40"></div>
+    <div className="bg-[#FAFAFA] min-h-screen">
+      {/* 1. HERO SECTION */}
+      <section className="pt-20 pb-12 md:pt-28 md:pb-16 bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-30 brightness-[0.75]"></div>
         <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/20 border border-primary/30 text-white text-xs font-black uppercase tracking-[0.2em] mb-6">
-              <Heart className="w-4 h-4 fill-white" /> Make an Impact
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold mb-6 leading-[1.1] tracking-tighter">
-              Restore Sight. <span className="text-secondary italic font-serif block mt-2">Change a Life.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold mb-4 leading-[1.1] tracking-tighter">
+              Restore Sight Today
             </h1>
-            <p className="text-base md:text-xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-10">
-              Your donation helps provide eye care, surgery, and training in underserved communities. Every contribution brings light to someone's world.
+            <p className="text-lg md:text-xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-6">
+              Your donation directly supports life-changing eye care and sustainable local training programs.
             </p>
-            <button
-              onClick={scrollToForm}
-              className="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-3 shadow-2xl shadow-accent/30 hover:scale-105"
-            >
-              Restore sight today <ArrowRight className="w-5 h-5" />
-            </button>
+            <p className="text-sm md:text-base text-accent font-display font-black uppercase tracking-[0.2em] italic">
+              "You are giving someone the chance to see their family again."
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Urgency Line */}
-      <section className="py-10 bg-[#FAFAFA] border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm md:text-base text-gray-500 font-display font-medium tracking-wide">
-            Thousands of people are still living with avoidable blindness today.
-          </p>
-        </div>
-      </section>
+      {/* DONATION FORM CONTAINER */}
+      <section className="py-12 md:py-16 bg-white relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-[2.5rem] shadow-3xl border border-gray-100 p-8 md:p-12 relative z-10 -mt-20 md:-mt-24">
+            
+            {/* 4. MONTHLY GIVING TOGGLE */}
+            <div className="mb-10 text-center">
+              <div className="inline-flex bg-gray-50 p-1.5 rounded-2xl border border-gray-100 mb-6">
+                <button
+                  onClick={() => setFrequency('monthly')}
+                  className={`px-8 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${frequency === 'monthly' ? 'bg-primary text-white shadow-lg' : 'text-gray-400 hover:text-primary'}`}
+                >
+                  Give Monthly
+                </button>
+                <button
+                  onClick={() => setFrequency('single')}
+                  className={`px-8 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${frequency === 'single' ? 'bg-primary text-white shadow-lg' : 'text-gray-400 hover:text-primary'}`}
+                >
+                  One-Time
+                </button>
+              </div>
+              
+              {frequency === 'monthly' && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-primary/5 border border-primary/10 rounded-2xl p-6 mb-8 max-w-2xl mx-auto"
+                >
+                  <h4 className="text-primary font-display font-black uppercase tracking-widest text-xs mb-3">Join The Visionaries</h4>
+                  <p className="text-sm text-gray-600 font-display font-medium leading-relaxed">
+                    Eradicating avoidable blindness takes consistent, long-term effort. By becoming a monthly supporter, you help us plan surgical missions and build sustainable systems.
+                  </p>
+                </motion.div>
+              )}
+            </div>
 
-      {/* SECTION 2: Impact */}
-      <section className="py-16 md:py-24 border-b border-gray-100 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Choose your impact</h2>
-            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight">
-              "Your support helps deliver life-changing eye care to those who need it most."
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16 md:mb-20">
-            {[
-              { val: '$50', desc: 'Help provide eye screenings in remote communities' },
-              { val: '$100', desc: 'Support training of local eye care workers' },
-              { val: '$250', desc: 'Help fund life-changing treatment' }
-            ].map((impact, i) => (
-              <motion.div
-                key={i}
-                onClick={scrollToForm}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-gray-50 p-12 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 text-center group cursor-pointer"
+            {/* 2. IMPACT-BASED DONATION TIERS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-10">
+              {tiers.map((tier) => (
+                <button
+                  key={tier.amount}
+                  onClick={() => setAmount(tier.amount)}
+                  className={`p-6 md:p-8 rounded-3xl border-2 transition-all text-left flex flex-col gap-3 group ${
+                    amount === tier.amount 
+                    ? 'border-accent bg-accent/5 shadow-xl shadow-accent/10' 
+                    : 'border-gray-100 hover:border-primary/20 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className={`text-2xl md:text-3xl font-display font-black ${amount === tier.amount ? 'text-accent' : 'text-gray-900 group-hover:text-primary'}`}>
+                      {tier.amount}
+                    </span>
+                    {amount === tier.amount && <CheckCircle2 className="w-6 h-6 text-accent" />}
+                  </div>
+                  <div>
+                    <span className="block font-display font-black uppercase tracking-widest text-[11px] text-gray-400 mb-1">
+                      {tier.title}
+                    </span>
+                    <p className="text-sm text-gray-600 font-display font-medium leading-normal">
+                      {tier.outcome}
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* 3. PROJECT-BASED GIVING */}
+            <div className="mb-10 max-w-md mx-auto text-center">
+              <label className="block font-display font-black uppercase tracking-widest text-[11px] text-gray-400 mb-4">
+                Where would you like your impact to go?
+              </label>
+              <div className="relative">
+                <select 
+                  value={project}
+                  onChange={(e) => setProject(e.target.value)}
+                  className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-4 font-display font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer"
+                >
+                  <option>All Foresight Projects (Default)</option>
+                  <option>Sumba Eye Program</option>
+                  <option>Solomon Islands</option>
+                  <option>Australian Project</option>
+                </select>
+                <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
+                   <ChevronDown className="w-5 h-5 text-gray-400" />
+                </div>
+              </div>
+            </div>
+
+            {/* FINAL CTA & TRUST SIGNALS */}
+            <div className="text-center">
+              <button
+                className="w-full md:w-auto px-16 py-6 bg-[#ff751f] hover:bg-[#e6661a] text-white rounded-[1.5rem] font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto mb-8"
               >
-                <div className="text-4xl md:text-6xl font-display font-black text-primary mb-6 group-hover:scale-110 transition-transform duration-500">{impact.val}</div>
-                <p className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{impact.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center">
-            <p className="text-[11px] md:text-xs font-display font-black text-gray-400 uppercase tracking-[0.2em] bg-gray-50/50 inline-block px-8 py-4 rounded-full border border-gray-100">
-              "Monthly giving helps us reach more people consistently."
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: Donation Form */}
-      <section id="donation-form" className="py-12 md:py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full"></div>
-
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-6">
-            <p className="text-[11px] font-display font-black text-gray-400 uppercase tracking-widest flex items-center justify-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-primary" /> Secure donation powered by Donorbox
-            </p>
-          </div>
-          <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-gray-100 p-4 md:p-8">
-            <iframe
-              src="https://donorbox.org/embed/celebrating-40-years-of-saving-sight?"
-              name="donorbox"
-              allowPaymentRequest="allowpaymentrequest"
-              seamless={true}
-              frameBorder="0"
-              scrolling="no"
-              height="900"
-              width="100%"
-              style={{ maxWidth: '500px', minWidth: '250px', maxHeight: 'none !important', margin: '0 auto', display: 'block' }}
-              allow="payment">
-            </iframe>
-          </div>
-          <div className="mt-16 text-center max-w-2xl mx-auto px-4">
-            <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
-              Every donation helps restore sight and build sustainable eye care systems in communities that need it most.
-            </p>
-            <button
-              onClick={scrollToForm}
-              className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105 mx-auto"
-            >
-              Restore sight today <ArrowRight className="w-5 h-5" />
-            </button>
+                Donate Now <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+              </button>
+              
+              {/* 5. TRUST & CREDIBILITY */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10 opacity-50">
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-5 h-5 text-gray-600" />
+                  <span className="text-[10px] font-display font-black uppercase tracking-widest text-gray-600">Secure SSL Donation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Heart className="w-5 h-5 text-gray-600" />
+                  <span className="text-[10px] font-display font-black uppercase tracking-widest text-gray-600">Registered Charity</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Award className="w-5 h-5 text-gray-600" />
+                  <span className="text-[10px] font-display font-black uppercase tracking-widest text-gray-600">Tax Deductible</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 4: Story */}
-      <section className="py-20 md:py-32">
+      <section className="py-16 md:py-24 bg-[#FAFAFA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary/5 rounded-[3rem] p-8 md:p-20 border border-primary/10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -2125,7 +2157,7 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                 <p className="text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
                   Ten-year-old Cahara couldn't see the words on the board or her teacher's smile. A simple pair of glasses changed everything. Now, her world is clear, and her future is bright.
                 </p>
-                <div className="inline-block px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 mb-8">
+                <div className="inline-block px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100">
                   <p className="text-primary font-display font-black text-sm uppercase tracking-widest">
                     Your support makes stories like this possible.
                   </p>
@@ -2137,7 +2169,7 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
       </section>
 
       {/* SECTION 5: Trust & Transparency */}
-      <section className="py-20 md:py-32 bg-[#0F172A] text-white text-center">
+      <section className="py-16 md:py-24 bg-[#0F172A] text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ShieldCheck className="w-16 h-16 text-accent mx-auto mb-8" />
           <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-12 tracking-tight">Trust & Transparency</h2>
@@ -2170,11 +2202,11 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
       </section>
 
       {/* SECTION 6: FAQ */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-16">
+          <div className="mb-12">
             <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Common Questions</h2>
-            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight">Donation FAQ</h3>
+            <h3 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight">Donation FAQ</h3>
           </div>
 
           <div className="space-y-6 text-left">
