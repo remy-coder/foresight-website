@@ -54,40 +54,40 @@ export const PROJECTS = [
     id: 'projects-australia',
     title: 'Australian Project',
     location: 'Australia',
-    description: 'Closing the Gap in eye health for Indigenous and regional communities who face the greatest barriers to care.',
+    description: 'Improving access to eye care for underserved communities across Australia.',
     image: "/media/images/Indigenousproject.png",
     supportingImages: ["/media/images/Indigenous Australia.jpg"],
     status: 'Active',
-    intro: 'Foresight Australia works with regional hospitals, Aboriginal medical services and local partners to strengthen eye care in underserved communities across New South Wales. Our approach focuses on three essentials: the right infrastructure and equipment, the right workforce and training, and strong community access through culturally safe screening, referral and follow-up pathways.',
-    whyItMatters: 'Vision loss remains one of the most significant health inequalities affecting Aboriginal and regional communities in Australia. While much of this vision loss is avoidable, people in regional areas still face major barriers to care — including distance, cost, limited local services and a lack of culturally safe pathways. Addressing this challenge requires more than clinical visits alone. It requires the right infrastructure, the right workforce, and strong community access to eye care.',
-    whatWeDo: 'We strengthen eye care services by working across three essential areas: infrastructure, human resources and community access. This includes supporting the equipment and clinical spaces needed to deliver care, building local and visiting workforce capacity through training and partnerships, and improving access through culturally safe screening, referral and follow-up pathways. In places like Griffith, this approach helps bring consultations and surgery closer to home while building a more sustainable local service.',
+    intro: 'Australia is a world leader in eye health, yet many communities—particularly in regional and underserved areas—still face significant barriers to accessing timely care. Foresight Australia is working to help bridge these gaps by supporting initiatives that improve access, coordination, and delivery of eye care services.',
+    whyItMatters: 'Vision loss remains one of the most significant health inequalities affecting Aboriginal and regional communities in Australia. While much of this vision loss is avoidable, people in regional areas still face major barriers to care — including distance, cost, limited local services and a lack of culturally safe pathways.',
+    whatWeDo: 'Foresight Australia is working to help bridge these gaps by supporting initiatives that improve access, coordination, and delivery of eye care services. Our focus is on practical, sustainable models and collaboration to establish lasting eye health infrastructure in regional and underserved areas.',
     achievements: [
       'Established a public ophthalmology service at Griffith Base Hospital for the Western Murrumbidgee region',
       'Significantly reduced cataract surgery wait times through regular visiting clinics and surgery',
       'Trained Aboriginal Health Workers, nurses and GPs in eye screening and referral pathways',
       'Strengthened access to care through partnerships with Griffith Aboriginal Medical Service and regional providers'
     ],
-    nextSteps: 'Our focus is on strengthening the Griffith model by continuing to build the three foundations of sustainable eye care: infrastructure, human resources and community access. This includes supporting local screening and referral pathways, further training for health workers, and expanding the capacity of regional services to deliver more care closer to home.',
+    nextSteps: 'Our focus is on strengthening the Griffith model by continuing to build the three foundations of sustainable eye care: infrastructure, human resources and community access.',
     cta: 'Support our work in Australia'
   },
   {
     id: 'projects-indonesia',
     title: 'Sumba Eye Program',
     location: 'Indonesia',
-    description: 'A 20-year commitment to Sumba, transforming lives through sustainable clinical care and specialized medical training.',
+    description: 'A long-term commitment transforming eye care in Sumba through training, infrastructure, and sustainable service delivery.',
     image: "/media/images/Sumbaproject.png",
     supportingImages: ["/media/images/Sumbaproject2.png"],
     status: 'Active',
-    intro: 'Our flagship program in Sumba, Indonesia, transforms lives through sustainable clinical care and specialized medical training. Over 20 years, we have built a vision for a whole province that was once entirely underserved.',
+    intro: 'The Sumba Eye Program represents Foresight Australia’s commitment to long-term, sustainable eye care development. For over two decades, we have worked alongside local partners to transform access to eye care across Sumba—moving from visiting services to locally delivered, ongoing care.',
     whyItMatters: 'Sumba is one of the most remote and impoverished regions in Indonesia. For the thousands living with cataracts, a simple 15-minute surgery represents the difference between a lifetime of dependency and a future of independence. Without local specialists, many were left in permanent darkness.',
-    whatWeDo: 'Our work in Sumba goes beyond short-term visits. We support the development of local eye-care services by helping strengthen the eye clinic at RSUD Waikabubak, training local nurses and hospital staff, and working closely with government and university partners. Alongside screening and cataract surgery programs, we focus on skills transfer, practical support, and the long-term growth of sustainable eye care on the island.',
+    whatWeDo: 'Our work in Sumba goes beyond short-term visits. We support the development of local eye-care services by helping strengthen the eye clinic at RSUD Waikabubak, training local nurses and hospital staff, and working closely with government and university partners.',
     achievements: [
-      'Developing the Sumba Eye Program in partnership with local hospitals and the Sumba Foundation. Supporting the establishment of eye - care services at RSUD Waikabubak while working alongside long- standing partners on the island.',
-      'Delivered cataract surgeries and vision screening programs, including providing glasses to thousands of school children.Continuing to improve access to care through regular outreach visits and local collaboration.',
-      'Supporting training and supervision of local clinical staff, including nurses and visiting doctors. Working with Indonesian partners to build skills, with ongoing need for stable ophthalmology coverage on the island.',
-      'Strengthening links between hospital services, outreach programs, and local health systems. Progressing toward more consistent, locally delivered care while continuing to rely on visiting teams and partnerships.'
+      'Training local professionals',
+      'Supporting clinical infrastructure',
+      'Delivering outreach screening/surgical services',
+      'Building systems that continue long after we leave'
     ],
-    nextSteps: 'We are now entering the next phase of the Sumba Eye Program, focused on strengthening consistent, locally delivered eye care. With the eye clinic at RSUD Waikabubak now operational and a resident ophthalmologist in place, our work is shifting toward supporting day-to-day services, training local staff, and improving patient access across the district. Our upcoming visit in April 2026 will focus on surgical support, supervision, and practical training, while continuing to work with hospital, government, and university partners to build a more sustainable eye-care system for Sumba.',
+    nextSteps: 'Our upcoming visit in April 2026 will focus on surgical support, supervision, and practical training, while continuing to work with hospital, government, and university partners to build a more sustainable eye-care system for Sumba.',
     cta: 'Support our work in Sumba'
   },
   {
@@ -134,20 +134,20 @@ export const PROJECTS = [
     id: 'projects-solomon-islands',
     title: 'National Eye Program',
     location: 'Solomon Islands',
-    description: 'A 20-year partnership to eliminate avoidable blindness and build a national eye health workforce.',
+    description: 'A long-standing partnership supporting the development of local eye care capacity in Solomon Islands.',
     image: "/media/images/Solomons Home.png",
     supportingImages: ["/media/images/Solomonproject.png", "/media/images/Solomonproject2.png"],
     status: 'Active',
-    intro: 'Foresight has supported eye care development in the Solomon Islands through infrastructure, training, and partnership-building. After earlier work strengthening the National Referral Hospital Eye Unit in Honiara, we are now re-engaging with Solomon Islands ophthalmology leaders and regional partners to support future training, service development, and system strengthening.',
-    whyItMatters: 'The Solomon Islands is a geographically dispersed nation where distance, transport costs, and limited specialist services can make access to eye care difficult. Strengthening referral pathways, training, and hospital capacity is essential to improving access to treatment, especially for people living outside Honiara.',
-    whatWeDo: 'Foresight’s work in the Solomon Islands has focused on strengthening eye care through practical support for local services. Our earlier work helped upgrade the National Referral Hospital Eye Unit in Honiara through equipment, training, and service development, including support for refraction, dispensing, and diabetic eye screening. We are now re-engaging with local leaders and regional partners to support the next phase of specialist training and service strengthening.',
+    intro: 'Foresight Australia has a long and enduring relationship with the Solomon Islands, spanning decades. Through earlier programs delivered with ABF and ABI, significant progress was made. We are now preparing to return to in-country support, with a renewed focus on strengthening ophthalmic capacity.',
+    whyItMatters: 'The Solomon Islands is a geographically dispersed nation where distance, transport costs, and limited specialist services can make access to eye care difficult. Strengthening referral pathways, training, and hospital capacity is essential.',
+    whatWeDo: 'Our work focuses on returning to in-country support with a renewed emphasis on strengthening ophthalmic capacity through surgical delivery, training, and long-term partnerships.',
     achievements: [
-      'Supported the upgrade of the National Referral Hospital Eye Unit in Honiara.',
-      'Provided equipment to improve diagnosis, treatment, and teaching capacity.',
-      'Helped develop refraction, dispensing, and diabetic eye screening services.',
-      'Re-established Foresight’s engagement with Solomon Islands ophthalmology leaders and Pacific partners.'
+      'Surgical delivery',
+      'Training/mentoring',
+      'System development',
+      'Long-term partnerships'
     ],
-    nextSteps: 'The next phase of Foresight’s engagement in the Solomon Islands is focused on specialist training, strengthened regional partnerships, and planning for future outreach and service development led by local needs.',
+    nextSteps: 'The next phase of Foresight’s engagement in the Solomon Islands is focused on specialist training, surgical mentoring, and planning for future service development led by local needs.',
     cta: 'Support our work in the Solomon Islands'
   },
   {
