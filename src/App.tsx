@@ -359,7 +359,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1a1a1a] text-white pt-20 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
+      <footer className="bg-[#004aad] text-white pt-20 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-24">
@@ -1171,38 +1171,23 @@ function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
           <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-tight">Where We Work Across the <span className="text-primary">Asia-Pacific</span></h3>
         </div>
 
-        <div className="relative aspect-[16/8] max-w-5xl mx-auto">
-          {/* Abstract continent markers or lines could go here, keeping it extremely clean for now */}
-          <svg viewBox="0 0 1000 650" className="w-full h-full opacity-30">
-            <defs>
-              <pattern id="dotPattern" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1" className="fill-white/40" />
-              </pattern>
-            </defs>
-            {/* Asia-Pacific Dotted Continent Outlines (Abstracted) */}
-            <rect width="100%" height="100%" fill="url(#dotPattern)" mask="url(#mapMask)" />
-            <mask id="mapMask">
-              {/* Bangladesh/South Asia */}
-              <ellipse cx="220" cy="180" rx="60" ry="40" fill="white" />
-              {/* Philippines */}
-              <ellipse cx="440" cy="220" rx="30" ry="50" fill="white" />
-              {/* Indonesia/Sumba/Timor */}
-              <ellipse cx="400" cy="400" rx="100" ry="40" fill="white" />
-              {/* Solomon Islands */}
-              <ellipse cx="800" cy="380" rx="40" ry="30" fill="white" />
-              {/* Australia */}
-              <path d="M400,500 Q500,480 600,500 T650,600 T450,620 T350,550 Z" fill="white" />
-            </mask>
-          </svg>
+        <div className="relative aspect-[16/8] max-w-5xl mx-auto rounded-3xl md:rounded-[3rem] overflow-hidden">
+          {/* Real Map Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/media/images/map.png" 
+              alt="Asia-Pacific Map" 
+              className="w-full h-full object-cover opacity-60"
+            />
+          </div>
 
-          {/* Interactive Markers Layer */}
-          <div className="absolute inset-0">
+          <div className="relative z-10 w-full h-full">
             <svg viewBox="0 0 1000 650" className="w-full h-full">
               {locations.map((loc) => (
                 <motion.g
                   key={loc.id}
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   whileHover={{ scale: 1.15 }}
                   className="cursor-pointer"
                   onClick={() => onSelect(loc.id)}
@@ -1211,9 +1196,9 @@ function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
                   <circle cx={loc.x} cy={loc.y} r="8" className="fill-primary shadow-[0_0_20px_rgba(56,182,255,0.6)]" />
                   <text
                     x={loc.x}
-                    y={loc.y + 40}
+                    y={loc.y + 45}
                     textAnchor="middle"
-                    className="fill-white font-display font-black text-[11px] uppercase tracking-[0.25em] drop-shadow-md"
+                    className="fill-white font-display font-black text-[11px] uppercase tracking-[0.25em] drop-shadow-lg"
                   >
                     {loc.name}
                   </text>
@@ -1660,9 +1645,9 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
               },
               {
                 name: 'Andre',
-                location: 'Bangladesh',
+                location: 'Sumba, Indonesia',
                 image: '/media/images/Andre.png',
-                story: 'Andre\'s journey to clear sight was made possible through dedicated clinical care. He now looks forward to a fulfilling life without the burden of vision loss.'
+                story: 'Andre\'s journey to clear sight was made possible through the Sumba Eye Program. He now looks forward to a fulfilling life without the burden of vision loss.'
               }
             ].map((patient, i) => (
               <motion.div
@@ -2270,12 +2255,12 @@ const PATIENT_STORIES: Record<string, { name: string, location: string, image1: 
   },
   andre: {
     name: 'Andre',
-    location: 'Bangladesh',
+    location: 'Sumba, Indonesia',
     image1: '/media/images/Andre.png',
     image2: '/media/images/Andre2.png',
     quote: '"I thought darkness was just the natural way my life would go. I never expected to see the colors of my village again."',
-    p1: 'Andre had lived in the rural parts of Bangladesh, watching his world steadily fade to grey and then to complete darkness. Like many in his underserved community, he believed his vision loss was an unavoidable reality of life.',
-    p2: 'Everything changed when a dedicated clinical care team from a Foresight-aligned hospital arrived. Thanks to a short, specialized procedure, the debilitating barrier to his sight was removed. He received not just medical treatment, but the compassionate care of a well-equipped medical infrastructure.',
+    p1: 'Andre had lived in the rural parts of Sumba, Indonesia, watching his world steadily fade to grey and then to complete darkness. Like many in his underserved community, he believed his vision loss was an unavoidable reality of life.',
+    p2: 'Everything changed when he connected with the Sumba Eye Program. Through a short, specialized procedure delivered by local partners and Foresight teams, the debilitating barrier to his sight was removed. He received not just medical treatment, but the compassionate care of a well-equipped medical infrastructure.',
     p3: 'The moment Andre opened his eyes post-recovery, the vibrant colors of his village greeted him once again. His journey from darkness to light embodies our core belief: that sight is a fundamental human right that completely rewrites a person\'s destiny.'
   }
 };
