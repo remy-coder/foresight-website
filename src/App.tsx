@@ -246,6 +246,26 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] font-sans text-gray-900 selection:bg-primary/10 selection:text-primary">
+      {/* Mobile Sticky Donate Button */}
+      <AnimatePresence>
+        {isScrolled && currentPage !== 'donate' && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            className="md:hidden fixed bottom-6 left-6 right-6 z-[60]"
+          >
+            <button
+              onClick={() => handleNavClick('donate')}
+              aria-label="Donate to Foresight Australia"
+              className="w-full py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-accent/40 flex items-center justify-center gap-3 backdrop-blur-lg border border-white/20"
+            >
+              <Heart className="w-4 h-4 fill-white" /> Restore Sight Now
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -509,62 +529,63 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 md:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          {/* Relocated Badges to Top-Left */}
+          <div className="absolute top-0 left-0 md:top-8 md:left-8 flex flex-col sm:flex-row items-center gap-6 z-20">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-black uppercase tracking-[0.2em] shadow-xl"
+            >
+              <Heart className="w-4 h-4 fill-secondary" />
+              <span>Sight is a Human Right</span>
+            </motion.div>
+
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              src="/media/images/40 years logo.png"
+              alt="40 Years of Foresight"
+              className="h-10 md:h-14 w-auto drop-shadow-2xl object-contain brightness-0 invert opacity-90"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-20 md:mt-0">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-8 text-white"
+              className="lg:col-span-12 text-white"
             >
-              <div className="flex items-center gap-6 mb-8 md:mb-10">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em]"
-                >
-                  <Heart className="w-4 h-4 fill-primary" />
-                  <span>Sight is a Human Right</span>
-                </motion.div>
-
-                <motion.img
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                  src="/media/images/40 years logo.png"
-                  alt="40 Years of Foresight"
-                  className="h-12 md:h-16 w-auto drop-shadow-2xl object-contain"
-                />
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-6 md:mb-8 text-balance tracking-tighter">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter shadow-sm">
                 Eradicating <span className="text-secondary">Avoidable Blindness</span>.<br />
                 Restoring <span className="italic font-serif text-secondary opacity-80">Sight</span>.
               </h1>
 
-              <p className="text-base md:text-lg text-gray-300 mb-8 md:mb-10 leading-relaxed max-w-2xl font-display font-medium">
-                9 out of 10 people who are blind don't need to be. Help us change that.
+              <p className="text-lg md:text-2xl text-gray-200 mb-10 md:mb-14 leading-relaxed max-w-3xl font-display font-medium">
+                9 out of 10 people who are blind don't need to be. We build sustainable eye care systems that change lives through clinical training and local infrastructure.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <div className="flex flex-col sm:flex-row gap-6 md:gap-8">
                 <button
                   onClick={() => onNavigate('donate')}
-                  className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-3"
+                  className="w-full sm:w-auto px-12 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4"
                 >
-                  Donate Now <ArrowRight className="w-5 h-5" />
+                  Donate Now <ArrowRight className="w-6 h-6" />
                 </button>
                 <button
                   onClick={() => onNavigate('impact')}
-                  className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center"
+                  className="w-full sm:w-auto px-12 py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center group"
                 >
-                  Our Impact
+                  Explore Our Impact <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-2 transition-transform" />
                 </button>
               </div>
             </motion.div>
           </div>
         </div>
+
       </section>
 
       {/* 3-Pillar Section */}
@@ -751,12 +772,19 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 <div className="aspect-[4/5] overflow-hidden relative">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`Project image for ${project.title} in ${project.location}`}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent opacity-80"></div>
+                  <div className="absolute top-6 right-6 z-20">
+                    {project.id === 'projects-solomon-islands' && (
+                      <div className="px-4 py-2 bg-accent/90 backdrop-blur-md rounded-xl text-white font-display font-black uppercase tracking-widest text-[10px] shadow-lg border border-white/20">
+                        Renewal: Returning 2026
+                      </div>
+                    )}
+                  </div>
                   <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 text-white">
                     <div className="inline-block px-4 py-1.5 bg-accent rounded-xl text-[11px] font-black uppercase tracking-[0.2em] mb-4">
                       {project.location}
@@ -769,9 +797,12 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 </div>
                 <div className="p-6 md:p-10 flex justify-between items-center bg-white">
                   <span className="text-xs font-display font-black text-gray-400 uppercase tracking-[0.2em]">Our Impact</span>
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-12">
+                  <button 
+                    aria-label={`Learn more about ${project.title}`}
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-12"
+                  >
                     <ArrowRight className="w-6 h-6" />
-                  </div>
+                  </button>
                 </div>
               </motion.div>
             ))}
@@ -1004,46 +1035,84 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         {/* History Timeline preserves lines 877-920 layout */}
-        <div id="history" className="mb-12 md:mb-16">
-          <div className="max-w-3xl mb-12 md:mb-16">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4 md:mb-6 flex items-center gap-4">
-              <span className="w-12 h-px bg-primary"></span> Our History
+        {/* The Foresight Model */}
+        <div id="foresight-model" className="mb-24 md:mb-32">
+          <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center justify-center gap-4">
+              <span className="w-12 h-px bg-primary/20"></span> Official History & Philosophy <span className="w-12 h-px bg-primary/20"></span>
             </h2>
-            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-tight">Decades of Dedication</h3>
+            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-[1.05]">The Foresight Model</h3>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/20 to-primary/0 hidden md:block"></div>
-            <div className="space-y-12 md:space-y-20">
-              {[
-                { year: '1977', title: 'Foundation', desc: 'Foresight Australia was established in response to urgent requests for eye health assistance in Bangladesh.' },
-                { year: '1982', title: 'NGO Registration', desc: 'Formally registered as an autonomous non-government organisation to expand international programs.' },
-                { year: '1986', title: 'Charitable Status', desc: 'Granted independent status as an official charity and company limited by guarantee in Australia.' },
-                { year: '1994', title: 'Humanitarian Award', desc: 'Awarded the inaugural Weary Dunlop Asia Medal for humanitarian service.' },
-                { year: '2025', title: 'Continuing the Mission', desc: 'Foresight Australia continues to deliver sustainable eye care, training, and prevention programs globally.' }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-                >
-                  <div className="flex-1 w-full">
-                    <div className={`p-8 md:p-12 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl hover:shadow-2xl hover:border-primary/20 transition-all duration-500 group ${i % 2 === 0 ? 'md:text-right' : ''}`}>
-                      <span className="text-5xl md:text-7xl font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-primary/20 to-transparent mb-4 md:mb-6 block tracking-tighter group-hover:from-primary transition-all">{item.year}</span>
-                      <h3 className="text-2xl md:text-3xl font-display font-extrabold mb-4 text-gray-900 tracking-tight">{item.title}</h3>
-                      <p className="text-gray-500 text-lg leading-relaxed font-display font-medium">{item.desc}</p>
-                    </div>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-white border-4 border-primary shadow-[0_0_20px_rgba(37,99,235,0.3)] relative z-10 hidden md:flex items-center justify-center">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  </div>
-                  <div className="flex-1 hidden md:block"></div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-16 border-b border-gray-100">
+            {[
+              { 
+                title: 'The Foundation', 
+                desc: 'Established in 1977 by Prof. Frank Billson AO and Gen. Paul Cullen AC to address blindness in Bangladesh.',
+                icon: <Award className="w-6 h-6" />
+              },
+              { 
+                title: 'The Philosophy', 
+                desc: 'A ‘grassroots up’ model focused on sustainable skills transfer rather than temporary aid, fostering long-term clinical independence.',
+                icon: <Target className="w-6 h-6" />
+              },
+              { 
+                title: 'The Mission', 
+                desc: 'To prevent and cure avoidable blindness through sustainable development and equitable access for all underserved populations.',
+                icon: <Heart className="w-6 h-6" />
+              }
+            ].map((model, i) => (
+              <div key={i} className="p-10 bg-white rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  {model.icon}
+                </div>
+                <h4 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">{model.title}</h4>
+                <p className="text-gray-500 text-lg leading-relaxed font-display font-medium">
+                  {model.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Board of Directors Section */}
+        <div id="board" className="mb-24 md:mb-32">
+          <div className="max-w-4xl mx-auto mb-16 md:mb-24">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center gap-4">
+              <span className="w-12 h-px bg-primary"></span> Leadership
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-tight">Board of Directors</h3>
+            <p className="text-gray-500 text-lg md:text-xl font-display font-medium mt-6 leading-relaxed">
+              Our board brings international expertise in ophthalmology, public health, law, and financial governance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            {[
+              { name: 'George Harris', role: 'Chairman', bio: 'Solicitor in private practice, former international partner at Baker McKenzie.' },
+              { name: 'John Karagiorgos', role: 'Treasurer', bio: 'Chartered Accountant specializing in medical and real estate sectors.' },
+              { name: 'A/Prof Geoffrey Painter AM', role: 'Director', bio: 'Ophthalmic surgeon with over 18 surgical and teaching trips to the Solomon Islands.' },
+              { name: 'Prof Mary Crock', role: 'Director', bio: 'Professor of Public Law at the University of Sydney, specialist in immigration and disability law.' },
+              { name: 'Melissa Perrine', role: 'Director', bio: 'Registered Physiotherapist and four-time Winter Paralympian.' },
+              { name: 'Dr Mark Ellis AM', role: 'Director', bio: 'Consultant Ophthalmologist and founder of the West Sumba eye program.' }
+            ].map((director, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-xl group hover:shadow-3xl transition-all duration-700 h-full flex flex-col"
+              >
+                <div className="flex-1">
+                  <h4 className="text-2xl font-display font-extrabold text-gray-900 mb-2 tracking-tight group-hover:text-primary transition-colors">{director.name}</h4>
+                  <div className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-6">{director.role}</div>
+                  <p className="text-gray-500 font-display font-medium leading-relaxed">
+                    {director.bio}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
@@ -1150,12 +1219,12 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
 
 function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
   const locations = [
-    { id: 'projects-bangladesh', name: 'Bangladesh', x: 220, y: 180 },
-    { id: 'projects-philippines', name: 'Philippines', x: 440, y: 220 },
-    { id: 'projects-indonesia', name: 'Indonesia (Sumba)', x: 380, y: 400 },
-    { id: 'projects-timor-leste', name: 'Timor-Leste', x: 460, y: 410 },
-    { id: 'projects-solomon-islands', name: 'Solomon Islands', x: 820, y: 390 },
-    { id: 'projects-australia', name: 'Australia', x: 500, y: 550 },
+    { id: 'projects-australia', name: 'Griffith, Australia', x: 500, y: 550, status: 'Active' },
+    { id: 'projects-indonesia', name: 'West Sumba, Indonesia', x: 380, y: 400, status: 'Active' },
+    { id: 'projects-solomon-islands', name: 'Honiara, Solomon Islands', x: 820, y: 390, status: 'Active' },
+    { id: 'projects-bangladesh', name: 'Chittagong, Bangladesh', x: 220, y: 180, status: 'Legacy' },
+    { id: 'projects-philippines', name: 'Santiago City, Philippines', x: 440, y: 220, status: 'Legacy' },
+    { id: 'projects-timor-leste', name: 'Dili, Timor-Leste', x: 460, y: 410, status: 'Legacy' },
   ];
 
   return (
@@ -1306,9 +1375,9 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
           </div>
         </div>
 
-        <div>
-          <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-4 border-t border-gray-200 pt-16">Legacy Projects</h2>
-          <p className="text-lg text-gray-500 font-display font-medium mb-10">These projects reflect Foresight Australia’s long history of partnership and impact across the region.</p>
+        <div className="mt-20">
+          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 mb-4 border-t border-gray-200 pt-16 tracking-tight">Legacy Projects</h2>
+          <p className="text-lg text-gray-500 font-display font-medium mb-12 max-w-3xl leading-relaxed">These milestones reflect Foresight Australia’s four-decade history of establishing sustainable eye care systems across the Asia-Pacific.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {filteredProjects.filter(p => !['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
               <motion.div
@@ -1316,26 +1385,34 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group flex flex-col"
+                className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col relative"
               >
-                <div className="relative h-64 overflow-hidden grayscale opacity-80">
+                {/* Legacy Badge */}
+                <div className="absolute top-6 right-6 z-20">
+                  <div className="px-4 py-2 bg-gray-900/80 backdrop-blur-md rounded-xl text-white font-display font-black uppercase tracking-widest text-[9px] shadow-xl border border-white/10">
+                    Impact Milestone
+                  </div>
+                </div>
+
+                <div className="relative h-64 overflow-hidden grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-700">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`Legacy project visual for ${project.title}`}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl text-gray-500 font-display font-black uppercase tracking-widest text-[11px]">
                     {project.location}
                   </div>
                 </div>
-                <div className="p-8 flex flex-col flex-1 bg-gray-50/50">
-                  <h3 className="text-2xl font-display font-extrabold text-gray-800 mb-4">{project.title}</h3>
-                  <p className="text-gray-500 font-display font-medium leading-relaxed mb-8 flex-1">
+                <div className="p-8 flex flex-col flex-1 bg-gray-50/30">
+                  <h3 className="text-2xl font-display font-extrabold text-gray-800 mb-4 tracking-tight">{project.title}</h3>
+                  <p className="text-gray-500 font-display font-medium leading-relaxed mb-8 flex-1 text-base">
                     {project.description}
                   </p>
                   <button
                     onClick={() => onSelectProject(project.id)}
-                    className="w-full py-5 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 group/btn"
+                    aria-label={`View legacy impact of ${project.title}`}
+                    className="w-full py-5 bg-white border border-gray-200 hover:border-primary/30 hover:text-primary text-gray-700 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 group/btn shadow-sm"
                   >
                     Read Legacy Impact <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
@@ -1381,9 +1458,15 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold mb-8 leading-[0.95] tracking-tighter text-gray-900">
                 {project.title}
               </h1>
-              <p className="text-base md:text-xl text-gray-500 font-display font-medium leading-relaxed max-w-3xl">
+              <p className="text-base md:text-xl text-gray-500 font-display font-medium leading-relaxed max-w-3xl mb-8">
                 {project.intro}
               </p>
+              {project.id === 'projects-solomon-islands' && (
+                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-accent text-white font-display font-black uppercase tracking-widest text-xs shadow-xl shadow-accent/20 border border-white/20">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  Renewal: Returning 2026
+                </div>
+              )}
             </div>
             <div className="lg:col-span-5 relative">
               <motion.div
@@ -1391,10 +1474,16 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-3xl aspect-[4/5]"
               >
-                <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
+                <img 
+                  src={project.image} 
+                  alt={`Primary hero image for the ${project.title} project`} 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
               </motion.div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 md:p-8 rounded-[2rem] shadow-2xl border border-gray-100 hidden md:block">
-                <div className="text-3xl font-display font-black text-primary tracking-tighter">Active</div>
+                <div className="text-3xl font-display font-black text-primary tracking-tighter">
+                  {['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(project.id) ? 'Active' : 'Legacy'}
+                </div>
                 <div className="text-[11px] font-black text-gray-400 uppercase tracking-widest mt-1">Project Status</div>
               </div>
             </div>
