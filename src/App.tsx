@@ -372,6 +372,7 @@ export default function App() {
             {currentPage === 'get-involved' && <GetInvolvedPage />}
             {currentPage === 'news' && <NewsPage />}
             {currentPage === 'contact' && <ContactPage />}
+            {currentPage === 'leaders' && <LeadersPage />}
             {currentPage === 'subscribe' && <SubscribePage />}
             {currentPage === 'donate' && <DonatePage onNavigate={handleNavClick} />}
           </motion.div>
@@ -442,8 +443,8 @@ export default function App() {
                   {[
                     { label: 'Our Mission & Vision', id: 'about-mission' },
                     { label: 'Our History', id: 'about-history' },
-                    { label: 'Annual Reports', id: 'reports-policies' },
-                    { label: 'Governance & Policies', id: 'reports-policies' }
+                    { label: 'Our Leaders', id: 'leaders' },
+                    { label: 'Reports & Policies', id: 'reports-policies' }
                   ].map((link) => (
                     <li key={link.label}>
                       <button onClick={() => handleNavClick(link.id)} className="text-gray-400 hover:text-white transition-colors text-sm font-display font-medium">{link.label}</button>
@@ -2725,6 +2726,119 @@ function SubscribePage() {
               We respect your privacy and will only use your details to send updates from Foresight Australia.
             </p>
           </motion.form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LeadersPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mb-16 md:mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-8"
+          >
+            <Users className="w-4 h-4" />
+            <span>Our Leadership</span>
+          </motion.div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold mb-8 leading-[1.1] md:leading-[0.95] tracking-tighter"
+          >
+            Our Board of <span className="text-primary">Directors</span>.
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg md:text-xl text-gray-500 leading-relaxed font-display font-medium max-w-3xl"
+          >
+            Foresight Australia is governed by a dedicated group of professionals from the medical, legal, and financial sectors, all committed to our mission of preventing avoidable blindness through sustainable eye-care systems.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {TEAM.map((director, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl hover:shadow-3xl transition-all duration-700 flex flex-col group"
+            >
+              <div className="aspect-[4/5] relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                <img
+                  src={director.image}
+                  alt={director.name}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(director.name)}&background=004aad&color=ffffff&size=512`;
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              </div>
+              
+              <div className="p-8 md:p-10 flex flex-col flex-1">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-2 tracking-tight">
+                    {director.name}
+                  </h3>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                      {director.role}
+                    </span>
+                    <span className="text-[10px] font-display font-bold text-gray-400">
+                      {director.titles}
+                    </span>
+                  </div>
+                </div>
+                
+                <p className="text-gray-500 font-display font-medium leading-relaxed mb-6 flex-1 text-sm md:text-base">
+                  {director.bio}
+                </p>
+                
+                <div className="pt-6 border-t border-gray-50 flex justify-between items-center">
+                   <div className="flex gap-4">
+                     <Linkedin className="w-5 h-5 text-gray-300 hover:text-primary transition-colors cursor-pointer" />
+                     <Mail className="w-5 h-5 text-gray-300 hover:text-primary transition-colors cursor-pointer" />
+                   </div>
+                   <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center text-primary transform scale-0 group-hover:scale-100 transition-transform duration-500">
+                     <ChevronRight className="w-5 h-5" />
+                   </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Governance CTA */}
+        <div className="mt-24 md:mt-32">
+          <div className="bg-primary p-12 md:p-24 rounded-[3rem] md:rounded-[4rem] text-white text-center relative overflow-hidden shadow-3xl">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full"></div>
+            <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-8 relative z-10 tracking-tight">Governance & Transparency</h2>
+            <p className="text-xl text-secondary opacity-80 font-display font-medium leading-relaxed mb-12 max-w-3xl mx-auto relative z-10">
+              Our board is committed to the highest standards of transparency and ethical governance. We follow rigorous reporting and oversight protocols.
+            </p>
+            <button
+               onClick={() => { window.scrollTo(0,0); window.location.hash = 'reports-policies'; }}
+               className="px-12 py-5 bg-white text-primary rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl relative z-10"
+            >
+              View Reports & Policies
+            </button>
+          </div>
         </div>
       </div>
     </div>

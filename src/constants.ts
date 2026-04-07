@@ -19,6 +19,7 @@ export const NAVIGATION = [
     dropdown: [
       { id: 'about-mission', label: 'Mission & Vision' },
       { id: 'about-history', label: 'Our History' },
+      { id: 'leaders', label: 'Our Leaders' },
       { id: 'reports-policies', label: 'Reports & Policies' },
     ]
   },
@@ -173,17 +174,83 @@ export const PROJECTS = [
 ];
 
 export const TEAM = [
-  { name: 'George Harris', role: 'Chairman' },
-  { name: 'John Karagiorgos', role: 'Treasurer' },
-  { name: 'Geoffrey Painter', role: 'Director' },
-  { name: 'Kevin Gardner', role: 'Director' },
-  { name: 'Mary Crock', role: 'Director' },
-  { name: 'Melissa Perrine', role: 'Director' },
-  { name: 'Mark Ellis', role: 'Director' },
-  { name: 'Georgina Kourt', role: 'Director' },
-  { name: 'Kerrie Legg', role: 'Director' },
-  { name: 'Aziz Meherali', role: 'Director' },
-  { name: 'Janine Hobson', role: 'Director' },
+  { 
+    name: 'George Harris', 
+    role: 'Chairman', 
+    titles: 'B.A. L.L.M',
+    bio: 'A solicitor in private solo practice and former international partner and senior counsel of the global law firm Baker McKenzie. He provides legal expertise to several not-for-profits, including the Opera Foundation for Young Australians and the RPA Heart Centre Foundation.',
+    image: '/media/images/board-george-harris.png'
+  },
+  { 
+    name: 'John Karagiorgos', 
+    role: 'Treasurer', 
+    titles: 'CA BUS MTAX',
+    bio: 'A practicing chartered accountant and partner specializing in general tax matters for the medical, real estate, and property sectors. He has assisted businesses in expanding their profiles and increasing profitability over a thirty-year career.',
+    image: '/media/images/board-john-karagiorgos.png'
+  },
+  { 
+    name: 'A/Prof Geoffrey T. Painter AM', 
+    role: 'Director', 
+    titles: 'MBBS MPhil FRANZCO FRACS',
+    bio: 'An ophthalmic surgeon and co-founder of Gordon Eye Surgery. He has led 18 surgical and teaching trips to the Solomon Islands and was awarded a Member of the Order of Australia (AM) for services to ophthalmology in Australia and the Asia Pacific region.',
+    image: '/media/images/board-geoffrey-painter.png'
+  },
+  { 
+    name: 'Prof Mary Crock', 
+    role: 'Director', 
+    titles: 'BA (Hons) LLB (Hons) PhD FAAL',
+    bio: 'Professor of Public Law at the University of Sydney’s Law School and an Accredited Specialist in Immigration Law. She is a globally recognized expert on refugees with disabilities and was named one of the AFR\'s 100 Women of Influence.',
+    image: '/media/images/board-mary-crock.png'
+  },
+  { 
+    name: 'Ms Melissa Perrine', 
+    role: 'Director', 
+    titles: 'BExPhys, MSportExSci, MPhysio, MSci',
+    bio: 'A registered physiotherapist and four-time Winter Paralympian. Although legally blind, she has held four World Championship titles and served as Australia\'s opening ceremony flag bearer at the Beijing 2022 games.',
+    image: '/media/images/board-melissa-perrine.png'
+  },
+  { 
+    name: 'Dr Mark F. Ellis AM', 
+    role: 'Director', 
+    titles: 'MB BS, FRANZCO, FRACS',
+    bio: 'A Consultant Ophthalmologist who founded an independent eye reach program in West Sumba in 2007. He has served as Chairman of the Victorian Branch of RANZCO and worked extensively in India and East Timor.',
+    image: '/media/images/board-mark-ellis.png'
+  },
+  { 
+    name: 'Dr Georgina Kourt', 
+    role: 'Director', 
+    titles: 'MBBS, FRANZCO, FRACS',
+    bio: 'An Honorary Medical Officer in Ophthalmology and Oculoplastic Surgery at Sydney Eye Hospital. She focuses on improving rural medical services and eyecare for First Nations people, leading annual surgical field trips to the Northern Territory.',
+    image: '/media/images/board-georgina-kourt.png'
+  },
+  { 
+    name: 'Ms Kerrie Legg', 
+    role: 'Director', 
+    titles: 'RN, Mid Cert, MN',
+    bio: 'CEO/DON of Chatswood Private Hospital, one of Australia\'s largest stand-alone day hospitals. She has participated in 17 overseas outreach projects to the Solomon Islands, China, and the Philippines over the last 23 years.',
+    image: '/media/images/board-kerrie-legg.png'
+  },
+  { 
+    name: 'Mr Kevin Gardner', 
+    role: 'Director', 
+    titles: 'MCOM BBus FCPA FCIS JP',
+    bio: 'Former Chairman of Lenity Australia and CEO of Sydney Eye Hospital Foundation. He has over 40 years of senior management experience in finance and accounting and currently serves as a Director for the Mercy Foundation.',
+    image: '/media/images/board-kevin-gardner.png'
+  },
+  { 
+    name: 'Mr Aziz Meherali', 
+    role: 'Director', 
+    titles: 'CFP, BaBUS',
+    bio: 'A Senior Wealth Adviser with over 25 years of experience in the financial planning industry. He specializes in developing investment and executive strategies for private clients and holds a Strategic Leadership qualification from Stanford.',
+    image: '/media/images/board-aziz-meherali.png'
+  },
+  { 
+    name: 'Ms Janine Hobson', 
+    role: 'Director', 
+    titles: 'B. Optom (Hons) GradCert Therapeutic Optometry',
+    bio: 'An experienced Optometrist and founder of Young Eyes Optometrists. She specializes in children\'s vision and therapeutic optometry and is involved with the Sumba Eye Program training local staff in paediatric care.',
+    image: '/media/images/board-janine-hobson.png'
+  },
 ];
 
 export const PARTNERS = [
