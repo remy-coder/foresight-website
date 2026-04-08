@@ -52,42 +52,42 @@ export const IMPACT_STATS = [
 export const PROJECTS = [
   {
     id: 'projects-australia',
-    title: 'Australian Project',
+    title: 'Griffith Indigenous Eye Health',
     location: 'Australia',
-    description: 'Improving access to eye care for underserved communities across Australia.',
+    description: 'Enhancing eye-care accessibility and closing the gap in healthcare access for Indigenous populations in rural New South Wales.',
     image: "/media/images/Indigenousproject.png",
     supportingImages: ["/media/images/Indigenous Australia.jpg"],
     status: 'Active',
-    intro: 'Australia is a world leader in eye health, yet many communities—particularly in regional and underserved areas—still face significant barriers to accessing timely care. Foresight Australia is working to help bridge these gaps by supporting initiatives that improve access, coordination, and delivery of eye care services.',
-    whyItMatters: 'Vision loss remains one of the most significant health inequalities affecting Aboriginal and regional communities in Australia. While much of this vision loss is avoidable, people in regional areas still face major barriers to care — including distance, cost, limited local services and a lack of culturally safe pathways.',
-    whatWeDo: 'Foresight Australia is working to help bridge these gaps by supporting initiatives that improve access, coordination, and delivery of eye care services. Our focus is on practical, sustainable models and collaboration to establish lasting eye health infrastructure in regional and underserved areas.',
+    intro: 'Enhancing eye-care accessibility and closing the gap in healthcare access for Indigenous populations in rural New South Wales.',
+    whyItMatters: 'Indigenous Australians in regional areas face significant barriers to timely eye care, particularly for preventable conditions like diabetic retinopathy. Distance, cost, and a lack of culturally safe pathways often prevent patients from receiving the treatment they need to save their sight.',
+    whatWeDo: 'We focus on sustainable capacity building and innovative technology to bridge the gap in eye health. Our model centers on training local health workers and medical professionals to provide high-quality, culturally appropriate care directly within their communities.',
     achievements: [
-      'Established a public ophthalmology service at Griffith Base Hospital for the Western Murrumbidgee region',
-      'Significantly reduced cataract surgery wait times through regular visiting clinics and surgery',
-      'Trained Aboriginal Health Workers, nurses and GPs in eye screening and referral pathways',
-      'Strengthened access to care through partnerships with Griffith Aboriginal Medical Service and regional providers'
+      'Trained over 40 Aboriginal Health Workers, GPs, and medical students across the Western Murrumbidgee Local Health District.',
+      'Reduced cataract surgery waiting times from 18 months down to just 3–6 months.',
+      'Partnered with Rotary to deploy portable retinal cameras and launched a telehealth pilot project to streamline triage and referrals.',
+      'Recognised at the MLHD Excellence Awards and published in the Australian Journal of Rural Health.'
     ],
-    nextSteps: 'Our focus is on strengthening the Griffith model by continuing to build the three foundations of sustainable eye care: infrastructure, human resources and community access.',
+    nextSteps: 'Our focus is on strengthening the Griffith model by continuing to build sustainable eye care foundations: infrastructure, human resources, and community access.',
     cta: 'Support our work in Australia'
   },
   {
     id: 'projects-indonesia',
     title: 'Sumba Eye Program',
     location: 'Indonesia',
-    description: 'A long-term commitment transforming eye care in Sumba through training, infrastructure, and sustainable service delivery.',
+    description: 'A long-term, sustainable partnership transforming eye health on Sumba Island through infrastructure, training, and surgical excellence.',
     image: "/media/images/Sumbaproject.png",
     supportingImages: ["/media/images/Sumbaproject2.png", "/media/images/Andre2.png"],
     status: 'Active',
-    intro: 'The Sumba Eye Program represents Foresight Australia’s commitment to long-term, sustainable eye care development. For over two decades, we have worked alongside local partners to transform access to eye care across Sumba—moving from visiting services to locally delivered, ongoing care.',
-    whyItMatters: 'Sumba is one of the most remote and impoverished regions in Indonesia. For the thousands living with cataracts, a simple 15-minute surgery represents the difference between a lifetime of dependency and a future of independence. Without local specialists, many were left in permanent darkness.',
-    whatWeDo: 'Our work in Sumba goes beyond short-term visits. We support the development of local eye-care services by helping strengthen the eye clinic at RSUD Waikabubak, training local nurses and hospital staff, and working closely with government and university partners.',
+    intro: 'A long-term, sustainable partnership transforming eye health on Sumba Island through infrastructure, training, and surgical excellence.',
+    whyItMatters: 'One person goes blind every minute in Indonesia, yet 80% of this blindness is treatable. Sumba is an underserved region with approximately 9,000 blind residents and 21,000 with severe vision impairment. For many, a simple 15-minute surgery is the difference between dependency and independence.',
+    whatWeDo: 'Our work in Sumba focuses on building self-sufficiency. We establish permanent infrastructure, provide specialized training for local nurses and hospital staff, and screen thousands of children through school-based programs to detect vision loss early.',
     achievements: [
-      'Training local professionals',
-      'Supporting clinical infrastructure',
-      'Delivering outreach screening/surgical services',
-      'Building systems that continue long after we leave'
+      'Successfully established and equipped two permanent eye clinics and a dedicated surgical theatre at Waikabubak Hospital.',
+      'Conducted 1,600+ operations and 23,000+ eye exams while training local Eye Care Nurses (ECNs) to ensure self-sufficiency.',
+      'Transitioned from direct service delivery to a supervisory and training role in collaboration with Indonesian surgeons and UNHAS University.',
+      'Screened thousands of children through school-based programs to detect myopia and preventable vision loss early.'
     ],
-    nextSteps: 'Our upcoming visit in April 2026 will focus on surgical support, supervision, and practical training, while continuing to work with hospital, government, and university partners to build a more sustainable eye-care system for Sumba.',
+    nextSteps: 'Continuing to work with hospital, government, and university partners to build a more sustainable eye-care system for Sumba, with a focus on surgical support and practical training.',
     cta: 'Support our work in Sumba'
   },
   {
@@ -134,20 +134,20 @@ export const PROJECTS = [
     id: 'projects-solomon-islands',
     title: 'National Eye Program',
     location: 'Solomon Islands',
-    description: 'A long-standing partnership supporting the development of local eye care capacity in Solomon Islands.',
+    description: 'Re-establishing over two decades of collaboration to rebuild local ophthalmic capacity and address the crisis of diabetic retinopathy.',
     image: "/media/images/Solomons Home.png",
     supportingImages: ["/media/images/Solomonproject.png", "/media/images/Solomonproject2.png"],
     status: 'Active',
-    intro: 'Foresight Australia has a long and enduring relationship with the Solomon Islands, spanning decades. Through earlier programs delivered with ABF and ABI, significant progress was made. We are now preparing to return to in-country support, with a renewed focus on strengthening ophthalmic capacity.',
-    whyItMatters: 'The Solomon Islands is a geographically dispersed nation where distance, transport costs, and limited specialist services can make access to eye care difficult. Strengthening referral pathways, training, and hospital capacity is essential.',
-    whatWeDo: 'Our work focuses on returning to in-country support with a renewed emphasis on strengthening ophthalmic capacity through surgical delivery, training, and long-term partnerships.',
+    intro: 'Re-establishing over two decades of collaboration to rebuild local ophthalmic capacity and address the crisis of diabetic retinopathy.',
+    whyItMatters: 'Since 2012, local services in the Solomon Islands have faced immense strain. Today, 80% of hospital admissions at the National Referral Hospital are diabetes-related, with 60% of these patients suffering vision loss.',
+    whatWeDo: 'We are renewing our commitment to the Solomon Islands through strategic partnerships and infrastructure upgrades. Our focus is on specialist training, surgical mentoring, and launching advanced screening programs to combat the diabetes crisis.',
     achievements: [
-      'Surgical delivery',
-      'Training/mentoring',
-      'System development',
-      'Long-term partnerships'
+      'Launching a comprehensive screening program using portable retinal cameras to identify cases early for laser treatment.',
+      'Renewing our commitment to the Honiara Referral Hospital and regional clinics in Gizo and Auki.',
+      'Providing the Christina Gordon Scholarship to support local doctors and senior nurses for specialist training in Australia.',
+      'Partnering with Rotary International on a $100,000 Global Grant to fund advanced surgical equipment and subspecialty training.'
     ],
-    nextSteps: 'The next phase of Foresight’s engagement in the Solomon Islands is focused on specialist training, surgical mentoring, and planning for future service development led by local needs.',
+    nextSteps: 'Preparing to return to in-country support for surgical delivery and specialist mentoring in 2026, driven by local needs and strategic partnerships.',
     cta: 'Support our work in the Solomon Islands'
   },
   {

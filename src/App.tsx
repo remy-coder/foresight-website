@@ -154,7 +154,7 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
-  const [projectFilter, setProjectFilter] = useState('All');
+
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -214,17 +214,7 @@ export default function App() {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else if (id.startsWith('projects-')) {
-      const countryId = id.replace('projects-', '');
-      const countryMap: Record<string, string> = {
-        'all': 'All',
-        'australia': 'Australia',
-        'indonesia': 'Indonesia',
-        'bangladesh': 'Bangladesh',
-        'philippines': 'Philippines',
-        'solomon-islands': 'Solomon Islands',
-        'timor-leste': 'Timor Leste'
-      };
-      setProjectFilter(countryMap[countryId] || 'All');
+      setSelectedProjectId(id);
       setCurrentPage('projects');
       window.location.hash = '';
     } else if (id.startsWith('story-')) {
@@ -236,7 +226,6 @@ export default function App() {
     } else {
       setCurrentPage(id);
       window.location.hash = '';
-      setProjectFilter('All');
       if (id === 'home' || id === 'impact') {
         window.history.pushState(null, '', `/${id === 'home' ? '' : id}`);
       }
@@ -347,7 +336,6 @@ export default function App() {
             {currentPage === 'annual-reports' && <ReportsPoliciesPage />}
             {currentPage === 'projects' && !selectedProjectId && (
               <ProjectsPage
-                initialFilter={projectFilter}
                 onSelectProject={(id) => {
                   setSelectedProjectId(id);
                   window.scrollTo(0, 0);
@@ -1102,120 +1090,28 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   );
 }
 
-function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
-  const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
-  
-  const locations = [
-    { id: 'projects-australia', name: 'Griffith, Australia', x: 740, y: 550, status: 'Active' },
-    { id: 'projects-indonesia', name: 'West Sumba, Indonesia', x: 610, y: 400, status: 'Active' },
-    { id: 'projects-solomon-islands', name: 'Honiara, Solomon Islands', x: 880, y: 390, status: 'Active' },
-    { id: 'projects-bangladesh', name: 'Chittagong, Bangladesh', x: 420, y: 180, status: 'Legacy' },
-    { id: 'projects-philippines', name: 'Santiago City, Philippines', x: 640, y: 220, status: 'Legacy' },
-    { id: 'projects-timor-leste', name: 'Dili, Timor-Leste', x: 660, y: 410, status: 'Legacy' },
-  ];
 
-  return (
-    <div className="relative w-full bg-[#0F172A] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden p-6 md:p-12 mb-12 md:mb-16 shadow-3xl group">
-      {/* Background Decor */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-primary/40 via-transparent to-transparent"></div>
-      </div>
 
-      <div className="relative z-10 w-full">
-        <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-primary font-display font-black tracking-[0.4em] text-xs uppercase mb-3">Interactive Global Reach</h2>
-          <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-tight">Where We Work Across the <span className="text-primary">Asia-Pacific</span></h3>
-        </div>
+function ProjectsPage({ onSelectProject }: { onSelectProject: (id: string) => void }) {
+  const activePrograms = PROJECTS.filter(p => ['projects-australia', 'projects-indonesia', 'projects-solomon-islands'].includes(p.id)).map(p => ({
+    id: p.id,
+    location: p.location === 'Australia' ? 'Australia' : p.location === 'Indonesia' ? 'Sumba, Indonesia' : p.location,
+    image: p.id === 'projects-australia' ? '/media/images/map-australia.png' : 
+           p.id === 'projects-indonesia' ? '/media/images/map-sumba.png' :
+           '/media/images/map-solomon.png',
+    text: p.description
+  }));
 
-        <div className="relative aspect-[16/8] max-w-5xl mx-auto rounded-3xl md:rounded-[3rem] overflow-hidden bg-[#0a101e] border border-white/5">
-          {/* Interactive SVG Map */}
-          <div className="absolute inset-0 z-0">
-            <svg viewBox="0 0 1000 650" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <path 
-                d="M150,150 L200,100 L250,120 L300,80 L350,150 L400,100 L450,120 L500,80 L550,150 L600,100 L650,120 L700,80 L750,150 L800,100 L850,120 L900,80 L950,150 L1000,120 L1000,650 L0,650 L0,150 Z" 
-                fill="#004aad" 
-                opacity="0.2"
-              />
-              {/* Simplified Asia-Pacific Landmasses */}
-              <g fill="#004aad" opacity="0.4" className="transition-opacity duration-700 hover:opacity-50">
-                {/* Asia Mainland */}
-                <path d="M0,0 L400,0 L450,150 L350,250 L200,280 L100,200 Z" />
-                {/* Australia */}
-                <path d="M600,450 L850,450 L900,600 L650,620 L580,550 Z" />
-                {/* Islands Chain */}
-                <path d="M450,180 L500,220 L480,250 Z" />
-                <path d="M520,250 L580,320 L550,380 L480,350 Z" />
-                <path d="M750,300 L820,350 L800,400 L730,380 Z" />
-              </g>
-              
-              {locations.map((loc) => (
-                <motion.g
-                  key={loc.id}
-                  onMouseEnter={() => setHoveredLocation(loc.id)}
-                  onMouseLeave={() => setHoveredLocation(null)}
-                  onClick={() => onSelect(loc.id)}
-                  className="cursor-pointer group"
-                >
-                  {/* Pulsing Background for Active */}
-                  {loc.status === 'Active' && (
-                    <circle cx={loc.x} cy={loc.y} r="20" className="fill-[#ff751f]/20">
-                      <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite" />
-                    </circle>
-                  )}
-                  
-                  {/* Main Marker Core */}
-                  <circle 
-                    cx={loc.x} 
-                    cy={loc.y} 
-                    r={loc.status === 'Active' ? 8 : 6} 
-                    className={`${loc.status === 'Active' ? 'fill-[#ff751f]' : 'fill-gray-500'} shadow-2xl transition-transform duration-300 group-hover:scale-150`}
-                  />
-                  
-                  {/* Tooltip Wrapper */}
-                  <AnimatePresence>
-                    {hoveredLocation === loc.id && (
-                      <motion.foreignObject
-                        x={loc.x - 75}
-                        y={loc.y - 100}
-                        width="150"
-                        height="80"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                      >
-                        <div className="bg-white rounded-xl p-3 shadow-2xl border border-primary/10 text-center">
-                          <div className="text-[10px] font-black text-primary uppercase tracking-widest mb-1">{loc.name}</div>
-                          <div className="text-[9px] font-bold text-gray-400 mb-2">
-                             {loc.status} Project
-                          </div>
-                          <div className="text-[9px] font-black text-accent uppercase tracking-tighter underline">View Project</div>
-                        </div>
-                      </motion.foreignObject>
-                    )}
-                  </AnimatePresence>
-                </motion.g>
-              ))}
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilter?: string, onSelectProject: (id: string) => void }) {
-  const [filter, setFilter] = useState(initialFilter);
-  const countries = ['All', 'Australia', 'Indonesia', 'Bangladesh', 'Philippines', 'Solomon Islands', 'Timor Leste'];
-
-  const filteredProjects = filter === 'All'
-    ? PROJECTS
-    : PROJECTS.filter(p => p.location.toLowerCase() === filter.toLowerCase());
+  const impactMilestones = PROJECTS.filter(p => !['projects-australia', 'projects-indonesia', 'projects-solomon-islands'].includes(p.id)).map(p => ({
+    id: p.id,
+    location: p.location,
+    text: p.description
+  }));
 
   return (
     <div className="pt-24 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mb-12 md:mb-16">
+        <div className="max-w-4xl mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -1240,57 +1136,39 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
           </motion.p>
         </div>
 
-        {/* Interactive Map */}
-        <MapSection onSelect={onSelectProject} />
-
-        {/* Country Filter */}
-        <div className="flex flex-wrap gap-3 mb-16 md:mb-24">
-          {countries.map((country) => (
-            <button
-              key={country}
-              onClick={() => setFilter(country)}
-              className={`px-6 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all border ${filter === country
-                ? 'bg-primary border-primary text-white shadow-lg'
-                : 'bg-white border-gray-100 text-gray-400 hover:border-primary/30'
-                }`}
-            >
-              {country}
-            </button>
-          ))}
-        </div>
-
-        <div className="mb-20">
-          <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-4">Active Projects</h2>
-          <p className="text-lg text-gray-500 font-display font-medium mb-10">Our current work focuses on long-term partnerships, local capacity building, and sustainable eye care systems.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            {filteredProjects.filter(p => ['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
+        {/* ACTIVE PROGRAMS GRID */}
+        <div className="mb-12">
+          <h2 className="text-primary font-display font-black tracking-[0.3em] text-[11px] uppercase mb-8 flex items-center gap-4">
+            Active Programs <span className="h-px bg-primary/10 flex-1"></span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {activePrograms.map((program, i) => (
               <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
+                key={program.id}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group flex flex-col"
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="bg-[#004aad] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col group border border-white/5 transition-all duration-500"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="aspect-[16/10] overflow-hidden relative">
                   <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    src={program.image}
+                    alt={program.location}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl text-primary font-display font-black uppercase tracking-widest text-[11px]">
-                    {project.location}
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#004aad] via-transparent to-transparent opacity-60"></div>
                 </div>
-                <div className="p-8 flex flex-col flex-1">
-                  <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-4">{project.title}</h3>
-                  <p className="text-gray-500 font-display font-medium leading-relaxed mb-8 flex-1">
-                    {project.description}
+                <div className="p-8 md:p-10 flex flex-col flex-1">
+                  <h3 className="text-xl md:text-2xl font-display font-extrabold text-white mb-4 tracking-tight">{program.location}</h3>
+                  <p className="text-white/80 font-display font-medium leading-relaxed mb-10 flex-1 text-sm md:text-base">
+                    {program.text}
                   </p>
                   <button
-                    onClick={() => onSelectProject(project.id)}
-                    className="w-full py-5 bg-primary/5 hover:bg-primary text-primary hover:text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 group/btn"
+                    onClick={() => onSelectProject(program.id)}
+                    className="w-full py-5 bg-[#ff751f] hover:bg-[#e6661a] text-white rounded-2xl font-display font-black uppercase tracking-widest text-[11px] transition-all transform hover:scale-[1.02] shadow-xl shadow-accent/20 flex items-center justify-center gap-3"
                   >
-                    Learn More <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    View Project <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
               </motion.div>
@@ -1298,46 +1176,34 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
           </div>
         </div>
 
-        <div className="mt-20">
-          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 mb-4 border-t border-gray-200 pt-16 tracking-tight">Legacy Projects</h2>
-          <p className="text-lg text-gray-500 font-display font-medium mb-12 max-w-3xl leading-relaxed">These milestones reflect Foresight Australia’s four-decade history of establishing sustainable eye care systems across the Asia-Pacific.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            {filteredProjects.filter(p => !['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
+        {/* IMPACT MILESTONES (LEGACY) GRID */}
+        <div className="mt-16">
+          <h2 className="text-gray-400 font-display font-black tracking-[0.3em] text-[11px] uppercase mb-8 flex items-center gap-4">
+            Impact Milestones (Legacy) <span className="h-px bg-gray-200 flex-1"></span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {impactMilestones.map((milestone, i) => (
               <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
+                key={milestone.id}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col relative"
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="bg-[#004aad] saturate-[0.4] opacity-85 rounded-[2rem] overflow-hidden shadow-xl flex flex-col group border border-white/5 relative hover:saturate-100 hover:opacity-100 transition-all duration-500"
               >
-                {/* Legacy Badge */}
-                <div className="absolute top-6 right-6 z-20">
-                  <div className="px-4 py-2 bg-gray-900/80 backdrop-blur-md rounded-xl text-white font-display font-black uppercase tracking-widest text-[9px] shadow-xl border border-white/10">
-                    Impact Milestone
+                <div className="p-8 md:p-10 flex flex-col flex-1">
+                  <div className="mb-6 flex items-center justify-between">
+                    <h3 className="text-xl md:text-2xl font-display font-extrabold text-white tracking-tight">{milestone.location}</h3>
+                    <Award className="w-6 h-6 text-white/20" />
                   </div>
-                </div>
-
-                <div className="relative h-64 overflow-hidden grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-700">
-                  <img
-                    src={project.image}
-                    alt={`Legacy project visual for ${project.title}`}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl text-gray-500 font-display font-black uppercase tracking-widest text-[11px]">
-                    {project.location}
-                  </div>
-                </div>
-                <div className="p-8 flex flex-col flex-1 bg-gray-50/30">
-                  <h3 className="text-2xl font-display font-extrabold text-gray-800 mb-4 tracking-tight">{project.title}</h3>
-                  <p className="text-gray-500 font-display font-medium leading-relaxed mb-8 flex-1 text-base">
-                    {project.description}
+                  <p className="text-white/70 font-display font-medium leading-relaxed mb-10 flex-1 text-sm md:text-base">
+                    {milestone.text}
                   </p>
                   <button
-                    onClick={() => onSelectProject(project.id)}
-                    aria-label={`View legacy impact of ${project.title}`}
-                    className="w-full py-5 bg-white border border-gray-200 hover:border-primary/30 hover:text-primary text-gray-700 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 group/btn shadow-sm"
+                    onClick={() => onSelectProject(milestone.id)}
+                    className="w-full py-5 bg-[#ff751f]/80 hover:bg-[#ff751f] text-white rounded-2xl font-display font-black uppercase tracking-widest text-[11px] transition-all transform hover:scale-[1.02] flex items-center justify-center gap-3"
                   >
-                    Read Legacy Impact <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    View Project <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
               </motion.div>
@@ -1437,8 +1303,12 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
             <div>
-              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-10">Our Solution</h2>
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white mb-8 leading-[1.1] tracking-tight">What we do</h3>
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-10">
+                {project.id === 'projects-indonesia' ? 'Our Approach' : 'Our Solution'}
+              </h2>
+              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+                {project.id === 'projects-indonesia' ? 'Our approach' : 'What we do'}
+              </h3>
               <p className="text-base md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-10">
                 {project.whatWeDo}
               </p>
@@ -1462,8 +1332,12 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 md:mb-16">
-            <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Our Progress</h2>
-            <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Key achievements</h3>
+            <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">
+              {project.id === 'projects-australia' ? 'Our Impact' : 'Our Progress'}
+            </h2>
+            <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+              {project.id === 'projects-australia' ? 'Our impact' : 'Key achievements'}
+            </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {project.achievements.map((achievement, i) => (
@@ -1483,8 +1357,12 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       {/* SECTION 5: What’s next */}
       <section className="py-16 md:py-24 bg-primary/5 rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10 mb-16 md:mb-24 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">Looking Ahead</h2>
-          <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight">What’s next</h3>
+          <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">
+            {project.id === 'projects-solomon-islands' ? 'Our Vision for 2026' : 'Looking Ahead'}
+          </h2>
+          <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight">
+             {project.id === 'projects-solomon-islands' ? 'Our vision for 2026' : 'What’s next'}
+          </h3>
           <p className="text-lg md:text-2xl text-gray-600 font-display font-medium leading-relaxed max-w-4xl mx-auto">
             {project.nextSteps}
           </p>
