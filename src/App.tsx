@@ -1103,13 +1103,15 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
 }
 
 function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
+  const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
+  
   const locations = [
-    { id: 'projects-australia', name: 'Griffith, Australia', x: 500, y: 550, status: 'Active' },
-    { id: 'projects-indonesia', name: 'West Sumba, Indonesia', x: 380, y: 400, status: 'Active' },
-    { id: 'projects-solomon-islands', name: 'Honiara, Solomon Islands', x: 820, y: 390, status: 'Active' },
-    { id: 'projects-bangladesh', name: 'Chittagong, Bangladesh', x: 220, y: 180, status: 'Legacy' },
-    { id: 'projects-philippines', name: 'Santiago City, Philippines', x: 440, y: 220, status: 'Legacy' },
-    { id: 'projects-timor-leste', name: 'Dili, Timor-Leste', x: 460, y: 410, status: 'Legacy' },
+    { id: 'projects-australia', name: 'Griffith, Australia', x: 740, y: 550, status: 'Active' },
+    { id: 'projects-indonesia', name: 'West Sumba, Indonesia', x: 610, y: 400, status: 'Active' },
+    { id: 'projects-solomon-islands', name: 'Honiara, Solomon Islands', x: 880, y: 390, status: 'Active' },
+    { id: 'projects-bangladesh', name: 'Chittagong, Bangladesh', x: 420, y: 180, status: 'Legacy' },
+    { id: 'projects-philippines', name: 'Santiago City, Philippines', x: 640, y: 220, status: 'Legacy' },
+    { id: 'projects-timor-leste', name: 'Dili, Timor-Leste', x: 660, y: 410, status: 'Legacy' },
   ];
 
   return (
@@ -1125,37 +1127,73 @@ function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
           <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white tracking-tight">Where We Work Across the <span className="text-primary">Asia-Pacific</span></h3>
         </div>
 
-        <div className="relative aspect-[16/8] max-w-5xl mx-auto rounded-3xl md:rounded-[3rem] overflow-hidden">
-          {/* Real Map Image */}
+        <div className="relative aspect-[16/8] max-w-5xl mx-auto rounded-3xl md:rounded-[3rem] overflow-hidden bg-[#0a101e] border border-white/5">
+          {/* Interactive SVG Map */}
           <div className="absolute inset-0 z-0">
-            <img 
-              src="/media/images/map.png" 
-              alt="Asia-Pacific Map" 
-              className="w-full h-full object-cover opacity-60"
-            />
-          </div>
-
-          <div className="relative z-10 w-full h-full">
-            <svg viewBox="0 0 1000 650" className="w-full h-full">
+            <svg viewBox="0 0 1000 650" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path 
+                d="M150,150 L200,100 L250,120 L300,80 L350,150 L400,100 L450,120 L500,80 L550,150 L600,100 L650,120 L700,80 L750,150 L800,100 L850,120 L900,80 L950,150 L1000,120 L1000,650 L0,650 L0,150 Z" 
+                fill="#004aad" 
+                opacity="0.2"
+              />
+              {/* Simplified Asia-Pacific Landmasses */}
+              <g fill="#004aad" opacity="0.4" className="transition-opacity duration-700 hover:opacity-50">
+                {/* Asia Mainland */}
+                <path d="M0,0 L400,0 L450,150 L350,250 L200,280 L100,200 Z" />
+                {/* Australia */}
+                <path d="M600,450 L850,450 L900,600 L650,620 L580,550 Z" />
+                {/* Islands Chain */}
+                <path d="M450,180 L500,220 L480,250 Z" />
+                <path d="M520,250 L580,320 L550,380 L480,350 Z" />
+                <path d="M750,300 L820,350 L800,400 L730,380 Z" />
+              </g>
+              
               {locations.map((loc) => (
                 <motion.g
                   key={loc.id}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.15 }}
-                  className="cursor-pointer"
+                  onMouseEnter={() => setHoveredLocation(loc.id)}
+                  onMouseLeave={() => setHoveredLocation(null)}
                   onClick={() => onSelect(loc.id)}
+                  className="cursor-pointer group"
                 >
-                  <circle cx={loc.x} cy={loc.y} r="28" className="fill-primary/20 animate-pulse" />
-                  <circle cx={loc.x} cy={loc.y} r="8" className="fill-primary shadow-[0_0_20px_rgba(56,182,255,0.6)]" />
-                  <text
-                    x={loc.x}
-                    y={loc.y + 45}
-                    textAnchor="middle"
-                    className="fill-white font-display font-black text-[11px] uppercase tracking-[0.25em] drop-shadow-lg"
-                  >
-                    {loc.name}
-                  </text>
+                  {/* Pulsing Background for Active */}
+                  {loc.status === 'Active' && (
+                    <circle cx={loc.x} cy={loc.y} r="20" className="fill-[#ff751f]/20">
+                      <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                  )}
+                  
+                  {/* Main Marker Core */}
+                  <circle 
+                    cx={loc.x} 
+                    cy={loc.y} 
+                    r={loc.status === 'Active' ? 8 : 6} 
+                    className={`${loc.status === 'Active' ? 'fill-[#ff751f]' : 'fill-gray-500'} shadow-2xl transition-transform duration-300 group-hover:scale-150`}
+                  />
+                  
+                  {/* Tooltip Wrapper */}
+                  <AnimatePresence>
+                    {hoveredLocation === loc.id && (
+                      <motion.foreignObject
+                        x={loc.x - 75}
+                        y={loc.y - 100}
+                        width="150"
+                        height="80"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                      >
+                        <div className="bg-white rounded-xl p-3 shadow-2xl border border-primary/10 text-center">
+                          <div className="text-[10px] font-black text-primary uppercase tracking-widest mb-1">{loc.name}</div>
+                          <div className="text-[9px] font-bold text-gray-400 mb-2">
+                             {loc.status} Project
+                          </div>
+                          <div className="text-[9px] font-black text-accent uppercase tracking-tighter underline">View Project</div>
+                        </div>
+                      </motion.foreignObject>
+                    )}
+                  </AnimatePresence>
                 </motion.g>
               ))}
             </svg>
