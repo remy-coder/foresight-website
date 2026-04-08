@@ -1544,26 +1544,6 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-16 md:mb-24">
-          <div className="col-span-full mb-6 md:mb-10">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Impact Data</h2>
-            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 tracking-tight">Transparency & Results</h3>
-          </div>
-          {IMPACT_STATS.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -15 }}
-              className="p-6 md:p-12 bg-white border border-gray-100 shadow-xl rounded-[2rem] text-center hover:shadow-3xl transition-all duration-700"
-            >
-              <div className="text-3xl md:text-6xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
-              <div className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em] leading-tight">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -1696,44 +1676,6 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </div>
         </div>
 
-        {/* Resources Section */}
-        <div className="max-w-5xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Transparency</h2>
-          <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 md:mb-8 leading-[1.1] tracking-tight">Annual Reports & Publications</h3>
-          <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed mb-8 md:mb-12 max-w-3xl mx-auto">
-            We are committed to full transparency and accountability. Access our latest financial statements, annual reports, and governance policies.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {[
-              { title: 'Annual Reports', icon: <BookOpen className="w-8 h-8" />, desc: 'Comprehensive yearly reviews of our global activities and impact.' },
-              { title: 'Financial Reports', icon: <FileText className="w-8 h-8" />, desc: 'Audited financial statements ensuring full accountability.' },
-              { title: 'Governance & Policies', icon: <ShieldCheck className="w-8 h-8" />, desc: 'Our framework for ethical operations and strategic direction.' },
-              { title: 'Privacy Policy', icon: <Lock className="w-8 h-8" />, desc: 'How we protect your data and respect your privacy.' },
-              { title: 'Terms & Conditions', icon: <CheckCircle2 className="w-8 h-8" />, desc: 'The legal framework for interacting with our organization.' },
-              { title: 'Cookies Policy', icon: <Cookie className="w-8 h-8" />, desc: 'Information about how we use cookies on our digital platforms.' }
-            ].map((resource, i) => (
-              <motion.div
-                key={i}
-                onClick={() => onNavigate && onNavigate('reports-policies')}
-                whileHover={{ y: -10 }}
-                className="p-8 md:p-12 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl flex flex-col items-center group cursor-pointer text-center"
-              >
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-primary/5 flex items-center justify-center text-primary mb-6 md:mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                  {resource.icon}
-                </div>
-                <h4 className="text-lg md:text-xl font-display font-extrabold text-gray-900 mb-4">{resource.title}</h4>
-                <p className="text-sm text-gray-500 font-display font-medium mb-8 leading-relaxed">
-                  {resource.desc}
-                </p>
-                <button className="text-xs font-display font-black text-primary uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">
-                  View Documents <ArrowRight className="w-4 h-4" />
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Call to Donate CTA */}
         <div className="text-center mt-12 md:mt-20">
           <button
             onClick={() => onNavigate && onNavigate('donate')}
@@ -1976,7 +1918,7 @@ function ContactPage() {
 
 function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   const [amount, setAmount] = useState<string | null>(null);
-  const [frequency, setFrequency] = useState<'single' | 'monthly'>('monthly');
+  const [frequency, setFrequency] = useState<'single' | 'monthly'>('single');
   const [project, setProject] = useState('All Foresight Projects');
 
   const tiers = [
@@ -2043,6 +1985,19 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                   <h4 className="text-primary font-display font-black uppercase tracking-widest text-xs mb-3">Join The Visionaries</h4>
                   <p className="text-sm text-gray-600 font-display font-medium leading-relaxed">
                     Eradicating avoidable blindness takes consistent, long-term effort. By becoming a monthly supporter, you help us plan surgical missions and build sustainable systems.
+                  </p>
+                </motion.div>
+              )}
+
+              {frequency === 'single' && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-accent/5 border border-accent/10 rounded-2xl p-6 mb-8 max-w-2xl mx-auto text-center"
+                >
+                  <h4 className="text-accent font-display font-black uppercase tracking-widest text-xs mb-3">Immediate Impact</h4>
+                  <p className="text-sm text-gray-600 font-display font-medium leading-relaxed">
+                    Your one-time gift provides immediate support for clinical screenings and sight-restoring surgeries for those in urgent need.
                   </p>
                 </motion.div>
               )}
