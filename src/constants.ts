@@ -18,7 +18,6 @@ export const NAVIGATION = [
     label: 'About Us',
     dropdown: [
       { id: 'about-mission', label: 'Mission & Vision' },
-      { id: 'about-history', label: 'Our History' },
       { id: 'leaders', label: 'Our Leaders' },
       { id: 'reports-policies', label: 'Reports & Policies' },
     ]
@@ -44,10 +43,10 @@ export const NAVIGATION = [
 ];
 
 export const IMPACT_STATS = [
-  { value: '1,200+', label: 'screenings conducted' },
-  { value: '565', label: 'patients treated' },
-  { value: '800+', label: 'glasses distributed' },
-  { value: '100+', label: 'surgeries performed' },
+  { value: '3,000+', label: 'screenings conducted' },
+  { value: '2,000+', label: 'patients treated' },
+  { value: '2,500+', label: 'glasses distributed' },
+  { value: 'over 200+', label: 'surgeries performed' },
 ];
 
 export const PROJECTS = [

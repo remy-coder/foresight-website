@@ -531,27 +531,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 md:py-0">
-          {/* Relocated Badges to Top-Left */}
-          <div className="absolute top-0 left-0 md:top-8 md:left-8 flex flex-col sm:flex-row items-center gap-6 z-20">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-black uppercase tracking-[0.2em] shadow-xl"
-            >
-              <Heart className="w-4 h-4 fill-secondary" />
-              <span>Sight is a Human Right</span>
-            </motion.div>
 
-            <motion.img
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              src="/media/images/40 years logo.png"
-              alt="40 Years of Foresight"
-              className="h-10 md:h-14 w-auto drop-shadow-2xl object-contain brightness-0 invert opacity-90"
-            />
-          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-20 md:mt-0">
             <motion.div
@@ -576,17 +556,66 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 >
                   Donate Now <ArrowRight className="w-6 h-6" />
                 </button>
-                <button
-                  onClick={() => onNavigate('impact')}
-                  className="w-full sm:w-auto px-12 py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center group"
-                >
-                  Explore Our Impact <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-2 transition-transform" />
-                </button>
+                <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+                  <button
+                    onClick={() => onNavigate('impact')}
+                    className="w-full sm:w-auto px-12 py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center group"
+                  >
+                    Explore Our Impact <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-2 transition-transform" />
+                  </button>
+                  <img
+                    src="/media/images/40 years logo.png"
+                    alt="40 Years of Foresight"
+                    className="h-12 md:h-16 w-auto drop-shadow-2xl object-contain brightness-0 invert opacity-90"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
 
+      </section>
+
+      {/* Official History & Philosophy - The Foresight Model */}
+      <section id="foresight-model" className="py-20 md:py-28 bg-[#FAFAFA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center justify-center gap-4">
+              <span className="w-12 h-px bg-primary/20"></span> Official History & Philosophy <span className="w-12 h-px bg-primary/20"></span>
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-[1.05]">The Foresight Model</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              { 
+                title: 'The Foundation', 
+                desc: 'Established in 1977 by Prof. Frank Billson AO and Gen. Paul Cullen AC to address blindness in Bangladesh.',
+                icon: <Award className="w-6 h-6" />
+              },
+              { 
+                title: 'The Philosophy', 
+                desc: 'A ‘grassroots up’ model focused on sustainable skills transfer rather than temporary aid, fostering long-term clinical independence.',
+                icon: <Target className="w-6 h-6" />
+              },
+              { 
+                title: 'The Mission', 
+                desc: 'To prevent and cure avoidable blindness through sustainable development and equitable access for all underserved populations.',
+                icon: <Heart className="w-6 h-6" />
+              }
+            ].map((model, i) => (
+              <div key={i} className="p-10 bg-white rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  {model.icon}
+                </div>
+                <h4 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">{model.title}</h4>
+                <p className="text-gray-500 text-lg leading-relaxed font-display font-medium">
+                  {model.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 3-Pillar Section */}
@@ -623,6 +652,10 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 <ShieldCheck className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-3">Infrastructure</h3>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-black uppercase tracking-widest mb-6 mx-auto border border-primary/10">
+                <Heart className="w-3 h-3 fill-primary/20" />
+                <span>Sight is a Human Right</span>
+              </div>
               <p className="text-primary font-display font-black uppercase tracking-widest text-[11px] mb-6">Long-Term Impact</p>
               <p className="text-gray-500 font-display font-medium leading-relaxed flex-1 text-lg">
                 Building and equipping specialized eye care facilities to serve communities for generations to come.
@@ -727,18 +760,28 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 ))}
               </div>
             </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Our Mission</h2>
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] tracking-tight text-balance">A Visionary Approach to <span className="text-primary">Global Health</span></h3>
-              <p className="text-lg md:text-xl text-gray-400 mb-10 md:mb-12 leading-relaxed font-display font-medium">
-                Founded in 1977, Foresight Australia has been a pioneer in sustainable eye health. We don't just provide treatment; we build capacity and establish sustainable healthcare infrastructure to ensure long-term eye health for all.
-              </p>
-              <button
-                onClick={() => onNavigate('about')}
-                className="group flex items-center gap-4 text-xs font-display font-black uppercase tracking-widest text-white hover:text-accent transition-colors"
-              >
-                Our mission and objectives <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
-              </button>
+            <div className="order-1 lg:order-2 relative p-8 md:p-14 rounded-[2.5rem] overflow-hidden group">
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="/media/images/mission picture.png" 
+                  alt="" 
+                  className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-transparent to-[#0F172A]/90"></div>
+              </div>
+              <div className="relative z-10">
+                <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Our Mission</h2>
+                <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] tracking-tight text-balance">A Visionary Approach to <span className="text-primary">Global Health</span></h3>
+                <p className="text-lg md:text-xl text-gray-400 mb-10 md:mb-12 leading-relaxed font-display font-medium">
+                  Founded in 1977, Foresight Australia has been a pioneer in sustainable eye health. We don't just provide treatment; we build capacity and establish sustainable healthcare infrastructure to ensure long-term eye health for all.
+                </p>
+                <button
+                  onClick={() => onNavigate('about')}
+                  className="group flex items-center gap-4 text-xs font-display font-black uppercase tracking-widest text-white hover:text-accent transition-colors"
+                >
+                  Our mission and objectives <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -930,68 +973,20 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </div>
         </section>
 
-        {/* Video Section */}
-        <div id="media" className="mb-12 md:mb-16">
-          <div className="text-center mb-8">
-            <h3 className="text-xl md:text-2xl font-display font-extrabold text-gray-900 mb-4">Learn more about our work and impact</h3>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-            className="max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-3xl bg-gray-900 border border-gray-100/50"
-          >
-            <div className="aspect-video">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/_qdGwyvpziY"
-                title="Foresight Australia Impact"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Objectives Section (NEW) */}
-        <div id="objectives" className="mb-12 md:mb-16">
-          <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -mr-10 -mt-10"></div>
-            <div className="relative z-10">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-10">Our Objectives</h2>
-              <div className="space-y-10">
-                {[
-                  "To alleviate poverty and create an environment that allows the CURE and PREVENTION of blindness through skills transfer.",
-                  "To provide capacity building, education and skills transfer for ophthalmologists, eye care workers and managers through sustainable programs tailored to a country’s need.",
-                  "To EMPOWER communities and promote partnerships with low-income countries, ensuring a sense of ownership by the people of that country.",
-                  "To respond to the special problems of childhood blindness where critical periods of childhood development determine the degree to which the vision can be restored.",
-                  "To seek solutions that address blindness and poverty, acknowledging that blindness is a cause and a consequence of poverty."
-                ].map((objective, i) => (
-                  <div key={i} className="flex gap-8 group">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-primary/5 flex items-center justify-center text-primary font-display font-black group-hover:bg-primary group-hover:text-white transition-all text-sm">
-                      {i + 1}
-                    </div>
-                    <p className="text-base md:text-lg text-gray-700 leading-relaxed font-display font-medium">
-                      {objective}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Mission & Vision Section */}
         <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 mb-12 md:mb-16">
           <motion.div
             whileHover={{ y: -10 }}
             className="lg:col-span-7 bg-[#0F172A] p-8 md:p-16 rounded-3xl md:rounded-[3rem] text-white relative overflow-hidden group shadow-2xl"
           >
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
-
-            <h2 className="text-accent font-display font-black uppercase tracking-[0.3em] text-[11px] mb-8 md:mb-10">Our Mission</h2>
+            <div className="absolute inset-0 z-0">
+              <img 
+                src="/media/images/mission picture.png" 
+                alt="" 
+                className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-transparent to-[#0F172A]/90"></div>
+            </div>
             <div className="relative z-10">
               <p className="text-2xl md:text-4xl font-display font-extrabold leading-[1.1] tracking-tight mb-10">
                 To prevent avoidable blindness and restore sight through sustainable eye care.
@@ -1035,182 +1030,71 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </div>
         </div>
 
-        {/* History Timeline preserves lines 877-920 layout */}
-        {/* The Foresight Model */}
-        <div id="foresight-model" className="mb-24 md:mb-32">
-          <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center justify-center gap-4">
-              <span className="w-12 h-px bg-primary/20"></span> Official History & Philosophy <span className="w-12 h-px bg-primary/20"></span>
-            </h2>
-            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-[1.05]">The Foresight Model</h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-16 border-b border-gray-100">
-            {[
-              { 
-                title: 'The Foundation', 
-                desc: 'Established in 1977 by Prof. Frank Billson AO and Gen. Paul Cullen AC to address blindness in Bangladesh.',
-                icon: <Award className="w-6 h-6" />
-              },
-              { 
-                title: 'The Philosophy', 
-                desc: 'A ‘grassroots up’ model focused on sustainable skills transfer rather than temporary aid, fostering long-term clinical independence.',
-                icon: <Target className="w-6 h-6" />
-              },
-              { 
-                title: 'The Mission', 
-                desc: 'To prevent and cure avoidable blindness through sustainable development and equitable access for all underserved populations.',
-                icon: <Heart className="w-6 h-6" />
-              }
-            ].map((model, i) => (
-              <div key={i} className="p-10 bg-white rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group">
-                <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                  {model.icon}
-                </div>
-                <h4 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">{model.title}</h4>
-                <p className="text-gray-500 text-lg leading-relaxed font-display font-medium">
-                  {model.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Board of Directors Section */}
-        <div id="board" className="mb-24 md:mb-32">
-          <div className="max-w-4xl mx-auto mb-16 md:mb-24">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center gap-4">
-              <span className="w-12 h-px bg-primary"></span> Leadership
-            </h2>
-            <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter leading-tight">Board of Directors</h3>
-            <p className="text-gray-500 text-lg md:text-xl font-display font-medium mt-6 leading-relaxed">
-              Our board brings international expertise in ophthalmology, public health, law, and financial governance.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { name: 'George Harris', role: 'Chairman', bio: 'Solicitor in private practice, former international partner at Baker McKenzie.' },
-              { name: 'John Karagiorgos', role: 'Treasurer', bio: 'Chartered Accountant specializing in medical and real estate sectors.' },
-              { name: 'A/Prof Geoffrey Painter AM', role: 'Director', bio: 'Ophthalmic surgeon with over 18 surgical and teaching trips to the Solomon Islands.' },
-              { name: 'Prof Mary Crock', role: 'Director', bio: 'Professor of Public Law at the University of Sydney, specialist in immigration and disability law.' },
-              { name: 'Melissa Perrine', role: 'Director', bio: 'Registered Physiotherapist and four-time Winter Paralympian.' },
-              { name: 'Dr Mark Ellis AM', role: 'Director', bio: 'Consultant Ophthalmologist and founder of the West Sumba eye program.' }
-            ].map((director, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-xl group hover:shadow-3xl transition-all duration-700 h-full flex flex-col"
-              >
-                <div className="flex-1">
-                  <h4 className="text-2xl font-display font-extrabold text-gray-900 mb-2 tracking-tight group-hover:text-primary transition-colors">{director.name}</h4>
-                  <div className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-6">{director.role}</div>
-                  <p className="text-gray-500 font-display font-medium leading-relaxed">
-                    {director.bio}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Annual Reports & Policies (Merged into About page) */}
-        <div id="annual-reports" className="mb-24 md:mb-32">
-          <div className="bg-white p-10 md:p-24 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-bl-full -mr-10 -mt-10"></div>
-
-            <div className="mb-16 md:mb-20">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Transparency</h2>
-              <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter">Annual Reports & Policies</h3>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
-              <div className="space-y-8">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="p-3 bg-primary/10 rounded-xl"><BookOpen className="w-6 h-6 text-primary" /></div>
-                  <h4 className="font-display font-extrabold text-2xl tracking-tight">Annual Reports</h4>
-                </div>
-                {[2025, 2024].map((year) => (
-                  <a
-                    key={year}
-                    href={`/media/documents/annual-report-${year}.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-6 bg-gray-50 rounded-2xl border border-transparent shadow-sm flex items-center justify-between group hover:border-primary/30 hover:bg-white hover:shadow-md transition-all cursor-pointer"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="font-display font-extrabold text-xl text-primary">{year}</span>
-                      <span className="font-display font-bold text-gray-700">Annual Report</span>
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
-                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-all" />
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              <div className="space-y-8">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="p-3 bg-accent/10 rounded-xl"><ShieldCheck className="w-6 h-6 text-accent" /></div>
-                  <h4 className="font-display font-extrabold text-2xl tracking-tight">Governance Policies</h4>
-                </div>
+        {/* Objectives Section */}
+        <div id="objectives" className="mb-12 md:mb-16">
+          <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -mr-10 -mt-10"></div>
+            <div className="relative z-10">
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-10">Our Objectives</h2>
+              <div className="space-y-10">
                 {[
-                  'Foresight Conflict of Interest Policy',
-                  'Foresight Complaints Policy',
-                  'Foresight Child Protection Policy',
-                  'Foresight Counter-terrorism Policy',
-                  'Foresight Financial Management Policy',
-                  'Foresight Gender Equity Policy',
-                  'Foresight Whistle Blower Policy',
-                  'Foresight Non-development Policy',
-                  'Foresight Corruption and Fraud Prevention Policy',
-                  'Foresight Constitution 2020',
-                  'Foresight Fundraising Policy',
-                  'Foresight Code of Conduct',
-                  'Foresight Transparency and Communication Policy',
-                  'Foresight Prevention of Sexual Exploitation and Harassment Policy',
-                  'Foresight Philosophy and Principles Policy'
-                ].slice(0, 6).map((policy) => (
-                  <a
-                    key={policy}
-                    href={`/media/documents/${policy.toLowerCase().replace(/ – /g, '-').replace(/ /g, '-').replace(/[()]/g, '')}.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-6 bg-gray-50 rounded-2xl border border-transparent shadow-sm flex items-center justify-between group hover:border-accent/30 hover:bg-white hover:shadow-md transition-all cursor-pointer"
-                  >
-                    <span className="font-display font-bold text-gray-700 w-4/5">{policy}</span>
-                    <div className="w-10 h-10 shrink-0 rounded-full bg-white border border-gray-100 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
-                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-all" />
+                  "To alleviate poverty and create an environment that allows the CURE and PREVENTION of blindness through skills transfer.",
+                  "To provide capacity building, education and skills transfer for ophthalmologists, eye care workers and managers through sustainable programs tailored to a country’s need.",
+                  "To EMPOWER communities and promote partnerships with low-income countries, ensuring a sense of ownership by the people of that country.",
+                  "To respond to the special problems of childhood blindness where critical periods of childhood development determine the degree to which the vision can be restored.",
+                  "To seek solutions that address blindness and poverty, acknowledging that blindness is a cause and a consequence of poverty."
+                ].map((objective, i) => (
+                  <div key={i} className="flex gap-8 group">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-primary/5 flex items-center justify-center text-primary font-display font-black group-hover:bg-primary group-hover:text-white transition-all text-sm">
+                      {i + 1}
                     </div>
-                  </a>
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed font-display font-medium">
+                      {objective}
+                    </p>
+                  </div>
                 ))}
-                <button
-                  onClick={() => onNavigate && onNavigate('reports-policies')}
-                  className="w-full py-4 text-accent font-display font-black uppercase tracking-widest text-xs hover:underline"
-                >
-                  View All Policies
-                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* About Page CTA */}
-          <div className="mt-16 md:mt-24 text-center pb-12">
-            <div className="max-w-3xl mx-auto px-4">
-              <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Support our global mission</h3>
-              <p className="text-gray-500 font-display font-medium text-base md:text-lg mb-8">
-                Join the thousands who are making sight restoration possible in communities that need it most.
-              </p>
-              <button
-                onClick={() => onNavigate && onNavigate('donate')}
-                className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
-              >
-                Restore sight today <ArrowRight className="w-5 h-5" />
-              </button>
+        {/* Video Section */}
+        <div id="media" className="mb-12 md:mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-xl md:text-2xl font-display font-extrabold text-gray-900 mb-4">Learn more about our work and impact</h3>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-3xl bg-gray-900 border border-gray-100/50"
+          >
+            <div className="aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/_qdGwyvpziY"
+                title="Foresight Australia Impact"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </div>
+          </motion.div>
+        </div>
+
+        {/* About Page CTA */}
+        <div className="mt-16 md:mt-24 text-center pb-12">
+          <div className="max-w-3xl mx-auto px-4">
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Support our global mission</h3>
+            <p className="text-gray-500 font-display font-medium text-base md:text-lg mb-8">
+              Join the thousands who are making sight restoration possible in communities that need it most.
+            </p>
+            <button
+              onClick={() => onNavigate && onNavigate('donate')}
+              className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
+            >
+              Restore sight today <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
