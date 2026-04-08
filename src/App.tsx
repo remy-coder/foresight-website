@@ -799,7 +799,8 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -20 }}
-                className="group relative bg-white rounded-3xl md:rounded-5xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700"
+                onClick={() => onNavigate(project.id)}
+                className="group relative bg-white rounded-3xl md:rounded-5xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700 cursor-pointer"
               >
                 <div className="aspect-[4/5] overflow-hidden relative">
                   <img
@@ -831,6 +832,7 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                   <span className="text-xs font-display font-black text-gray-400 uppercase tracking-[0.2em]">Our Impact</span>
                   <button 
                     aria-label={`Learn more about ${project.title}`}
+                    onClick={(e) => { e.stopPropagation(); onNavigate(project.id); }}
                     className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-12"
                   >
                     <ArrowRight className="w-6 h-6" />
@@ -1150,7 +1152,8 @@ function ProjectsPage({ onSelectProject }: { onSelectProject: (id: string) => vo
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group border border-gray-100"
+                onClick={() => onSelectProject(program.id)}
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group border border-gray-100 cursor-pointer"
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img
@@ -1197,7 +1200,8 @@ function ProjectsPage({ onSelectProject }: { onSelectProject: (id: string) => vo
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group border border-gray-100 grayscale hover:grayscale-0"
+                onClick={() => onSelectProject(milestone.id)}
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group border border-gray-100 grayscale hover:grayscale-0 cursor-pointer"
               >
                 <div className="aspect-[4/3] overflow-hidden relative opacity-70 group-hover:opacity-100 transition-opacity duration-500">
                   <img
