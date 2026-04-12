@@ -67,7 +67,7 @@ export const PROJECTS = [
     ourStory: [
       'In 2021, Foresight Australia identified the Western Murrumbidgee Local Health District as a region of urgent need — with strong support from Turramurra Rotary and the NSW Ministry of Health. When the region\'s only ophthalmologist retired in early 2022 and could not be replaced, Foresight moved quickly: by February 2022, the GBH Department of Ophthalmology was formally established and the first clinical visit undertaken.',
       'Led by Associate Professor Geoffrey Painter, Dr Dominic McCall, and orthoptist Kerrie Legg — all volunteering their time — the team has visited every four weeks since, providing surgical and outpatient care while simultaneously building the community-based screening infrastructure that will allow this work to continue independently.',
-      'The programme is supported by the Western Murrumbidgee LHD, Gordon Eye Surgery, Chatswood Private Hospital, the MediAid Foundation, the Brien Holden Vision Foundation, Turramurra Rotary, Griffith Avanti Rotary, and funded in part by ANZEF (Australian and New Zealand Eye Foundation) grants.'
+      'The programme is supported by the Western Murrumbidgee LHD, Gordon Eye Surgery, Chatswood Private Hospital, the MediAid Foundation, Turramurra Rotary, Griffith Avanti Rotary, and funded in part by ANZEF (Australian and New Zealand Eye Foundation) grants.'
     ],
     whatWeDo: 'Foresight\'s model in Griffith has two interconnected pillars. The first is a permanent, hospital-based ophthalmology clinic at Griffith Base Hospital — staffed by visiting specialists every four weeks — providing surgical and outpatient care to the entire Western MLHD. The second is a structured training programme that equips Aboriginal Health Care Workers and GPs at local Aboriginal Medical Services with the skills and equipment to screen for the three leading causes of vision loss in their communities: refractive error, cataract, and diabetic retinopathy.',
     approachCards: [
@@ -88,7 +88,7 @@ export const PROJECTS = [
       { year: 'October 2022', text: 'First Foresight upskilling workshop: 9 Aboriginal Health Care Workers from GAMS trained in cataract, glaucoma, and diabetic retinopathy screening. Screening equipment donated by Foresight.' },
       { year: 'March–September 2023', text: 'Second upskilling workshop delivered in two parts, expanding training to GPs for the first time. GAMS retinal camera reactivated for diabetic retinopathy screening.' },
       { year: 'Late 2023', text: 'Foresight awarded inaugural ANZEF grant of $35,000 to expand the training programme across the Western MLHD.' },
-      { year: 'April–May 2024', text: 'First ANZEF-funded workshop: training expanded to GPs and nurses alongside Aboriginal Health Care Workers. Portable retinal camera donated to GAMS through Turramurra and Griffith Avanti Rotary. Slit lamp donated to Narrandera Aboriginal Corporation in collaboration with Brien Holden Vision Foundation.' },
+      { year: 'April–May 2024', text: 'First ANZEF-funded workshop: training expanded to GPs and nurses alongside Aboriginal Health Care Workers. Portable retinal camera donated to GAMS through Turramurra and Griffith Avanti Rotary. Slit lamp donated to Narrandera Aboriginal Corporation with support from partner organisations.' },
       { year: 'October 2024', text: 'Second ANZEF-funded workshop: training expanded to MLHD Aboriginal Health Care Workers from Wagga, Narrandera, Leeton, and Tumut. Eye screening integrated into the Passport to Better Health outreach programme. Award won at MLHD Excellence Awards.' },
       { year: 'April–May 2025', text: 'Third ANZEF-funded workshop: dedicated retinal photography training for Passport to Better Health team. New GP trained. Medical students from GAMS and GBH participate.' }
     ],
@@ -109,7 +109,6 @@ export const PROJECTS = [
       'Gordon Eye Surgery — ophthalmologists and orthoptists',
       'Chatswood Private Hospital — RANZCO-accredited registrar',
       'Griffith Aboriginal Medical Service (GAMS) — host organisation for training and community outreach',
-      'Brien Holden Vision Foundation — equipment donations and visiting optometrists',
       'MediAid Foundation — support for prioritised Indigenous cataract surgery',
       'ANZEF (Australian and New Zealand Eye Foundation) — grant funding for upskilling workshops',
       'Turramurra Rotary and Griffith Avanti Rotary — equipment donations and community support'
@@ -132,7 +131,7 @@ export const PROJECTS = [
     ],
     ourStory: [
       'The Sumba Eye Program was founded in 2007 by Dr Mark Ellis AM, an Australian ophthalmologist who first travelled to West Sumba with a team of surgeons and optometrists to deliver eye camps to a population that had never seen a specialist. What began as a single annual surgical mission has grown into one of the most sustained eye health programs in eastern Indonesia.',
-      'For over a decade, the program operated under RACS (the Royal Australasian College of Surgeons) before joining Foresight Australia in 2021 — bringing with it a proven clinical track record, established local relationships, and a clear vision for the future: building a permanent, locally run eye health system that can serve Sumba long after visiting teams go home.',
+      'For over a decade, the program operated successfully before joining Foresight Australia in 2021 — bringing with it a proven clinical track record, established local relationships, and a clear vision for the future: building a permanent, locally run eye health system that can serve Sumba long after visiting teams go home.',
       'Today, the program maintains active MOUs with RSUD Waikabubak Hospital, Hasanuddin University (UNHAS) in Makassar, and the Sumba Foundation, and works closely with PERDAMI (the Indonesian Ophthalmologists Association) to build a lasting clinical infrastructure for Central and West Sumba.'
     ],
     whatWeDo: 'Our work in Sumba focuses on building self-sufficiency. We establish permanent infrastructure, provide specialized training for local nurses and hospital staff, and screen thousands of children through school-based programs to detect vision loss early.',
@@ -232,7 +231,7 @@ export const PROJECTS = [
     ourStory: [
       "Foresight's connection to the Solomon Islands began in 1996, when Associate Professor Geoffrey Painter and Dr Neale Mulligan made the first ophthalmic surgical visit to the National Referral Hospital Eye Unit in Honiara — the start of what would become one of the organisation's longest international partnerships.",
       "Over nearly three decades, Foresight has delivered 15+ surgical and skills transfer visits, upgraded the NRH Eye Unit and operating theatre, built and equipped four eye clinics in regional centres, supported the training of ophthalmologists and ophthalmic nurses, and funded specialist training scholarships that produced the Solomon Islands' first and second locally qualified ophthalmologists.",
-      "The partnership has operated through multiple phases — from the RACS Pacific Islands Project (1996–2009), to AusAID-funded infrastructure projects (2009–2013), to continuous medical equipment support (2014–2019). Foresight is now preparing to return in 2026 with a renewed focus on diabetic retinopathy and sustainable local surgical capacity."
+      "The partnership has operated through multiple phases — from the Pacific Islands Project (1996–2009), to AusAID-funded infrastructure projects (2009–2013), to continuous medical equipment support (2014–2019). Foresight is now preparing to return in 2026 with a renewed focus on diabetic retinopathy and sustainable local surgical capacity."
     ],
     whatWeDo: "As we prepare to return to the Solomon Islands in 2026, our work focuses on three interconnected priorities: specialist surgical support and mentoring for local doctors at the National Referral Hospital and regional centres; targeted training in diabetic retinopathy screening and laser treatment — the most urgent unmet clinical need in the country; and equipment provision to ensure clinics in Honiara, Gizo, Auki, and Kirakira have the tools they need to operate independently between visits.",
     approachCards: [
@@ -262,7 +261,6 @@ export const PROJECTS = [
       'The National Referral Hospital Eye Unit, Honiara — our primary clinical partner since 1996',
       'The Solomon Islands Department of Ophthalmology and National Task Force for the Prevention of Blindness',
       'University of Papua New Guinea — specialist training for Solomon Islands doctors',
-      'RACS (Royal Australasian College of Surgeons) — Pacific Islands Project support 1996–2009',
       'AusAID — infrastructure project funding 2009–2013',
       'Rotary International — Global Grant partner for 2026 equipment and training investment'
     ],
@@ -297,7 +295,7 @@ export const TEAM = [
     role: 'Chairman',
     titles: 'B.A. L.L.M',
     bio: 'A solicitor in private solo practice and former international partner and senior counsel of the global law firm Baker McKenzie. He provides legal expertise to several not-for-profits, including the Opera Foundation for Young Australians and the RPA Heart Centre Foundation.',
-    image: '/media/images/board-george-harris.png'
+    image: '/media/images/George.png'
   },
   {
     name: 'John Karagiorgos',
@@ -311,49 +309,49 @@ export const TEAM = [
     role: 'Director',
     titles: 'MBBS MPhil FRANZCO FRACS',
     bio: 'An ophthalmic surgeon and co-founder of Gordon Eye Surgery. He has led 18 surgical and teaching trips to the Solomon Islands and was awarded a Member of the Order of Australia (AM) for services to ophthalmology in Australia and the Asia Pacific region.',
-    image: '/media/images/board-geoffrey-painter.png'
+    image: '/media/images/Geoffrey.png'
   },
   {
     name: 'Prof Mary Crock',
     role: 'Director',
     titles: 'BA (Hons) LLB (Hons) PhD FAAL',
     bio: 'Professor of Public Law at the University of Sydney’s Law School and an Accredited Specialist in Immigration Law. She is a globally recognized expert on refugees with disabilities and was named one of the AFR\'s 100 Women of Influence.',
-    image: '/media/images/board-mary-crock.png'
+    image: '/media/images/Mary.jpg'
   },
   {
     name: 'Ms Melissa Perrine',
     role: 'Director',
     titles: 'BExPhys, MSportExSci, MPhysio, MSci',
     bio: 'A registered physiotherapist and four-time Winter Paralympian. Although legally blind, she has held four World Championship titles and served as Australia\'s opening ceremony flag bearer at the Beijing 2022 games.',
-    image: '/media/images/board-melissa-perrine.png'
+    image: '/media/images/Melissa.png'
   },
   {
     name: 'Dr Mark F. Ellis AM',
     role: 'Director',
     titles: 'MB BS, FRANZCO, FRACS',
     bio: 'A Consultant Ophthalmologist who founded an independent eye reach program in West Sumba in 2007. He has served as Chairman of the Victorian Branch of RANZCO and worked extensively in India and East Timor.',
-    image: '/media/images/board-mark-ellis.png'
+    image: '/media/images/Mark Eliis.png'
   },
   {
     name: 'Dr Georgina Kourt',
     role: 'Director',
     titles: 'MBBS, FRANZCO, FRACS',
     bio: 'An Honorary Medical Officer in Ophthalmology and Oculoplastic Surgery at Sydney Eye Hospital. She focuses on improving rural medical services and eyecare for First Nations people, leading annual surgical field trips to the Northern Territory.',
-    image: '/media/images/board-georgina-kourt.png'
+    image: '/media/images/Gina.png'
   },
   {
     name: 'Ms Kerrie Legg',
     role: 'Director',
     titles: 'RN, Mid Cert, MN',
     bio: 'CEO/DON of Chatswood Private Hospital, one of Australia\'s largest stand-alone day hospitals. She has participated in 17 overseas outreach projects to the Solomon Islands, China, and the Philippines over the last 23 years.',
-    image: '/media/images/board-kerrie-legg.png'
+    image: '/media/images/Keirwin.png'
   },
   {
     name: 'Mr Kevin Gardner',
     role: 'Director',
     titles: 'MCOM BBus FCPA FCIS JP',
     bio: 'Former Chairman of Lenity Australia and CEO of Sydney Eye Hospital Foundation. He has over 40 years of senior management experience in finance and accounting and currently serves as a Director for the Mercy Foundation.',
-    image: '/media/images/board-kevin-gardner.png'
+    image: '/media/images/Kevin.png'
   },
   {
     name: 'Mr Aziz Meherali',
@@ -367,7 +365,7 @@ export const TEAM = [
     role: 'Director',
     titles: 'B. Optom (Hons) GradCert Therapeutic Optometry',
     bio: 'An experienced Optometrist and founder of Young Eyes Optometrists. She specializes in children\'s vision and therapeutic optometry and is involved with the Sumba Eye Program training local staff in paediatric care.',
-    image: '/media/images/board-janine-hobson.png'
+    image: '/media/images/Janine.jpg'
   },
 ];
 

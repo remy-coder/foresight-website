@@ -1481,11 +1481,35 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
             <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-8">{('partnersHeading' in project && project.partnersHeading) ? (project as any).partnersHeading : 'Built on strong local partnerships'}</h3>
             <p className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed mb-10">{('partnersText' in project && project.partnersText) ? (project as any).partnersText : 'The Sumba Eye Program works in partnership with:'}</p>
             <div className="flex flex-row flex-wrap justify-center gap-4">
-              {(project as any).partners.map((partner: string, i: number) => (
-                <div key={i} className="bg-white border border-gray-100 px-6 py-4 rounded-xl shadow-sm text-gray-700 font-display font-medium text-sm text-left">
-                  {partner}
-                </div>
-              ))}
+              {(project as any).partners.map((partner: string, i: number) => {
+                const logo = (() => {
+                  const lower = partner.toLowerCase();
+                  if (lower.includes('anzef')) return '/media/images/ANZEF.png';
+                  if (lower.includes('turramurra rotary')) return '/media/images/Turramurra Rotary.png';
+                  if (lower.includes('onesight') || lower.includes('essilor')) return '/media/images/One Sight.png';
+                  if (lower.includes('iapb')) return '/media/images/IAPB.png';
+                  if (lower.includes('acfid')) return '/media/images/ACFID.png';
+                  if (lower.includes('vision 2020')) return '/media/images/vision2020.png';
+                  if (lower.includes('sumba foundation')) return '/media/images/Sumba Foundation.jpg';
+                  if (lower.includes('chatswood private')) return '/media/images/Chatswood private.png';
+                  if (lower.includes('foresight australia')) return '/media/images/Foresight logo.png';
+                  return null;
+                })();
+
+                if (logo) {
+                  return (
+                    <div key={i} className="bg-white border border-gray-100 px-6 py-4 rounded-xl shadow-sm flex items-center justify-center min-w-[120px]">
+                      <img src={logo} alt="Partner Logo" className="h-12 md:h-14 w-auto object-contain" />
+                    </div>
+                  );
+                }
+
+                return (
+                  <div key={i} className="bg-white border border-gray-100 px-6 py-4 rounded-xl shadow-sm text-gray-700 font-display font-medium text-sm text-left flex items-center max-w-sm">
+                    <span>{partner}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
