@@ -33,7 +33,9 @@ import {
   FileText,
   ShieldCheck,
   Lock,
-  Cookie
+  Cookie,
+  Building2,
+  BriefcaseMedical
 } from 'lucide-react';
 import { NAVIGATION, IMPACT_STATS, PROJECTS, TEAM, PARTNERS } from './constants';
 
@@ -1313,13 +1315,42 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
             </div>
             <div className="md:col-span-8">
-              <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                {project.whyItMatters}
-              </p>
+              <div className="flex flex-col gap-6">
+                {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
+                  <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                    {para}
+                  </p>
+                )) : (
+                  <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                    {project.whyItMatters}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* SECTION 2.5: Our Story */}
+      {'ourStory' in project && project.ourStory && (
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
+              <div className="md:col-span-4">
+                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Our Story</h2>
+                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">{('storyHeading' in project && project.storyHeading) ? (project as any).storyHeading : 'Over 15 years in Sumba'}</h3>
+              </div>
+              <div className="md:col-span-8 flex flex-col gap-6">
+                {(project as any).ourStory.map((para: string, i: number) => (
+                  <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* SECTION 3: What we do */}
       <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10 overflow-hidden">
@@ -1336,13 +1367,23 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               <p className="text-base md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-10">
                 {project.whatWeDo}
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                {[{ icon: <Target className="w-5 h-5" />, label: "Clinical Care" }, { icon: <Users className="w-5 h-5" />, label: "Training" }].map((feature, i) => (
-                  <div key={i} className="flex flex-col gap-4 p-6 bg-white/5 backdrop-blur-md rounded-2.5xl border border-white/10 group hover:bg-white/10 transition-all">
-                    <div className="text-primary">{feature.icon}</div>
-                    <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">{feature.label}</span>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {('approachCards' in project && project.approachCards ? (project as any).approachCards : [{ icon: 'Target', label: "Clinical Care" }, { icon: 'Users', label: "Training" }]).map((feature: any, i: number) => {
+                  let Icon = Target;
+                  if (feature.icon === 'Users') Icon = Users;
+                  if (feature.icon === 'Building2') Icon = Building2;
+                  if (feature.icon === 'BookOpen') Icon = BookOpen;
+                  if (feature.icon === 'BriefcaseMedical') Icon = BriefcaseMedical;
+                  if (feature.icon === 'Eye') Icon = Eye;
+                  
+                  return (
+                    <div key={i} className="flex flex-col gap-4 p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 group hover:bg-white/10 transition-all">
+                      <div className="text-primary"><Icon className="w-6 h-6" /></div>
+                      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">{feature.label}</span>
+                      {feature.text && <p className="text-sm md:text-base text-gray-400 font-display font-medium leading-relaxed">{feature.text}</p>}
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="relative rounded-[3rem] overflow-hidden aspect-video lg:aspect-square">
@@ -1378,6 +1419,33 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
         </div>
       </section>
 
+      {/* SECTION 4.5: Program Milestones */}
+      {'milestones' in project && project.milestones && (
+        <section className="py-16 md:py-24 bg-[#FAFAFA]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Program Milestones</h2>
+              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">{('milestonesHeading' in project && project.milestonesHeading) ? (project as any).milestonesHeading : 'From mission to permanence'}</h3>
+            </div>
+            <div className="relative border-l-2 border-gray-200 ml-4 md:ml-8 space-y-12">
+              {(project as any).milestones.map((milestone: any, i: number) => (
+                <div key={i} className="relative pl-10 md:pl-16">
+                  <div className="absolute top-1 -left-[11px] w-5 h-5 bg-primary rounded-full border-4 border-[#FAFAFA] shadow-sm"></div>
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                    <div className="sm:w-32 shrink-0">
+                      <span className="text-lg font-display font-black text-primary uppercase tracking-widest">{milestone.year}</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-base text-gray-600 font-display font-medium leading-relaxed">{milestone.text}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* SECTION 5: What’s next */}
       <section className="py-16 md:py-24 bg-primary/5 rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10 mb-16 md:mb-24 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -1387,11 +1455,41 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
           <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight">
              {project.id === 'projects-solomon-islands' ? 'Our vision for 2026' : 'What’s next'}
           </h3>
-          <p className="text-lg md:text-2xl text-gray-600 font-display font-medium leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg md:text-2xl text-gray-600 font-display font-medium leading-relaxed max-w-4xl mx-auto whitespace-pre-wrap">
             {project.nextSteps}
           </p>
+          {'nextStepsList' in project && project.nextStepsList && (
+            <ul className="mt-10 text-left max-w-3xl mx-auto space-y-4">
+              {(project as any).nextStepsList.map((item: string, i: number) => (
+                <li key={i} className="flex gap-4 items-start">
+                  <div className="shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1">
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
+
+      {/* SECTION 6.5: Our Partners */}
+      {'partners' in project && project.partners && (
+        <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100 mx-4 md:mx-10 rounded-[3rem] md:rounded-[4rem] shadow-sm mb-16 md:mb-24">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-balance">
+            <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Our Partners</h2>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-8">{('partnersHeading' in project && project.partnersHeading) ? (project as any).partnersHeading : 'Built on strong local partnerships'}</h3>
+            <p className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed mb-10">{('partnersText' in project && project.partnersText) ? (project as any).partnersText : 'The Sumba Eye Program works in partnership with:'}</p>
+            <div className="flex flex-row flex-wrap justify-center gap-4">
+              {(project as any).partners.map((partner: string, i: number) => (
+                <div key={i} className="bg-white border border-gray-100 px-6 py-4 rounded-xl shadow-sm text-gray-700 font-display font-medium text-sm text-left">
+                  {partner}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* SECTION 6: Support this work */}
       <section className="py-16 md:py-24 bg-white">
@@ -1400,8 +1498,8 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 blur-[120px] rounded-full"></div>
             <div className="relative z-10">
               <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 leading-[1.1] tracking-tight">Support this work</h3>
-              <p className="text-lg md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-                Join us in establishing sustainable eye care systems in {project.location}. Your support restores sight and changes lives.
+              <p className="text-lg md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-12 max-w-2xl mx-auto whitespace-pre-wrap">
+                {('ctaText' in project && project.ctaText) ? (project as any).ctaText : `Join us in establishing sustainable eye care systems in ${project.location}. Your support restores sight and changes lives.`}
               </p>
               <button
                 onClick={() => onNavigate && onNavigate('donate')}
