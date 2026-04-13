@@ -1404,6 +1404,11 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               {project.id === 'projects-australia' ? 'Our impact' : 'Key achievements'}
             </h3>
           </div>
+          {project.id === 'projects-solomon-islands' && project.supportingImages?.[1] && (
+            <div className="mb-12 md:mb-16 relative rounded-[3rem] overflow-hidden shadow-md aspect-[21/9] md:aspect-[3/1]">
+              <img src={project.supportingImages[1]} alt="Solomon Islands key achievements" className="w-full h-full object-cover" />
+            </div>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {project.achievements.map((achievement, i) => (
               <div key={i} className="flex gap-8 group p-8 bg-gray-50 rounded-3xl border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-xl transition-all duration-500">
@@ -1493,6 +1498,7 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
                   if (lower.includes('sumba foundation')) return '/media/images/Sumba Foundation.jpg';
                   if (lower.includes('chatswood private')) return '/media/images/Chatswood private.png';
                   if (lower.includes('foresight australia')) return '/media/images/Foresight logo.png';
+                  if (lower.includes('pt berlian')) return '/media/images/PT Equipment.jpg';
                   return null;
                 })();
 

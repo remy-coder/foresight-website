@@ -169,7 +169,8 @@ export const PROJECTS = [
       'PERDAMI (Indonesian Ophthalmologists Association, NTT Province) — surgical collaboration and workforce development',
       'The Sumba Foundation — in-country logistics and community health support',
       'OneSight/Essilor — optical workshop equipment and spectacle supply',
-      'ANZEF and Perpetual Foundation — grant funders supporting ongoing program operations'
+      'ANZEF and Perpetual Foundation — grant funders supporting ongoing program operations',
+      'PT Berlian Mansari Opti-Medic'
     ],
     cta: 'Support our work in Sumba',
     ctaText: 'Fifteen years of work have taken us from annual surgical camps to a permanent clinic staffed by local nurses. Your support funds the training, equipment, and visits that keep this progress moving — and bring us closer to the day when Sumba no longer needs us to come.'
@@ -220,7 +221,7 @@ export const PROJECTS = [
     location: 'Solomon Islands',
     description: 'Re-establishing over two decades of collaboration to rebuild local ophthalmic capacity and address the crisis of diabetic retinopathy.',
     image: "/media/images/Solomonproject.png",
-    supportingImages: ["/media/images/Solomons Home.png", "/media/images/Solomonproject2.png"],
+    supportingImages: ["/media/images/Solomons3.jpg", "/media/images/Solomons4.jpg"],
     status: 'Active',
     intro: "Nearly three decades of partnership with the Solomon Islands — building specialist eye care capacity, upgrading infrastructure, and preparing to return in 2026 to address the country's growing crisis of diabetic retinopathy.",
     whyItMatters: [
@@ -344,7 +345,7 @@ export const TEAM = [
     role: 'Director',
     titles: 'RN, Mid Cert, MN',
     bio: 'CEO/DON of Chatswood Private Hospital, one of Australia\'s largest stand-alone day hospitals. She has participated in 17 overseas outreach projects to the Solomon Islands, China, and the Philippines over the last 23 years.',
-    image: '/media/images/Keirwin.png'
+    image: 'https://ui-avatars.com/api/?name=ML&background=004aad&color=ffffff&size=512'
   },
   {
     name: 'Mr Kevin Gardner',
@@ -358,7 +359,7 @@ export const TEAM = [
     role: 'Director',
     titles: 'CFP, BaBUS',
     bio: 'A Senior Wealth Adviser with over 25 years of experience in the financial planning industry. He specializes in developing investment and executive strategies for private clients and holds a Strategic Leadership qualification from Stanford.',
-    image: '/media/images/board-aziz-meherali.png'
+    image: '/media/images/Aziz.png'
   },
   {
     name: 'Ms Janine Hobson',
