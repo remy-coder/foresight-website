@@ -163,11 +163,12 @@ export const PROJECTS = [
       'Expanding surgical capacity through structured mentorship with PERDAMI and UNHAS surgeons',
       'Integrating eye health into the district health budget (Renja Dinkes) — making Sumbanese government a co-investor in the program\'s future'
     ],
+    partnersText: 'Delivering effective eye care in a remote region like Sumba requires more than clinical expertise — it requires trusted local partnerships. The Sumba Eye Program works in close collaboration with:',
     partners: [
       'RSUD Waikabubak Hospital (West Sumba) — our primary clinical partner',
       'Hasanuddin University (UNHAS), Makassar — training partner for surgeons and Eye Care Nurses',
       'PERDAMI (Indonesian Ophthalmologists Association, NTT Province) — surgical collaboration and workforce development',
-      'The Sumba Foundation — in-country logistics and community health support',
+      'Community and government partner — with deep roots in Sumba and an established relationship with the West Sumba Health Department, the Sumba Foundation is essential to the program\'s local reach and long-term sustainability.',
       'OneSight/Essilor — optical workshop equipment and spectacle supply',
       'ANZEF and Perpetual Foundation — grant funders supporting ongoing program operations',
       'PT Berlian Mansari Opti-Medic'
@@ -179,20 +180,12 @@ export const PROJECTS = [
     id: 'projects-bangladesh',
     title: 'Chittagong Eye Infirmary',
     location: 'Bangladesh',
-    description: 'A global center of excellence for ophthalmic education and sight restoration serving millions.',
+    description: "Foresight was an early contributor to the establishment of the Chittagong Eye Infirmary and Training Complex.",
     image: "/media/images/Bangladesh home.png",
     supportingImages: ["/media/images/Sumbaproject.png"],
-    status: 'Active',
-    intro: 'Founded in 1978, the Chittagong Eye Infirmary and Training Complex (CEITC) is one of Foresight’s landmark projects. It has grown into a major eye care and training institution that has served more than one million people across South Asia.',
-    whyItMatters: 'In Bangladesh, a high burden of avoidable blindness and a shortage of trained specialists created major barriers to care. There was a strong need for high-volume, high-quality cataract surgery and training to reduce the backlog and expand access to treatment.',
-    whatWeDo: 'Foresight helped establish the foundations of the Chittagong Eye Infirmary and Training Complex through early support for clinical training and equipment. Today, we continue to support specialised training in areas such as paediatric ophthalmology and eye health management, helping strengthen the hospital’s long-term leadership in sustainable eye care.',
-    achievements: [
-      'Built one of the leading eye hospitals in the region through a model focused on quality, scale and sustainability.',
-      'Supported the training of ophthalmologists and large numbers of allied eye care staff.',
-      'Helped establish specialised services for childhood blindness, including paediatric eye care.',
-      'Contributed to a sustainable hospital model that has informed eye care development more broadly.'
-    ],
-    nextSteps: 'Foresight continues to support specialised training and capacity building in partnership with the Chittagong Eye Infirmary and Training Complex, with a focus on strengthening long-term clinical leadership and sustainable eye care delivery.',
+    status: 'Legacy',
+    intro: "Founded in 1978, the Chittagong Eye Infirmary and Training Complex (CEITC) is one of Foresight's landmark projects.",
+    whatWeDid: "Foresight was an early contributor to the establishment of the Chittagong Eye Infirmary and Training Complex (CEITC), founded in 1978. Foresight's involvement helped lay the groundwork for what grew into a significant eye care institution in Bangladesh.\n\nForesight is no longer active in Bangladesh. This project is recognised as part of Foresight's legacy work.",
     cta: 'Support our work in Bangladesh'
   },
   {

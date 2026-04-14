@@ -361,52 +361,52 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-[#004aad] to-[#00337a] text-white pt-20 pb-12 md:pt-32 md:pb-16 relative">
+      <footer className="bg-gradient-to-b from-[#004aad] to-[#00337a] text-white pt-[40px] pb-[30px] md:pt-[40px] md:pb-[30px] relative">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-11 mb-10 md:mb-14">
             {/* Left Column: Branding & Contact Buttons */}
             <div className="lg:col-span-4">
-              <div className="flex items-center gap-4 mb-8 group cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <div className="flex items-center gap-4 mb-6 group cursor-pointer" onClick={() => setCurrentPage('home')}>
                 <img
                   src="/media/images/Foresight logo.png"
                   alt="Foresight Australia Logo"
-                  className="h-14 md:h-18 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 object-contain"
+                  className="h-11 md:h-14 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 object-contain"
                 />
               </div>
 
-              <div className="space-y-4 mb-10">
+              <div className="space-y-2.5 mb-8">
                 <a
                   href="tel:+61280213632"
-                  className="flex items-center gap-4 w-full bg-accent hover:bg-accent-dark text-white px-6 py-4 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02] shadow-lg shadow-accent/20"
+                  className="flex items-center gap-3 w-full bg-accent hover:bg-accent-dark text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02] shadow-lg shadow-accent/20"
                 >
-                  <Phone className="w-5 h-5 transition-colors" />
-                  <span>+61 2 8021 3632</span>
+                  <Phone className="w-4 h-4 transition-colors" />
+                  <span className="text-[13px]">+61 2 8021 3632</span>
                 </a>
                 <button
                   onClick={() => handleNavClick('donate')}
-                  className="flex items-center gap-4 w-full border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
+                  className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
                 >
-                  <Heart className="w-5 h-5 text-accent" />
-                  <span>Donate now</span>
+                  <Heart className="w-4 h-4 text-accent" />
+                  <span className="text-[13px]">Donate now</span>
                 </button>
                 <button
                   onClick={() => setCurrentPage('subscribe')}
-                  className="flex items-center gap-4 w-full border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
+                  className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
                 >
-                  <Mail className="w-5 h-5 text-accent" />
-                  <span>Subscribe to newsletter</span>
+                  <Mail className="w-4 h-4 text-accent" />
+                  <span className="text-[13px]">Subscribe to newsletter</span>
                 </button>
               </div>
 
               <div className="flex gap-4">
                 {[
-                  { icon: <Facebook className="w-5 h-5" />, label: 'Facebook', url: 'https://www.facebook.com/ForesightAustralia' },
-                  { icon: <Instagram className="w-5 h-5" />, label: 'Instagram', url: 'https://www.instagram.com/foresightaustralia/' },
-                  { icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn', url: 'https://www.linkedin.com/company/foresight-australia/?viewAsMember=true' },
-                  { icon: <Youtube className="w-5 h-5" />, label: 'YouTube', url: 'https://www.youtube.com/@foresightaustralia9759' }
+                  { icon: <Facebook className="w-4 h-4" />, label: 'Facebook', url: 'https://www.facebook.com/ForesightAustralia' },
+                  { icon: <Instagram className="w-4 h-4" />, label: 'Instagram', url: 'https://www.instagram.com/foresightaustralia/' },
+                  { icon: <Linkedin className="w-4 h-4" />, label: 'LinkedIn', url: 'https://www.linkedin.com/company/foresight-australia/?viewAsMember=true' },
+                  { icon: <Youtube className="w-4 h-4" />, label: 'YouTube', url: 'https://www.youtube.com/@foresightaustralia9759' }
                 ].map((social) => (
-                  <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:scale-110 transition-all duration-500 group">
+                  <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:scale-110 transition-all duration-500 group">
                     <span className="sr-only">{social.label}</span>
                     <div className="text-white transition-colors">
                       {social.icon}
@@ -417,10 +417,10 @@ export default function App() {
             </div>
 
             {/* Navigation Columns */}
-            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div>
-                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[13px] mb-8">About Us</h4>
-                <ul className="space-y-4">
+                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[11px] mb-6">About Us</h4>
+                <ul className="space-y-3">
                   {[
                     { label: 'Our Mission & Vision', id: 'about-mission' },
                     { label: 'Our History', id: 'about-history' },
@@ -428,54 +428,54 @@ export default function App() {
                     { label: 'Governance & Policies', id: 'reports-policies' }
                   ].map((link) => (
                     <li key={link.label}>
-                      <button onClick={() => handleNavClick(link.id)} className="text-gray-400 hover:text-white transition-colors text-sm font-display font-medium">{link.label}</button>
+                      <button onClick={() => handleNavClick(link.id)} className="text-gray-400 hover:text-white transition-colors text-[13px] font-display font-medium">{link.label}</button>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[13px] mb-8">Vision & Health</h4>
-                <ul className="space-y-4">
+                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[11px] mb-6">Vision & Health</h4>
+                <ul className="space-y-3">
                   {['Eye Health', 'Sustainable Care', 'Clinical Training', 'Impact Data'].map((link) => (
                     <li key={link}>
-                      <button onClick={() => setCurrentPage('impact')} className="text-gray-400 hover:text-white transition-colors text-sm font-display font-medium">{link}</button>
+                      <button onClick={() => setCurrentPage('impact')} className="text-gray-400 hover:text-white transition-colors text-[13px] font-display font-medium">{link}</button>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[13px] mb-8">Resources</h4>
-                <ul className="space-y-4">
+                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[11px] mb-6">Resources</h4>
+                <ul className="space-y-3">
                   {[
                     { label: 'Annual Reports', id: 'annual-reports' },
                     { label: 'Governance Policies', id: 'annual-reports' },
                     { label: 'Transparency', id: 'annual-reports' }
                   ].map((link) => (
                     <li key={link.label}>
-                      <button onClick={() => handleNavClick(link.id)} className="text-gray-400 hover:text-white transition-colors text-sm font-display font-medium">{link.label}</button>
+                      <button onClick={() => handleNavClick(link.id)} className="text-gray-400 hover:text-white transition-colors text-[13px] font-display font-medium">{link.label}</button>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[13px] mb-8">Get in Touch</h4>
-                <ul className="space-y-6">
-                  <li className="flex gap-4">
-                    <MapPin className="w-5 h-5 text-accent shrink-0" />
-                    <span className="text-gray-400 text-sm font-display font-medium leading-relaxed">
+                <h4 className="text-accent font-display font-black uppercase tracking-widest text-[11px] mb-6">Get in Touch</h4>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <MapPin className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-gray-400 text-[13px] font-display font-medium leading-relaxed">
                       PO Box 663<br />HORNSBY NSW 2077
                     </span>
                   </li>
-                  <li className="flex gap-4">
-                    <Mail className="w-5 h-5 text-accent shrink-0" />
-                    <a href="mailto:foresight@foresight.org.au" className="text-gray-400 hover:text-white transition-colors text-sm font-display font-medium">foresight@foresight.org.au</a>
+                  <li className="flex gap-3">
+                    <Mail className="w-4 h-4 text-accent shrink-0" />
+                    <a href="mailto:foresight@foresight.org.au" className="text-gray-400 hover:text-white transition-colors text-[13px] font-display font-medium">foresight@foresight.org.au</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-gray-500 font-display font-black uppercase tracking-widest">
+          <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-gray-500 font-display font-black uppercase tracking-widest">
             <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10">
               <button onClick={() => handleNavClick('annual-reports')} className="hover:text-white transition-colors">Annual Reports</button>
               <button onClick={() => handleNavClick('annual-reports')} className="hover:text-white transition-colors">Governance & Policies</button>
@@ -500,19 +500,19 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative h-[55vh] flex items-center pt-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/media/images/home-hero-sumba-consultation.png"
             alt="Eye care clinic"
-            className="w-full h-full object-cover brightness-[0.35] scale-105"
+            className="w-full h-full object-cover object-center brightness-[0.35]"
             referrerPolicy="no-referrer"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#061735]/45 via-[#061735]/35 to-[#FAFAFA]/85"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20 md:py-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 w-full py-12 md:py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -531,12 +531,12 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                   <span>Sight is a Human Right</span>
                 </motion.div>
 
-                <div className="inline-block mb-4 rounded-full border border-[#38b6ff]/30 bg-[#004aad]/10 px-4 py-2 text-[13px] md:text-[14px] font-bold uppercase tracking-[0.12em] text-[#38b6ff] backdrop-blur-sm">
+                <div className="inline-block mb-2 rounded-full border border-[#38b6ff]/30 bg-[#004aad]/10 px-4 py-2 text-[13px] md:text-[14px] font-bold uppercase tracking-[0.12em] text-[#38b6ff] backdrop-blur-sm">
                   40 Years of Impact
                 </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter">
                 Eradicating <span className="text-secondary">Avoidable Blindness</span>.<br />
                 Restoring <span className="italic font-serif text-secondary opacity-80">Sight</span>.
               </h1>
@@ -548,13 +548,13 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <button
                   onClick={() => onNavigate('donate')}
-                  className="w-full sm:w-auto px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-4"
+                  className="w-full sm:w-auto px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-4"
                 >
                   Donate Now <ArrowRight className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => onNavigate('impact')}
-                  className="w-full sm:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center"
+                  className="w-full sm:w-auto px-8 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center"
                 >
                   Our Impact
                 </button>
@@ -565,11 +565,11 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
       </section>
 
       {/* Stats Section - Bento Style */}
-      <section className="py-16 md:py-24 bg-[#FAFAFA] relative overflow-hidden" >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 md:py-14 bg-[#FAFAFA] relative overflow-hidden" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-end mb-16 md:mb-24">
             <div className="max-w-2xl">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-6">Our Impact (2025)</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-3">Our Impact (2025)</h2>
               <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Measurable outcomes in sustainable eye care.</h3>
             </div>
             <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed">
@@ -585,7 +585,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className={`p-8 md:p-14 rounded-3xl md:rounded-5xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500 shadow-sm hover:shadow-2xl ${index % 2 === 0 ? 'bg-white' : 'stats-card-bg'
+                className={`p-6 md:p-10 rounded-3xl md:rounded-5xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500 shadow-sm hover:shadow-2xl ${index % 2 === 0 ? 'bg-white' : 'stats-card-bg'
                   }`}
               >
                 <div className="text-3xl md:text-6xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
@@ -597,10 +597,10 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
       </section >
 
       {/* Features Section */}
-      < section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden" >
+      < section className="py-10 md:py-14 bg-[#0F172A] text-white relative overflow-hidden" >
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[160px] rounded-full"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 blur-[120px] rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-32 items-center">
             <div className="order-2 lg:order-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
@@ -615,7 +615,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="p-8 md:p-10 rounded-3xl md:rounded-4xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 group"
+                    className="p-6 md:p-8 rounded-3xl md:rounded-4xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 group"
                   >
                     <div className="bg-primary/10 p-4 md:p-5 rounded-2xl w-fit mb-6 md:mb-8 group-hover:bg-primary transition-all duration-300 group-hover:scale-110">
                       {feature.icon}
@@ -627,7 +627,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-6">Our Mission</h2>
+              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-3">Our Mission</h2>
               <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] tracking-tight text-balance">A Visionary Approach to <span className="text-primary">Global Health</span></h3>
               <p className="text-lg md:text-xl text-gray-400 mb-10 md:mb-12 leading-relaxed font-display font-medium">
                 Founded in 1977, Foresight Australia has been a pioneer in sustainable eye health. We don't just provide treatment; we build capacity and establish sustainable healthcare infrastructure to ensure long-term eye health for all.
@@ -644,16 +644,16 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
       </section >
 
       {/* Projects Preview */}
-      < section className="py-16 md:py-24 bg-white" >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      < section className="py-10 md:py-14 bg-white" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8 md:gap-12">
             <div className="max-w-3xl">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-6">Our Impact</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-3">Our Impact</h2>
               <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Focusing on where we can make the greatest difference.</h3>
             </div>
             <button
               onClick={() => onNavigate('projects')}
-              className="w-full md:w-auto px-10 py-5 bg-gray-50 hover:bg-gray-100 text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 border border-gray-100"
+              className="w-full md:w-auto px-8 py-5 bg-gray-50 hover:bg-gray-100 text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 border border-gray-100"
             >
               See where we work <ArrowRight className="w-5 h-5" />
             </button>
@@ -680,7 +680,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent opacity-80"></div>
                   <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 text-white">
-                    <div className="inline-block px-4 py-1.5 bg-accent rounded-xl text-[11px] font-black uppercase tracking-[0.2em] mb-4">
+                    <div className="inline-block px-4 py-1.5 bg-accent rounded-xl text-[11px] font-black uppercase tracking-[0.2em] mb-2">
                       {project.location}
                     </div>
                     <h4 className="text-2xl md:text-3xl font-display font-extrabold mb-4 leading-tight">{project.title}</h4>
@@ -689,7 +689,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                     </p>
                   </div>
                 </div>
-                <div className="p-6 md:p-10 flex justify-between items-center bg-white">
+                <div className="p-4 md:p-8 flex justify-between items-center bg-white">
                   <span className="text-[13px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Learn More</span>
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-12">
                     <ArrowRight className="w-6 h-6" />
@@ -702,13 +702,13 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
       </section >
 
       {/* Call to Donate */}
-      < section className="py-24 md:py-48 bg-white" >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      < section className="py-14 md:py-28 bg-white" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative rounded-3xl md:rounded-[5rem] overflow-hidden bg-primary p-12 md:p-48 text-center text-white shadow-3xl"
+            className="relative rounded-3xl md:rounded-[5rem] overflow-hidden bg-primary p-8 md:p-36 text-center text-white shadow-3xl"
           >
             <div className="absolute inset-0 opacity-30">
               <img
@@ -721,7 +721,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary"></div>
             <div className="relative z-10 max-w-5xl mx-auto">
-              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-8 md:mb-12">Support Our Mission</h2>
+              <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-4 md:mb-12">Support Our Mission</h2>
               <h3 className="text-4xl md:text-8xl font-display font-extrabold mb-10 md:mb-14 leading-[1.1] tracking-tight">Help us bring the gift of sight to those in need.</h3>
               <p className="text-xl md:text-2xl text-secondary opacity-90 mb-12 md:mb-20 leading-relaxed font-display font-medium">
                 Your contribution directly funds life-changing surgeries, training for local doctors, and essential equipment for underserved communities. Every dollar helps restore vision and hope.
@@ -729,13 +729,13 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
               <div className="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
                 <button
                   onClick={() => onNavigate('donate')}
-                  className="w-full sm:w-auto px-16 py-8 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40"
+                  className="w-full sm:w-auto px-12 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40"
                 >
                   Make a Donation
                 </button>
                 <button
                   onClick={() => onNavigate('get-involved')}
-                  className="w-full sm:w-auto px-16 py-8 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all backdrop-blur-xl"
+                  className="w-full sm:w-auto px-12 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all backdrop-blur-xl"
                 >
                   Other ways to help
                 </button>
@@ -747,9 +747,9 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
 
       
       {/* Andre Story */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary/5 rounded-[3rem] p-8 md:p-20 border border-primary/10">
+      <section className="py-10 md:py-14 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
+          <div className="bg-primary/5 rounded-[3rem] p-6 md:p-14 border border-primary/10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-accent/20 blur-[60px] rounded-full"></div>
@@ -769,7 +769,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                 </p>
                 <button
                   onClick={() => onNavigate('impact')}
-                  className="px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 mb-8 text-primary font-display font-black text-sm uppercase tracking-widest hover:shadow-md transition-all"
+                  className="px-4 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 mb-4 text-primary font-display font-black text-sm uppercase tracking-widest hover:shadow-md transition-all"
                 >
                   Read more stories
                 </button>
@@ -780,9 +780,9 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
       </section>
 
       {/* Partners Section */}
-      < section className="py-16 md:py-24 bg-gray-50" >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-gray-400 font-display font-black tracking-[0.4em] text-[13px] uppercase mb-12 md:mb-16">Our Trusted Partners</h2>
+      < section className="py-10 md:py-14 bg-gray-50" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 text-center">
+          <h2 className="text-gray-400 font-display font-black tracking-[0.4em] text-[13px] uppercase mb-6 md:mb-16">Our Trusted Partners</h2>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
             {PARTNERS.map((partner, i) => (
               <a
@@ -808,15 +808,15 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
 
 function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
 
         {/* Intro */}
         <div className="max-w-5xl mb-16 md:mb-24 relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-10 shadow-sm"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-5 shadow-sm"
           >
             <span>Our Story</span>
           </motion.div>
@@ -864,10 +864,10 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
 
         {/* Objectives Section (NEW) */}
         <div id="objectives" className="mb-16 md:mb-24">
-          <div className="bg-white p-10 md:p-24 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl relative overflow-hidden">
+          <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-full -mr-10 -mt-10"></div>
             <div className="relative z-10">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-12">Our Objectives</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Our Objectives</h2>
               <div className="space-y-10">
                 {[
                   "To alleviate poverty and create an environment that allows the CURE and PREVENTION of blindness through skills transfer.",
@@ -894,12 +894,12 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-24">
           <motion.div
             whileHover={{ y: -10 }}
-            className="lg:col-span-7 bg-[#0F172A] p-10 md:p-24 rounded-3xl md:rounded-[4rem] text-white relative overflow-hidden group shadow-2xl"
+            className="lg:col-span-7 bg-[#0F172A] p-8 md:p-16 rounded-3xl md:rounded-[4rem] text-white relative overflow-hidden group shadow-2xl"
           >
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
-            <h2 className="text-accent font-display font-black uppercase tracking-[0.3em] text-[11px] mb-10 md:mb-16">Our Mission</h2>
+            <h2 className="text-accent font-display font-black uppercase tracking-[0.3em] text-[11px] mb-5 md:mb-16">Our Mission</h2>
             <div className="relative z-10">
               <p className="text-3xl md:text-5xl font-display font-extrabold leading-[1.1] tracking-tight mb-12">
                 To prevent avoidable blindness and restore sight through sustainable eye care.
@@ -921,16 +921,16 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </motion.div>
 
           <div className="lg:col-span-5 flex flex-col gap-8 md:gap-12">
-            <div className="p-10 md:p-16 rounded-3xl md:rounded-[4rem] bg-white border border-gray-100 shadow-xl flex-1 flex flex-col justify-center transform transition-transform hover:-translate-y-2">
-              <h2 className="text-gray-400 font-display font-black uppercase tracking-[0.3em] text-[11px] mb-6 md:mb-8">Our Vision</h2>
+            <div className="p-8 md:p-12 rounded-3xl md:rounded-[4rem] bg-white border border-gray-100 shadow-xl flex-1 flex flex-col justify-center transform transition-transform hover:-translate-y-2">
+              <h2 className="text-gray-400 font-display font-black uppercase tracking-[0.3em] text-[11px] mb-3 md:mb-8">Our Vision</h2>
               <p className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-tight tracking-tight">
                 A world where everyone has access to quality eye care.
               </p>
             </div>
 
-            <div className="p-10 md:p-16 rounded-3xl md:rounded-[4rem] bg-gradient-to-br from-primary to-secondary text-white shadow-xl flex-1 flex flex-col justify-center relative overflow-hidden group">
+            <div className="p-8 md:p-12 rounded-3xl md:rounded-[4rem] bg-gradient-to-br from-primary to-secondary text-white shadow-xl flex-1 flex flex-col justify-center relative overflow-hidden group">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-              <h2 className="text-white/60 font-display font-black uppercase tracking-[0.3em] text-[11px] mb-8 relative z-10">Our Philosophy</h2>
+              <h2 className="text-white/60 font-display font-black uppercase tracking-[0.3em] text-[11px] mb-4 relative z-10">Our Philosophy</h2>
               <div className="grid grid-cols-2 gap-4 relative z-10">
                 {['Integrated Systems', 'Sustainable Funding', 'Equitable Access', 'Clinical Excellence'].map((item, i) => (
                   <div key={i} className="flex flex-col gap-3 p-5 bg-white/10 backdrop-blur-sm rounded-2xl transition-all group-hover:bg-white/20">
@@ -946,7 +946,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         {/* History Timeline preserves lines 877-920 layout */}
         <div id="history" className="mb-16 md:mb-24">
           <div className="max-w-3xl mb-16 md:mb-24">
-            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6 flex items-center gap-4">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-3 flex items-center gap-4">
               <span className="w-12 h-px bg-primary"></span> Our History
             </h2>
             <h3 className="text-4xl md:text-6xl font-display font-extrabold text-gray-900 tracking-tighter leading-tight">Decades of Dedication</h3>
@@ -971,7 +971,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                   className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                 >
                   <div className="flex-1 w-full">
-                    <div className={`p-8 md:p-12 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl hover:shadow-2xl hover:border-primary/20 transition-all duration-500 group ${i % 2 === 0 ? 'md:text-right' : ''}`}>
+                    <div className={`p-6 md:p-8 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl hover:shadow-2xl hover:border-primary/20 transition-all duration-500 group ${i % 2 === 0 ? 'md:text-right' : ''}`}>
                       <span className="text-5xl md:text-7xl font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-primary/20 to-transparent mb-4 md:mb-6 block tracking-tighter group-hover:from-primary transition-all">{item.year}</span>
                       <h3 className="text-2xl md:text-3xl font-display font-extrabold mb-4 text-gray-900 tracking-tight">{item.title}</h3>
                       <p className="text-gray-500 text-lg leading-relaxed font-display font-medium">{item.desc}</p>
@@ -989,11 +989,11 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
 
         {/* Annual Reports & Policies (Merged into About page) */}
         <div id="annual-reports" className="mb-24 md:mb-32">
-          <div className="bg-white p-10 md:p-24 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl overflow-hidden relative">
+          <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl overflow-hidden relative">
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-bl-full -mr-10 -mt-10"></div>
 
             <div className="mb-16 md:mb-20">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Transparency</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-3">Transparency</h2>
               <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tighter">Annual Reports & Policies</h3>
             </div>
 
@@ -1009,7 +1009,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                     href={`/media/documents/annual-report-${year}.pdf`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-6 bg-gray-50 rounded-2xl border border-transparent shadow-sm flex items-center justify-between group hover:border-primary/30 hover:bg-white hover:shadow-md transition-all cursor-pointer"
+                    className="p-4 bg-gray-50 rounded-2xl border border-transparent shadow-sm flex items-center justify-between group hover:border-primary/30 hover:bg-white hover:shadow-md transition-all cursor-pointer"
                   >
                     <div className="flex items-center gap-4">
                       <span className="font-display font-extrabold text-xl text-primary">{year}</span>
@@ -1049,7 +1049,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                     href={`/media/documents/${policy.title}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-6 bg-gray-50 rounded-2xl border border-transparent shadow-sm flex items-center justify-between group hover:border-accent/30 hover:bg-white hover:shadow-md transition-all cursor-pointer"
+                    className="p-4 bg-gray-50 rounded-2xl border border-transparent shadow-sm flex items-center justify-between group hover:border-accent/30 hover:bg-white hover:shadow-md transition-all cursor-pointer"
                   >
                     <span className="font-display font-bold text-gray-700 w-4/5">{policy}</span>
                     <div className="w-10 h-10 shrink-0 rounded-full bg-white border border-gray-100 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
@@ -1068,7 +1068,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
           </div>
 
           {/* About Page CTA */}
-          <div className="mt-24 md:mt-32 text-center pb-20">
+          <div className="mt-24 md:mt-32 text-center pb-12">
             <div className="max-w-3xl mx-auto px-4">
               <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 tracking-tight">Support our global mission</h3>
               <p className="text-gray-500 font-display font-medium text-lg md:text-xl mb-12">
@@ -1076,7 +1076,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
               </p>
               <button
                 onClick={() => onNavigate && onNavigate('donate')}
-                className="px-12 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
+                className="px-8 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Restore sight today <ArrowRight className="w-5 h-5" />
               </button>
@@ -1099,7 +1099,7 @@ function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
   ];
 
   return (
-    <div className="relative w-full bg-[#0F172A] rounded-[3rem] md:rounded-[5rem] overflow-hidden p-8 md:p-20 mb-24 md:mb-32 shadow-3xl group">
+    <div className="relative w-full bg-[#0F172A] rounded-[3rem] md:rounded-[5rem] overflow-hidden p-6 md:p-14 mb-24 md:mb-32 shadow-3xl group">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-primary/40 via-transparent to-transparent"></div>
@@ -1107,7 +1107,7 @@ function MapSection({ onSelect }: { onSelect: (id: string) => void }) {
 
       <div className="relative z-10 w-full">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-primary font-display font-black tracking-[0.4em] text-[13px] uppercase mb-4">Interactive Global Reach</h2>
+          <h2 className="text-primary font-display font-black tracking-[0.4em] text-[13px] uppercase mb-2">Interactive Global Reach</h2>
           <h3 className="text-3xl md:text-5xl font-display font-extrabold text-white tracking-tight">Where We Work Across the <span className="text-primary">Asia-Pacific</span></h3>
         </div>
 
@@ -1163,13 +1163,13 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
     : PROJECTS.filter(p => p.location.toLowerCase() === filter.toLowerCase());
 
   return (
-    <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
         <div className="max-w-5xl mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-10"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-5"
           >
             <span>Our Global Reach</span>
           </motion.div>
@@ -1199,7 +1199,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
             <button
               key={country}
               onClick={() => setFilter(country)}
-             className={`px-6 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${filter === country ? 'bg-primary border-primary text-white shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
+             className={`px-4 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${filter === country ? 'bg-primary border-primary text-white shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
             >
                 {country}
               </button>
@@ -1207,7 +1207,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
             </div>
 
             <div className="mb-12">
-              <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-8 border-b border-gray-200 pb-4">Active Projects</h2>
+              <h2 className="text-2xl font-display font-extrabold text-gray-900 mb-8 border-b border-gray-200 pb-4">Active Projects</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 {filteredProjects.filter(p => ['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
                   <motion.div
@@ -1227,7 +1227,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
                       {project.location}
                     </div>
                   </div>
-                  <div className="p-8 flex flex-col flex-1">
+                  <div className="p-6 flex flex-col flex-1">
                     <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-4">{project.title}</h3>
                     <p className="text-gray-500 font-display font-medium leading-relaxed mb-8 flex-1">
                       {project.description}
@@ -1245,7 +1245,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
             </div>
             
             <div className="mt-16 mb-12">
-              <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-8 border-b border-gray-200 pb-4">Legacy Projects</h2>
+              <h2 className="text-2xl font-display font-extrabold text-gray-900 mb-8 border-b border-gray-200 pb-4">Legacy Projects</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 {filteredProjects.filter(p => !['projects-indonesia', 'projects-australia', 'projects-solomon-islands'].includes(p.id)).map((project) => (
                   <motion.div
@@ -1265,7 +1265,7 @@ function ProjectsPage({ initialFilter = 'All', onSelectProject }: { initialFilte
                       {project.location}
                     </div>
                   </div>
-                  <div className="p-8 flex flex-col flex-1 bg-gray-50/50">
+                  <div className="p-6 flex flex-col flex-1 bg-gray-50/50">
                     <h3 className="text-2xl font-display font-extrabold text-gray-800 mb-4">{project.title}</h3>
                     <p className="text-gray-500 font-display font-medium leading-relaxed mb-8 flex-1">
                       {project.description}
@@ -1296,11 +1296,11 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
         if (!project) return null;
 
         return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-white min-h-screen ">
           {/* SECTION 1: Intro */}
-          <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] overflow-hidden">
+          <section className="relative pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] overflow-hidden">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 w-full">
               <button
                 onClick={onBack}
                 className="flex items-center gap-2 text-primary hover:text-primary transition-colors group mb-12"
@@ -1311,11 +1311,11 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
                 <div className="lg:col-span-7">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-8">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-black uppercase tracking-[0.2em] mb-4">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{project.location}</span>
                   </div>
-                  <h1 className="text-4xl sm:text-6xl md:text-8xl font-display font-extrabold mb-10 leading-[0.95] tracking-tighter text-gray-900">
+                  <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-extrabold mb-10 leading-[0.95] tracking-tighter text-gray-900">
                     {project.title}
                   </h1>
                   <p className="text-xl md:text-2xl text-gray-500 font-display font-medium leading-relaxed max-w-3xl">
@@ -1330,7 +1330,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   >
                     <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
                   </motion.div>
-                  <div className="absolute -bottom-8 -left-8 bg-white p-6 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 hidden md:block">
+                  <div className="absolute -bottom-8 -left-8 bg-white p-4 md:p-8 rounded-[2.5rem] shadow-2xl border border-gray-100 hidden md:block">
                     <div className="text-4xl font-display font-black text-primary tracking-tighter">Active</div>
                     <div className="text-[11px] font-black text-gray-400 uppercase tracking-widest mt-1">Project Status</div>
                   </div>
@@ -1340,11 +1340,11 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           </section>
 
           {/* SECTION 2: Impact */}
-          <section className="py-16 md:py-24 bg-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="py-10 md:py-14 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24 items-start">
                 <div className="md:col-span-4">
-                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">The Challenge</h2>
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-4">The Challenge</h2>
                   <h3 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 leading-tight">Impact</h3>
                 </div>
                 <div className="md:col-span-8">
@@ -1357,19 +1357,19 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           </section>
 
           {/* SECTION 3: Our Work */}
-          <section className="py-16 md:py-24 bg-[#0F172A] text-white relative overflow-hidden rounded-[4rem] md:rounded-[6rem] mx-4 md:mx-10 overflow-hidden">
+          <section className="py-10 md:py-14 bg-[#0F172A] text-white relative overflow-hidden rounded-[4rem] md:rounded-[6rem] mx-4 md:mx-10 overflow-hidden">
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[160px] rounded-full"></div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
                 <div>
-                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-12">Our Solution</h2>
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Our Solution</h2>
                   <h3 className="text-3xl md:text-6xl font-display font-extrabold text-white mb-10 leading-[1.1] tracking-tight">Our Work</h3>
                   <p className="text-lg md:text-2xl text-gray-400 font-display font-medium leading-relaxed mb-12">
                     {project.whatWeDo}
                   </p>
                   <div className="grid grid-cols-2 gap-6">
                     {[{ icon: <Target className="w-5 h-5" />, label: "Clinical Care" }, { icon: <Users className="w-5 h-5" />, label: "Training" }].map((feature, i) => (
-                      <div key={i} className="flex flex-col gap-4 p-6 bg-white/5 backdrop-blur-md rounded-2.5xl border border-white/10 group hover:bg-white/10 transition-all">
+                      <div key={i} className="flex flex-col gap-4 p-4 bg-white/5 backdrop-blur-md rounded-2.5xl border border-white/10 group hover:bg-white/10 transition-all">
                         <div className="text-primary">{feature.icon}</div>
                         <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">{feature.label}</span>
                       </div>
@@ -1384,15 +1384,15 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           </section>
 
           {/* SECTION 4: Stats */}
-          <section className="py-16 md:py-24 bg-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="py-10 md:py-14 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
               <div className="mb-16 md:mb-24">
-                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-8">Our Progress</h2>
+                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-4">Our Progress</h2>
                 <h3 className="text-3xl md:text-6xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Stats</h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {project.achievements.map((achievement, i) => (
-                  <div key={i} className="flex gap-8 group p-8 bg-gray-50 rounded-3xl border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-xl transition-all duration-500">
+                  <div key={i} className="flex gap-8 group p-6 bg-gray-50 rounded-3xl border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-xl transition-all duration-500">
                     <div className="shrink-0 w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
@@ -1406,9 +1406,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           </section>
 
           {/* SECTION 5: What’s next */}
-          <section className="py-16 md:py-24 bg-primary/5 rounded-[4rem] md:rounded-[6rem] mx-4 md:mx-10 mb-24 md:mb-40 relative overflow-hidden">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-12">Looking Ahead</h2>
+          <section className="py-10 md:py-14 bg-primary/5 rounded-[4rem] md:rounded-[6rem] mx-4 md:mx-10 mb-24 md:mb-40 relative overflow-hidden">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 text-center">
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-6">Looking Ahead</h2>
               <h3 className="text-3xl md:text-6xl font-display font-extrabold text-gray-900 mb-10 leading-[1.1] tracking-tight">What’s next</h3>
               <p className="text-xl md:text-3xl text-gray-600 font-display font-medium leading-relaxed max-w-4xl mx-auto">
                 {project.nextSteps}
@@ -1417,9 +1417,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           </section>
 
           {/* SECTION 6: Support this work */}
-          <section className="py-16 md:py-24 bg-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-[#1a1a1a] p-12 md:p-32 rounded-[3.5rem] md:rounded-[5rem] text-white text-center relative overflow-hidden shadow-3xl">
+          <section className="py-10 md:py-14 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+              <div className="bg-[#1a1a1a] p-8 md:p-24 rounded-[3.5rem] md:rounded-[5rem] text-white text-center relative overflow-hidden shadow-3xl">
                 <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 blur-[120px] rounded-full"></div>
                 <div className="relative z-10">
                   <h3 className="text-3xl md:text-6xl font-display font-extrabold mb-10 leading-[1.1] tracking-tight">Support this work</h3>
@@ -1428,7 +1428,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   </p>
                   <button
                     onClick={() => onNavigate && onNavigate('donate')}
-                    className="px-12 py-8 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
+                    className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
                   >
                     Restore sight today <ArrowRight className="w-5 h-5 transition-transform" />
                   </button>
@@ -1442,13 +1442,13 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
         function ImpactPage({onNavigate}: {onNavigate ?: (id: string) => void }) {
   return (
-        <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
             <div className="max-w-5xl mb-24 md:mb-32">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-5"
               >
                 <span>Stories from the Field</span>
               </motion.div>
@@ -1471,7 +1471,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 mb-24 md:mb-32">
               <div className="col-span-full mb-8 md:mb-12">
-                <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Impact Data</h2>
+                <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-3">Impact Data</h2>
                 <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight">Transparency & Results</h3>
               </div>
               {IMPACT_STATS.map((stat, i) => (
@@ -1481,7 +1481,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -15 }}
-                  className="p-8 md:p-16 bg-white border border-gray-100 shadow-xl rounded-[3rem] text-center hover:shadow-3xl transition-all duration-700"
+                  className="p-6 md:p-12 bg-white border border-gray-100 shadow-xl rounded-[3rem] text-center hover:shadow-3xl transition-all duration-700"
                 >
                   <div className="text-4xl md:text-7xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
                   <div className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em] leading-tight">{stat.label}</div>
@@ -1494,9 +1494,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
               >
-                <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-8">Success Story</h2>
+                <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-4">Success Story</h2>
                 <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 md:mb-10 leading-[1.1] tracking-tight">Cahara's Clarity</h3>
-                <div className="bg-primary/5 p-8 md:p-16 rounded-3xl md:rounded-[4rem] relative shadow-xl border border-primary/10">
+                <div className="bg-primary/5 p-6 md:p-12 rounded-3xl md:rounded-[4rem] relative shadow-xl border border-primary/10">
                   <Quote className="w-12 h-12 md:w-16 md:h-16 text-primary/10 absolute top-6 right-6 md:top-10 md:right-10" />
                   <p className="text-lg md:text-2xl text-gray-700 leading-relaxed italic font-display font-extrabold mb-8 md:mb-12 relative z-10 tracking-tight">
                     "I couldn’t see the blackboard at school, even from the front row. I was scared to sing because I couldn’t read the lyrics, and I thought something was wrong with me."
@@ -1520,17 +1520,17 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                <div className="absolute -bottom-10 -right-10 glass p-6 md:p-10 rounded-[2rem] shadow-2xl">
+                <div className="absolute -bottom-10 -right-10 glass p-4 md:p-8 rounded-[2rem] shadow-2xl">
                   <div className="text-2xl md:text-4xl font-display font-black text-primary tracking-tighter">100%</div>
                   <div className="text-[11px] font-black text-gray-400 uppercase tracking-[0.2em]">Vision Restored</div>
                 </div>
               </motion.div>
             </div>
 
-            <div className="bg-[#0F172A] p-12 md:p-40 rounded-3xl md:rounded-[5rem] text-white relative overflow-hidden shadow-3xl mb-24 md:mb-32">
+            <div className="bg-[#0F172A] p-8 md:p-28 rounded-3xl md:rounded-[5rem] text-white relative overflow-hidden shadow-3xl mb-24 md:mb-32">
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[160px] rounded-full"></div>
               <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 blur-[120px] rounded-full"></div>
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-12 md:mb-20 text-center">Global Statistics</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-6 md:mb-20 text-center">Global Statistics</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 relative z-10">
                 {[
                   { val: '80%', desc: 'Of global blindness is preventable or treatable with existing medical interventions.' },
@@ -1547,7 +1547,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             {/* Patient Stories Section */}
             <div className="mb-24 md:mb-32">
               <div className="max-w-5xl mx-auto text-center mb-12 md:mb-20">
-                <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Real Impact</h2>
+                <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-3">Real Impact</h2>
                 <h3 className="text-2xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight">Patient Stories</h3>
                 <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed mt-6 max-w-2xl mx-auto">
                   Behind every statistic is a human life transformed by the power of restored vision. Read their inspiring journeys.
@@ -1608,7 +1608,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                         <div className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{patient.location}</div>
                       </div>
                     </div>
-                    <div className="p-8 md:p-10 flex-grow flex flex-col bg-white">
+                    <div className="p-6 md:p-8 flex-grow flex flex-col bg-white">
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed font-display font-medium mb-6 flex-grow">
                         {patient.story}
                       </p>
@@ -1623,7 +1623,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             {/* Resources Section */}
             <div className="max-w-5xl mx-auto text-center mb-16 md:mb-32">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-8">Transparency</h2>
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4">Transparency</h2>
               <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 mb-8 md:mb-12 leading-[1.1] tracking-tight">Annual Reports & Publications</h3>
               <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed mb-12 md:mb-16 max-w-3xl mx-auto">
                 We are committed to full transparency and accountability. Access our latest financial statements, annual reports, and governance policies.
@@ -1641,7 +1641,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                     key={i}
                     onClick={() => onNavigate && onNavigate('reports-policies')}
                     whileHover={{ y: -10 }}
-                    className="p-8 md:p-12 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl flex flex-col items-center group cursor-pointer text-center"
+                    className="p-6 md:p-8 bg-white rounded-3xl md:rounded-[3rem] border border-gray-100 shadow-xl flex flex-col items-center group cursor-pointer text-center"
                   >
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-primary/5 flex items-center justify-center text-primary mb-6 md:mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                       {resource.icon}
@@ -1662,7 +1662,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             <div className="text-center mt-12 md:mt-20">
               <button
                 onClick={() => onNavigate && onNavigate('donate')}
-                className="px-12 py-6 bg-accent hover:bg-orange-600 text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
+                className="px-8 py-6 bg-accent hover:bg-orange-600 text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Donate Now To Save Sight <ArrowRight className="w-5 h-5" />
               </button>
@@ -1680,13 +1680,13 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
   };
 
         return (
-        <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
             <div className="max-w-5xl mb-24 md:mb-32">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+                className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-5"
               >
                 <span>Get Involved</span>
               </motion.div>
@@ -1709,7 +1709,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-24 md:mb-32">
               <div className="col-span-full mb-8 md:mb-12">
-                <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-4 md:mb-6">Get Involved</h2>
+                <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-2 md:mb-6">Get Involved</h2>
                 <h3 className="text-xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight">Ways You Can Help</h3>
               </div>
               {[
@@ -1742,9 +1742,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   whileHover={{ y: -20 }}
                   transition={{ delay: i * 0.1 }}
                   onClick={() => onNavigate(cardLinks[item.title])}
-                  className="p-8 md:p-16 bg-white rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl hover:shadow-3xl transition-all duration-700 group cursor-pointer"
+                  className="p-6 md:p-12 bg-white rounded-3xl md:rounded-[4rem] border border-gray-100 shadow-xl hover:shadow-3xl transition-all duration-700 group cursor-pointer"
                 >
-                  <div className={`${item.color} p-5 md:p-6 rounded-2xl md:rounded-[2rem] w-fit mb-8 md:mb-10 text-white group-hover:rotate-12 transition-transform duration-500 shadow-lg`}>
+                  <div className={`${item.color} p-5 md:p-4 rounded-2xl md:rounded-[2rem] w-fit mb-8 md:mb-10 text-white group-hover:rotate-12 transition-transform duration-500 shadow-lg`}>
                     {item.icon}
                   </div>
                   <h3 className="text-2xl md:text-3xl font-display font-extrabold mb-4 md:mb-6 text-gray-900 tracking-tight">{item.title}</h3>
@@ -1756,7 +1756,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               ))}
             </div>
 
-            <div className="relative rounded-3xl md:rounded-[5rem] overflow-hidden bg-gray-900 p-12 md:p-40 text-white shadow-3xl mb-24 md:mb-32">
+            <div className="relative rounded-3xl md:rounded-[5rem] overflow-hidden bg-gray-900 p-8 md:p-28 text-white shadow-3xl mb-24 md:mb-32">
               <div className="absolute inset-0 opacity-40">
                 <img
                   src="https://images.unsplash.com/photo-1516841273335-e39b37888115?q=80&w=2047&auto=format&fit=crop"
@@ -1768,12 +1768,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
               <div className="relative z-10 max-w-3xl">
-                <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-8 md:mb-10">Legacy Giving</h2>
+                <h2 className="text-accent font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-4 md:mb-10">Legacy Giving</h2>
                 <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 md:mb-10 leading-[1.1] tracking-tight">A gift that ensures a lasting legacy.</h3>
                 <p className="text-lg md:text-xl text-gray-300 mb-10 md:mb-14 leading-relaxed font-display font-medium">
                   By including a gift in your Will, you ensure that Foresight Australia can continue its vital work in the prevention of blindness for generations to come.
                 </p>
-                <button className="px-10 py-5 md:px-12 md:py-6 bg-white text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105">
+                <button className="px-8 py-5 md:px-8 md:py-6 bg-white text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105">
                   Request Information Pack
                 </button>
               </div>
@@ -1799,20 +1799,20 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           setSubmitted(true);
   };
 
-          const inputCls = "w-full px-6 py-4 md:px-8 md:py-5 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400";
+          const inputCls = "w-full px-4 py-4 md:px-6 md:py-5 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400";
           const labelCls = "text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]";
 
           if (submitted) {
     return (
-          <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] min-h-[60vh] flex items-center justify-center">
+          <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen flex items-center justify-center">
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-xl w-full mx-auto px-4 text-center">
-              <div className="bg-white p-12 md:p-24 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
+              <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-10 text-primary">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Thank you for your interest.</h2>
+                <h2 className="text-2xl md:text-3xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Thank you for your interest.</h2>
                 <p className="text-lg md:text-xl text-gray-500 font-display font-medium mb-12">We will be in touch.</p>
-                <button onClick={() => onNavigate('get-involved')} className="px-10 py-5 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary/90 shadow-xl shadow-primary/20">
+                <button onClick={() => onNavigate('get-involved')} className="px-8 py-5 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary/90 shadow-xl shadow-primary/20">
                   Back to Get Involved
                 </button>
               </div>
@@ -1822,11 +1822,11 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
   }
 
           return (
-          <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+            <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
               <div className="mb-16 md:mb-24">
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
-                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10">
+                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-5">
                   <span>Get Involved</span>
                 </motion.div>
                 <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -1840,7 +1840,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </div>
 
               <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
-                className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden">
+                className="bg-white p-6 md:p-12 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-bl-full -mr-16 -mt-16"></div>
                 <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -1920,20 +1920,20 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             setSubmitted(true);
   };
 
-            const inputCls = "w-full px-6 py-4 md:px-8 md:py-5 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400";
+            const inputCls = "w-full px-4 py-4 md:px-6 md:py-5 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400";
             const labelCls = "text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]";
 
             if (submitted) {
     return (
-            <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] min-h-[60vh] flex items-center justify-center">
+            <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen flex items-center justify-center">
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-xl w-full mx-auto px-4 text-center">
-                <div className="bg-white p-12 md:p-24 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
+                <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
                   <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-10 text-accent">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Thank you for your enquiry.</h2>
+                  <h2 className="text-2xl md:text-3xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Thank you for your enquiry.</h2>
                   <p className="text-lg md:text-xl text-gray-500 font-display font-medium mb-12">We will be in touch.</p>
-                  <button onClick={() => onNavigate('get-involved')} className="px-10 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-accent-dark shadow-xl shadow-accent/20">
+                  <button onClick={() => onNavigate('get-involved')} className="px-8 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-accent-dark shadow-xl shadow-accent/20">
                     Back to Get Involved
                   </button>
                 </div>
@@ -1943,11 +1943,11 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
   }
 
             return (
-            <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+              <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
                 <div className="mb-16 md:mb-24">
                   <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
-                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10">
+                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-5">
                     <span>Get Involved</span>
                   </motion.div>
                   <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -1961,7 +1961,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                 </div>
 
                 <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
-                  className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden">
+                  className="bg-white p-6 md:p-12 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-accent/5 rounded-bl-full -mr-16 -mt-16"></div>
                   <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -2027,23 +2027,23 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             if (submitted) {
     return (
-            <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] min-h-[60vh] flex items-center justify-center">
+            <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="max-w-xl w-full mx-auto px-4 text-center"
               >
-                <div className="bg-white p-12 md:p-24 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
+                <div className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100">
                   <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-10 text-primary">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Message Sent!</h2>
+                  <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">Message Sent!</h2>
                   <p className="text-lg md:text-xl text-gray-500 font-display font-medium mb-12">
                     Thank you for reaching out to Foresight Australia. We've received your message and will get back to you shortly at foresight@foresight.org.au.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-10 py-5 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20"
+                    className="px-8 py-5 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20"
                   >
                     Send another message
                   </button>
@@ -2054,13 +2054,13 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
   }
 
             return (
-            <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+              <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                 <div className="max-w-5xl mb-24 md:mb-32">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-10"
+                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] mb-5"
                   >
                     <span>Contact Us</span>
                   </motion.div>
@@ -2090,7 +2090,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                         { icon: <Mail className="w-8 h-8 md:w-10 md:h-10" />, title: 'Email', content: 'foresight@foresight.org.au' }
                       ].map((item, i) => (
                         <div key={i} className="flex items-start gap-6 md:gap-10 group">
-                          <div className="bg-white p-6 md:p-8 rounded-2xl md:rounded-[2rem] shadow-xl group-hover:bg-primary group-hover:text-white transition-all duration-500 text-primary border border-gray-100">
+                          <div className="bg-white p-4 md:p-6 rounded-2xl md:rounded-[2rem] shadow-xl group-hover:bg-primary group-hover:text-white transition-all duration-500 text-primary border border-gray-100">
                             {item.icon}
                           </div>
                           <div>
@@ -2107,29 +2107,29 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    className="bg-white p-8 md:p-24 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden"
+                    className="bg-white p-6 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100 relative overflow-hidden"
                   >
                     <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-bl-full -mr-16 -mt-16"></div>
                     <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10 relative z-10">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
                         <div className="space-y-3 md:space-y-4">
                           <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">First Name</label>
-                          <input required type="text" className="w-full px-6 py-4 md:px-10 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="John" />
+                          <input required type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="John" />
                         </div>
                         <div className="space-y-3 md:space-y-4">
                           <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Last Name</label>
-                          <input required type="text" className="w-full px-6 py-4 md:px-10 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="Doe" />
+                          <input required type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="Doe" />
                         </div>
                       </div>
                       <div className="space-y-3 md:space-y-4">
                         <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Email Address</label>
-                        <input required type="email" className="w-full px-6 py-4 md:px-10 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="john@example.com" />
+                        <input required type="email" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="john@example.com" />
                       </div>
                       <div className="space-y-3 md:space-y-4">
                         <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Message</label>
-                        <textarea required rows={4} className="w-full px-6 py-4 md:px-10 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="How can we help?"></textarea>
+                        <textarea required rows={4} className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="How can we help?"></textarea>
                       </div>
-                      <button type="submit" className="w-full py-4 md:py-8 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-[0.2em] text-xs hover:bg-accent-dark transition-all shadow-2xl shadow-accent/20">
+                      <button type="submit" className="w-full py-4 md:py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-[0.2em] text-xs hover:bg-accent-dark transition-all shadow-2xl shadow-accent/20">
                         Send Message
                       </button>
                     </form>
@@ -2148,20 +2148,20 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             return (
             <div className="bg-[#FAFAFA]">
               {/* SECTION 1: Hero */}
-              <section className="pt-32 pb-20 md:pt-48 md:pb-32 bg-primary text-white relative overflow-hidden">
+              <section className="pt-20 pb-12 md:pt-28 md:pb-20 bg-primary text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-20"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent"></div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="max-w-3xl"
                   >
-                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/20 border border-primary/30 text-white text-[13px] font-black uppercase tracking-[0.2em] mb-8">
+                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/20 border border-primary/30 text-white text-[13px] font-black uppercase tracking-[0.2em] mb-4">
                       <Heart className="w-4 h-4 fill-white" /> Make an Impact
                     </div>
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-8 leading-[1.1] tracking-tighter">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-8 leading-[1.1] tracking-tighter">
                       Restore Sight. <span className="text-secondary italic font-serif block mt-2">Change a Life.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-12">
@@ -2169,7 +2169,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                     </p>
                     <button
                       onClick={scrollToForm}
-                      className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105"
+                      className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105"
                     >
                       Restore sight today <ArrowRight className="w-5 h-5" />
                     </button>
@@ -2178,7 +2178,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </section>
 
               {/* Urgency Line */}
-              <section className="py-10 bg-[#FAFAFA] border-b border-gray-100">
+              <section className="py-6 bg-[#FAFAFA] border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 text-center">
                   <p className="text-sm md:text-base text-gray-500 font-display font-medium tracking-wide">
                     Thousands of people are still living with avoidable blindness today.
@@ -2187,10 +2187,10 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </section>
 
               {/* SECTION 2: Impact */}
-              <section className="py-16 md:py-24 border-b border-gray-100 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <section className="py-10 md:py-14 border-b border-gray-100 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                   <div className="text-center mb-16 md:mb-24">
-                    <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-6">Choose your impact</h2>
+                    <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-3">Choose your impact</h2>
                     <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight">
                       "Your support helps deliver life-changing eye care to those who need it most."
                     </h3>
@@ -2209,7 +2209,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
                         whileHover={{ y: -10, scale: 1.02 }}
-                        className="bg-gray-50 p-12 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 text-center group cursor-pointer"
+                        className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 text-center group cursor-pointer"
                       >
                         <div className="text-4xl md:text-6xl font-display font-black text-primary mb-6 group-hover:scale-110 transition-transform duration-500">{impact.val}</div>
                         <p className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{impact.desc}</p>
@@ -2217,7 +2217,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                     ))}
                   </div>
                   <div className="text-center">
-                    <p className="text-[13px] font-display font-black text-gray-400 uppercase tracking-[0.2em] bg-gray-50/50 inline-block px-8 py-4 rounded-full border border-gray-100">
+                    <p className="text-[13px] font-display font-black text-gray-400 uppercase tracking-[0.2em] bg-gray-50/50 inline-block px-6 py-4 rounded-full border border-gray-100">
                       "Monthly giving helps us reach more people consistently."
                     </p>
                   </div>
@@ -2225,17 +2225,17 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </section>
 
               {/* SECTION 3: Donation Form */}
-              <section id="donation-form" className="py-20 md:py-32 bg-white relative overflow-hidden">
+              <section id="donation-form" className="py-12 md:py-20 bg-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full"></div>
 
-                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-3xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
                   <div className="text-center mb-6">
                     <p className="text-[11px] font-display font-black text-gray-400 uppercase tracking-widest flex items-center justify-center gap-2">
                       <ShieldCheck className="w-4 h-4 text-primary" /> Secure donation powered by Donorbox
                     </p>
                   </div>
-                  <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-gray-100 p-4 md:p-8">
+                  <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-gray-100 p-4 md:p-6">
                     <iframe
                       src="https://donorbox.org/embed/celebrating-40-years-of-saving-sight?"
                       name="donorbox"
@@ -2255,7 +2255,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                     </p>
                     <button
                       onClick={scrollToForm}
-                      className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105 mx-auto"
+                      className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105 mx-auto"
                     >
                       Restore sight today <ArrowRight className="w-5 h-5" />
                     </button>
@@ -2264,9 +2264,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </section>
 
               {/* SECTION 4: Story */}
-              <section className="py-20 md:py-32">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="bg-primary/5 rounded-[3rem] p-8 md:p-20 border border-primary/10">
+              <section className="py-12 md:py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
+                  <div className="bg-primary/5 rounded-[3rem] p-6 md:p-14 border border-primary/10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
                       <div className="relative">
                         <div className="absolute inset-0 bg-accent/20 blur-[60px] rounded-full"></div>
@@ -2289,7 +2289,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                         <p className="text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
                           Ten-year-old Cahara couldn't see the words on the board or her teacher's smile. A simple pair of glasses changed everything. Now, her world is clear, and her future is bright.
                         </p>
-                        <div className="inline-block px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 mb-8">
+                        <div className="inline-block px-4 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 mb-8">
                           <p className="text-primary font-display font-black text-sm uppercase tracking-widest">
                             Your support makes stories like this possible.
                           </p>
@@ -2301,21 +2301,21 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </section>
 
               {/* SECTION 5: Trust & Transparency */}
-              <section className="py-20 md:py-32 bg-[#0F172A] text-white text-center">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <section className="py-12 md:py-20 bg-[#0F172A] text-white text-center">
+                <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
                   <ShieldCheck className="w-16 h-16 text-accent mx-auto mb-8" />
-                  <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-12 tracking-tight">Trust & Transparency</h2>
+                  <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-12 tracking-tight">Trust & Transparency</h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div className="p-8 bg-white/5 rounded-3xl border border-white/10">
+                    <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
                       <h4 className="text-xl font-display font-bold mb-3 text-white">Over 40 Years</h4>
                       <p className="text-gray-400 font-display font-medium">Of dedicated medical impact and sight restoration.</p>
                     </div>
-                    <div className="p-8 bg-white/5 rounded-3xl border border-white/10">
+                    <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
                       <h4 className="text-xl font-display font-bold mb-3 text-white">Global Reach</h4>
                       <p className="text-gray-400 font-display font-medium">Active programs across multiple high-need countries.</p>
                     </div>
-                    <div className="p-8 bg-white/5 rounded-3xl border border-white/10">
+                    <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
                       <h4 className="text-xl font-display font-bold mb-3 text-white">Sustainable Care</h4>
                       <p className="text-gray-400 font-display font-medium">Commitment to training locals and capacity building.</p>
                     </div>
@@ -2326,7 +2326,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   </p>
                   <button
                     onClick={() => onNavigate && onNavigate('reports-policies')}
-                    className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-display font-bold transition-all"
+                    className="px-6 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-display font-bold transition-all"
                   >
                     Read Reports & Policies
                   </button>
@@ -2334,10 +2334,10 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
               </section>
 
               {/* SECTION 6: FAQ */}
-              <section className="py-20 md:py-32 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <section className="py-12 md:py-20 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6 text-center">
                   <div className="mb-16">
-                    <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-4">Common Questions</h2>
+                    <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-2">Common Questions</h2>
                     <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight">Donation FAQ</h3>
                   </div>
 
@@ -2348,7 +2348,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                       { q: 'Can I donate monthly?', a: 'Absolutely. Choosing a monthly recurring donation via the form above provides reliable support for our sustainable programs.' },
                       { q: 'How is Foresight different?', a: 'We focus on sustainable empowerment. We don\'t just treat patients; we build local medical infrastructure and train regional clinicians so they can serve their own communities long-term.' }
                     ].map((faq, i) => (
-                      <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                      <div key={i} className="bg-gray-50 p-6 rounded-3xl border border-gray-100">
                         <h4 className="text-xl font-display font-extrabold text-gray-900 mb-3">{faq.q}</h4>
                         <p className="text-gray-600 font-display font-medium leading-relaxed">{faq.a}</p>
                       </div>
@@ -2421,9 +2421,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             if (!story) {
     return (
-            <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] min-h-screen flex items-center justify-center">
+            <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen  flex items-center justify-center">
               <div className="text-center">
-                <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-4 tracking-tighter">Story not found</h2>
+                <h2 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tighter">Story not found</h2>
                 <button onClick={onBack} className="text-primary font-display font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
                   <ArrowLeft className="w-5 h-5" /> Back to Impact
                 </button>
@@ -2433,12 +2433,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
   }
 
             return (
-            <div className="pt-24 pb-20 md:pt-32 md:pb-32 bg-[#FAFAFA] min-h-screen">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="pt-14 pb-12 md:pt-20 md:pb-20 bg-[#FAFAFA] min-h-screen ">
+              <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
 
                 <button
                   onClick={onBack}
-                  className="group flex items-center gap-3 text-sm font-display font-black uppercase tracking-widest text-gray-500 hover:text-primary transition-colors mb-8 md:mb-12"
+                  className="group flex items-center gap-3 text-sm font-display font-black uppercase tracking-widest text-gray-500 hover:text-primary transition-colors mb-4 md:mb-12"
                 >
                   <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" /> Back to Impact
                 </button>
@@ -2448,7 +2448,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-8 md:mb-12 text-center md:text-left text-balance"
                 >
-                  <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold mb-4 md:mb-6 leading-[1.1] md:leading-[0.95] tracking-tighter text-gray-900">
+                  <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-4 md:mb-6 leading-[1.1] md:leading-[0.95] tracking-tighter text-gray-900">
                     {story.name}'s <span className="text-primary">Story</span>
                   </h1>
                   <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary text-[13px] font-black uppercase tracking-widest shadow-sm">
@@ -2472,7 +2472,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                 <div className="prose prose-lg md:prose-xl max-w-none prose-p:font-display prose-p:font-medium prose-p:text-gray-600 prose-p:leading-relaxed mx-auto md:mx-0">
                   <p>{story.p1}</p>
 
-                  <div className="my-12 md:my-16 bg-white p-8 md:p-12 rounded-3xl md:rounded-[2rem] border border-gray-100 shadow-xl relative">
+                  <div className="my-12 md:my-16 bg-white p-6 md:p-8 rounded-3xl md:rounded-[2rem] border border-gray-100 shadow-xl relative">
                     <Quote className="w-10 h-10 md:w-16 md:h-16 text-accent/20 absolute top-6 left-6 md:top-8 md:left-8" />
                     <p className="text-xl md:text-3xl text-gray-800 leading-relaxed italic font-display font-black text-center relative z-10 m-0 tracking-tight">
                       {story.quote}
@@ -2490,17 +2490,17 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   <p>{story.p3}</p>
                 </div>
 
-                <div className="mt-16 pt-10 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-center">
+                <div className="mt-16 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-center">
                   <button
                     onClick={onBack}
-                    className="w-full sm:w-auto px-10 py-5 bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-xl"
+                    className="w-full sm:w-auto px-8 py-5 bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-xl"
                   >
                     <ArrowLeft className="w-5 h-5" /> Back to Impact Stories
                   </button>
 
                   <button
                     onClick={() => onNavigate && onNavigate('donate')}
-                    className="w-full sm:w-auto px-10 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs hover:bg-accent-dark transition-all shadow-xl flex items-center justify-center gap-3 transform hover:scale-105"
+                    className="w-full sm:w-auto px-8 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs hover:bg-accent-dark transition-all shadow-xl flex items-center justify-center gap-3 transform hover:scale-105"
                   >
                     Donate to Save Sight <ArrowRight className="w-4 h-4" />
                   </button>
@@ -2512,13 +2512,13 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             function NewsPage() {
   return (
-            <div className="pt-32 pb-16 md:pt-48 md:pb-24 bg-[#FAFAFA] min-h-screen">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="pt-20 pb-10 md:pt-28 md:pb-14 bg-[#FAFAFA] min-h-screen ">
+              <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                 <div className="max-w-3xl mb-16">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-10"
+                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-5"
                   >
                     <span>Latest Updates</span>
                   </motion.div>
@@ -2541,8 +2541,8 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                       <img src="/media/images/solomon-islands-dr-mathew-bonie-hobart.png" alt="Dr Mathew Bonie" className="w-full h-full object-cover" />
                       <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary">Hobart Conference</div>
                     </div>
-                    <div className="p-8 flex flex-col flex-1">
-                      <p className="text-gray-400 text-sm font-display font-bold uppercase tracking-widest mb-4">April 2026</p>
+                    <div className="p-6 flex flex-col flex-1">
+                      <p className="text-gray-400 text-sm font-display font-bold uppercase tracking-widest mb-2">April 2026</p>
                       <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-6">Supporting Eye Health Leadership in Solomon Islands</h3>
                       <div className="text-gray-600 font-display font-medium leading-relaxed flex-1 space-y-4">
                         <p>
@@ -2568,8 +2568,8 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                       <img src="/media/images/solomon-islands-geoffrey-painter-hobart.png" alt="Geoffrey Painter" className="w-full h-full object-cover" />
                       <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary">Hobart Conference</div>
                     </div>
-                    <div className="p-8 flex flex-col flex-1">
-                      <p className="text-gray-400 text-sm font-display font-bold uppercase tracking-widest mb-4">April 2026</p>
+                    <div className="p-6 flex flex-col flex-1">
+                      <p className="text-gray-400 text-sm font-display font-bold uppercase tracking-widest mb-2">April 2026</p>
                       <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-6">Foresight Australia at the RANZCO Global Eye Health and IAPB Conference</h3>
                       <div className="text-gray-600 font-display font-medium leading-relaxed flex-1 space-y-4">
                         <p>
@@ -2610,13 +2610,13 @@ function ReportsPoliciesPage() {
             ];
 
             return (
-            <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+              <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                 <div className="max-w-5xl mb-24 md:mb-32">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-10"
+                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em] mb-5"
                   >
                     <span>Transparency</span>
                   </motion.div>
@@ -2632,7 +2632,7 @@ function ReportsPoliciesPage() {
                 <div className="space-y-24 md:space-y-32">
                   {/* SECTION 1: Annual Reports */}
                   <section id="annual-reports">
-                    <h2 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Annual Reports</h2>
+                    <h2 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Annual Reports</h2>
                     <p className="text-lg text-gray-500 font-display font-medium leading-relaxed mb-12 max-w-3xl">
                       Explore our annual reports to see how your support is making a measurable impact.
                     </p>
@@ -2643,7 +2643,7 @@ function ReportsPoliciesPage() {
                           href={`/media/documents/annual-report-${year}.pdf`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all cursor-pointer hover:shadow-xl"
+                          className="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between group hover:border-primary/30 transition-all cursor-pointer hover:shadow-xl"
                         >
                           <div className="flex items-center gap-6">
                             <div className="bg-primary/5 p-4 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-all">
@@ -2662,7 +2662,7 @@ function ReportsPoliciesPage() {
 
                   {/* SECTION 2: Policies */}
                   <section id="governance-policies">
-                    <h2 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Governance & Policies</h2>
+                    <h2 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Governance & Policies</h2>
                     <p className="text-lg text-gray-500 font-display font-medium leading-relaxed mb-12 max-w-3xl">
                       Foresight Australia is committed to transparency, accountability, and ethical practice. The following policies guide our work.
                     </p>
@@ -2673,7 +2673,7 @@ function ReportsPoliciesPage() {
                           href={`/media/documents/${policy.toLowerCase().replace(/ – /g, '-').replace(/ /g, '-').replace(/[()]/g, '')}.pdf`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between group hover:bg-gray-50 hover:border-primary/20 transition-all cursor-pointer"
+                          className="p-4 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between group hover:bg-gray-50 hover:border-primary/20 transition-all cursor-pointer"
                         >
                           <div className="flex items-center gap-4">
                             <ShieldCheck className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
@@ -2711,17 +2711,17 @@ function ReportsPoliciesPage() {
 
               if (submitted) {
     return (
-              <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA] min-h-[60vh] flex items-center">
+              <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen flex items-center">
                 <div className="max-w-xl mx-auto px-4 text-center">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-white p-12 rounded-[3rem] shadow-xl border border-gray-100"
+                    className="bg-white p-8 rounded-[3rem] shadow-xl border border-gray-100"
                   >
                     <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 text-primary">
                       <CheckCircle2 className="w-10 h-10" />
                     </div>
-                    <h2 className="text-3xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">Thank you for subscribing.</h2>
+                    <h2 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tight">Thank you for subscribing.</h2>
                     <p className="text-gray-500 font-display font-medium leading-relaxed">
                       We've added your email to our list. You'll soon receive the latest updates from Foresight Australia.
                     </p>
@@ -2732,15 +2732,15 @@ function ReportsPoliciesPage() {
   }
 
               return (
-              <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#FAFAFA]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                   <div className="max-w-3xl mx-auto">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-center mb-16"
                     >
-                      <h1 className="text-4xl md:text-6xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Subscribe to our newsletter</h1>
+                      <h1 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 mb-6 tracking-tight">Subscribe to our newsletter</h1>
                       <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed">
                         Stay up to date with Foresight Australia’s latest projects, impact stories, and updates from the field.
                       </p>
@@ -2751,7 +2751,7 @@ function ReportsPoliciesPage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 }}
                       onSubmit={handleSubmit}
-                      className="bg-white p-8 md:p-12 rounded-[3rem] shadow-xl border border-gray-100 space-y-8"
+                      className="bg-white p-6 md:p-8 rounded-[3rem] shadow-xl border border-gray-100 space-y-8"
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-3">
@@ -2760,7 +2760,7 @@ function ReportsPoliciesPage() {
                             type="text"
                             name="first_name"
                             required
-                            className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-display font-medium"
+                            className="w-full px-4 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-display font-medium"
                             placeholder="John"
                           />
                         </div>
@@ -2770,7 +2770,7 @@ function ReportsPoliciesPage() {
                             type="text"
                             name="last_name"
                             required
-                            className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-display font-medium"
+                            className="w-full px-4 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-display font-medium"
                             placeholder="Doe"
                           />
                         </div>
@@ -2782,7 +2782,7 @@ function ReportsPoliciesPage() {
                           type="email"
                           name="email"
                           required
-                          className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-display font-medium"
+                          className="w-full px-4 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-display font-medium"
                           placeholder="john.doe@example.com"
                         />
                       </div>
