@@ -521,28 +521,18 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
               className="lg:col-span-8 text-white"
             >
               <div className="flex items-center gap-6 mb-8 md:mb-10">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-[13px] font-black uppercase tracking-[0.2em]"
-                >
-                  <Heart className="w-4 h-4 fill-primary" />
-                  <span>Sight is a Human Right</span>
-                </motion.div>
-
                 <div className="inline-block mb-2 rounded-full border border-[#38b6ff]/30 bg-[#004aad]/10 px-4 py-2 text-[13px] md:text-[14px] font-bold uppercase tracking-[0.12em] text-[#38b6ff] backdrop-blur-sm">
                   40 Years of Impact
                 </div>
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter">
-                Eradicating <span className="text-secondary">Avoidable Blindness</span>.<br />
-                Restoring <span className="italic font-serif text-secondary opacity-80">Sight</span>.
+                Restoring <span className="text-secondary">Sight</span>.<br />
+                Changing <span className="italic font-serif text-secondary opacity-80">Lives</span>.
               </h1>
 
               <p className="text-lg md:text-xl text-gray-300 mb-10 md:mb-14 leading-relaxed max-w-2xl font-display font-medium">
-                9 out of 10 people who are blind do not need to be. Help us restore sight, train local eye care teams, and build lasting systems.
+                Delivering sustainable eye care to underserved communities in Australia, Indonesia, and the Pacific.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">

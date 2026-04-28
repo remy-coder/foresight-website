@@ -531,12 +531,12 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
               className="lg:col-span-12 text-white"
             >
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter shadow-sm">
-                Eradicating <span className="text-secondary">Avoidable Blindness</span>.<br />
-                Restoring <span className="italic font-serif text-secondary opacity-80">Sight</span>.
+                Restoring <span className="text-secondary">Sight</span>.<br />
+                Changing <span className="italic font-serif text-secondary opacity-80">Lives</span>.
               </h1>
 
               <p className="text-lg md:text-2xl text-gray-200 mb-10 md:mb-14 leading-relaxed max-w-3xl font-display font-medium">
-                9 out of 10 people who are blind don't need to be. We build sustainable eye care systems that change lives through clinical training and local infrastructure.
+                Delivering sustainable eye care to underserved communities in Australia, Indonesia, and the Pacific.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 md:gap-8">
