@@ -136,14 +136,14 @@ export const PROJECTS = [
     ],
     whatWeDo: 'Our work in Sumba focuses on building self-sufficiency. We establish permanent infrastructure, provide specialized training for local nurses and hospital staff, and screen thousands of children through school-based programs to detect vision loss early.',
     approachCards: [
-      { icon: 'Target', label: 'Clinical Care', text: 'Each visit delivers comprehensive outreach eye screening in remote villages across Central and West Sumba, bringing services directly to communities that cannot reach hospitals. In a typical week, our team sees 150–200 patients per day, distributing prescription glasses, identifying surgical referrals, and performing cataract operations at partner hospitals. To date, the program has conducted over 1,600 operations and 23,000+ eye examinations.' },
+      { icon: 'Target', label: 'Clinical Care', text: 'Each visit delivers comprehensive outreach eye screening in remote villages across Central and West Sumba, bringing services directly to communities that cannot reach hospitals. In a typical week, our team sees 150–200 patients per day, distributing prescription glasses, identifying surgical referrals, and performing cataract operations at partner hospitals. To date, the program has conducted 2,000+ surgeries, distributed 25,000+ glasses, and screened 200,000+ patients.' },
       { icon: 'Users', label: 'Training', text: 'Our long-term goal is not to be needed. We invest deeply in training local Eye Care Nurses (ECNs) — sponsoring them through formal ophthalmic training at UNHAS in Makassar, so they can run clinics, conduct screenings, and assist in surgery independently. Four trained ECNs now command eye clinics across the island as part of their regular medical duties. We also provide structured mentorship visits, lectures for UNHAS ophthalmology students, and training for hospital staff.' },
       { icon: 'Building2', label: 'Infrastructure', text: 'In 2024, Foresight equipped and established a permanent eye clinic and surgical theatre at RSUD Waikabubak Hospital in West Sumba — serving a catchment of approximately 200,000 people. An optical workshop was also established in partnership with OneSight/Essilor.' },
       { icon: 'BookOpen', label: 'School Screening', text: 'With approximately 700 primary schools and 200,000 students across Sumba, undetected childhood vision problems represent a silent crisis. Our program is piloting school-based screening initiatives to detect myopia, amblyopia, and other conditions early — before they become permanent.' }
     ],
     achievements: [
       'One permanent eye clinic established at RSUD Waikabubak Hospital (West Sumba). The clinic serves a population of approximately 200,000 people, equipped with diagnostic tools, an optical workshop, and a surgical theatre.',
-      '1,600+ surgeries and 23,000+ eye examinations delivered over 15 years of missions. In our October 2025 mission alone, the team saw 765 patients in a single week and distributed 730 pairs of glasses — with 79 surgeries performed.',
+      '2,000+ surgeries, 200,000+ patients screened, and 25,000+ pairs of glasses distributed over 15 years of missions. In our October 2025 mission alone, the team saw 765 patients in a single week and distributed 730 pairs of glasses — with 79 surgeries performed.',
       'Four local Eye Care Nurses (ECNs) trained and sponsored through UNHAS in Makassar. These nurses now run eye clinics on the island, screen patients, dispense glasses, and assist in surgery — building a foundation for care that continues when visiting teams aren\'t there.',
       'Transitioned from foreign-delivered surgical missions to a supervisory and training model, with Indonesian surgeons from UNHAS and PERDAMI increasingly leading surgical camps. This transition is the hallmark of a mature, sustainable program.'
     ],
@@ -165,9 +165,8 @@ export const PROJECTS = [
     ],
     partnersText: 'Delivering effective eye care in a remote region like Sumba requires more than clinical expertise — it requires trusted local partnerships. The Sumba Eye Program works in close collaboration with:',
     partners: [
-      'RSUD Waikabubak Hospital (West Sumba) — our primary clinical partner',
-      'Hasanuddin University (UNHAS), Makassar — training partner for surgeons and Eye Care Nurses',
-      'PERDAMI (Indonesian Ophthalmologists Association, NTT Province) — surgical collaboration and workforce development',
+      'UNHAS',
+      'PERDAMI',
       'Community and government partner — with deep roots in Sumba and an established relationship with the West Sumba Health Department, the Sumba Foundation is essential to the program\'s local reach and long-term sustainability.',
       'OneSight/Essilor — optical workshop equipment and spectacle supply',
       'ANZEF and Perpetual Foundation — grant funders supporting ongoing program operations',

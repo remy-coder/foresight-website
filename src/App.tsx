@@ -1499,6 +1499,8 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
                   if (lower.includes('chatswood private')) return '/media/images/Chatswood private.png';
                   if (lower.includes('foresight australia')) return '/media/images/Foresight logo.png';
                   if (lower.includes('pt berlian')) return '/media/images/PT Equipment.jpg';
+                  if (lower === 'unhas') return '/media/images/unhas.png';
+                  if (lower === 'perdami') return '/media/images/perdami.png';
                   return null;
                 })();
 
