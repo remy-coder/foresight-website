@@ -1424,6 +1424,43 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
         </div>
       </section>
 
+      {/* SECTION 4.2: Visit Update */}
+      {'visitUpdate' in project && project.visitUpdate && (
+        <section className="py-10 md:py-14 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+            <div className="mb-12 md:mb-16">
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">
+                {(project as any).visitUpdate.label}
+              </h2>
+              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                {(project as any).visitUpdate.heading}
+              </h3>
+            </div>
+            <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed mb-12">
+              {(project as any).visitUpdate.intro}
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 mb-12">
+              {(project as any).visitUpdate.stats.map((stat: any, i: number) => (
+                <div key={i} className="text-center p-6 bg-gray-50 rounded-3xl border border-gray-100">
+                  <div className="text-3xl md:text-5xl font-display font-black text-primary mb-2">{stat.value}</div>
+                  <div className="text-sm md:text-base text-gray-600 font-display font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+              {(project as any).visitUpdate.blocks.map((block: any, i: number) => (
+                <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition-all duration-300">
+                  <h4 className="text-xl font-display font-extrabold text-gray-900 mb-4">{block.heading}</h4>
+                  <p className="text-base text-gray-600 font-display font-medium leading-relaxed">{block.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* SECTION 4.5: Program Milestones */}
       {'milestones' in project && project.milestones && (
         <section className="py-10 md:py-14 bg-[#FAFAFA]">

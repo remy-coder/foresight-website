@@ -124,7 +124,7 @@ export const PROJECTS = [
     image: "/media/images/Sumbaproject.png",
     supportingImages: ["/media/images/Sumbaproject2.png", "/media/images/Andre2.png"],
     status: 'Active',
-    intro: 'A long-term, sustainable partnership transforming eye health on Sumba Island through infrastructure, training, and surgical excellence.',
+    intro: 'A long-term partnership transforming eye health on Sumba Island — now evolving from outreach missions into a permanent, locally-led eye care service in West Sumba.',
     whyItMatters: [
       'One person goes blind every minute in Indonesia — and 80% of that blindness is preventable or curable. Sumba is one of Indonesia\'s most isolated and under-resourced islands, home to around 850,000 people in its central and western districts, yet with no permanent ophthalmic specialist and almost no local eye care infrastructure.',
       'Based on national prevalence data, an estimated 9,000 people on Sumba are blind and a further 21,000 live with moderate to severe visual impairment — many from cataracts that can be corrected with a simple 15-minute procedure. For a farmer, a mother, or a child trying to learn, untreated vision loss means lost productivity, dependency, and a diminished life. It doesn\'t have to be this way.'
@@ -142,11 +142,34 @@ export const PROJECTS = [
       { icon: 'BookOpen', label: 'School Screening', text: 'With approximately 700 primary schools and 200,000 students across Sumba, undetected childhood vision problems represent a silent crisis. Our program is piloting school-based screening initiatives to detect myopia, amblyopia, and other conditions early — before they become permanent.' }
     ],
     achievements: [
-      'One permanent eye clinic established at RSUD Waikabubak Hospital (West Sumba). The clinic serves a population of approximately 200,000 people, equipped with diagnostic tools, an optical workshop, and a surgical theatre.',
-      '2,000+ surgeries, 200,000+ patients screened, and 25,000+ pairs of glasses distributed over 15 years of missions. In our October 2025 mission alone, the team saw 765 patients in a single week and distributed 730 pairs of glasses — with 79 surgeries performed.',
-      'Four local Eye Care Nurses (ECNs) trained and sponsored through UNHAS in Makassar. These nurses now run eye clinics on the island, screen patients, dispense glasses, and assist in surgery — building a foundation for care that continues when visiting teams aren\'t there.',
-      'Transitioned from foreign-delivered surgical missions to a supervisory and training model, with Indonesian surgeons from UNHAS and PERDAMI increasingly leading surgical camps. This transition is the hallmark of a mature, sustainable program.'
+      'A permanent eye clinic and surgical theatre established at RSUD Waikabubak Hospital in West Sumba — serving a catchment of approximately 200,000 people and now functioning as a developing local eye care system, not just an outreach activity.',
+      '2,000+ cataract surgeries and 200,000+ eye examinations delivered across 15+ years of missions. In our most recent April 2026 visit alone, the team saw 818 patients in four clinical days, performed 55 cataract surgeries, completed 3 YAG laser treatments, and provided 744 pairs of glasses.',
+      'Four local Eye Care Nurses (ECNs) trained and sponsored through UNHAS in Makassar, now leading daily clinic operations with growing confidence and independence. In April 2026, eight Puskesmas (community health centre) staff began structured training to strengthen primary-care referral pathways.',
+      'Transitioned from foreign-led surgical missions to a locally-driven service model. Hospital eye nurses now play an active leadership role, and Indonesian doctors increasingly lead surgical care — the hallmark of a mature, sustainable program.'
     ],
+    visitUpdate: {
+      label: 'LATEST UPDATE',
+      heading: 'April 2026: A turning point',
+      intro: 'In April 2026, Foresight Australia returned to RSUD Waikabubak to continue building a sustainable eye care system for West Sumba. The visit demonstrated clear progress compared with previous trips: better clinic organisation, smoother patient flow, increased local capability, and a service model that is now transitioning from short-term outreach to a developing, locally-driven clinic.',
+      stats: [
+        { value: '818', label: 'Patients seen' },
+        { value: '744', label: 'Pairs of glasses provided' },
+        { value: '55', label: 'Cataract surgeries' },
+        { value: '3', label: 'YAG laser treatments' },
+        { value: '105', label: 'Referrals made' },
+        { value: '100%', label: 'Post-operative reviews completed' }
+      ],
+      blocks: [
+        {
+          heading: 'Stronger local ownership',
+          body: 'Hospital eye nurses played a more active role in daily operations, demonstrating greater confidence and leadership. Patient flow improved significantly with eight parallel screening stations, structured patient numbering, and dedicated clinical spaces for screening, biometry, surgery, and post-operative care. Collaboration between hospital staff, Indonesian clinicians, and the visiting team was stronger than ever.'
+        },
+        {
+          heading: 'Expanding into primary care',
+          body: 'For the first time, eight Puskesmas (community health centre) staff from across the district participated in structured training — learning visual acuity testing, basic refraction, identification of common eye conditions, and referral pathways. Strengthening this primary-care network is essential for earlier detection and sustainable continuity of care between specialist visits.'
+        }
+      ]
+    },
     milestones: [
       { year: '2007', text: 'Program founded by Dr Mark Ellis AM in West Sumba. First surgical eye camp delivered to a population with no specialist eye care.' },
       { year: '2021', text: 'Sumba Eye Program joins Foresight Australia. MOUs signed with Hasanuddin University (UNHAS) and the Sumba Foundation.' },
@@ -155,13 +178,14 @@ export const PROJECTS = [
       { year: 'October 2025', text: 'First joint surgical mission at the new Waikabubak clinic: 765 patients seen, 730 glasses distributed, 79 surgeries performed. Meeting with local government secures political commitment to program sustainability.' },
       { year: 'April 2026', text: 'Refresher training for nurses and pilot Puskesmas GP training program begins.' }
     ],
-    nextSteps: 'The Sumba Eye Program is entering its most ambitious phase. With a permanent clinic now established in West Sumba, our focus is shifting from building infrastructure to making it last — without us.\n\nOur priorities for 2026 and beyond:',
+    nextSteps: 'The April 2026 visit confirmed that the foundations of a sustainable eye care system in West Sumba are now clearly taking shape. The next phase is about consolidating those gains and removing the remaining barriers to long-term viability.\n\nOur priorities for the September 2026 follow-up visit and beyond:',
     nextStepsList: [
-      'Securing a resident ophthalmologist at RSUD Waikabubak through partnerships with UNHAS and local government funding',
-      'Launching school-based vision screening across West and Central Sumba in collaboration with the Health Department and Department of Education',
-      'Training Puskesmas (community health centre) GPs in basic eye health so they can serve as the first point of referral in remote areas',
-      'Expanding surgical capacity through structured mentorship with PERDAMI and UNHAS surgeons',
-      'Integrating eye health into the district health budget (Renja Dinkes) — making Sumbanese government a co-investor in the program\'s future'
+      'Progress BPJS approval — Indonesia\'s national health insurance system — so that more patients can access affordable care through the clinic',
+      'Re-establish consistent ophthalmology coverage following a planned gap from May to July, exploring interim arrangements with Dr Saphira from Karitas and other local partners',
+      'Deliver refresher training for hospital eye nurses and structured supervised practice for Puskesmas staff',
+      'Strengthen Puskesmas referral pathways to enable earlier case identification across the district',
+      'Improve local affordability of glasses and follow-up care — crucial for full visual outcomes and long-term continuity',
+      'Continue building a sustainable, financially viable, locally led clinic that operates consistently between visiting team trips'
     ],
     partnersText: 'Delivering effective eye care in a remote region like Sumba requires more than clinical expertise — it requires trusted local partnerships. The Sumba Eye Program works in close collaboration with:',
     partners: [
@@ -173,7 +197,7 @@ export const PROJECTS = [
       'PT Berlian Mansari Opti-Medic'
     ],
     cta: 'Support our work in Sumba',
-    ctaText: 'Fifteen years of work have taken us from annual surgical camps to a permanent clinic staffed by local nurses. Your support funds the training, equipment, and visits that keep this progress moving — and bring us closer to the day when Sumba no longer needs us to come.'
+    ctaText: 'April 2026 showed us that a sustainable eye care system in West Sumba is no longer a vision — it is taking shape. Your support funds the training, surgical visits, and partnerships that transform episodic outreach into permanent local care.'
   },
   {
     id: 'projects-bangladesh',
