@@ -134,6 +134,24 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
     );
   }
 
+    if (id === 'donate') {
+    return (
+      <a
+        href="https://donorbox.org/foresight-australia"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`
+          ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
+          ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
+          bg-accent text-white rounded-full px-6 py-2.5 hover:bg-accent-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5 md:ml-2
+          ${mobile ? 'text-center mx-6 my-6 w-auto block' : ''}
+        `}
+      >
+        {label}
+      </a>
+    );
+  }
+
   return (
     <button
       onClick={() => onClick(id)}
@@ -383,13 +401,13 @@ export default function App() {
                   <Phone className="w-4 h-4 transition-colors" />
                   <span className="text-[13px]">+61 2 8021 3632</span>
                 </a>
-                <button
-                  onClick={() => handleNavClick('donate')}
+                <a
+                  href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
                 >
                   <Heart className="w-4 h-4 text-accent" />
                   <span className="text-[13px]">Donate now</span>
-                </button>
+                </a>
                 <button
                   onClick={() => setCurrentPage('subscribe')}
                   className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
@@ -536,12 +554,12 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <button
-                  onClick={() => onNavigate('donate')}
+                <a
+                  href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                   className="w-full sm:w-auto px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-4"
                 >
                   Donate Now <ArrowRight className="w-5 h-5" />
-                </button>
+                </a>
                 <button
                   onClick={() => onNavigate('impact')}
                   className="w-full sm:w-auto px-8 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center"
@@ -717,12 +735,12 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                 Your contribution directly funds life-changing surgeries, training for local doctors, and essential equipment for underserved communities. Every dollar helps restore vision and hope.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
-                <button
-                  onClick={() => onNavigate('donate')}
+                <a
+                  href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                   className="w-full sm:w-auto px-12 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40"
                 >
                   Make a Donation
-                </button>
+                </a>
                 <button
                   onClick={() => onNavigate('get-involved')}
                   className="w-full sm:w-auto px-12 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all backdrop-blur-xl"
@@ -1064,12 +1082,12 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
               <p className="text-gray-500 font-display font-medium text-lg md:text-xl mb-12">
                 Join the thousands who are making sight restoration possible in communities that need it most.
               </p>
-              <button
-                onClick={() => onNavigate && onNavigate('donate')}
+              <a
+                href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                 className="px-8 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Restore sight today <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -1453,12 +1471,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   <p className="text-xl md:text-2xl text-gray-400 font-display font-medium leading-relaxed mb-16 max-w-2xl mx-auto">
                     Join us in establishing sustainable eye care systems in {project.location}. Your support restores sight and changes lives.
                   </p>
-                  <button
-                    onClick={() => onNavigate && onNavigate('donate')}
+                  <a
+                    href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                     className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
                   >
                     Restore sight today <ArrowRight className="w-5 h-5 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1687,12 +1705,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
 
             {/* Call to Donate CTA */}
             <div className="text-center mt-12 md:mt-20">
-              <button
-                onClick={() => onNavigate && onNavigate('donate')}
+              <a
+                href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                 className="px-8 py-6 bg-accent hover:bg-orange-600 text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Donate Now To Save Sight <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -2525,12 +2543,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                     <ArrowLeft className="w-5 h-5" /> Back to Impact Stories
                   </button>
 
-                  <button
-                    onClick={() => onNavigate && onNavigate('donate')}
+                  <a
+                    href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
                     className="w-full sm:w-auto px-8 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs hover:bg-accent-dark transition-all shadow-xl flex items-center justify-center gap-3 transform hover:scale-105"
                   >
                     Donate to Save Sight <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
