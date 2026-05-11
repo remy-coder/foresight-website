@@ -153,9 +153,13 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
   }
 
   return (
-    <button
-      onClick={() => onClick(id)}
-      className={`
+    <Link to={idToUrl(id)}
+      onClick={(e) => {
+        if (dropdown && !mobile) e.preventDefault();
+        onClick(id);
+      }}
+      
+       className={`
         ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
         ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
         ${id === 'donate' ? 'bg-accent text-white rounded-full px-6 py-2.5 hover:bg-accent-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5 md:ml-2' : ''}
@@ -166,15 +170,64 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
       {!mobile && id !== 'donate' && (
         <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-primary transform origin-left transition-transform duration-300 ${currentPage === id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
       )}
-    </button>
+    
+    </Link>
   );
 };
+
+
+export const idToUrl = (id: string) => {
+  if (id === 'home') return '/';
+  if (id === 'about') return '/about';
+  if (id === 'about-mission') return '/about#mission';
+  if (id === 'leaders') return '/about/our-leaders';
+  if (id === 'reports-policies' || id === 'annual-reports') return '/about/reports-policies';
+  if (id === 'contact') return '/contact';
+  if (id === 'news') return '/news';
+  if (id === 'get-involved') return '/get-involved';
+  if (id === 'donate') return 'https://donorbox.org/foresight-australia';
+  if (id === 'projects') return '/where-we-work';
+  if (id === 'projects-indonesia') return '/where-we-work/indonesia';
+  if (id === 'projects-australia') return '/where-we-work/australia';
+  if (id === 'projects-solomon-islands') return '/where-we-work/solomon-islands';
+  if (id === 'projects-timor-leste') return '/where-we-work/timor-leste';
+  if (id === 'projects-bangladesh') return '/where-we-work/bangladesh';
+  if (id === 'projects-philippines') return '/where-we-work/philippines';
+  if (id === 'impact') return '/stories';
+  if (id.startsWith('story-')) return `/stories/${id.replace('story-', '')}`;
+  return `/${id}`;
+};
+
+function StoryPageWrapper({ onNavigate }: { onNavigate?: (id: string) => void }) {
+  const { storyId } = useParams<{storyId: string}>();
+  return <StoryPage storyId={storyId || ''} onBack={() => onNavigate && onNavigate('impact')} onNavigate={onNavigate} />;
+}
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [projectFilter, setProjectFilter] = useState('All');
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const state = urlToState(window.location.pathname);
+      if (state) {
+        setCurrentPage(state.page);
+        setSelectedProjectId(state.project);
+        setSelectedStoryId(state.story);
+        setIsNotFound(false);
+      } else {
+        setIsNotFound(true);
+      }
+    };
+    
+    handlePopState();
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -333,47 +386,38 @@ export default function App() {
       <main className="pt-20">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentPage}
+            key={location.pathname}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
           >
-            {currentPage === 'home' && <HomePage onNavigate={handleNavClick} onSelectProject={(id) => { setCurrentPage('projects'); setSelectedProjectId(id); window.scrollTo(0, 0); }} />}
-            {currentPage === 'about' && <AboutPage onNavigate={handleNavClick} />}
-            {currentPage === 'reports-policies' && <ReportsPoliciesPage />}
-            {currentPage === 'annual-reports' && <ReportsPoliciesPage />}
-            {currentPage === 'projects' && !selectedProjectId && (
-              <ProjectsPage
-                initialFilter={projectFilter}
-                onSelectProject={(id) => {
-                  setSelectedProjectId(id);
-                  window.scrollTo(0, 0);
-                }}
-              />
-            )}
-            {currentPage === 'projects' && selectedProjectId && (
-              <ProjectDetailPage
-                projectId={selectedProjectId}
-                onBack={() => setSelectedProjectId(null)}
-                onNavigate={handleNavClick}
-              />
-            )}
-            {currentPage === 'impact' && <ImpactPage onNavigate={handleNavClick} />}
-            {currentPage === 'story' && selectedStoryId && (
-              <StoryPage
-                storyId={selectedStoryId}
-                onBack={() => handleNavClick('impact')}
-                onNavigate={handleNavClick}
-              />
-            )}
-            {currentPage === 'get-involved' && <GetInvolvedPage onNavigate={handleNavClick} />}
-            {currentPage === 'volunteer' && <VolunteerPage onNavigate={handleNavClick} />}
-            {currentPage === 'partner' && <PartnerPage onNavigate={handleNavClick} />}
-            {currentPage === 'news' && <NewsPage />}
-            {currentPage === 'contact' && <ContactPage />}
-            {currentPage === 'subscribe' && <SubscribePage />}
-            {currentPage === 'donate' && <DonatePage onNavigate={handleNavClick} />}
+            <Routes>
+              <Route path="/" element={<HomePage onNavigate={handleNavClick} onSelectProject={(id) => handleNavClick(id)} />} />
+              <Route path="/about" element={<AboutPage onNavigate={handleNavClick} />} />
+              <Route path="/about/our-leaders" element={<LeadersPage />} />
+              <Route path="/about/reports-policies" element={<ReportsPoliciesPage />} />
+              <Route path="/about/annual-reports" element={<ReportsPoliciesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/get-involved" element={<GetInvolvedPage onNavigate={handleNavClick} />} />
+              <Route path="/volunteer" element={<VolunteerPage onNavigate={handleNavClick} />} />
+              <Route path="/partner" element={<PartnerPage onNavigate={handleNavClick} />} />
+              <Route path="/donate" element={<DonatePage onNavigate={handleNavClick} />} />
+              
+              <Route path="/where-we-work" element={<ProjectsPage onSelectProject={(id) => handleNavClick(id)} />} />
+              <Route path="/where-we-work/indonesia" element={<ProjectDetailPage projectId="projects-indonesia" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
+              <Route path="/where-we-work/australia" element={<ProjectDetailPage projectId="projects-australia" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
+              <Route path="/where-we-work/solomon-islands" element={<ProjectDetailPage projectId="projects-solomon-islands" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
+              <Route path="/where-we-work/timor-leste" element={<ProjectDetailPage projectId="projects-timor-leste" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
+              <Route path="/where-we-work/bangladesh" element={<ProjectDetailPage projectId="projects-bangladesh" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
+              <Route path="/where-we-work/philippines" element={<ProjectDetailPage projectId="projects-philippines" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
+              
+              <Route path="/stories" element={<ImpactPage onNavigate={handleNavClick} />} />
+              <Route path="/stories/:storyId" element={<StoryPageWrapper onNavigate={handleNavClick} />} />
+              <Route path="/subscribe" element={<SubscribePage />} />
+              <Route path="*" element={<div className="min-h-screen flex items-center justify-center font-display text-4xl">404 - Page Not Found</div>} />
+            </Routes>
           </motion.div>
         </AnimatePresence>
       </main>
@@ -385,13 +429,13 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-11 mb-10 md:mb-14">
             {/* Left Column: Branding & Contact Buttons */}
             <div className="lg:col-span-4">
-              <div className="flex items-center gap-4 mb-6 group cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <Link to="/" className="flex items-center gap-4 mb-6 group cursor-pointer">
                 <img
                   src="/media/images/Foresight logo.png"
                   alt="Foresight Australia Logo"
                   className="h-11 md:h-14 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 object-contain"
                 />
-              </div>
+              </Link>
 
               <div className="space-y-2.5 mb-8">
                 <a
@@ -1309,13 +1353,13 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
           <section className="relative pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] overflow-hidden">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 w-full">
-              <button
-                onClick={onBack}
+              <Link
+                to="/where-we-work"
                 className="flex items-center gap-2 text-primary hover:text-primary transition-colors group mb-12"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 <span className="font-display font-black uppercase tracking-widest text-[11px]">Back to Locations</span>
-              </button>
+              </Link>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24 items-center">
                 <div className="lg:col-span-7">
@@ -2469,9 +2513,9 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen  flex items-center justify-center">
               <div className="text-center">
                 <h2 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tighter">Story not found</h2>
-                <button onClick={onBack} className="text-primary font-display font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
+                <Link to="/where-we-work" className="text-primary font-display font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
                   <ArrowLeft className="w-5 h-5" /> Back to Impact
-                </button>
+                </Link>
               </div>
             </div>
             );
@@ -2481,12 +2525,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             <div className="pt-14 pb-12 md:pt-20 md:pb-20 bg-[#FAFAFA] min-h-screen ">
               <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
 
-                <button
-                  onClick={onBack}
+                <Link
+                  to="/where-we-work"
                   className="group flex items-center gap-3 text-sm font-display font-black uppercase tracking-widest text-gray-500 hover:text-primary transition-colors mb-4 md:mb-12"
                 >
                   <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" /> Back to Impact
-                </button>
+                </Link>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -2536,12 +2580,12 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                 </div>
 
                 <div className="mt-16 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-center">
-                  <button
-                    onClick={onBack}
+                  <Link
+                    to="/where-we-work"
                     className="w-full sm:w-auto px-8 py-5 bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-xl"
                   >
                     <ArrowLeft className="w-5 h-5" /> Back to Impact Stories
-                  </button>
+                  </Link>
 
                   <a
                     href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
