@@ -137,9 +137,7 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
     if (id === 'donate') {
     return (
       <a
-        href="https://donorbox.org/foresight-australia"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/donate"
         className={`
           ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
           ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
@@ -185,7 +183,7 @@ export const idToUrl = (id: string) => {
   if (id === 'contact') return '/contact';
   if (id === 'news') return '/news';
   if (id === 'get-involved') return '/get-involved';
-  if (id === 'donate') return 'https://donorbox.org/foresight-australia';
+  if (id === 'donate') return '/donate';
   if (id === 'projects') return '/where-we-work';
   if (id === 'projects-indonesia') return '/where-we-work/indonesia';
   if (id === 'projects-australia') return '/where-we-work/australia';
@@ -446,7 +444,7 @@ export default function App() {
                   <span className="text-[13px]">+61 2 8021 3632</span>
                 </a>
                 <a
-                  href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                  href="/donate"
                   className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
                 >
                   <Heart className="w-4 h-4 text-accent" />
@@ -599,7 +597,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <a
-                  href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                  href="/donate"
                   className="w-full sm:w-auto px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/30 flex items-center justify-center gap-4"
                 >
                   Donate Now <ArrowRight className="w-5 h-5" />
@@ -780,7 +778,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
                 <a
-                  href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                  href="/donate"
                   className="w-full sm:w-auto px-12 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40"
                 >
                   Make a Donation
@@ -1127,7 +1125,7 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                 Join the thousands who are making sight restoration possible in communities that need it most.
               </p>
               <a
-                href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                href="/donate"
                 className="px-8 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Restore sight today <ArrowRight className="w-5 h-5" />
@@ -1516,7 +1514,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                     Join us in establishing sustainable eye care systems in {project.location}. Your support restores sight and changes lives.
                   </p>
                   <a
-                    href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                    href="/donate"
                     className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
                   >
                     Restore sight today <ArrowRight className="w-5 h-5 transition-transform" />
@@ -1750,7 +1748,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             {/* Call to Donate CTA */}
             <div className="text-center mt-12 md:mt-20">
               <a
-                href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                href="/donate"
                 className="px-8 py-6 bg-accent hover:bg-orange-600 text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Donate Now To Save Sight <ArrowRight className="w-5 h-5" />
@@ -2229,226 +2227,208 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
             );
 }
 
-            function DonatePage({onNavigate}: {onNavigate ?: (id: string) => void }) {
-  const scrollToForm = () => {
-              document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
+            function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      'script[src="https://donorbox.org/widget.js"]'
+    );
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = 'https://donorbox.org/widget.js';
+      script.setAttribute('paypalExpress', 'false');
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
-            return (
-            <div className="bg-[#FAFAFA]">
-              {/* SECTION 1: Hero */}
-              <section className="pt-20 pb-12 md:pt-28 md:pb-20 bg-primary text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-20"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent"></div>
+  const [amount, setAmount] = useState<string | null>(null);
+  const [frequency, setFrequency] = useState<'single' | 'monthly'>('single');
+  const [project, setProject] = useState('All Foresight Projects');
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="max-w-3xl"
-                  >
-                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/20 border border-primary/30 text-white text-[13px] font-black uppercase tracking-[0.2em] mb-4">
-                      <Heart className="w-4 h-4 fill-white" /> Make an Impact
-                    </div>
-                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-extrabold mb-8 leading-[1.1] tracking-tighter">
-                      Restore Sight. <span className="text-secondary italic font-serif block mt-2">Change a Life.</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-12">
-                      Your donation helps provide eye care, surgery, and training in underserved communities. Every contribution brings light to someone's world.
-                    </p>
-                    <button
-                      onClick={scrollToForm}
-                      className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105"
-                    >
-                      Restore sight today <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </motion.div>
-                </div>
-              </section>
+  const tiers = [
+    { amount: '$35', title: 'The First Step', outcome: 'Provide a comprehensive eye screening for a child or adult in a remote community.' },
+    { amount: '$150', title: 'The Gift of Sight', outcome: 'Fund a cataract surgery and restore someone’s vision in under 30 minutes.' },
+    { amount: '$500', title: 'Train a Healer', outcome: 'Support the training of a local nurse or clinician, creating long-term impact.' },
+    { amount: '$2,500', title: 'Equip a Clinic', outcome: 'Help provide essential equipment to deliver ongoing eye care services.' }
+  ];
 
-              {/* Urgency Line */}
-              <section className="py-6 bg-[#FAFAFA] border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 text-center">
-                  <p className="text-sm md:text-base text-gray-500 font-display font-medium tracking-wide">
-                    Thousands of people are still living with avoidable blindness today.
-                  </p>
-                </div>
-              </section>
+  return (
+    <div className="bg-[#FAFAFA] min-h-screen ">
+      {/* 1. HERO SECTION */}
+      <section className="pt-12 pb-8 md:pt-16 md:pb-10 bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-30 brightness-[0.75]"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
-              {/* SECTION 2: Impact */}
-              <section className="py-10 md:py-14 border-b border-gray-100 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
-                  <div className="text-center mb-16 md:mb-24">
-                    <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-3">Choose your impact</h2>
-                    <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight max-w-3xl mx-auto leading-tight">
-                      "Your support helps deliver life-changing eye care to those who need it most."
-                    </h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16 md:mb-20">
-                    {[
-                      { val: 'General', desc: "General donation to Foresight's projects" },
-                      { val: 'Sumba', desc: 'Support the Sumba Eye Program' },
-                      { val: 'Solomon', desc: 'Support the Solomon Islands partnership' },
-                      { val: 'Australia', desc: 'Support the Australian Project' }
-                    ].map((impact, i) => (
-                      <motion.div
-                        key={i}
-                        onClick={scrollToForm}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        whileHover={{ y: -10, scale: 1.02 }}
-                        className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 text-center group cursor-pointer"
-                      >
-                        <div className="text-4xl md:text-6xl font-display font-black text-primary mb-6 group-hover:scale-110 transition-transform duration-500">{impact.val}</div>
-                        <p className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{impact.desc}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[13px] font-display font-black text-gray-400 uppercase tracking-[0.2em] bg-gray-50/50 inline-block px-6 py-4 rounded-full border border-gray-100">
-                      "Monthly giving helps us reach more people consistently."
-                    </p>
-                  </div>
-                </div>
-              </section>
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl mx-auto"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-4 leading-[1.1] tracking-tighter">
+              Restore Sight Today
+            </h1>
+            <p className="text-lg md:text-xl text-secondary opacity-90 font-display font-medium leading-relaxed mb-6">
+              Your donation directly supports life-changing eye care and sustainable local training programs.
+            </p>
+            <p className="text-sm md:text-base text-accent font-display font-black uppercase tracking-[0.2em] italic">
+              "You are giving someone the chance to see their family again."
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-              {/* SECTION 3: Donation Form */}
-              <section id="donation-form" className="py-12 md:py-20 bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full"></div>
-
-                <div className="max-w-3xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
-                  <div className="text-center mb-6">
-                    <p className="text-[11px] font-display font-black text-gray-400 uppercase tracking-widest flex items-center justify-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-primary" /> Secure donation powered by Donorbox
-                    </p>
-                  </div>
-                  <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-gray-100 p-4 md:p-6">
-                    <iframe
-                      src="https://donorbox.org/embed/celebrating-40-years-of-saving-sight?"
-                      name="donorbox"
-                      allowPaymentRequest="allowpaymentrequest"
-                      seamless={true}
-                      frameBorder="0"
-                      scrolling="no"
-                      height="900"
-                      width="100%"
-                      style={{ maxWidth: '500px', minWidth: '250px', maxHeight: 'none !important', margin: '0 auto', display: 'block' }}
-                      allow="payment">
-                    </iframe>
-                  </div>
-                  <div className="mt-16 text-center max-w-2xl mx-auto px-4">
-                    <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
-                      Every donation helps restore sight and build sustainable eye care systems in communities that need it most.
-                    </p>
-                    <button
-                      onClick={scrollToForm}
-                      className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center gap-4 shadow-2xl shadow-accent/30 hover:scale-105 mx-auto"
-                    >
-                      Restore sight today <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-              </section>
-
-              {/* SECTION 4: Story */}
-              <section className="py-12 md:py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
-                  <div className="bg-primary/5 rounded-[3rem] p-6 md:p-14 border border-primary/10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-accent/20 blur-[60px] rounded-full"></div>
-                        <img
-                          src="/media/images/Cahara.png"
-                          alt="Cahara's clear vision restored"
-                          className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square md:aspect-[4/5]"
-                        />
-                      </div>
-                      <div>
-                        <Quote className="w-16 h-16 text-primary/20 mb-8" />
-                        <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight mb-6">
-                          She couldn’t see the board. Now she can see her future.
-                        </h3>
-                        <div className="mb-8">
-                          <p className="text-2xl md:text-3xl font-serif italic text-primary leading-relaxed">
-                            "When I put on my glasses, I saw everything."
-                          </p>
-                        </div>
-                        <p className="text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
-                          Ten-year-old Cahara couldn't see the words on the board or her teacher's smile. A simple pair of glasses changed everything. Now, her world is clear, and her future is bright.
-                        </p>
-                        <div className="inline-block px-4 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 mb-8">
-                          <p className="text-primary font-display font-black text-sm uppercase tracking-widest">
-                            Your support makes stories like this possible.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* SECTION 5: Trust & Transparency */}
-              <section className="py-12 md:py-20 bg-[#0F172A] text-white text-center">
-                <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
-                  <ShieldCheck className="w-16 h-16 text-accent mx-auto mb-8" />
-                  <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-12 tracking-tight">Trust & Transparency</h2>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
-                      <h4 className="text-xl font-display font-bold mb-3 text-white">Over 40 Years</h4>
-                      <p className="text-gray-400 font-display font-medium">Of dedicated medical impact and sight restoration.</p>
-                    </div>
-                    <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
-                      <h4 className="text-xl font-display font-bold mb-3 text-white">Global Reach</h4>
-                      <p className="text-gray-400 font-display font-medium">Active programs across multiple high-need countries.</p>
-                    </div>
-                    <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
-                      <h4 className="text-xl font-display font-bold mb-3 text-white">Sustainable Care</h4>
-                      <p className="text-gray-400 font-display font-medium">Commitment to training locals and capacity building.</p>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 font-display font-medium mb-8">
-                    View our Annual Reports and Policies for full transparency.
-                  </p>
-                  <button
-                    onClick={() => onNavigate && onNavigate('reports-policies')}
-                    className="px-6 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-display font-bold transition-all"
-                  >
-                    Read Reports & Policies
-                  </button>
-                </div>
-              </section>
-
-              {/* SECTION 6: FAQ */}
-              <section className="py-12 md:py-20 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6 text-center">
-                  <div className="mb-16">
-                    <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[13px] uppercase mb-2">Common Questions</h2>
-                    <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight">Donation FAQ</h3>
-                  </div>
-
-                  <div className="space-y-6 text-left">
-                    {[
-                      { q: 'Is my donation tax deductible?', a: 'Yes. Foresight Australia is a registered charity. Donations over $2 made by Australian residents are tax deductible.' },
-                      { q: 'Where does my money go?', a: 'Your funds directly support on-the-ground eye care, critical surgical procedures, local clinician training, and equipping regional hospitals.' },
-                      { q: 'Can I donate monthly?', a: 'Absolutely. Choosing a monthly recurring donation via the form above provides reliable support for our sustainable programs.' },
-                      { q: 'How is Foresight different?', a: 'We focus on sustainable empowerment. We don\'t just treat patients; we build local medical infrastructure and train regional clinicians so they can serve their own communities long-term.' }
-                    ].map((faq, i) => (
-                      <div key={i} className="bg-gray-50 p-6 rounded-3xl border border-gray-100">
-                        <h4 className="text-xl font-display font-extrabold text-gray-900 mb-3">{faq.q}</h4>
-                        <p className="text-gray-600 font-display font-medium leading-relaxed">{faq.a}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
+      
+      {/* DONATION FORM CONTAINER */}
+      <section className="py-8 md:py-10 bg-white relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+          <div className="bg-white rounded-[2.5rem] shadow-3xl border border-gray-100 p-6 md:p-8 relative z-10 -mt-20 md:-mt-24 text-center">
+            
+            <h2 className="text-primary font-display font-black uppercase tracking-[0.3em] text-[11px] mb-4">Make Your Gift</h2>
+            <h3 className="text-2xl md:text-4xl font-display font-extrabold mb-8 tracking-tight">Choose how you'd like to give</h3>
+            
+            {/* DONORBOX EMBED */}
+            <div className="flex justify-center mb-8">
+              <iframe
+                src="https://donorbox.org/embed/foresight-australia-donate?default_interval=o&enable_auto_scroll=false"
+                name="donorbox"
+                allowpaymentrequest="true"
+                seamless="seamless"
+                frameBorder="0"
+                scrolling="no"
+                height="900px"
+                width="100%"
+                style={{
+                  maxWidth: '500px',
+                  minWidth: '250px',
+                  maxHeight: 'none',
+                }}
+                allow="payment"
+                title="Donorbox Donation Form"
+              />
             </div>
-            );
+            
+            {/* TRUST & CREDIBILITY */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10 opacity-50 mt-8">
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-gray-600" />
+                <span className="text-[10px] font-display font-black uppercase tracking-widest text-gray-600">Secure SSL Donation</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Heart className="w-5 h-5 text-gray-600" />
+                <span className="text-[10px] font-display font-black uppercase tracking-widest text-gray-600">Registered Charity</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Award className="w-5 h-5 text-gray-600" />
+                <span className="text-[10px] font-display font-black uppercase tracking-widest text-gray-600">Tax Deductible</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      
+      {/* SECTION 5: Trust & Transparency */}
+      <section className="py-10 md:py-14 bg-[#0F172A] text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
+          <ShieldCheck className="w-16 h-16 text-accent mx-auto mb-8" />
+          <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-12 tracking-tight">Trust & Transparency</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
+              <h4 className="text-xl font-display font-bold mb-3 text-white">Over 40 Years</h4>
+              <p className="text-gray-400 font-display font-medium">Of dedicated medical impact and sight restoration.</p>
+            </div>
+            <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
+              <h4 className="text-xl font-display font-bold mb-3 text-white">Global Reach</h4>
+              <p className="text-gray-400 font-display font-medium">Active programs across multiple high-need countries.</p>
+            </div>
+            <div className="p-6 bg-white/5 rounded-3xl border border-white/10">
+              <h4 className="text-xl font-display font-bold mb-3 text-white">Sustainable Care</h4>
+              <p className="text-gray-400 font-display font-medium">Commitment to training locals and capacity building.</p>
+            </div>
+          </div>
+
+          <p className="text-gray-400 font-display font-medium mb-8">
+            View our Annual Reports and Policies for full transparency.
+          </p>
+          <button
+            onClick={() => onNavigate && onNavigate('reports-policies')}
+            className="px-6 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-display font-bold transition-all"
+          >
+            Read Reports & Policies
+          </button>
+        </div>
+      </section>
+
+      
+      {/* SECTION 6: FAQ */}
+      <section className="py-10 md:py-14 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6 text-center">
+          <div className="mb-12">
+            <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-2">Common Questions</h2>
+            <h3 className="text-3xl md:text-4xl font-display font-extrabold text-gray-900 tracking-tight">Donation FAQ</h3>
+          </div>
+
+          <div className="space-y-6 text-left">
+            {[
+              { q: 'Is my donation tax deductible?', a: 'Yes. Foresight Australia is a registered charity. Donations over $2 made by Australian residents are tax deductible.' },
+              { q: 'Where does my money go?', a: 'Your funds directly support on-the-ground eye care, critical surgical procedures, local clinician training, and equipping regional hospitals.' },
+              { q: 'Can I donate monthly?', a: 'Absolutely. Choosing a monthly recurring donation via the form above provides reliable support for our sustainable programs.' },
+              { q: 'How is Foresight different?', a: 'We focus on sustainable empowerment. We don\'t just treat patients; we build local medical infrastructure and train regional clinicians so they can serve their own communities long-term.' }
+            ].map((faq, i) => (
+              <div key={i} className="bg-gray-50 p-6 rounded-3xl border border-gray-100">
+                <h4 className="text-xl font-display font-extrabold text-gray-900 mb-3">{faq.q}</h4>
+                <p className="text-gray-600 font-display font-medium leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    
+      {/* SECTION 4: Story */}
+      <section className="py-10 md:py-14 bg-[#FAFAFA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
+          <div className="bg-primary/5 rounded-[3rem] p-6 md:p-14 border border-primary/10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-accent/20 blur-[60px] rounded-full"></div>
+                <img
+                  src="/media/images/Cahara.png"
+                  alt="Cahara's clear vision restored"
+                  className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square md:aspect-[4/5]"
+                />
+              </div>
+              <div>
+                <Quote className="w-16 h-16 text-primary/20 mb-8" />
+                <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight mb-6">
+                  She couldn’t see the board. Now she can see her future.
+                </h3>
+                <div className="mb-8">
+                  <p className="text-2xl md:text-3xl font-serif italic text-primary leading-relaxed">
+                    "When I put on my glasses, I saw everything."
+                  </p>
+                </div>
+                <p className="text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
+                  Ten-year-old Cahara couldn't see the words on the board or her teacher's smile. A simple pair of glasses changed everything. Now, her world is clear, and her future is bright.
+                </p>
+                <div className="inline-block px-4 py-4 bg-white rounded-2xl shadow-sm border border-gray-100">
+                  <p className="text-primary font-display font-black text-sm uppercase tracking-widest">
+                    Your support makes stories like this possible.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </div>
+  );
 }
-            const PATIENT_STORIES: Record<string, {name: string, location: string, image1: string, image2: string, quote: string, p1: string, p2: string, p3: string }> = {
+
+const PATIENT_STORIES: Record<string, {name: string, location: string, image1: string, image2: string, quote: string, p1: string, p2: string, p3: string }> = {
               cahara: {
               name: 'Cahara',
             location: 'Sumba, Indonesia',
@@ -2588,7 +2568,7 @@ function ProjectDetailPage({projectId, onBack, onNavigate}: {projectId: string, 
                   </Link>
 
                   <a
-                    href="https://donorbox.org/foresight-australia" target="_blank" rel="noopener noreferrer"
+                    href="/donate"
                     className="w-full sm:w-auto px-8 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs hover:bg-accent-dark transition-all shadow-xl flex items-center justify-center gap-3 transform hover:scale-105"
                   >
                     Donate to Save Sight <ArrowRight className="w-4 h-4" />
