@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
-  CheckCircle2, 
   ArrowRight, 
   ShieldCheck, 
   Heart, 
@@ -18,9 +17,6 @@ interface DonatePageProps {
 }
 
 export default function DonatePage({ onNavigate }: DonatePageProps) {
-  const [amount, setAmount] = useState<string | null>(null);
-  const [frequency, setFrequency] = useState<'single' | 'monthly'>('single');
-  const [project, setProject] = useState('All Foresight Projects');
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const tiers = [
@@ -95,59 +91,35 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-[2.5rem] shadow-3xl border border-gray-100 p-6 md:p-12 relative z-10 -mt-20 md:-mt-24">
             
-            {/* A. MONTHLY / ONE-TIME TOGGLE */}
             <div className="mb-10 text-center">
-              <div className="inline-flex bg-gray-50 p-1.5 rounded-2xl border border-gray-100 mb-6">
-                <button
-                  onClick={() => setFrequency('monthly')}
-                  className={`px-6 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${frequency === 'monthly' ? 'bg-primary text-white shadow-lg' : 'text-gray-400 hover:text-primary'}`}
-                >
-                  Give Monthly
-                </button>
-                <button
-                  onClick={() => setFrequency('single')}
-                  className={`px-6 py-3 rounded-xl font-display font-black uppercase tracking-widest text-[11px] transition-all ${frequency === 'single' ? 'bg-primary text-white shadow-lg' : 'text-gray-400 hover:text-primary'}`}
-                >
-                  One-Time
-                </button>
-              </div>
+              {/* REMOVED TOGGLE - REPLACED WITH TEXT */}
+              <p className="text-lg text-gray-700 font-display font-bold mb-8">
+                One-off and monthly donations are available securely through Donorbox.
+              </p>
               
-              {/* B. IMMEDIATE IMPACT BOX */}
-              <motion.div
-                key={frequency}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className={`rounded-2xl p-6 mb-8 max-w-2xl mx-auto text-center ${frequency === 'monthly' ? 'bg-primary/5 border border-primary/10' : 'bg-accent/5 border border-accent/10'}`}
-              >
-                <h4 className={`font-display font-black uppercase tracking-widest text-xs mb-2 ${frequency === 'monthly' ? 'text-primary' : 'text-accent'}`}>
-                  {frequency === 'monthly' ? 'Join The Visionaries' : 'Immediate Impact'}
+              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 mb-12 max-w-2xl mx-auto text-center">
+                <h4 className="font-display font-black uppercase tracking-widest text-xs mb-2 text-primary">
+                  Immediate Impact
                 </h4>
                 <p className="text-sm text-gray-600 font-display font-medium leading-relaxed">
-                  {frequency === 'monthly' 
-                    ? 'Eradicating avoidable blindness takes consistent, long-term effort. By becoming a monthly supporter, you help us plan surgical missions and build sustainable systems.'
-                    : 'Your one-time gift provides immediate support for clinical screenings and sight-restoring surgeries for those in urgent need.'
-                  }
+                  Your gift provides immediate support for clinical screenings and sight-restoring surgeries for those in urgent need.
                 </p>
-              </motion.div>
+              </div>
+
+              <h4 className="text-gray-400 font-display font-black uppercase tracking-[0.2em] text-[10px] mb-8">
+                Examples of what your donation can help make possible
+              </h4>
             </div>
 
-            {/* C. DONATION IMPACT CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-10">
+            {/* DONATION IMPACT CARDS (STATIC) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-12">
               {tiers.map((tier) => (
-                <button
+                <div
                   key={tier.amount}
-                  onClick={() => setAmount(tier.amount)}
-                  className={`p-6 rounded-3xl border-2 transition-all text-left flex flex-col gap-3 group ${
-                    amount === tier.amount 
-                    ? 'border-accent bg-accent/5 shadow-xl shadow-accent/10' 
-                    : 'border-gray-100 hover:border-primary/20 hover:bg-gray-50'
-                  }`}
+                  className="p-8 rounded-3xl border border-gray-100 bg-gray-50/30 text-left flex flex-col gap-3 transition-all"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className={`text-2xl md:text-3xl font-display font-black ${amount === tier.amount ? 'text-accent' : 'text-gray-900 group-hover:text-primary'}`}>
-                      {tier.amount}
-                    </span>
-                    {amount === tier.amount && <CheckCircle2 className="w-6 h-6 text-accent" />}
+                  <div className="text-3xl md:text-4xl font-display font-black text-primary">
+                    {tier.amount}
                   </div>
                   <div>
                     <span className="block font-display font-black uppercase tracking-widest text-[11px] text-gray-400 mb-1">
@@ -157,36 +129,24 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
                       {tier.outcome}
                     </p>
                   </div>
-                </button>
+                </div>
               ))}
             </div>
 
-            {/* D. PROJECT / IMPACT DROPDOWN */}
-            <div className="mb-12 max-w-md mx-auto text-center">
-              <label className="block font-display font-black uppercase tracking-widest text-[11px] text-gray-400 mb-4">
-                WHERE WOULD YOU LIKE YOUR IMPACT TO GO?
-              </label>
-              <div className="relative">
-                <select 
-                  value={project}
-                  onChange={(e) => setProject(e.target.value)}
-                  className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-4 font-display font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer"
-                >
-                  <option>All Foresight Projects (Default)</option>
-                  <option>Sumba Eye Program</option>
-                  <option>Solomon Islands</option>
-                  <option>Australian Project</option>
-                </select>
-                <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
-                   <ChevronDown className="w-5 h-5 text-gray-400" />
-                </div>
-              </div>
+            {/* REMOVED DROPDOWN - REPLACED WITH TEXT */}
+            <div className="mb-12 max-w-2xl mx-auto text-center border-t border-gray-50 pt-12">
+              <h4 className="block font-display font-black uppercase tracking-widest text-[11px] text-gray-400 mb-4">
+                Choose Your Program
+              </h4>
+              <p className="text-gray-700 font-display font-medium leading-relaxed">
+                You can choose your preferred program inside Donorbox, including the Sumba Eye Program, Solomon Islands, Australian Project, or all Foresight projects.
+              </p>
             </div>
 
-            {/* E. DONATE NOW BUTTON */}
+            {/* DONATE ACTION */}
             <div className="text-center">
-              <p className="text-sm text-gray-500 font-display font-medium mb-4">
-                Your donation will be processed securely through Donorbox.
+              <p className="text-sm text-gray-500 font-display font-medium mb-6">
+                Your donation amount and preferred program will be selected securely on Donorbox.
               </p>
               <a
                 href="https://donorbox.org/foresight-australia-donate" 
@@ -194,10 +154,10 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
                 rel="noopener noreferrer" 
                 className="w-full md:w-auto px-12 py-6 bg-[#ff751f] hover:bg-[#e6661a] text-white rounded-[1.5rem] font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto mb-8"
               >
-                DONATE NOW <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                CONTINUE TO SECURE DONATION <ArrowRight className="w-5 h-5" />
               </a>
               
-              {/* F. TRUST BADGES */}
+              {/* TRUST BADGES */}
               <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
                 <div className="flex items-center gap-3">
                   <ShieldCheck className="w-5 h-5 text-gray-600" />
