@@ -1,12 +1,18 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Users, Linkedin, Mail } from 'lucide-react';
+import { Users, Mail } from 'lucide-react';
 import { TEAM } from '../constants';
 
 export default function LeadersPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleContact = (name: string) => {
+    const subject = encodeURIComponent(`Contact Enquiry for ${name} - Foresight Australia`);
+    const body = encodeURIComponent(`Hello Foresight Australia,\n\nI would like to get in touch with ${name} regarding:\n\n[Your message here]\n\nMy name:\nMy phone:\nMy email:`);
+    window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+  };
 
   return (
     <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA] min-h-screen ">
@@ -86,10 +92,13 @@ export default function LeadersPage() {
                 </p>
                 
                 <div className="pt-6 border-t border-gray-50 flex justify-between items-center">
-                   <div className="flex gap-4">
-                     <Linkedin className="w-5 h-5 text-gray-300 hover:text-primary transition-colors cursor-pointer" />
-                     <Mail className="w-5 h-5 text-gray-300 hover:text-primary transition-colors cursor-pointer" />
-                   </div>
+                   <button 
+                     onClick={() => handleContact(director.name)}
+                     className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary hover:text-accent transition-colors group/btn"
+                   >
+                     <Mail className="w-4 h-4" />
+                     Contact via Foresight
+                   </button>
                 </div>
               </div>
             </motion.div>

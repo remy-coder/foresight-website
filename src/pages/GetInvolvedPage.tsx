@@ -6,6 +6,26 @@ interface GetInvolvedPageProps {
 }
 
 export default function GetInvolvedPage({ onNavigate }: GetInvolvedPageProps) {
+  const handleAction = (item: any) => {
+    if (item.id === 'volunteer') {
+      const subject = encodeURIComponent('Volunteer enquiry - Foresight Australia');
+      const body = encodeURIComponent('Hello Foresight Australia,\n\nI am interested in volunteering with Foresight Australia. Please send me more information about current opportunities.\n\nMy name:\nMy phone:\nMy location:\nMy skills/background:');
+      window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+    } else if (item.id === 'partner') {
+      const subject = encodeURIComponent('Partnership enquiry - Foresight Australia');
+      const body = encodeURIComponent('Hello Foresight Australia,\n\nI am interested in discussing a potential partnership with Foresight Australia.\n\nOrganisation:\nContact name:\nPhone:\nArea of interest:');
+      window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+    } else if (item.id === 'donate') {
+      onNavigate && onNavigate('donate');
+    }
+  };
+
+  const handleLegacyRequest = () => {
+    const subject = encodeURIComponent('Legacy giving information pack request');
+    const body = encodeURIComponent('Hello Foresight Australia,\n\nI would like to receive more information about leaving a gift in my Will to support Foresight Australia.\n\nMy name:\nMy phone:\nPostal address or email:');
+    window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
@@ -80,7 +100,7 @@ export default function GetInvolvedPage({ onNavigate }: GetInvolvedPageProps) {
               <h3 className="text-xl md:text-2xl font-display font-extrabold mb-3 md:mb-4 text-gray-900 tracking-tight">{item.title}</h3>
               <p className="text-sm md:text-lg text-gray-500 mb-6 md:mb-8 leading-relaxed font-display font-medium">{item.desc}</p>
               <button 
-                onClick={() => onNavigate && onNavigate(item.id)}
+                onClick={() => handleAction(item)}
                 className="mt-auto font-display font-black text-primary uppercase tracking-[0.2em] text-xs flex items-center gap-3 group-hover:gap-5 transition-all"
               >
                 {item.action} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -109,7 +129,10 @@ export default function GetInvolvedPage({ onNavigate }: GetInvolvedPageProps) {
             <p className="text-base md:text-lg text-gray-300 mb-8 md:mb-10 leading-relaxed font-display font-medium">
               By including a gift in your Will, you ensure that Foresight Australia can continue its vital work in the prevention of blindness for generations to come.
             </p>
-            <button className="px-6 py-4 md:px-8 md:py-5 bg-white text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105">
+            <button 
+              onClick={handleLegacyRequest}
+              className="px-6 py-4 md:px-8 md:py-5 bg-white text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105"
+            >
               Request Information Pack
             </button>
           </div>

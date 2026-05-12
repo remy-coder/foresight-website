@@ -1,42 +1,30 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [isOpeningEmail, setIsOpeningEmail] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-  };
+    setIsOpeningEmail(true);
 
-  if (submitted) {
-    return (
-      <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA] min-h-screen flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="max-w-xl w-full mx-auto px-4 text-center"
-        >
-          <div className="bg-white p-8 md:p-12 rounded-3xl md:rounded-[3rem] shadow-3xl border border-gray-100">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 text-primary">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h2 className="text-xl md:text-3xl font-display font-extrabold mb-4 text-gray-900 tracking-tight">Message Sent!</h2>
-            <p className="text-base md:text-lg text-gray-500 font-display font-medium mb-10">
-              Thank you for reaching out to Foresight Australia. We've received your message and will get back to you shortly at foresight@foresight.org.au.
-            </p>
-            <button
-              onClick={() => setSubmitted(false)}
-              className="px-6 py-4 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20"
-            >
-              Send another message
-            </button>
-          </div>
-        </motion.div>
-      </div>
-    );
-  }
+    const formData = new FormData(e.target as HTMLFormElement);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    const subject = encodeURIComponent('Website enquiry - Foresight Australia');
+    const body = encodeURIComponent(`First name: ${firstName}\nLast name: ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`);
+    
+    window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+
+    // Reset button text after a delay
+    setTimeout(() => {
+      setIsOpeningEmail(false);
+    }, 3000);
+  };
 
   return (
     <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA]">
@@ -100,27 +88,33 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
                 <div className="space-y-3 md:space-y-4">
                   <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">First Name</label>
-                  <input required type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="John" />
+                  <input required name="firstName" type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="John" />
                 </div>
                 <div className="space-y-3 md:space-y-4">
                   <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Last Name</label>
-                  <input required type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="Doe" />
+                  <input required name="lastName" type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="Doe" />
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">
                 <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Email Address</label>
-                <input required type="email" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="john@example.com" />
+                <input required name="email" type="email" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="john@example.com" />
               </div>
               <div className="space-y-3 md:space-y-4">
                 <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Message</label>
-                <textarea required rows={5} className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 resize-none" placeholder="How can we help?"></textarea>
+                <textarea required name="message" rows={5} className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 resize-none" placeholder="How can we help?"></textarea>
               </div>
-              <button
-                type="submit"
-                className="w-full py-5 md:py-6 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20"
-              >
-                Send Message
-              </button>
+              <div className="space-y-6">
+                <button
+                  type="submit"
+                  disabled={isOpeningEmail}
+                  className="w-full py-5 md:py-6 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isOpeningEmail ? 'Opening email...' : 'Send Message'}
+                </button>
+                <p className="text-[11px] text-center text-gray-400 font-display font-medium leading-relaxed">
+                  Submitting this form will open your email app so you can send your message to Foresight Australia.
+                </p>
+              </div>
             </form>
           </motion.div>
         </div>

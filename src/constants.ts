@@ -392,3 +392,56 @@ export const PARTNERS = [
   { name: 'ACFID', logo: '/media/images/ACFID.png', url: 'https://acfid.asn.au/' },
   { name: 'ANZEF', logo: '/media/images/ANZEF.png', url: 'https://anzef.org/' },
 ];
+
+export const PATIENT_STORIES: Record<string, any> = {
+  'cahara': {
+    name: 'Cahara',
+    location: 'Sumba, Indonesia',
+    image1: '/media/images/Cahara.png',
+    image2: '/media/images/Sumbaproject2.png',
+    quote: '"When I put on my glasses, I saw everything clearly—the trees, my teacher’s smile, and the words on the chalkboard."',
+    p1: 'Ten-year-old Cahara from Sumba was diagnosed with severe myopia. For years, she struggled to keep up in class, unable to see the blackboard even from the front row. She was scared to sing because she couldn’t read the lyrics, and she thought something was fundamentally wrong with her.',
+    p2: 'Within minutes of being screened by the Sumba Eye Program team during a school outreach visit, she was fitted with her first pair of corrective lenses. The transformation was immediate. The blurry world she had grown accustomed to suddenly snapped into sharp focus.',
+    p3: 'With her vision restored, Cahara is now thriving in school and engaging fully with her community. Her journey from the back of the classroom to the front is a powerful reminder of how simple medical interventions can unlock a child\'s potential and change their future forever.'
+  },
+  'kristin': {
+    name: 'Kristin',
+    location: 'Solomon Islands',
+    image1: '/media/images/Kristin.png',
+    image2: '/media/images/Solomonproject.png',
+    quote: '"I thought my working days were over. Now, I can support my family again and see my grandchildren grow."',
+    p1: 'Kristin, a grandmother from a remote village in the Solomon Islands, had seen her world slowly fade to grey over several years. Cataracts in both eyes had left her almost entirely dependent on her family for daily tasks.',
+    p2: 'Through the National Eye Program supported by Foresight, Kristin underwent a 20-minute sight-restoring surgery. The procedure, which is standard in many parts of the world, was life-changing for her. When the bandages were removed the following day, she could see clearly for the first time in years.',
+    p3: 'Restored vision meant restored independence. Kristin is now back to her garden, contributing to her family\'s livelihood and participating in community life. Her story reflects the thousand of elders whose lives are transformed by surgical intervention each year.'
+  },
+  'richard': {
+    name: 'Richard',
+    location: 'Philippines',
+    image1: '/media/images/Richard.png',
+    image2: '/media/images/Richard2.png',
+    quote: '"Being able to work again is the greatest gift. I no longer feel like a burden to my children."',
+    p1: 'Richard, a farmer in Northern Luzon, relied on his sight for his survival. When cataracts began to cloud his vision, he could no longer work his fields safely, leading to a direct and devastating impact on his family\'s income.',
+    p2: 'During a mobile surgical mission supported by Foresight Australia, Richard received the surgery he desperately needed. The volunteer medical team worked tirelessly to clear the backlog of patients, ensuring that farmers like Richard could return to their essential work.',
+    p3: 'Today, Richard is back in the fields, productive and proud. His successful recovery has not only benefited him but has stabilized his entire household, proving that eye care is a critical component of economic stability in rural communities.'
+  },
+  'keirwin': {
+    name: 'Keirwin',
+    location: 'Philippines',
+    image1: '/media/images/Keirwin.png',
+    image2: '/media/images/Philippines Home.png',
+    quote: '"I can play with my friends now without being afraid of falling down. Everything is so bright!"',
+    p1: 'Keirwin was born with a congenital eye condition that severely limited his depth perception and clarity. In his early years, he was often hesitant to play or explore, fearful of the obstacles he couldn\'t clearly see.',
+    p2: 'A targeted clinical procedure at a regional hospital in the Philippines changed Keirwin\'s life. The surgery corrected the structural issues in his eyes, allowing his brain to finally receive clear visual signals for the first time.',
+    p3: 'With clear vision, Keirwin is now a bundle of energy. He is excelling in his early education and is no longer held back by the fear of the dark or the unknown. His early intervention has set him on a path toward a full and active life.'
+  },
+  'andre': {
+    name: 'Andre',
+    location: 'Sumba, Indonesia',
+    image1: '/media/images/Andre.png',
+    image2: '/media/images/Andre2.png',
+    quote: '"I never expected to see the colors of my village again. It is like being born a second time."',
+    p1: 'Andre had lived in darkness for nearly a decade. Living in a remote part of West Sumba, he had little hope of receiving specialized medical care until the Sumba Eye Program established its permanent clinic at RSUD Waikabubak.',
+    p2: 'Andre was one of the first patients to receive surgery at the newly equipped facility. The local nurses, trained by Foresight specialists, assisted in the procedure, demonstrating the sustainable model of care that Foresight champions.',
+    p3: 'When Andre returned to his village, he was greeted as a man returned from the shadows. His story has inspired others in his community to seek screening, helping to break the stigma and fear surrounding eye surgery in the region.'
+  }
+};
