@@ -38,6 +38,7 @@ import {
   BriefcaseMedical
 } from 'lucide-react';
 import { NAVIGATION, IMPACT_STATS, PROJECTS, TEAM, PARTNERS } from './constants';
+import { Link, Route, Routes, useNavigate, useLocation, useParams } from 'react-router-dom';
 
 interface NavLinkProps {
   id: string;
