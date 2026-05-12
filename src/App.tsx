@@ -139,7 +139,7 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
   if (id === 'donate') {
     return (
       <a
-        href="#donate"
+        href="/donate"
         onClick={(e) => {
           e.preventDefault();
           onClick(id);
@@ -164,12 +164,19 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
             onClick(id);
           }
         }}
+        onMouseEnter={() => !mobile && dropdown}
         className={`
           ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group flex items-center gap-1'}
           ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
         `}
       >
-        {label}
+        <a 
+          href={getUrlFromId(id)} 
+          onClick={(e) => e.preventDefault()}
+          className="contents"
+        >
+          {label}
+        </a>
         {!mobile && dropdown && (
           <ChevronDown className="w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform" />
         )}
@@ -187,7 +194,13 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
                 onClick={() => onClick(subItem.id)}
                 className="w-full text-left px-4 py-3 rounded-xl hover:bg-gray-50 text-gray-600 hover:text-primary font-display font-bold text-sm transition-colors flex items-center justify-between group/item"
               >
-                {subItem.label}
+                <a 
+                  href={getUrlFromId(subItem.id)} 
+                  onClick={(e) => e.preventDefault()}
+                  className="contents"
+                >
+                  {subItem.label}
+                </a>
                 <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
               </button>
             ))}
@@ -203,7 +216,13 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
               onClick={() => onClick(subItem.id)}
               className="block w-full text-left py-3 px-6 text-base text-gray-500 font-display font-medium hover:text-primary"
             >
-              {subItem.label}
+              <a 
+                href={getUrlFromId(subItem.id)} 
+                onClick={(e) => e.preventDefault()}
+                className="contents"
+              >
+                {subItem.label}
+              </a>
             </button>
           ))}
         </div>
@@ -213,17 +232,75 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
 };
 
 
+const URL_MAP: Record<string, string> = {
+  '/': 'home',
+  '/about': 'about',
+  '/where-we-work': 'projects',
+  '/where-we-work/australia': 'projects-australia',
+  '/where-we-work/sumba': 'projects-indonesia',
+  '/where-we-work/solomon-islands': 'projects-solomon-islands',
+  '/where-we-work/bangladesh': 'projects-bangladesh',
+  '/where-we-work/philippines': 'projects-philippines',
+  '/where-we-work/timor-leste': 'projects-timor-leste',
+  '/stories': 'impact',
+  '/get-involved': 'get-involved',
+  '/news': 'news',
+  '/contact': 'contact',
+  '/donate': 'donate'
+};
+
+const ID_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(URL_MAP).map(([url, id]) => [id, url])
+);
+
+const getUrlFromId = (id: string) => {
+  if (id.startsWith('story-')) return `/stories/${id.replace('story-', '')}`;
+  return ID_MAP[id] || `/${id}`;
+};
+
+const getIdFromUrl = (path: string) => {
+  if (path.startsWith('/stories/')) return `story-${path.replace('/stories/', '')}`;
+  return URL_MAP[path] || 'home';
+};
+
 function StoryPageWrapper({ onNavigate }: { onNavigate?: (id: string) => void }) {
-  const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
-  return <StoryPage storyId={selectedStoryId || ''} onBack={() => onNavigate && onNavigate('impact')} onNavigate={onNavigate} />;
+  const path = window.location.pathname;
+  const storyId = path.replace('/stories/', '');
+  return <StoryPage storyId={storyId || ''} onBack={() => onNavigate && onNavigate('impact')} onNavigate={onNavigate} />;
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<string>(getIdFromUrl(window.location.pathname));
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
+    window.location.pathname.startsWith('/where-we-work/') ? getIdFromUrl(window.location.pathname) : null
+  );
+  const [selectedStoryId, setSelectedStoryId] = useState<string | null>(
+    window.location.pathname.startsWith('/stories/') ? window.location.pathname.replace('/stories/', '') : null
+  );
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      const id = getIdFromUrl(path);
+      
+      if (path.startsWith('/where-we-work/') && path !== '/where-we-work') {
+        setSelectedProjectId(id);
+        setCurrentPage('projects');
+      } else if (path.startsWith('/stories/') && path !== '/stories') {
+        setSelectedStoryId(path.replace('/stories/', ''));
+        setCurrentPage('story');
+      } else {
+        setSelectedProjectId(null);
+        setSelectedStoryId(null);
+        setCurrentPage(id);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -245,6 +322,12 @@ export default function App() {
     };
 
     let title = pageTitles[currentPage] || 'Foresight Australia';
+    if (currentPage === 'projects' && selectedProjectId) {
+      const project = PROJECTS.find(p => p.id === selectedProjectId);
+      if (project) {
+        title = `${project.title} | ${project.location} | Foresight Australia`;
+      }
+    }
     document.title = title;
 
     // Handle scrolling to sections if hash is present
@@ -260,14 +343,18 @@ export default function App() {
     } else if (!hash) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [currentPage]);
+  }, [currentPage, selectedProjectId]);
 
   const handleNavClick = (id: string) => {
     setSelectedProjectId(null);
+    let newPath = getUrlFromId(id);
+    
     if (id.startsWith('about-')) {
       const sectionId = id.split('-')[1];
       setCurrentPage('about');
+      newPath = '/about';
       window.location.hash = sectionId;
+      window.history.pushState(null, '', newPath + '#' + sectionId);
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -275,14 +362,17 @@ export default function App() {
     } else if (id.startsWith('projects-')) {
       setSelectedProjectId(id);
       setCurrentPage('projects');
+      window.history.pushState(null, '', newPath);
       window.location.hash = '';
     } else if (id.startsWith('story-')) {
       const storyId = id.replace('story-', '');
       setSelectedStoryId(storyId);
       setCurrentPage('story');
+      window.history.pushState(null, '', newPath);
       window.location.hash = '';
     } else {
       setCurrentPage(id);
+      window.history.pushState(null, '', newPath);
       window.location.hash = '';
     }
     setIsMenuOpen(false);
@@ -314,7 +404,7 @@ export default function App() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`glass rounded-2xl px-6 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}>
-            <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setCurrentPage('home')}>
+            <div className="flex items-center gap-3 cursor-pointer group" onClick={() => handleNavClick('home')}>
               <img
                 src="/media/images/Foresight logo.png"
                 alt="Foresight Australia Logo"
@@ -424,7 +514,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-11 mb-10 md:mb-14">
             {/* Left Column: Branding & Contact Buttons */}
             <div className="lg:col-span-4">
-              <div onClick={() => setCurrentPage('home')} className="flex items-center gap-4 mb-6 group cursor-pointer">
+              <div onClick={() => handleNavClick('home')} className="flex items-center gap-4 mb-6 group cursor-pointer">
                 <img
                   src="/media/images/Foresight logo.png"
                   alt="Foresight Australia Logo"
@@ -448,7 +538,7 @@ export default function App() {
                   <span className="text-[13px]">Donate now</span>
                 </button>
                 <button
-                  onClick={() => setCurrentPage('subscribe')}
+                  onClick={() => handleNavClick('subscribe')}
                   className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
                 >
                   <Mail className="w-4 h-4 text-accent" />
@@ -495,7 +585,7 @@ export default function App() {
                 <ul className="space-y-3">
                   {['Eye Health', 'Sustainable Care', 'Clinical Training', 'Impact Data'].map((link) => (
                     <li key={link}>
-                      <button onClick={() => setCurrentPage('impact')} className="text-gray-400 hover:text-white transition-colors text-[13px] font-display font-medium">{link}</button>
+                      <button onClick={() => handleNavClick('impact')} className="text-gray-400 hover:text-white transition-colors text-[13px] font-display font-medium">{link}</button>
                     </li>
                   ))}
                 </ul>
@@ -1806,7 +1896,7 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   );
 }
 
-function GetInvolvedPage() {
+function GetInvolvedPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
     <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
@@ -1846,21 +1936,24 @@ function GetInvolvedPage() {
               icon: <Users className="w-8 h-8" />,
               desc: 'Contribute your skills to our clinical missions or support our administrative operations in Australia.',
               action: 'Apply Now',
-              color: 'bg-primary'
+              color: 'bg-primary',
+              id: 'volunteer'
             },
             {
               title: 'Partner',
               icon: <Globe className="w-8 h-8" />,
               desc: 'We collaborate with governments and NGOs to implement sustainable eye health infrastructure.',
               action: 'Become a Partner',
-              color: 'bg-accent'
+              color: 'bg-accent',
+              id: 'partner'
             },
             {
               title: 'Donate',
               icon: <Heart className="w-8 h-8" />,
               desc: 'Your financial contributions directly fund diagnostic screenings, corrective eyewear, and surgeries.',
               action: 'Donate Today',
-              color: 'bg-accent'
+              color: 'bg-accent',
+              id: 'donate'
             },
           ].map((item, i) => (
             <motion.div
@@ -1876,7 +1969,10 @@ function GetInvolvedPage() {
               </div>
               <h3 className="text-xl md:text-2xl font-display font-extrabold mb-3 md:mb-4 text-gray-900 tracking-tight">{item.title}</h3>
               <p className="text-sm md:text-lg text-gray-500 mb-6 md:mb-8 leading-relaxed font-display font-medium">{item.desc}</p>
-              <button className="mt-auto font-display font-black text-primary uppercase tracking-[0.2em] text-xs flex items-center gap-3 group-hover:gap-5 transition-all">
+              <button 
+                onClick={() => onNavigate && onNavigate(item.id)}
+                className="mt-auto font-display font-black text-primary uppercase tracking-[0.2em] text-xs flex items-center gap-3 group-hover:gap-5 transition-all"
+              >
                 {item.action} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </button>
             </motion.div>

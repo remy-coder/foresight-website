@@ -28,10 +28,10 @@ export const NAVIGATION = [
     dropdown: [
       { id: 'projects', label: 'Overview' },
       { id: 'projects-australia', label: 'Australia' },
-      { id: 'projects-indonesia', label: 'Indonesia' },
+      { id: 'projects-indonesia', label: 'Sumba Eye Program' },
+      { id: 'projects-solomon-islands', label: 'Solomon Islands' },
       { id: 'projects-bangladesh', label: 'Bangladesh' },
       { id: 'projects-philippines', label: 'Philippines' },
-      { id: 'projects-solomon-islands', label: 'Solomon Islands' },
       { id: 'projects-timor-leste', label: 'Timor-Leste' },
     ]
   },
