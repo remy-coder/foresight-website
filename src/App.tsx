@@ -38,7 +38,6 @@ import {
   BriefcaseMedical
 } from 'lucide-react';
 import { NAVIGATION, IMPACT_STATS, PROJECTS, TEAM, PARTNERS } from './constants';
-import { Link, Route, Routes, useNavigate, useLocation, useParams } from 'react-router-dom';
 
 interface NavLinkProps {
   id: string;
@@ -137,10 +136,14 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
     );
   }
 
-    if (id === 'donate') {
+  if (id === 'donate') {
     return (
-      <Link
-        to="/donate"
+      <a
+        href="#donate"
+        onClick={(e) => {
+          e.preventDefault();
+          onClick(id);
+        }}
         className={`
           ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
           ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
@@ -149,30 +152,63 @@ const NavLink = ({ id, label, dropdown, mobile = false, currentPage, onClick }: 
         `}
       >
         {label}
-      </Link>
+      </a>
     );
   }
 
   return (
-    <Link to={idToUrl(id)}
-      onClick={(e) => {
-        if (dropdown && !mobile) e.preventDefault();
-        onClick(id);
-      }}
-      
-       className={`
-        ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
-        ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
-        ${id === 'donate' ? 'bg-accent text-white rounded-full px-6 py-2.5 hover:bg-accent-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5 md:ml-2' : ''}
-        ${mobile && id === 'donate' ? 'text-center mx-6 my-6 w-auto block' : ''}
-      `}
-    >
-      {label}
-      {!mobile && id !== 'donate' && (
-        <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-primary transform origin-left transition-transform duration-300 ${currentPage === id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+    <div className="relative group">
+      <button
+        onClick={() => {
+          if (!dropdown || mobile) {
+            onClick(id);
+          }
+        }}
+        className={`
+          ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group flex items-center gap-1'}
+          ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
+        `}
+      >
+        {label}
+        {!mobile && dropdown && (
+          <ChevronDown className="w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform" />
+        )}
+        {!mobile && currentPage === id && (
+          <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary" />
+        )}
+      </button>
+
+      {dropdown && !mobile && (
+        <div className="absolute top-full left-0 w-64 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-3">
+            {dropdown.map((subItem) => (
+              <button
+                key={subItem.id}
+                onClick={() => onClick(subItem.id)}
+                className="w-full text-left px-4 py-3 rounded-xl hover:bg-gray-50 text-gray-600 hover:text-primary font-display font-bold text-sm transition-colors flex items-center justify-between group/item"
+              >
+                {subItem.label}
+                <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+              </button>
+            ))}
+          </div>
+        </div>
       )}
-    
-    </Link>
+
+      {dropdown && mobile && (
+        <div className="pl-6 space-y-1">
+          {dropdown.map((subItem) => (
+            <button
+              key={subItem.id}
+              onClick={() => onClick(subItem.id)}
+              className="block w-full text-left py-3 px-6 text-base text-gray-500 font-display font-medium hover:text-primary"
+            >
+              {subItem.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -199,15 +235,12 @@ export const idToUrl = (id: string) => {
   return `/${id}`;
 };
 
-function StoryPageWrapper({ onNavigate }: { onNavigate?: (id: string) => void }) {
-  const { storyId } = useParams<{storyId: string}>();
-  return <StoryPage storyId={storyId || ''} onBack={() => onNavigate && onNavigate('impact')} onNavigate={onNavigate} />;
-}
+
 
 export default function App() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const currentPage = location.pathname === '/' ? 'home' : location.pathname.substring(1).split('/')[0];
+  const [currentPage, setCurrentPage] = useState<string>('home');
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -295,13 +328,13 @@ export default function App() {
             exit={{ opacity: 0, y: 100 }}
             className="md:hidden fixed bottom-6 left-6 right-6 z-[60]"
           >
-            <Link
-              to="/donate"
+            <button
+              onClick={() => handleNavClick('donate')}
               aria-label="Donate to Foresight Australia"
               className="w-full py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-accent/40 flex items-center justify-center gap-3 backdrop-blur-lg border border-white/20"
             >
               <Heart className="w-4 h-4 fill-white" /> Restore Sight Now
-            </Link>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -375,38 +408,40 @@ export default function App() {
       <main className="pt-20">
         <AnimatePresence mode="wait">
           <motion.div
-            key={location.pathname}
+            key={currentPage + (selectedProjectId || '') + (selectedStoryId || '')}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
           >
-            <Routes>
-              <Route path="/" element={<HomePage onNavigate={handleNavClick} onSelectProject={(id) => handleNavClick(id)} />} />
-              <Route path="/about" element={<AboutPage onNavigate={handleNavClick} />} />
-              <Route path="/about/our-leaders" element={<LeadersPage />} />
-              <Route path="/about/reports-policies" element={<ReportsPoliciesPage />} />
-              <Route path="/about/annual-reports" element={<ReportsPoliciesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/news" element={<NewsPage />} />
-              <Route path="/get-involved" element={<GetInvolvedPage onNavigate={handleNavClick} />} />
-              <Route path="/volunteer" element={<VolunteerPage onNavigate={handleNavClick} />} />
-              <Route path="/partner" element={<PartnerPage onNavigate={handleNavClick} />} />
-              <Route path="/donate" element={<DonatePage onNavigate={handleNavClick} />} />
-              
-              <Route path="/where-we-work" element={<ProjectsPage onSelectProject={(id) => handleNavClick(id)} />} />
-              <Route path="/where-we-work/indonesia" element={<ProjectDetailPage projectId="projects-indonesia" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
-              <Route path="/where-we-work/australia" element={<ProjectDetailPage projectId="projects-australia" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
-              <Route path="/where-we-work/solomon-islands" element={<ProjectDetailPage projectId="projects-solomon-islands" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
-              <Route path="/where-we-work/timor-leste" element={<ProjectDetailPage projectId="projects-timor-leste" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
-              <Route path="/where-we-work/bangladesh" element={<ProjectDetailPage projectId="projects-bangladesh" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
-              <Route path="/where-we-work/philippines" element={<ProjectDetailPage projectId="projects-philippines" onBack={() => handleNavClick('projects')} onNavigate={handleNavClick} />} />
-              
-              <Route path="/stories" element={<ImpactPage onNavigate={handleNavClick} />} />
-              <Route path="/stories/:storyId" element={<StoryPageWrapper onNavigate={handleNavClick} />} />
-              <Route path="/subscribe" element={<SubscribePage />} />
-              <Route path="*" element={<div className="min-h-screen flex items-center justify-center font-display text-4xl">404 - Page Not Found</div>} />
-            </Routes>
+            {currentPage === 'home' && <HomePage onNavigate={handleNavClick} onSelectProject={(id) => handleNavClick(id)} />}
+            {currentPage === 'about' && <AboutPage onNavigate={handleNavClick} />}
+            {currentPage === 'leaders' && <LeadersPage />}
+            {currentPage === 'reports-policies' && <ReportsPoliciesPage />}
+            {currentPage === 'annual-reports' && <ReportsPoliciesPage />}
+            {currentPage === 'contact' && <ContactPage />}
+            {currentPage === 'news' && <NewsPage />}
+            {currentPage === 'get-involved' && <GetInvolvedPage onNavigate={handleNavClick} />}
+            {currentPage === 'volunteer' && <VolunteerPage onNavigate={handleNavClick} />}
+            {currentPage === 'partner' && <PartnerPage onNavigate={handleNavClick} />}
+            {currentPage === 'donate' && <DonatePage onNavigate={handleNavClick} />}
+            {currentPage === 'projects' && !selectedProjectId && <ProjectsPage onSelectProject={(id) => handleNavClick(id)} />}
+            {currentPage === 'projects' && selectedProjectId && (
+              <ProjectDetailPage 
+                projectId={selectedProjectId} 
+                onBack={() => handleNavClick('projects')} 
+                onNavigate={handleNavClick}
+              />
+            )}
+            {currentPage === 'impact' && <ImpactPage onNavigate={handleNavClick} />}
+            {currentPage === 'story' && selectedStoryId && (
+              <StoryPage 
+                storyId={selectedStoryId} 
+                onBack={() => handleNavClick('impact')} 
+                onNavigate={handleNavClick}
+              />
+            )}
+            {currentPage === 'subscribe' && <SubscribePage />}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -418,13 +453,13 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-11 mb-10 md:mb-14">
             {/* Left Column: Branding & Contact Buttons */}
             <div className="lg:col-span-4">
-              <Link to="/" className="flex items-center gap-4 mb-6 group cursor-pointer">
+              <div onClick={() => setCurrentPage('home')} className="flex items-center gap-4 mb-6 group cursor-pointer">
                 <img
                   src="/media/images/Foresight logo.png"
                   alt="Foresight Australia Logo"
                   className="h-11 md:h-14 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 object-contain"
                 />
-              </Link>
+              </div>
 
               <div className="space-y-2.5 mb-8">
                 <a
@@ -434,13 +469,13 @@ export default function App() {
                   <Phone className="w-4 h-4 transition-colors" />
                   <span className="text-[13px]">+61 2 8021 3632</span>
                 </a>
-                <Link
-                  to="/donate"
+                <button
+                  onClick={() => handleNavClick('donate')}
                   className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
                 >
                   <Heart className="w-4 h-4 text-accent" />
                   <span className="text-[13px]">Donate now</span>
-                </Link>
+                </button>
                 <button
                   onClick={() => setCurrentPage('subscribe')}
                   className="flex items-center gap-3 w-full border border-white/20 hover:bg-white/5 text-white px-5 py-3 rounded-xl font-display font-bold transition-all transform hover:scale-[1.02]"
@@ -582,12 +617,12 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 md:gap-8">
-                <Link
-                  to="/donate"
+                <button
+                  onClick={() => onNavigate('donate')}
                   className="w-full sm:w-auto px-8 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4"
                 >
                   Donate Now <ArrowRight className="w-6 h-6" />
-                </Link>
+                </button>
                 <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
                   <button
                     onClick={() => onNavigate('impact')}
@@ -914,12 +949,12 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                 Your contribution directly funds life-changing surgeries, training for local doctors, and essential equipment for underserved communities. Every dollar helps restore vision and hope.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
-                <Link
-                  to="/donate"
+                <button
+                  onClick={() => onNavigate('donate')}
                   className="w-full sm:w-auto px-8 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4"
                 >
                   Make a Donation
-                </Link>
+                </button>
                 <button
                   onClick={() => onNavigate('get-involved')}
                   className="w-full sm:w-auto px-8 py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl"
@@ -1123,12 +1158,12 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
             <p className="text-gray-500 font-display font-medium text-base md:text-lg mb-8">
               Join the thousands who are making sight restoration possible in communities that need it most.
             </p>
-            <Link
-              to="/donate"
+            <button
+              onClick={() => onNavigate && onNavigate('donate')}
               className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
             >
               Restore sight today <ArrowRight className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -1298,13 +1333,13 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
       <section className="relative pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA] overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 w-full">
-          <Link
-            to="/where-we-work"
+          <button
+            onClick={onBack}
             className="flex items-center gap-2 text-primary hover:text-primary transition-colors group mb-8"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             <span className="font-display font-black uppercase tracking-widest text-[11px]">Back to Locations</span>
-          </Link>
+          </button>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-20 items-center">
             <div className="lg:col-span-7">
@@ -1612,12 +1647,12 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               <p className="text-lg md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-12 max-w-2xl mx-auto whitespace-pre-wrap">
                 {('ctaText' in project && project.ctaText) ? (project as any).ctaText : `Join us in establishing sustainable eye care systems in ${project.location}. Your support restores sight and changes lives.`}
               </p>
-              <Link
-                to="/donate"
+              <button
+                onClick={() => onNavigate('donate')}
                 className="px-8 py-5 bg-accent hover:bg-accent-dark text-white rounded-2.5xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
               >
                 Restore sight today <ArrowRight className="w-5 h-5 transition-transform" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -1788,12 +1823,12 @@ function ImpactPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
         </div>
 
         <div className="text-center mt-12 md:mt-20">
-          <Link
-            to="/donate"
+          <button
+            onClick={() => onNavigate && onNavigate('donate')}
             className="px-8 py-6 bg-accent hover:bg-orange-600 text-white rounded-2xl font-display font-black uppercase tracking-widest text-sm transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4 mx-auto"
           >
             Donate Now To Save Sight <ArrowRight className="w-5 h-5" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>
@@ -2355,9 +2390,9 @@ function StoryPage({ storyId, onBack, onNavigate }: { storyId: string, onBack: (
       <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA] min-h-screen  flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-display font-extrabold text-gray-900 mb-4 tracking-tighter">Story not found</h2>
-          <Link to="/where-we-work" className="text-primary font-display font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
+          <button onClick={onBack} className="text-primary font-display font-bold hover:underline flex items-center justify-center gap-2 mx-auto">
             <ArrowLeft className="w-5 h-5" /> Back to Impact
-          </Link>
+          </button>
         </div>
       </div>
     );
@@ -2367,12 +2402,12 @@ function StoryPage({ storyId, onBack, onNavigate }: { storyId: string, onBack: (
     <div className="pt-14 pb-12 md:pt-20 md:pb-20 bg-[#FAFAFA] min-h-screen ">
       <div className="max-w-4xl mx-auto px-4 sm:px-4 lg:px-6">
 
-        <Link
-          to="/where-we-work"
+        <button
+          onClick={onBack}
           className="group flex items-center gap-3 text-sm font-display font-black uppercase tracking-widest text-gray-500 hover:text-primary transition-colors mb-4 md:mb-12"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" /> Back to Impact
-        </Link>
+        </button>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -2422,19 +2457,19 @@ function StoryPage({ storyId, onBack, onNavigate }: { storyId: string, onBack: (
         </div>
 
         <div className="mt-16 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-center">
-          <Link
-            to="/where-we-work"
+          <button
+            onClick={onBack}
             className="w-full sm:w-auto px-8 py-5 bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-900 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-xl"
           >
             <ArrowLeft className="w-5 h-5" /> Back to Impact Stories
-          </Link>
+          </button>
 
-          <Link
-            to="/donate"
+          <button
+            onClick={() => onNavigate && onNavigate('donate')}
             className="w-full sm:w-auto px-8 py-5 bg-accent text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs hover:bg-accent-dark transition-all shadow-xl flex items-center justify-center gap-3 transform hover:scale-105"
           >
             Donate to Save Sight <ArrowRight className="w-4 h-4" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>
