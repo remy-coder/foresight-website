@@ -654,7 +654,10 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
             alt="Eye care clinic"
             className="w-full h-full object-cover object-center brightness-75"
             referrerPolicy="no-referrer"
-            loading="lazy"
+            fetchPriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
@@ -695,6 +698,9 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                     src="/media/images/40 years logo.png"
                     alt="40 Years of Foresight"
                     className="h-12 md:h-16 w-auto drop-shadow-2xl object-contain brightness-0 invert opacity-90"
+                    width="200"
+                    height="64"
+                    loading="eager"
                   />
                 </div>
               </div>
@@ -804,6 +810,10 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                   src="/media/images/Andre.png"
                   alt="Andre"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square md:aspect-[4/5]"
+                  loading="lazy"
+                  width="800"
+                  height="1000"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -894,6 +904,10 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                   src="/media/images/mission picture.png" 
                   alt="" 
                   className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700" 
+                  loading="lazy"
+                  width="1200"
+                  height="800"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-transparent to-[#0F172A]/90"></div>
               </div>
@@ -949,6 +963,9 @@ function HomePage({ onNavigate }: { onNavigate: (id: string) => void }) {
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                     loading="lazy"
+                    width="600"
+                    height="750"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent opacity-80"></div>
                   <div className="absolute top-6 right-6 z-20">
@@ -1097,7 +1114,15 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
               </div>
               <div className="order-1 lg:order-2 relative">
                 <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full"></div>
-                <img src="/media/images/Profpicture.png" alt="Professor Frank Billson AO" className="relative rounded-3xl shadow-2xl z-10 w-full object-cover aspect-square md:aspect-[4/5]" />
+                <img 
+                  src="/media/images/Profpicture.png" 
+                  alt="Professor Frank Billson AO" 
+                  className="relative rounded-3xl shadow-2xl z-10 w-full object-cover aspect-square md:aspect-[4/5]" 
+                  loading="lazy"
+                  width="800"
+                  height="1000"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
@@ -1114,6 +1139,10 @@ function AboutPage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                 src="/media/images/mission picture.png" 
                 alt="" 
                 className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-700" 
+                loading="lazy"
+                width="1200"
+                height="800"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-transparent to-[#0F172A]/90"></div>
             </div>
@@ -1431,6 +1460,10 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
                   src={project.image} 
                   alt={`Primary hero image for the ${project.title} project`} 
                   className="absolute inset-0 w-full h-full object-cover" 
+                  loading="lazy"
+                  width="800"
+                  height="1000"
+                  decoding="async"
                 />
               </motion.div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 md:p-6 rounded-[2rem] shadow-2xl border border-gray-100 hidden md:block">
@@ -1525,7 +1558,15 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
               </div>
             </div>
             <div className="relative rounded-[3rem] overflow-hidden aspect-video lg:aspect-square">
-              <img src={project.supportingImages?.[0] || project.image} alt="Impact" className="w-full h-full object-cover opacity-80" />
+              <img 
+                src={project.supportingImages?.[0] || project.image} 
+                alt="Impact" 
+                className="w-full h-full object-cover opacity-80" 
+                loading="lazy"
+                width="800"
+                height="800"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
@@ -1544,7 +1585,15 @@ function ProjectDetailPage({ projectId, onBack, onNavigate }: { projectId: strin
           </div>
           {project.id === 'projects-solomon-islands' && project.supportingImages?.[1] && (
             <div className="mb-12 md:mb-16 relative rounded-[3rem] overflow-hidden shadow-md aspect-[21/9] md:aspect-[3/1]">
-              <img src={project.supportingImages[1]} alt="Solomon Islands key achievements" className="w-full h-full object-cover" />
+              <img 
+                src={project.supportingImages[1]} 
+                alt="Solomon Islands key achievements" 
+                className="w-full h-full object-cover" 
+                loading="lazy"
+                width="1200"
+                height="400"
+                decoding="async"
+              />
             </div>
           )}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -2307,6 +2356,10 @@ function DonatePage({ onNavigate }: { onNavigate?: (id: string) => void }) {
                   src="/media/images/Cahara.png"
                   alt="Cahara's clear vision restored"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square md:aspect-[4/5]"
+                  loading="lazy"
+                  width="800"
+                  height="1000"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -2571,7 +2624,15 @@ function NewsPage() {
             className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col"
           >
             <div className="aspect-[16/9] w-full relative">
-              <img src="/media/images/solomon-islands-dr-mathew-bonie-hobart.png" alt="Dr Mathew Bonie" className="w-full h-full object-cover" />
+              <img 
+                src="/media/images/solomon-islands-dr-mathew-bonie-hobart.png" 
+                alt="Dr Mathew Bonie" 
+                className="w-full h-full object-cover" 
+                loading="lazy"
+                width="800"
+                height="450"
+                decoding="async"
+              />
               <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary">Hobart Conference</div>
             </div>
             <div className="p-6 flex flex-col flex-1">
@@ -2597,7 +2658,15 @@ function NewsPage() {
             className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col"
           >
             <div className="aspect-[16/9] w-full relative">
-              <img src="/media/images/solomon-islands-geoffrey-painter-hobart.png" alt="Geoffrey Painter" className="w-full h-full object-cover" />
+              <img 
+                src="/media/images/solomon-islands-geoffrey-painter-hobart.png" 
+                alt="Geoffrey Painter" 
+                className="w-full h-full object-cover" 
+                loading="lazy"
+                width="800"
+                height="450"
+                decoding="async"
+              />
               <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary">Hobart Conference</div>
             </div>
             <div className="p-6 flex flex-col flex-1">
@@ -2874,6 +2943,10 @@ function LeadersPage() {
                   src={director.image}
                   alt={director.name}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  loading="lazy"
+                  width="400"
+                  height="500"
+                  decoding="async"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(director.name)}&background=004aad&color=ffffff&size=512`;
                   }}
