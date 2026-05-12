@@ -103,11 +103,17 @@ export default function ProjectsPage({ onSelectProject }: ProjectsPageProps) {
           </div>
         </div>
 
-        {/* IMPACT MILESTONES (LEGACY) GRID */}
+        {/* OUR LEGACY PROJECTS SECTION */}
         <div className="mt-16 md:mt-24">
-          <h2 className="text-gray-400 font-display font-black tracking-[0.3em] text-[11px] uppercase mb-4 flex items-center gap-4">
-            Impact Milestones (Legacy) <span className="h-px bg-gray-200 flex-1"></span>
-          </h2>
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-gray-400 font-display font-black tracking-[0.3em] text-[11px] uppercase mb-4 flex items-center gap-4">
+              Our Legacy Projects <span className="h-px bg-gray-200 flex-1"></span>
+            </h2>
+            <p className="text-base md:text-lg text-gray-500 leading-relaxed font-display font-medium">
+              Foresight Australia has a long history of supporting eye care in underserved communities across the Asia-Pacific region. Some of these projects are no longer active programs, but they remain an important part of our story and helped shape the sustainable, skills-transfer model we use today.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {impactMilestones.map((milestone, i) => (
               <motion.div
@@ -130,6 +136,11 @@ export default function ProjectsPage({ onSelectProject }: ProjectsPageProps) {
                     height="450"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
+                  <div className="absolute top-4 right-4 z-20">
+                    <div className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-lg text-white font-display font-black uppercase tracking-widest text-[9px] border border-white/10">
+                      Legacy Project
+                    </div>
+                  </div>
                   <div className="absolute bottom-6 left-6 right-6 text-white text-left z-10">
                     <div className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-1">
                       {milestone.location}

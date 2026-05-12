@@ -66,6 +66,36 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           </div>
         </section>
 
+        {/* Founder Legacy Section */}
+        <section className="mb-12 md:mb-16">
+          <div className="bg-gray-50 rounded-[2.5rem] p-6 md:p-12 border border-gray-100 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-br-full -ml-10 -mt-10"></div>
+            <div className="relative z-10 max-w-4xl">
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-6">Founder Legacy: Professor Frank Billson AO</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+                <div className="md:col-span-8 space-y-6">
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed font-display font-medium">
+                    Professor Frank Billson AO was one of the founding figures behind Foresight Australia and a lifelong advocate for preventing avoidable blindness. His work in Bangladesh helped lay the foundation for Foresight’s enduring model: not simply providing short-term treatment, but building local capacity through training, skills transfer and sustainable eye care systems.
+                  </p>
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed font-display font-medium">
+                    From the earliest work supporting eye care in Bangladesh, including the development of local ophthalmic training and services, Professor Billson’s vision shaped Foresight’s belief that communities should be empowered to care for their own people. That philosophy continues to guide Foresight Australia today — from Sumba to the Solomon Islands and regional Australia.
+                  </p>
+                </div>
+                <div className="md:col-span-4 bg-white p-8 rounded-3xl border border-primary/10 shadow-sm">
+                  <Quote className="w-8 h-8 text-primary/20 mb-4" />
+                  <p className="text-sm md:text-base font-serif italic text-primary leading-relaxed mb-4">
+                    “Restoring someone’s sight means not only giving them the chance to regain their vision, but also being able to live a better life as a result.”
+                  </p>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                    — Professor Frank Billson AO
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Mission & Vision Section */}
         <div id="mission" className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 mb-12 md:mb-16">
           <motion.div
