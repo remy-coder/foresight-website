@@ -1,30 +1,64 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function ContactPage() {
-  const [isOpeningEmail, setIsOpeningEmail] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsOpeningEmail(true);
+    setSubmitting(true);
+    setError(false);
 
-    const formData = new FormData(e.target as HTMLFormElement);
-    const firstName = formData.get('firstName');
-    const lastName = formData.get('lastName');
-    const email = formData.get('email');
-    const message = formData.get('message');
-
-    const subject = encodeURIComponent('Website enquiry - Foresight Australia');
-    const body = encodeURIComponent(`First name: ${firstName}\nLast name: ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const formData = new FormData(e.currentTarget);
     
-    window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch('https://formspree.io/f/mnjwwpge', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-    // Reset button text after a delay
-    setTimeout(() => {
-      setIsOpeningEmail(false);
-    }, 3000);
+      if (response.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  if (submitted) {
+    return (
+      <div className="pt-20 pb-12 md:pt-32 md:pb-24 bg-[#FAFAFA] min-h-[60vh] flex items-center">
+        <div className="max-w-xl mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white p-8 md:p-16 rounded-3xl md:rounded-[4rem] shadow-3xl border border-gray-100"
+          >
+            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-10 text-primary">
+              <CheckCircle2 className="w-10 h-10" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-display font-extrabold mb-6 text-gray-900 tracking-tight">
+              Thank you.
+            </h2>
+            <p className="text-lg md:text-xl text-gray-500 font-display font-medium leading-relaxed">
+              Your message has been sent to Foresight Australia.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA]">
@@ -84,35 +118,45 @@ export default function ContactPage() {
             className="bg-white p-4 md:p-12 rounded-3xl md:rounded-[3rem] shadow-3xl border border-gray-100 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-bl-full -mr-16 -mt-16"></div>
+            
+            {error && (
+              <div className="mb-8 p-6 bg-red-50 border border-red-100 rounded-2xl flex items-center gap-4 text-red-600">
+                <AlertCircle className="w-6 h-6 shrink-0" />
+                <p className="text-sm font-display font-bold">
+                  Sorry, your message could not be sent. Please email us directly at <a href="mailto:foresight@foresight.org.au" className="underline hover:text-red-700 transition-colors">foresight@foresight.org.au</a>.
+                </p>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10 relative z-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
                 <div className="space-y-3 md:space-y-4">
                   <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">First Name</label>
-                  <input required name="firstName" type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="John" />
+                  <input required name="firstName" type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400" placeholder="John" />
                 </div>
                 <div className="space-y-3 md:space-y-4">
                   <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Last Name</label>
-                  <input required name="lastName" type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="Doe" />
+                  <input required name="lastName" type="text" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400" placeholder="Doe" />
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">
                 <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Email Address</label>
-                <input required name="email" type="email" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900" placeholder="john@example.com" />
+                <input required name="email" type="email" className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 placeholder:font-medium placeholder:text-gray-400" placeholder="john@example.com" />
               </div>
               <div className="space-y-3 md:space-y-4">
                 <label className="text-[11px] font-display font-black text-gray-400 uppercase tracking-[0.2em]">Message</label>
-                <textarea required name="message" rows={5} className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 resize-none" placeholder="How can we help?"></textarea>
+                <textarea required name="message" rows={5} className="w-full px-4 py-4 md:px-8 md:py-6 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-display font-bold text-gray-900 resize-none placeholder:font-medium placeholder:text-gray-400" placeholder="How can we help?"></textarea>
               </div>
               <div className="space-y-6">
                 <button
                   type="submit"
-                  disabled={isOpeningEmail}
+                  disabled={submitting}
                   className="w-full py-5 md:py-6 bg-primary text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all hover:bg-primary-dark shadow-xl shadow-primary/20 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isOpeningEmail ? 'Opening email...' : 'Send Message'}
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </button>
                 <p className="text-[11px] text-center text-gray-400 font-display font-medium leading-relaxed">
-                  Submitting this form will open your email app so you can send your message to Foresight Australia.
+                  You can also email us directly at <a href="mailto:foresight@foresight.org.au" className="text-primary hover:underline transition-all">foresight@foresight.org.au</a>.
                 </p>
               </div>
             </form>
