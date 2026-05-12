@@ -8,22 +8,16 @@ interface GetInvolvedPageProps {
 export default function GetInvolvedPage({ onNavigate }: GetInvolvedPageProps) {
   const handleAction = (item: any) => {
     if (item.id === 'volunteer') {
-      const subject = encodeURIComponent('Volunteer enquiry - Foresight Australia');
-      const body = encodeURIComponent('Hello Foresight Australia,\n\nI am interested in volunteering with Foresight Australia. Please send me more information about current opportunities.\n\nMy name:\nMy phone:\nMy location:\nMy skills/background:');
-      window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+      onNavigate && onNavigate('volunteer');
     } else if (item.id === 'partner') {
-      const subject = encodeURIComponent('Partnership enquiry - Foresight Australia');
-      const body = encodeURIComponent('Hello Foresight Australia,\n\nI am interested in discussing a potential partnership with Foresight Australia.\n\nOrganisation:\nContact name:\nPhone:\nArea of interest:');
-      window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+      onNavigate && onNavigate('partner');
     } else if (item.id === 'donate') {
       onNavigate && onNavigate('donate');
     }
   };
 
   const handleLegacyRequest = () => {
-    const subject = encodeURIComponent('Legacy giving information pack request');
-    const body = encodeURIComponent('Hello Foresight Australia,\n\nI would like to receive more information about leaving a gift in my Will to support Foresight Australia.\n\nMy name:\nMy phone:\nPostal address or email:');
-    window.location.href = `mailto:foresight@foresight.org.au?subject=${subject}&body=${body}`;
+    onNavigate && onNavigate('legacy-giving');
   };
 
   return (

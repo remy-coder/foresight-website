@@ -29,6 +29,9 @@ const NewsPage = lazy(() => import('./pages/NewsPage'));
 const ReportsPoliciesPage = lazy(() => import('./pages/ReportsPoliciesPage'));
 const SubscribePage = lazy(() => import('./pages/SubscribePage'));
 const LeadersPage = lazy(() => import('./pages/LeadersPage'));
+const VolunteerFormPage = lazy(() => import('./pages/VolunteerFormPage'));
+const PartnerFormPage = lazy(() => import('./pages/PartnerFormPage'));
+const LegacyGivingPage = lazy(() => import('./pages/LegacyGivingPage'));
 
 // Fallback component
 const LoadingFallback = () => (
@@ -61,6 +64,9 @@ export default function App() {
         '/where-we-work/solomon-islands': 'projects',
         '/stories': 'impact',
         '/get-involved': 'get-involved',
+        '/get-involved/volunteer': 'volunteer',
+        '/get-involved/partner': 'partner',
+        '/get-involved/legacy-giving': 'legacy-giving',
         '/news': 'news',
         '/contact': 'contact',
         '/donate': 'donate',
@@ -102,6 +108,9 @@ export default function App() {
       projects: 'Our Projects | Sustainable Eye Care Programs Globally',
       impact: 'Our Impact | Measurable Results in Eye Care',
       'get-involved': 'Get Involved | Volunteer, Partner, or Donate',
+      volunteer: 'Volunteer | Foresight Australia',
+      partner: 'Partner With Us | Foresight Australia',
+      'legacy-giving': 'Legacy Giving | Request Info Pack | Foresight Australia',
       contact: 'Contact Us | Foresight Australia Sydney Office',
       donate: 'Donate Now | Give the Gift of Sight'
     };
@@ -264,6 +273,9 @@ export default function App() {
               )}
               {currentPage === 'impact' && <ImpactPage onNavigate={handleNavClick} />}
               {currentPage === 'get-involved' && <GetInvolvedPage onNavigate={handleNavClick} />}
+              {currentPage === 'volunteer' && <VolunteerFormPage onNavigate={handleNavClick} />}
+              {currentPage === 'partner' && <PartnerFormPage onNavigate={handleNavClick} />}
+              {currentPage === 'legacy-giving' && <LegacyGivingPage onNavigate={handleNavClick} />}
               {currentPage === 'contact' && <ContactPage />}
               {currentPage === 'donate' && <DonatePage onNavigate={handleNavClick} />}
               {currentPage === 'news' && <NewsPage />}
