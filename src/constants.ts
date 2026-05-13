@@ -196,6 +196,16 @@ export const PROJECTS = [
       'ANZEF and Perpetual Foundation — grant funders supporting ongoing program operations',
       'PT Berlian Mansari Opti-Medic'
     ],
+    partnerLogos: [
+      { name: 'Hasanuddin University (UNHAS)', logo: '/media/images/unhas.png' },
+      { name: 'PERDAMI — Indonesian Ophthalmologists Association', logo: '/media/images/perdami.png' },
+      { name: 'The Sumba Foundation', logo: '/media/images/Sumba Foundation.jpg' },
+      { name: 'OneSight / Essilor', logo: '/media/images/One Sight.png' },
+      { name: 'ANZEF — Australian & New Zealand Eye Foundation', logo: '/media/images/ANZEF.png' },
+      { name: 'Perpetual Foundation', logo: null },
+      { name: 'PT Berlian Mansari Opti-Medic', logo: null },
+      { name: 'RSUD Waikabubak Hospital', logo: null },
+    ],
     cta: 'Support our work in Sumba',
     ctaText: 'April 2026 showed us that a sustainable eye care system in West Sumba is no longer a vision — it is taking shape. Your support funds the training, surgical visits, and partnerships that transform episodic outreach into permanent local care.'
   },

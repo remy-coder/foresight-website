@@ -17,8 +17,12 @@ export default defineConfig(({mode}) => {
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
+    },
+    build: {
+      // Target modern Chromium-based browsers: Chrome 87+, Edge 88+, Firefox 78+, Safari 14+
+      target: ['es2020', 'edge88', 'chrome87', 'firefox78', 'safari14'],
     },
   };
 });

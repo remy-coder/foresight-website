@@ -353,7 +353,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
       {/* SECTION 7: Partners */}
       <section className="py-10 md:py-14 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
-          <div className="mb-12 md:mb-16 text-center">
+          <div className="mb-10 md:mb-14 text-center">
             <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">
               {('partnersHeading' in project && project.partnersHeading) ? (project as any).partnersHeading : 'Built on collaboration'}
             </h2>
@@ -361,13 +361,58 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
               {project.partnersText || 'This program is made possible through the commitment of our local and international partners.'}
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
-            {project.partners?.map((partner: string, i: number) => (
-              <div key={i} className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-center group hover:shadow-md transition-all">
-                <span className="text-[11px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors">{partner}</span>
-              </div>
-            ))}
-          </div>
+
+          {/* Logo grid — shown when partnerLogos data exists */}
+          {'partnerLogos' in project && (project as any).partnerLogos?.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {(project as any).partnerLogos.map((partner: { name: string; logo: string | null }, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="p-5 bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center group hover:shadow-md hover:border-primary/20 transition-all duration-300 min-h-[100px]"
+                >
+                  {partner.logo ? (
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                      loading="lazy"
+                      width="160"
+                      height="48"
+                      decoding="async"
+                      onError={(e) => {
+                        const el = e.target as HTMLImageElement;
+                        el.style.display = 'none';
+                        const parent = el.parentElement;
+                        if (parent) {
+                          const span = document.createElement('span');
+                          span.className = 'text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors';
+                          span.textContent = partner.name;
+                          parent.appendChild(span);
+                        }
+                      }}
+                    />
+                  ) : (
+                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors leading-tight">
+                      {partner.name}
+                    </span>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            /* Text-only grid — for projects without logo data */
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
+              {project.partners?.map((partner: string, i: number) => (
+                <div key={i} className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-center group hover:shadow-md transition-all">
+                  <span className="text-[11px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors">{partner}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
