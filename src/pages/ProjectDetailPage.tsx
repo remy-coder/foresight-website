@@ -21,7 +21,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
   return (
     <div className="bg-[#FAFAFA] min-h-screen">
       {/* SECTION 1: Header */}
-      <section className="pt-14 pb-8 md:pt-20 md:pb-14 bg-white">
+      <section className="pt-24 pb-8 md:pt-32 md:pb-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
           <button
             onClick={onBack}
@@ -81,7 +81,8 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
                   src={project.image} 
                   alt={`Primary hero image for the ${project.title} project`} 
                   className="absolute inset-0 w-full h-full object-cover" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   width="800"
                   height="1000"
                   decoding="async"

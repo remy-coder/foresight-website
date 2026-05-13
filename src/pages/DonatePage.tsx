@@ -66,7 +66,7 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
   return (
     <div className="bg-[#FAFAFA] min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-primary text-white relative overflow-hidden">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070')] bg-cover bg-center opacity-30 brightness-[0.75]"></div>
         <div className="absolute inset-0 bg-black/30"></div>
 

@@ -15,7 +15,7 @@ export default function LeadersPage() {
   };
 
   return (
-    <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA] min-h-screen ">
+    <div className="pt-24 pb-8 md:pt-32 md:pb-14 bg-[#FAFAFA] min-h-screen ">
       <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
         <div className="max-w-4xl mb-16 md:mb-20">
           <motion.div

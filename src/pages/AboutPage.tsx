@@ -12,7 +12,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   }, []);
 
   return (
-    <div className="pt-10 pb-8 md:pt-14 md:pb-10 bg-[#FAFAFA] overflow-hidden">
+    <div className="pt-24 pb-8 md:pt-32 md:pb-10 bg-[#FAFAFA] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
 
         {/* Intro */}

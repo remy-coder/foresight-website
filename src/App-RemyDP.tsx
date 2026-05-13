@@ -381,7 +381,7 @@ export default function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-20">
+      <main className="pt-32 md:pt-36">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -560,14 +560,15 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[55vh] flex items-center pt-12 overflow-hidden">
+      <section className="relative h-[65vh] md:h-[60vh] flex items-center pt-16 md:pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/media/images/home-hero-sumba-consultation.png"
             alt="Eye care clinic"
             className="w-full h-full object-cover object-center brightness-[0.35]"
             referrerPolicy="no-referrer"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#061735]/45 via-[#061735]/35 to-[#FAFAFA]/85"></div>
         </div>
@@ -586,7 +587,7 @@ function HomePage({ onNavigate, onSelectProject }: { onNavigate: (id: string) =>
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-extrabold leading-[1.1] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-extrabold leading-[1.05] md:leading-[0.95] mb-8 md:mb-10 text-balance tracking-tighter">
                 Restoring <span className="text-secondary">Sight</span>.<br />
                 Changing <span className="italic font-serif text-secondary opacity-80">Lives</span>.
               </h1>
@@ -2581,7 +2582,7 @@ const PATIENT_STORIES: Record<string, {name: string, location: string, image1: s
 
             function NewsPage() {
   return (
-            <div className="pt-20 pb-10 md:pt-28 md:pb-14 bg-[#FAFAFA] min-h-screen ">
+            <div className="pt-32 pb-10 md:pt-36 md:pb-14 bg-[#FAFAFA] min-h-screen ">
               <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                 <div className="max-w-3xl mb-16">
                   <motion.div
@@ -2801,7 +2802,7 @@ function ReportsPoliciesPage() {
   }
 
               return (
-              <div className="pt-20 pb-12 md:pt-28 md:pb-20 bg-[#FAFAFA]">
+              <div className="pt-32 pb-12 md:pt-36 md:pb-20 bg-[#FAFAFA]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
                   <div className="max-w-3xl mx-auto">
                     <motion.div
