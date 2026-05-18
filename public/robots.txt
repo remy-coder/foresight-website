@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://www.foresight.org.au/sitemap.xml
+Sitemap: https://foresight.org.au/sitemap.xml
