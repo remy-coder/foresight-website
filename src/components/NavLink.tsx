@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import { getUrlFromId } from '../utils/navigation';
 
+import React from 'react';
+
 interface NavLinkProps {
   id: string;
   label: string;
@@ -11,7 +13,7 @@ interface NavLinkProps {
   onClick: (id: string) => void;
 }
 
-export default function NavLink({ id, label, dropdown, mobile, currentPage, onClick }: NavLinkProps) {
+const NavLink: React.FC<NavLinkProps> = ({ id, label, dropdown, mobile, currentPage, onClick }) => {
   if (mobile && dropdown) {
     return (
       <div className="py-2">
@@ -138,3 +140,4 @@ export default function NavLink({ id, label, dropdown, mobile, currentPage, onCl
     </div>
   );
 }
+export default NavLink;

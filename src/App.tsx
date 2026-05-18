@@ -101,7 +101,7 @@ export default function App() {
 
   useEffect(() => {
     const pageTitles: Record<string, string> = {
-      home: 'Foresight Australia | Eradicating Avoidable Blindness',
+      home: 'Foresight Australia | Restoring Sight. Changing Lives.',
       about: 'About Us | Foresight Australia Mission & History',
       'our-leaders': 'Our Leaders | Board of Directors | Foresight Australia',
       'reports-policies': 'Reports & Policies | Foresight Australia',
@@ -115,7 +115,7 @@ export default function App() {
       donate: 'Donate Now | Give the Gift of Sight'
     };
 
-    let title = pageTitles[currentPage] || 'Foresight Australia';
+    let title = pageTitles[currentPage] || 'Foresight Australia | Restoring Sight. Changing Lives.';
     if (currentPage === 'projects' && selectedProjectId) {
       const project = PROJECTS.find(p => p.id === selectedProjectId);
       if (project) {
@@ -123,6 +123,27 @@ export default function App() {
       }
     }
     document.title = title;
+
+    // Set dynamic canonical and OG URL
+    const officialDomain = 'https://www.foresight.org.au';
+    const path = window.location.pathname;
+    const canonicalUrl = path === '/' ? officialDomain + '/' : officialDomain + path;
+
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement('meta');
+      ogUrl.setAttribute('property', 'og:url');
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute('content', canonicalUrl);
 
     const hash = window.location.hash;
     if (currentPage === 'about' && hash) {

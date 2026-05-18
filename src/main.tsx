@@ -8,3 +8,14 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+// Unregister any old service workers from previous site versions (WordPress/SiteGround)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (const registration of registrations) {
+      registration.unregister();
+    }
+  }).catch((err) => {
+    console.error('Service worker unregistration failed:', err);
+  });
+}

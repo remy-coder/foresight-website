@@ -1,4 +1,21 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(.*\\.vercel\\.app|foresight-website-eight\\.vercel\\.app)"
+        }
+      ],
+      "headers": [
+        {
+          "key": "x-robots-tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
