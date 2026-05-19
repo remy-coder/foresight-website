@@ -189,7 +189,7 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
                   <ShieldCheck className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="text-3xl md:text-5xl font-display font-extrabold mb-8 tracking-tight">Trust & Transparency</h3>
-                <p className="text-lg text-secondary/80 font-display font-medium leading-relaxed">
+                <p className="text-lg text-gray-200 font-display font-medium leading-relaxed">
                   We are committed to the highest standards of financial accountability and program effectiveness. View our Annual Reports and Policies for full transparency.
                 </p>
               </div>
@@ -201,7 +201,7 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
                       {card.icon}
                     </div>
                     <h4 className="text-xl font-display font-extrabold mb-4">{card.title}</h4>
-                    <p className="text-secondary/70 font-display font-medium text-sm leading-relaxed">
+                    <p className="text-gray-300 font-display font-medium text-sm leading-relaxed">
                       {card.text}
                     </p>
                   </div>

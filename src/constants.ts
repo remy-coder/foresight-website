@@ -43,10 +43,10 @@ export const NAVIGATION = [
 ];
 
 export const IMPACT_STATS = [
-  { value: '3,000+', label: 'screenings conducted' },
-  { value: '2,000+', label: 'patients treated' },
-  { value: '2,500+', label: 'glasses distributed' },
-  { value: 'over 200+', label: 'surgeries performed' },
+  { value: '200,000+', label: 'Patients Screened' },
+  { value: '2,000+', label: 'Surgeries Performed' },
+  { value: '25,000+', label: 'Glasses Distributed' },
+  { value: '40+', label: 'Years of Sight Restoration' },
 ];
 
 export const PROJECTS = [

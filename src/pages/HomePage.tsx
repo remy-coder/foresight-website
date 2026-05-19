@@ -170,10 +170,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <ShieldCheck className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-3">Infrastructure</h3>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-black uppercase tracking-widest mb-3 mx-auto border border-primary/10">
-                <Heart className="w-3 h-3 fill-primary/20" />
-                <span>Sight is a Human Right</span>
-              </div>
+
               <p className="text-primary font-display font-black uppercase tracking-widest text-[11px] mb-3">Long-Term Impact</p>
               <p className="text-gray-500 font-display font-medium leading-relaxed flex-1 text-lg">
                 Building and equipping specialized eye care facilities to serve communities for generations to come.
@@ -251,8 +248,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className={`p-6 md:p-10 rounded-3xl md:rounded-5xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500 shadow-sm hover:shadow-2xl ${index % 2 === 0 ? 'bg-white' : 'stats-card-bg'
-                  }`}
+                className="p-6 md:p-10 rounded-3xl md:rounded-5xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500 shadow-sm hover:shadow-2xl bg-white"
               >
                 <div className="text-3xl md:text-6xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
                 <div className="text-[11px] md:text-xs font-display font-black text-gray-400 uppercase tracking-[0.2em] leading-tight">{stat.label}</div>
@@ -273,7 +269,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 {[
                   { icon: <Globe className="w-8 h-8" />, title: "Global Reach", desc: "Active in Indonesia, Bangladesh, and regional Australia, addressing local eye health needs." },
                   { icon: <Users className="w-8 h-8" />, title: "Local Empowerment", desc: "Training local health workers to ensure long-term clinical sustainability." },
-                  { icon: <Heart className="w-8 h-8" />, title: "Humanitarian Mission", desc: "Believing sight is a fundamental human right for all underserved populations." },
+                  { icon: <Heart className="w-8 h-8" />, title: "Humanitarian Mission", desc: "Committed to preventing and curing avoidable blindness in underserved communities." },
                   { icon: <Award className="w-8 h-8" />, title: "Clinical Excellence", desc: "Maintaining the highest standards of ophthalmic care and surgical outcomes." }
                 ].map((feature, i) => (
                   <motion.div

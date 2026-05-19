@@ -3,7 +3,7 @@ export const ID_MAP: Record<string, string> = {
   'about': '/about',
   'mission': '/about#mission',
   'objectives': '/about#objectives',
-  'our-leaders': '/about/our-leaders',
+  'leaders': '/about/leaders',
   'where-we-work': '/where-we-work',
   'projects-australia': '/where-we-work/australia',
   'projects-indonesia': '/where-we-work/sumba',

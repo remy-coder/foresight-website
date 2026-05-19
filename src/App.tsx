@@ -57,7 +57,7 @@ export default function App() {
       const id = Object.entries({
         '/': 'home',
         '/about': 'about',
-        '/about/our-leaders': 'our-leaders',
+        '/about/leaders': 'leaders',
         '/where-we-work': 'projects',
         '/where-we-work/australia': 'projects',
         '/where-we-work/sumba': 'projects',
@@ -103,7 +103,7 @@ export default function App() {
     const pageTitles: Record<string, string> = {
       home: 'Foresight Australia | Eradicating Avoidable Blindness',
       about: 'About Us | Foresight Australia Mission & History',
-      'our-leaders': 'Our Leaders | Board of Directors | Foresight Australia',
+      'leaders': 'Our Leaders | Board of Directors | Foresight Australia',
       'reports-policies': 'Reports & Policies | Foresight Australia',
       projects: 'Our Projects | Sustainable Eye Care Programs Globally',
       impact: 'Our Impact | Measurable Results in Eye Care',
@@ -168,7 +168,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans text-gray-900 selection:bg-primary/10 selection:text-primary">
+    <div className="min-h-screen bg-[#FAFAFA] font-sans text-gray-900 selection:bg-primary/10 selection:text-primary flex flex-col">
       <AnimatePresence>
         {isScrolled && currentPage !== 'donate' && (
           <motion.div
@@ -248,7 +248,7 @@ export default function App() {
         </AnimatePresence>
       </nav>
 
-      <main className={currentPage !== 'home' ? 'pt-[100px]' : ''}>
+      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-[100px]' : ''}`}>
         <Suspense fallback={<LoadingFallback />}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -260,7 +260,7 @@ export default function App() {
             >
               {currentPage === 'home' && <HomePage onNavigate={handleNavClick} />}
               {currentPage === 'about' && <AboutPage onNavigate={handleNavClick} />}
-              {currentPage === 'our-leaders' && <LeadersPage />}
+              {currentPage === 'leaders' && <LeadersPage />}
               {currentPage === 'projects' && !selectedProjectId && (
                 <ProjectsPage onSelectProject={handleNavClick} />
               )}
@@ -341,7 +341,7 @@ export default function App() {
                   {[
                     { label: 'Our Mission & Vision', id: 'about-mission' },
                     { label: 'Our History', id: 'about-history' },
-                    { label: 'Our Leaders', id: 'our-leaders' },
+                    { label: 'Our Leaders', id: 'leaders' },
                     { label: 'Reports & Policies', id: 'reports-policies' }
                   ].map((link) => (
                     <li key={link.label}>
