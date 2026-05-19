@@ -80,12 +80,14 @@ export default function App() {
       else if (path.startsWith('/stories/') && path !== '/stories') {
         setSelectedStoryId(path.replace('/stories/', ''));
         setCurrentPage('story');
+        window.scrollTo({ top: 0, behavior: 'instant' });
         return;
       } else {
         setSelectedProjectId(null);
         setSelectedStoryId(null);
       }
       setCurrentPage(id);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     };
 
     handlePopState();
@@ -134,9 +136,20 @@ export default function App() {
         }, 100);
       }
     } else if (!hash) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [currentPage, selectedProjectId]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const handleNavClick = (id: string) => {
     setSelectedProjectId(null);
@@ -147,6 +160,7 @@ export default function App() {
       setCurrentPage('about');
       newPath = '/about';
       window.history.pushState(null, '', newPath + '#' + sectionId);
+      window.scrollTo({ top: 0, behavior: 'instant' });
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -155,14 +169,17 @@ export default function App() {
       setSelectedProjectId(id);
       setCurrentPage('projects');
       window.history.pushState(null, '', newPath);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     } else if (id.startsWith('story-')) {
       const storyId = id.replace('story-', '');
       setSelectedStoryId(storyId);
       setCurrentPage('story');
       window.history.pushState(null, '', newPath);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     } else {
       setCurrentPage(id);
       window.history.pushState(null, '', newPath);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
     setIsMenuOpen(false);
   };
@@ -228,7 +245,8 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-2xl rounded-b-3xl mx-4 mt-2"
+              className="md:hidden bg-white border-t border-gray-100 shadow-2xl rounded-b-3xl mx-4 mt-2 overflow-y-auto"
+              style={{ maxHeight: 'calc(100vh - 90px)', WebkitOverflowScrolling: 'touch' }}
             >
               <div className="py-4">
                 {NAVIGATION.map((item) => (
@@ -248,7 +266,7 @@ export default function App() {
         </AnimatePresence>
       </nav>
 
-      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-[100px]' : ''}`}>
+      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-20 md:pt-[100px]' : ''}`}>
         <Suspense fallback={<LoadingFallback />}>
           <AnimatePresence mode="wait">
             <motion.div

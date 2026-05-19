@@ -10,7 +10,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[55vh] flex items-center pt-12 overflow-hidden">
+      <section className="relative h-[55vh] flex items-center pt-24 md:pt-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/media/images/home-hero-sumba-consultation.png"
@@ -25,7 +25,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 w-full py-8 md:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-20 md:mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-24 md:mt-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
