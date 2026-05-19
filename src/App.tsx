@@ -141,13 +141,24 @@ export default function App() {
   }, [currentPage, selectedProjectId]);
 
   useEffect(() => {
+    const preventDefault = (e: TouchEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.overflow-y-auto')) {
+        return;
+      }
+      e.preventDefault();
+    };
+
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.addEventListener('touchmove', preventDefault, { passive: false });
     } else {
       document.body.style.overflow = '';
+      document.removeEventListener('touchmove', preventDefault);
     }
     return () => {
       document.body.style.overflow = '';
+      document.removeEventListener('touchmove', preventDefault);
     };
   }, [isMenuOpen]);
 
@@ -204,14 +215,14 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3 md:${isScrolled ? 'py-3' : 'py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`glass rounded-2xl px-6 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}>
+          <div className={`glass rounded-2xl px-6 flex justify-between items-center transition-all duration-500 h-14 md:${isScrolled ? 'h-16' : 'h-20'}`}>
             <div className="flex items-center gap-3 cursor-pointer group" onClick={() => handleNavClick('home')}>
               <img
                 src="/media/images/Foresight logo.png"
                 alt="Foresight Australia Logo"
-                className="h-14 md:h-18 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                className="h-10 md:h-18 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
@@ -228,10 +239,10 @@ export default function App() {
               ))}
             </div>
 
-            <div className="md:hidden">
+            <div className="md:hidden z-[70]">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-gray-600 hover:text-primary transition-colors bg-gray-50 rounded-xl"
+                className="p-3 text-gray-600 hover:text-primary transition-colors bg-gray-50 rounded-xl"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -242,11 +253,15 @@ export default function App() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t border-gray-100 shadow-2xl rounded-b-3xl mx-4 mt-2 overflow-y-auto"
-              style={{ maxHeight: 'calc(100vh - 90px)', WebkitOverflowScrolling: 'touch' }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="md:hidden fixed left-4 right-4 bg-white border border-gray-100 shadow-2xl rounded-3xl overflow-y-auto z-[60] flex flex-col"
+              style={{
+                top: 'calc(76px + env(safe-area-inset-top, 0px))',
+                maxHeight: 'calc(100vh - 96px - env(safe-area-inset-top, 0px))',
+                WebkitOverflowScrolling: 'touch'
+              }}
             >
               <div className="py-4">
                 {NAVIGATION.map((item) => (
@@ -266,7 +281,7 @@ export default function App() {
         </AnimatePresence>
       </nav>
 
-      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-20 md:pt-[100px]' : ''}`}>
+      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-24 md:pt-[100px]' : ''}`}>
         <Suspense fallback={<LoadingFallback />}>
           <AnimatePresence mode="wait">
             <motion.div

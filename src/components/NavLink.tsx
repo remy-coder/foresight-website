@@ -16,10 +16,10 @@ interface NavLinkProps {
 const NavLink: React.FC<NavLinkProps> = ({ id, label, dropdown, mobile, currentPage, onClick }) => {
   if (mobile && dropdown) {
     return (
-      <div className="py-2">
+      <div className="py-0.5">
         <button
           onClick={() => onClick(id)}
-          className={`w-full text-left py-4 px-6 text-lg font-display font-semibold transition-colors ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
+          className={`w-full text-left py-2 px-6 text-base font-display font-bold transition-colors ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
         >
           {label}
         </button>
@@ -29,13 +29,13 @@ const NavLink: React.FC<NavLinkProps> = ({ id, label, dropdown, mobile, currentP
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="bg-gray-50 overflow-hidden"
+              className="bg-gray-50/50 border-y border-gray-100/50 py-1"
             >
               {dropdown.map((subItem, idx) => (
                 <button
                   key={idx}
                   onClick={() => onClick(subItem.id)}
-                  className="w-full text-left py-4 px-10 text-base font-display font-medium text-gray-500 hover:text-primary transition-colors"
+                  className="w-full text-left py-2 px-10 text-sm font-display font-medium text-gray-500 hover:text-primary transition-colors"
                 >
                   {subItem.label}
                 </button>
@@ -56,10 +56,10 @@ const NavLink: React.FC<NavLinkProps> = ({ id, label, dropdown, mobile, currentP
           onClick(id);
         }}
         className={`
-          ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
+          ${mobile ? 'block w-full text-left py-2.5 px-6 text-base font-display font-bold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group'}
           ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
-          bg-accent text-white rounded-full px-6 py-2.5 hover:bg-accent-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5 md:ml-2
-          ${mobile ? 'text-center mx-6 my-6 w-auto block' : ''}
+          bg-accent text-white rounded-full px-6 py-2 hover:bg-accent-dark shadow-md hover:shadow-lg transform hover:-translate-y-0.5 md:ml-2
+          ${mobile ? 'text-center mx-6 my-3 w-auto block' : ''}
         `}
       >
         {label}
@@ -76,7 +76,7 @@ const NavLink: React.FC<NavLinkProps> = ({ id, label, dropdown, mobile, currentP
           }
         }}
         className={`
-          ${mobile ? 'block w-full text-left py-4 px-6 text-lg font-display font-semibold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group flex items-center gap-1'}
+          ${mobile ? 'block w-full text-left py-2 px-6 text-base font-display font-bold' : 'px-4 py-2 font-display font-semibold transition-all duration-300 relative group flex items-center gap-1'}
           ${currentPage === id ? 'text-primary' : 'text-gray-600 hover:text-primary'}
         `}
       >

@@ -9,8 +9,7 @@ interface HomePageProps {
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative h-[55vh] flex items-center pt-24 md:pt-12 overflow-hidden">
+      <section className="relative min-h-[650px] md:h-[55vh] flex items-center pt-24 md:pt-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/media/images/home-hero-sumba-consultation.png"
@@ -41,29 +40,30 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 Delivering sustainable eye care to underserved communities in Australia, Indonesia, and the Pacific.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 md:gap-8">
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-8">
                 <button
                   onClick={() => onNavigate('donate')}
-                  className="w-full sm:w-auto px-8 py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4"
+                  className="w-full sm:w-auto px-8 py-4 md:py-6 bg-accent hover:bg-accent-dark text-white rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all transform hover:scale-105 shadow-2xl shadow-accent/40 flex items-center justify-center gap-4"
                 >
                   Donate Now <ArrowRight className="w-6 h-6" />
                 </button>
-                <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
-                  <button
-                    onClick={() => onNavigate('impact')}
-                    className="w-full sm:w-auto px-8 py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center group"
-                  >
-                    Explore Our Impact <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-2 transition-transform" />
-                  </button>
-                  <img
-                    src="/media/images/40 years logo.png"
-                    alt="40 Years of Foresight"
-                    className="h-12 md:h-16 w-auto drop-shadow-2xl object-contain brightness-0 invert opacity-90"
-                    width="200"
-                    height="64"
-                    loading="eager"
-                  />
-                </div>
+                <button
+                  onClick={() => onNavigate('impact')}
+                  className="w-full sm:w-auto px-8 py-4 md:py-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-display font-black uppercase tracking-widest text-xs transition-all backdrop-blur-xl flex items-center justify-center group"
+                >
+                  Explore Our Impact <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-2 transition-transform" />
+                </button>
+              </div>
+
+              <div className="flex justify-start">
+                <img
+                  src="/media/images/40 years logo.png"
+                  alt="40 Years of Foresight"
+                  className="h-10 md:h-16 w-auto drop-shadow-2xl object-contain brightness-0 invert opacity-90"
+                  width="200"
+                  height="64"
+                  loading="eager"
+                />
               </div>
             </motion.div>
           </div>
