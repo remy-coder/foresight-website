@@ -281,7 +281,7 @@ export default function App() {
         </AnimatePresence>
       </nav>
 
-      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-24 md:pt-[100px]' : ''}`}>
+      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-24 md:pt-[140px]' : ''}`}>
         <Suspense fallback={<LoadingFallback />}>
           <AnimatePresence mode="wait">
             <motion.div

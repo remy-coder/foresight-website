@@ -9,7 +9,7 @@ interface HomePageProps {
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="flex flex-col">
-      <section className="relative min-h-[650px] md:h-[55vh] flex items-center pt-24 md:pt-12 overflow-hidden">
+      <section className="relative min-h-[600px] md:min-h-[700px] md:h-[75vh] flex items-center pt-24 md:pt-40 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/media/images/home-hero-sumba-consultation.png"
