@@ -113,6 +113,16 @@ export const PROJECTS = [
       'ANZEF (Australian and New Zealand Eye Foundation) — grant funding for upskilling workshops',
       'Turramurra Rotary and Griffith Avanti Rotary — equipment donations and community support'
     ],
+    partnerLogos: [
+      { name: 'Western Murrumbidgee Local Health District (MLHD)', logo: null },
+      { name: 'Gordon Eye Surgery', logo: '/media/images/Gordoneye.png' },
+      { name: 'Chatswood Private Hospital', logo: '/media/images/Chatswood private.png' },
+      { name: 'Griffith Aboriginal Medical Service (GAMS)', logo: null },
+      { name: 'MediAid Foundation', logo: null },
+      { name: 'ANZEF — Australian & New Zealand Eye Foundation', logo: '/media/images/ANZEF.png' },
+      { name: 'Turramurra Rotary', logo: '/media/images/Turramurra Rotary.png' },
+      { name: 'Griffith Avanti Rotary', logo: null }
+    ],
     cta: 'Support our work in Australia',
     ctaText: 'Every four weeks, our volunteer team flies to Griffith to keep this service running — restoring sight, training local health workers, and building a system that works for Aboriginal communities on their terms. Your support funds the training, equipment, and visits that make it possible.'
   },
@@ -363,7 +373,7 @@ export const TEAM = [
     name: 'Dr Georgina Kourt',
     role: 'Director',
     titles: 'MBBS, FRANZCO, FRACS',
-    bio: 'An Honorary Medical Officer in Ophthalmology and Oculoplastic Surgery at Sydney Eye Hospital. She focuses on improving rural medical services and eyecare for First Nations people, leading annual surgical field trips to the Northern Territory.',
+    bio: 'An Honorary Medical Officer in Ophthalmology and Oculoplastic Surgery at Sydney Eye Hospital. She focuses on improving rural medical services and eyecare for First Nations people and has previously undertaken annual surgical field trips to the Northern Territory. She currently undertakes surgical outreach in the Murrumbidgee region. She is also a Senior Inspector appointed by RANZCO for accreditation of Hospitals for the training of Ophthalmology Registrars.',
     image: '/media/images/Gina.png'
   },
   {
