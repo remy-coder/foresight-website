@@ -331,7 +331,7 @@ export const TEAM = [
     name: 'George Harris',
     role: 'Chairman',
     titles: 'B.A. L.L.M',
-    bio: 'A solicitor in private solo practice and former international partner and senior counsel of the global law firm Baker McKenzie. He provides legal expertise to several not-for-profits, including the Opera Foundation for Young Australians and the RPA Heart Centre Foundation.',
+    bio: 'George is a solicitor in private practice, formerly senior counsel in a global law firm. He sits on the boards of charities which pursue medical research, increase public awareness of the Australian constitutional framework, system of government and civic heritage, support the teaching of classical Greek and Latin in Australian universities and support the professional development and pursuit of excellence by young Australian opera artists.',
     image: '/media/images/George.png'
   },
   {
