@@ -193,7 +193,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               >
                 <div className="absolute inset-0 bg-accent/20 blur-[60px] rounded-full"></div>
                 <img
-                  src="/media/images/Sumbaproject2.png"
+                  src="/media/images/Ezry.png"
                   alt="Ezry and Lodowyk"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square md:aspect-[4/5]"
                   loading="lazy"

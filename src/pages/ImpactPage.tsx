@@ -109,7 +109,7 @@ export default function ImpactPage({ onNavigate }: ImpactPageProps) {
               {
                 name: 'Ezry & Lodowyk',
                 location: 'West Sumba, Indonesia',
-                image: '/media/images/Sumbaproject2.png',
+                image: '/media/images/Ezry.png',
                 story: 'Lodowyk brought his sister Ezry to the Foresight outreach clinic in West Sumba. She\'d never complained about her vision. Blurry was simply how the world looked — until our team found a prescription of minus twelve.',
                 storyId: 'ezry-and-lodowyk'
               },
