@@ -588,6 +588,102 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ]
   },
   {
+    id: 'griffith-excellence-2024',
+    title: 'Recognised for Excellence: How Foresight is Closing the Gap in Eye Care for First Nations Australians',
+    date: '2024',
+    category: 'Program Update',
+    location: 'Griffith, New South Wales',
+    image: '/media/images/Indigenousproject.png',
+    excerpt: 'Foresight Australia\'s Griffith Indigenous Eye Health program has won the MLHD Excellence Award and secured an inaugural ANZEF grant — recognition of a model that is transforming eye care access for Aboriginal communities in rural NSW.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'When the Western Murrumbidgee Local Health District\'s only visiting ophthalmologist retired after 14 years of service, a critical gap opened in eye care for one of regional New South Wales\' most underserved communities. Foresight Australia stepped in — and what followed has been recognised as one of the most impactful eye health initiatives in rural Australia.'
+      },
+      {
+        type: 'heading',
+        text: 'Three problems. One integrated solution.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Working in partnership with Gordon Eye Surgery and Chatswood Private Hospital, Foresight identified three urgent needs in the Western Murrumbidgee Local Health District and built a response to address all three simultaneously.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The first was the absence of any regular specialist ophthalmology service. Foresight established a permanent clinic at Griffith Base Hospital — the first hospital-based public ophthalmology clinic in the district in 14 years — with a visiting team of ophthalmologists, an orthoptist, and a RANZCO-accredited registrar attending every four weeks.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The second was the waiting list for cataract surgery, which had stretched beyond 12 months. By allocating additional theatre time at St Vincent\'s Community Private Hospital, the team reduced that waiting time to just a few months — and has maintained it there since.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The third was access to eye care for Aboriginal communities across the district. This is where the program\'s impact has been most transformative.'
+      },
+      {
+        type: 'heading',
+        text: 'Training the people closest to the community'
+      },
+      {
+        type: 'paragraph',
+        text: 'Based on Foresight\'s core philosophy of sustainable empowerment over short-term aid, the team developed a structured training program for Aboriginal Health Care Workers and GPs at the Griffith Aboriginal Medical Service (GAMS). The goal: equip the people already trusted within these communities with the skills and equipment to detect eye disease and vision impairment before it becomes irreversible.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Training seminars were run in 2022 and 2023, with participants learning to identify cataracts, glaucoma, and diabetic retinopathy — one of the most prevalent causes of preventable blindness in Aboriginal communities. Each graduate received diagnostic equipment donated by Foresight to use in their day-to-day work.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The results spoke for themselves. As one GP shared after completing the training: "I am now able to treat patients in general practice with eye problems rather than sending them to the emergency department." Another said the practical sessions were "very valuable" and called for them to be run periodically to keep skills current.'
+      },
+      {
+        type: 'heading',
+        text: 'MLHD Excellence Award'
+      },
+      {
+        type: 'paragraph',
+        text: 'In 2023, the project was awarded the MLHD Excellence Award under the theme "Saving Sight is Our Vision" — formal recognition from the health district itself of the program\'s impact on clinical outcomes and community access.'
+      },
+      {
+        type: 'heading',
+        text: 'ANZEF grant — expanding the reach'
+      },
+      {
+        type: 'paragraph',
+        text: 'In late 2023, Foresight was proud to receive one of the inaugural grants from the Australian and New Zealand Eye Foundation (ANZEF) — the philanthropic arm of RANZCO — to continue and expand the training program.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The first ANZEF-funded training seminar was delivered at GAMS in 2024, combining refresher training for previously trained staff with new streams for GAMS doctors and expanded training for Aboriginal Health Care Workers across the broader MLHD — including staff from Wagga, Narrandera, Leeton, Tumut, and Hay.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Two further ANZEF-funded seminars are planned, which will expand screening capacity into more remote areas of the Western MLHD and initiate a school screening program for children.'
+      },
+      {
+        type: 'heading',
+        text: 'What this means for the community'
+      },
+      {
+        type: 'paragraph',
+        text: 'The Griffith model demonstrates that closing the gap in eye health for First Nations Australians does not require a permanent specialist presence — it requires the right infrastructure, the right partnerships, and a genuine commitment to training the people already embedded in the community.'
+      },
+      {
+        type: 'paragraph',
+        text: 'With established referral pathways from Aboriginal Medical Service sites across the MLHD into the Griffith Base Hospital clinic, the system is now self-reinforcing: community health workers screen, identify, and refer; the visiting specialist team treats; and the cycle continues — visit after visit, community after community.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Foresight Australia is grateful to the Western Murrumbidgee Local Health District, Gordon Eye Surgery, Chatswood Private Hospital, ANZEF, Turramurra Rotary, and Griffith Avanti Rotary for their partnership in making this program possible — and to the Aboriginal Health Care Workers, GPs, and nurses across the district who are turning training into lasting change.'
+      },
+      {
+        type: 'cta',
+        buttonText: 'Support the Griffith Program',
+        buttonAction: '/donate'
+      }
+    ]
+  },
+  {
     id: 'solomon-leadership-2025',
     title: 'Supporting Eye Health Leadership in Solomon Islands',
     date: 'October 2025',
