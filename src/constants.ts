@@ -463,6 +463,28 @@ export const PATIENT_STORIES: Record<string, any> = {
     p1: 'Andre had lived in darkness for nearly a decade. Living in a remote part of West Sumba, he had little hope of receiving specialized medical care until the Sumba Eye Program established its permanent clinic at RSUD Waikabubak.',
     p2: 'Andre was one of the first patients to receive surgery at the newly equipped facility. The local nurses, trained by Foresight specialists, assisted in the procedure, demonstrating the sustainable model of care that Foresight champions.',
     p3: 'When Andre returned to his village, he was greeted as a man returned from the shadows. His story has inspired others in his community to seek screening, helping to break the stigma and fear surrounding eye surgery in the region.'
+  },
+  'ezry-and-lodowyk': {
+    name: 'Ezry & Lodowyk',
+    title: 'She didn\'t know she couldn\'t see.',
+    location: 'West Sumba, Indonesia',
+    program: 'Sumba Eye Program',
+    date: 'April 2026',
+    image1: '/media/images/Sumbaproject2.png',
+    image2: '/media/images/Sumbaproject.png',
+    quote: '"Sis, let\'s get our eyes checked. So you can get cool glasses like mine."',
+    p1: 'Lodowyk had his eyes tested at last year\'s Foresight outreach in West Sumba, Indonesia. His prescription came back at minus six — enough that he\'d spent years sitting at the front of the class, still struggling to make out what his teacher wrote on the board. He received a pair of glasses. He moved to the back of the room. And this year, when our team returned to Sumba for the April 2026 visit, he came back — and brought his sixteen-year-old sister with him.',
+    h2: 'Blurry was just how the world looked',
+    p2: 'Ezry had never complained about her vision. She hadn\'t thought there was anything to complain about. Blurry was simply how the world looked. She\'d grown up shy — quiet in a way that, in hindsight, her family understands a little differently now. She was nervous at the outreach. Reluctant. Foresight volunteer Craig had gently encouraged the children\'s mother, Stella, to bring Ezry along, and Stella had done her best to reassure her. But Ezry still felt embarrassed. She didn\'t want to be the centre of attention. When our team examined her eyes, they found a prescription of minus twelve. Worse than her brother\'s. Significantly worse.',
+    h3: 'Taking it in quietly',
+    p3: 'She was given glasses, and she stood there for a moment — just looking around. Then further. At things outside, at distances she\'d never seen clearly. Taking it in quietly, the way a shy person does when something surprises them. Blurry had been normal. This was not normal. This was just — better.',
+    pullQuote: '"Their eye condition becomes an obstacle to their dreams. We as parents are ready to support their dreams."',
+    pullQuoteAttribution: '— Stella, mother of Lodowyk and Ezry',
+    h4: 'Two children. Two futures.',
+    p4: 'Ezry wants to be a doctor. Lodowyk wants to be a soldier. Two children, one family, two futures that now look considerably clearer. What Foresight gave this family wasn\'t extraordinary. It was a pair of glasses — the most ordinary thing in the world. What was extraordinary was being there to give it.',
+    p5: 'This story is one of hundreds from our April 2026 visit to West Sumba, where our team saw 818 patients, performed 55 cataract surgeries, and distributed 744 pairs of glasses in just four days.',
+    ctaHeading: 'Your support makes stories like this possible.',
+    ctaButtonText: 'Give the Gift of Sight'
   }
 };
 

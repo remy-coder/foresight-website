@@ -180,7 +180,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Andre Story Section */}
+      {/* Ezry & Lodowyk Story Section */}
       <section className="py-6 md:py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
           <div className="bg-primary/5 rounded-[3rem] p-6 md:p-14 border border-primary/10">
@@ -193,8 +193,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               >
                 <div className="absolute inset-0 bg-accent/20 blur-[60px] rounded-full"></div>
                 <img
-                  src="/media/images/Andre.png"
-                  alt="Andre"
+                  src="/media/images/Sumbaproject2.png"
+                  alt="Ezry and Lodowyk"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-square md:aspect-[4/5]"
                   loading="lazy"
                   width="800"
@@ -209,22 +209,26 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               >
                 <Quote className="w-16 h-16 text-primary/20 mb-8" />
                 <h3 className="text-3xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight mb-6">
-                  "I never expected to see the colors of my village again."
+                  She didn't know she couldn't see. Until her brother brought her in.
                 </h3>
+                <p className="text-xl text-primary font-display font-extrabold italic leading-relaxed mb-6">
+                  "Sis, let's get our eyes checked. So you can get cool glasses like mine."
+                </p>
                 <p className="text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
-                  Andre watched his world steadily fade to complete darkness. Thanks to a short, specialized procedure, the debilitating barrier to his sight was removed. He received not just medical treatment, but compassionate care.
+                  Sixteen-year-old Ezry had never complained about her vision. Blurry was simply how the world looked — until our team in West Sumba found a prescription of minus twelve. Her brother Lodowyk had brought her in. Now she can see her teacher from the back of the classroom.
                 </p>
                 <button
-                  onClick={() => onNavigate('impact')}
+                  onClick={() => onNavigate('story-ezry-and-lodowyk')}
                   className="px-6 py-5 bg-white rounded-2xl shadow-sm border border-gray-100 mb-4 text-primary font-display font-black text-xs uppercase tracking-widest hover:shadow-md transition-all flex items-center gap-3"
                 >
-                  Read more stories <ArrowRight className="w-4 h-4" />
+                  Read Ezry's Story <ArrowRight className="w-4 h-4" />
                 </button>
               </motion.div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Stats Section - Bento Style */}
       <section className="py-8 md:py-10 bg-[#FAFAFA] relative overflow-hidden">

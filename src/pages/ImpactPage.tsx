@@ -107,6 +107,13 @@ export default function ImpactPage({ onNavigate }: ImpactPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {[
               {
+                name: 'Ezry & Lodowyk',
+                location: 'West Sumba, Indonesia',
+                image: '/media/images/Sumbaproject2.png',
+                story: 'Lodowyk brought his sister Ezry to the Foresight outreach clinic in West Sumba. She\'d never complained about her vision. Blurry was simply how the world looked — until our team found a prescription of minus twelve.',
+                storyId: 'ezry-and-lodowyk'
+              },
+              {
                 name: 'Cahara',
                 location: 'Sumba, Indonesia',
                 image: '/media/images/Cahara.png',
@@ -165,7 +172,7 @@ export default function ImpactPage({ onNavigate }: ImpactPageProps) {
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed font-display font-medium mb-4 flex-grow">
                     {patient.story}
                   </p>
-                  <button onClick={() => onNavigate && onNavigate(`story-${patient.name.toLowerCase()}`)} className="text-xs font-display font-black text-primary uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all w-fit">
+                  <button onClick={() => onNavigate && onNavigate(`story-${(patient as any).storyId || patient.name.toLowerCase()}`)} className="text-xs font-display font-black text-primary uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all w-fit">
                     Read {patient.name}'s Story <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
