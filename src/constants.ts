@@ -465,3 +465,173 @@ export const PATIENT_STORIES: Record<string, any> = {
     p3: 'When Andre returned to his village, he was greeted as a man returned from the shadows. His story has inspired others in his community to seek screening, helping to break the stigma and fear surrounding eye surgery in the region.'
   }
 };
+
+export interface NewsArticleContentBlock {
+  type: 'paragraph' | 'heading' | 'list' | 'cta';
+  text?: string;
+  items?: string[];
+  buttonText?: string;
+  buttonAction?: string;
+}
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  location?: string;
+  image: string;
+  excerpt: string;
+  content: NewsArticleContentBlock[];
+}
+
+export const NEWS_ARTICLES: NewsArticle[] = [
+  {
+    id: 'sumba-visit-2026',
+    title: 'April 2026 Sumba Eye Program Visit: A Turning Point for Sustainable Eye Care in West Sumba',
+    date: 'April 2026',
+    category: 'Program Update',
+    location: 'West Sumba, Indonesia',
+    image: '/media/images/Sumbaproject.png',
+    excerpt: 'In April 2026, Foresight Australia returned to RSUD Waikabubak Hospital in West Sumba for another milestone visit — 818 patients seen, 55 cataract surgeries performed, and a growing local team taking ownership of the eye clinic.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'In April 2026, Foresight Australia returned to RSUD Waikabubak Hospital in West Sumba, Indonesia, for another visit to the Sumba Eye Program. This visit marked a clear step forward in the program\'s evolution — from a series of outreach missions into a developing, locally-led eye care service that continues to grow between visits.'
+      },
+      {
+        type: 'heading',
+        text: 'Key outcomes from the April 2026 visit'
+      },
+      {
+        type: 'paragraph',
+        text: 'Over four clinical days, the team delivered a comprehensive range of eye care services to 818 patients. The results speak for themselves:'
+      },
+      {
+        type: 'list',
+        items: [
+          '818 patients received care over four clinical days',
+          '744 pairs of glasses provided',
+          '55 cataract surgeries performed',
+          '3 YAG laser treatments completed',
+          '105 referrals made',
+          '100% of post-operative reviews completed before the team departed'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'A stronger, more organised clinic'
+      },
+      {
+        type: 'paragraph',
+        text: 'One of the most encouraging signs from this visit was the improvement in how the clinic operated day to day. Compared with earlier visits, patient movement was more structured, staff roles were clearer, and the overall service was more coordinated.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Eight parallel screening stations ran efficiently throughout each day. Hospital eye nurses played a more active and confident role in daily operations — managing patient flow, supporting refraction, assisting in surgery preparation, and conducting post-operative checks. Their growing capability contributed significantly to the improved efficiency and quality of care.'
+      },
+      {
+        type: 'paragraph',
+        text: 'This reflects an important shift: the eye care model at RSUD Waikabubak is no longer operating only as a short-term outreach event. It is increasingly functioning as a developing local eye care system.'
+      },
+      {
+        type: 'heading',
+        text: 'Training the next layer of care — Puskesmas staff'
+      },
+      {
+        type: 'paragraph',
+        text: 'A major new development in April 2026 was the formal engagement of Puskesmas staff in the program for the first time. Puskesmas are government-run community health centres that serve as the first point of contact for patients in rural communities across West Sumba.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Eight Puskesmas staff from across the district participated in a structured training and observation program during the visit. They learned basic visual acuity testing, trial lens use, identification of common eye conditions, and referral pathways to the hospital clinic.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Their feedback was enthusiastic. As one participant said: "The training helped us understand how to test vision correctly and identify patients who need glasses or further treatment. We want more training so we can help our communities better."'
+      },
+      {
+        type: 'paragraph',
+        text: 'Strengthening this primary care network is essential for earlier detection and sustainable continuity of care between specialist visits.'
+      },
+      {
+        type: 'heading',
+        text: 'Looking ahead to September 2026'
+      },
+      {
+        type: 'paragraph',
+        text: 'The April 2026 visit confirmed that the foundations of a sustainable eye care system in West Sumba are now clearly taking shape. The next phase focuses on consolidating those gains.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The team will return in September 2026 with the following priorities:'
+      },
+      {
+        type: 'list',
+        items: [
+          'Progress BPJS approval so more patients can access affordable care through Indonesia\'s national health insurance system',
+          'Deliver refresher training for hospital eye nurses',
+          'Expand structured training for Puskesmas staff across the district',
+          'Strengthen referral pathways between community health centres and the hospital clinic',
+          'Continue building toward a financially sustainable, locally led clinic that operates consistently between visiting team trips'
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'The April 2026 visit showed that this program is evolving in exactly the right direction. Continued support from donors, partners, and the local community will be essential to convert this progress into permanence. Thank you to everyone who makes this work possible.'
+      },
+      {
+        type: 'cta',
+        buttonText: 'Support the Sumba Eye Program',
+        buttonAction: '/donate'
+      }
+    ]
+  },
+  {
+    id: 'solomon-leadership-2025',
+    title: 'Supporting Eye Health Leadership in Solomon Islands',
+    date: 'October 2025',
+    category: 'Hobart Conference',
+    location: 'Solomon Islands',
+    image: '/media/images/solomon-islands-dr-mathew-bonie-hobart.png',
+    excerpt: 'Foresight Australia was pleased to sponsor Dr Mathew Bonie, an ophthalmologist from Solomon Islands, to attend the recent RANZCO Global Eye Health and IAPB conference in Hobart.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Foresight Australia was pleased to sponsor Dr Mathew Bonie, an ophthalmologist from Solomon Islands, to attend the recent RANZCO Global Eye Health and IAPB conference in Hobart.'
+      },
+      {
+        type: 'paragraph',
+        text: 'This provided an important opportunity for Dr Bonie to hear from and connect with leaders in global eye health, while also helping strengthen planning for future programmes in Solomon Islands to build local ophthalmic capacity.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Foresight remains committed to supporting long-term, locally led eye health development in Solomon Islands through partnership, skills transfer, and sustained engagement.'
+      }
+    ]
+  },
+  {
+    id: 'ranzco-conference-2025',
+    title: 'Foresight Australia at the RANZCO Global Eye Health and IAPB Conference',
+    date: 'October 2025',
+    category: 'Hobart Conference',
+    location: 'Australia',
+    image: '/media/images/solomon-islands-geoffrey-painter-hobart.png',
+    excerpt: 'Foresight Australia was represented at the recent RANZCO Global Eye Health and IAPB conference in Hobart by A/Prof Geoffrey Painter AM, who promoted Foresight’s return to in-country support for Solomon Islands in 2026.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Foresight Australia was represented at the recent RANZCO Global Eye Health and IAPB conference in Hobart by A/Prof Geoffrey Painter AM, who promoted Foresight’s return to in-country support for Solomon Islands in 2026.'
+      },
+      {
+        type: 'paragraph',
+        text: 'During the conference, Geoffrey participated in the RANZCO Global Health Roundtable NGO discussion as well as the PacEYES meeting, helping continue important conversations about eye health partnerships and future collaboration across the region.'
+      },
+      {
+        type: 'paragraph',
+        text: 'This year is especially significant, marking the 30th anniversary of Geoffrey’s first visit to Solomon Islands — a reminder of Foresight’s long-standing connection and commitment to strengthening local eye care capacity.'
+      }
+    ]
+  }
+];
+

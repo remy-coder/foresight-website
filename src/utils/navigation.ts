@@ -28,5 +28,8 @@ export const getUrlFromId = (id: string): string => {
   if (id.startsWith('story-')) {
     return `/stories/${id.replace('story-', '')}`;
   }
+  if (id.startsWith('news-')) {
+    return `/news/${id.replace('news-', '')}`;
+  }
   return ID_MAP[id] || '/';
 };

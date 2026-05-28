@@ -1,8 +1,14 @@
 import { motion } from 'motion/react';
+import { ArrowRight, Calendar } from 'lucide-react';
+import { NEWS_ARTICLES } from '../constants';
 
-export default function NewsPage() {
+interface NewsPageProps {
+  onNavigate?: (id: string) => void;
+}
+
+export default function NewsPage({ onNavigate }: NewsPageProps) {
   return (
-    <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA] min-h-screen ">
+    <div className="pt-14 pb-8 md:pt-20 md:pb-14 bg-[#FAFAFA] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
         <div className="max-w-3xl mb-12">
           <motion.div
@@ -22,76 +28,50 @@ export default function NewsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col"
-          >
-            <div className="aspect-[16/9] w-full relative">
-              <img 
-                src="/media/images/solomon-islands-dr-mathew-bonie-hobart.png" 
-                alt="Dr Mathew Bonie" 
-                className="w-full h-full object-cover" 
-                loading="lazy"
-                width="800"
-                height="450"
-                decoding="async"
-              />
-              <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary">Hobart Conference</div>
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-6">Supporting Eye Health Leadership in Solomon Islands</h3>
-              <div className="text-gray-600 font-display font-medium leading-relaxed flex-1 space-y-4">
-                <p>
-                  Foresight Australia was pleased to sponsor Dr Mathew Bonie, an ophthalmologist from Solomon Islands, to attend the recent RANZCO Global Eye Health and IAPB conference in Hobart.
-                </p>
-                <p>
-                  This provided an important opportunity for Dr Bonie to hear from and connect with leaders in global eye health, while also helping strengthen planning for future programmes in Solomon Islands to build local ophthalmic capacity.
-                </p>
-                <p>
-                  Foresight remains committed to supporting long-term, locally led eye health development in Solomon Islands through partnership, skills transfer, and sustained engagement.
-                </p>
+          {NEWS_ARTICLES.map((article, index) => (
+            <motion.article
+              key={article.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              onClick={() => onNavigate && onNavigate('news-' + article.id)}
+              className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 cursor-pointer group"
+            >
+              <div className="aspect-[16/9] w-full relative overflow-hidden">
+                <img 
+                  src={article.image} 
+                  alt={article.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  loading="lazy"
+                  width="800"
+                  height="450"
+                  decoding="async"
+                />
+                <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary shadow-sm">
+                  {article.category}
+                </div>
               </div>
-            </div>
-          </motion.article>
-
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col"
-          >
-            <div className="aspect-[16/9] w-full relative">
-              <img 
-                src="/media/images/solomon-islands-geoffrey-painter-hobart.png" 
-                alt="Geoffrey Painter" 
-                className="w-full h-full object-cover" 
-                loading="lazy"
-                width="800"
-                height="450"
-                decoding="async"
-              />
-              <div className="absolute top-4 left-4 bg-white px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary">Hobart Conference</div>
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-6">Foresight Australia at the RANZCO Global Eye Health and IAPB Conference</h3>
-              <div className="text-gray-600 font-display font-medium leading-relaxed flex-1 space-y-4">
-                <p>
-                  Foresight Australia was represented at the recent RANZCO Global Eye Health and IAPB conference in Hobart by A/Prof Geoffrey Painter AM, who promoted Foresight’s return to in-country support for Solomon Islands in 2026.
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center gap-2 text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>{article.date}</span>
+                </div>
+                <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-4 group-hover:text-primary transition-colors leading-tight">
+                  {article.title}
+                </h3>
+                <p className="text-gray-600 font-display font-medium leading-relaxed flex-1">
+                  {article.excerpt}
                 </p>
-                <p>
-                  During the conference, Geoffrey participated in the RANZCO Global Health Roundtable NGO discussion as well as the PacEYES meeting, helping continue important conversations about eye health partnerships and future collaboration across the region.
-                </p>
-                <p>
-                  This year is especially significant, marking the 30th anniversary of Geoffrey’s first visit to Solomon Islands — a reminder of Foresight’s long-standing connection and commitment to strengthening local eye care capacity.
-                </p>
+                <div className="text-xs font-display font-black text-primary uppercase tracking-widest flex items-center gap-2 mt-6">
+                  Read Full Article <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                </div>
               </div>
-            </div>
-          </motion.article>
+            </motion.article>
+          ))}
         </div>
       </div>
     </div>
   );
 }
+

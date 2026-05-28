@@ -11,7 +11,7 @@ import {
   Linkedin,
   Youtube
 } from 'lucide-react';
-import { NAVIGATION, PROJECTS } from './constants';
+import { NAVIGATION, PROJECTS, NEWS_ARTICLES } from './constants';
 import { getUrlFromId } from './utils/navigation';
 import NavLink from './components/NavLink';
 
@@ -26,6 +26,7 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const DonatePage = lazy(() => import('./pages/DonatePage'));
 const StoryPage = lazy(() => import('./pages/StoryPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
+const NewsDetailPage = lazy(() => import('./pages/NewsDetailPage'));
 const ReportsPoliciesPage = lazy(() => import('./pages/ReportsPoliciesPage'));
 const SubscribePage = lazy(() => import('./pages/SubscribePage'));
 const LeadersPage = lazy(() => import('./pages/LeadersPage'));
@@ -50,6 +51,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
+  const [selectedArticleId, setSelectedArticleId] = useState<string | null>(null);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -82,9 +84,15 @@ export default function App() {
         setCurrentPage('story');
         window.scrollTo({ top: 0, behavior: 'instant' });
         return;
+      } else if (path.startsWith('/news/') && path !== '/news') {
+        setSelectedArticleId(path.replace('/news/', ''));
+        setCurrentPage('news-detail');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
       } else {
         setSelectedProjectId(null);
         setSelectedStoryId(null);
+        setSelectedArticleId(null);
       }
       setCurrentPage(id);
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -122,6 +130,15 @@ export default function App() {
       const project = PROJECTS.find(p => p.id === selectedProjectId);
       if (project) {
         title = `${project.title} | ${project.location} | Foresight Australia`;
+      }
+    } else if (currentPage === 'news') {
+      title = 'Latest News & Program Updates | Foresight Australia';
+    } else if (currentPage === 'news-detail' && selectedArticleId) {
+      const article = NEWS_ARTICLES.find(a => a.id === selectedArticleId);
+      if (article) {
+        title = `${article.title} | News | Foresight Australia`;
+      } else {
+        title = 'News | Foresight Australia';
       }
     }
     document.title = title;
@@ -185,6 +202,12 @@ export default function App() {
       const storyId = id.replace('story-', '');
       setSelectedStoryId(storyId);
       setCurrentPage('story');
+      window.history.pushState(null, '', newPath);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (id.startsWith('news-')) {
+      const articleId = id.replace('news-', '');
+      setSelectedArticleId(articleId);
+      setCurrentPage('news-detail');
       window.history.pushState(null, '', newPath);
       window.scrollTo({ top: 0, behavior: 'instant' });
     } else {
@@ -285,7 +308,7 @@ export default function App() {
         <Suspense fallback={<LoadingFallback />}>
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentPage + (selectedProjectId || '') + (selectedStoryId || '')}
+              key={currentPage + (selectedProjectId || '') + (selectedStoryId || '') + (selectedArticleId || '')}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -311,7 +334,14 @@ export default function App() {
               {currentPage === 'legacy-giving' && <LegacyGivingPage onNavigate={handleNavClick} />}
               {currentPage === 'contact' && <ContactPage />}
               {currentPage === 'donate' && <DonatePage onNavigate={handleNavClick} />}
-              {currentPage === 'news' && <NewsPage />}
+              {currentPage === 'news' && <NewsPage onNavigate={handleNavClick} />}
+              {currentPage === 'news-detail' && selectedArticleId && (
+                <NewsDetailPage 
+                  articleId={selectedArticleId} 
+                  onBack={() => handleNavClick('news')} 
+                  onNavigate={handleNavClick}
+                />
+              )}
               {currentPage === 'reports-policies' && <ReportsPoliciesPage />}
               {currentPage === 'story' && selectedStoryId && (
                 <StoryPage 
