@@ -133,12 +133,34 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
                 <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">Our Story</h2>
                 <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">{('storyHeading' in project && project.storyHeading) ? (project as any).storyHeading : 'Over 15 years in Sumba'}</h3>
               </div>
-              <div className="md:col-span-8 flex flex-col gap-6">
-                {(project as any).ourStory.map((para: string, i: number) => (
-                  <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                    {para}
-                  </p>
-                ))}
+              <div className="md:col-span-8">
+                {projectId === 'projects-indonesia' ? (
+                  <div className="flex flex-col md:flex-row gap-8 items-start">
+                    <div className="md:w-[55%] flex flex-col gap-6">
+                      {(project as any).ourStory.map((para: string, i: number) => (
+                        <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                          {para}
+                        </p>
+                      ))}
+                    </div>
+                    <div className="md:w-[45%] w-full shrink-0">
+                      <img
+                        src="/media/images/Sumba Home.JPG"
+                        alt="Over 15 years in Sumba"
+                        className="w-full aspect-[4/3] object-cover rounded-xl shadow-md"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-6">
+                    {(project as any).ourStory.map((para: string, i: number) => (
+                      <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -329,21 +351,49 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
                 <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">What's next</h3>
               </div>
               <div className="md:col-span-8">
-                <div className="space-y-8">
-                  <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed whitespace-pre-wrap">
-                    {project.nextSteps}
-                  </p>
-                  {project.nextStepsList && (
-                    <ul className="space-y-5">
-                      {project.nextStepsList.map((step, i) => (
-                        <li key={i} className="flex gap-4">
-                          <div className="mt-1.5 shrink-0"><CheckCircle2 className="w-5 h-5 text-primary" /></div>
-                          <span className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{step}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                {projectId === 'projects-indonesia' ? (
+                  <div className="flex flex-col md:flex-row gap-8 items-start">
+                    <div className="md:w-[45%] w-full shrink-0">
+                      <img
+                        src="/media/images/Sumbaproject.png"
+                        alt="What's next"
+                        className="w-full aspect-[4/3] object-cover rounded-xl shadow-md"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="md:w-[55%] flex flex-col gap-8">
+                      <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed whitespace-pre-wrap">
+                        {project.nextSteps}
+                      </p>
+                      {project.nextStepsList && (
+                        <ul className="space-y-5">
+                          {project.nextStepsList.map((step, i) => (
+                            <li key={i} className="flex gap-4">
+                              <div className="mt-1.5 shrink-0"><CheckCircle2 className="w-5 h-5 text-primary" /></div>
+                              <span className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{step}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-8">
+                    <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed whitespace-pre-wrap">
+                      {project.nextSteps}
+                    </p>
+                    {project.nextStepsList && (
+                      <ul className="space-y-5">
+                        {project.nextStepsList.map((step, i) => (
+                          <li key={i} className="flex gap-4">
+                            <div className="mt-1.5 shrink-0"><CheckCircle2 className="w-5 h-5 text-primary" /></div>
+                            <span className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{step}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -365,7 +415,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
           {/* Logo grid — shown when partnerLogos data exists */}
           {'partnerLogos' in project && (project as any).partnerLogos?.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-              {(project as any).partnerLogos.map((partner: { name: string; logo: string | null }, i: number) => (
+              {(project as any).partnerLogos.map((partner: { name: string; logo: string | null; url?: string }, i: number) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
@@ -374,31 +424,68 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
                   transition={{ delay: i * 0.05 }}
                   className="p-5 bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center group hover:shadow-md hover:border-primary/20 transition-all duration-300 min-h-[100px]"
                 >
-                  {partner.logo ? (
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
-                      loading="lazy"
-                      width="160"
-                      height="48"
-                      decoding="async"
-                      onError={(e) => {
-                        const el = e.target as HTMLImageElement;
-                        el.style.display = 'none';
-                        const parent = el.parentElement;
-                        if (parent) {
-                          const span = document.createElement('span');
-                          span.className = 'text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors';
-                          span.textContent = partner.name;
-                          parent.appendChild(span);
-                        }
-                      }}
-                    />
+                  {partner.url ? (
+                    <a
+                      href={partner.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={partner.name}
+                      className="flex flex-col items-center justify-center w-full h-full hover:opacity-75 transition-all duration-300"
+                    >
+                      {partner.logo ? (
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                          loading="lazy"
+                          width="160"
+                          height="48"
+                          decoding="async"
+                          onError={(e) => {
+                            const el = e.target as HTMLImageElement;
+                            el.style.display = 'none';
+                            const parent = el.parentElement;
+                            if (parent) {
+                              const span = document.createElement('span');
+                              span.className = 'text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors';
+                              span.textContent = partner.name;
+                              parent.appendChild(span);
+                            }
+                          }}
+                        />
+                      ) : (
+                        <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors leading-tight">
+                          {partner.name}
+                        </span>
+                      )}
+                    </a>
                   ) : (
-                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors leading-tight">
-                      {partner.name}
-                    </span>
+                    partner.logo ? (
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                        loading="lazy"
+                        width="160"
+                        height="48"
+                        decoding="async"
+                        onError={(e) => {
+                          const el = e.target as HTMLImageElement;
+                          el.style.display = 'none';
+                          const parent = el.parentElement;
+                          if (parent) {
+                            const span = document.createElement('span');
+                            span.className = 'text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors';
+                            span.textContent = partner.name;
+                            parent.appendChild(span);
+                          }
+                        }}
+                      />
+                    ) : (
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors leading-tight">
+                        {partner.name}
+                      </span>
+                    )
                   )}
                 </motion.div>
               ))}
