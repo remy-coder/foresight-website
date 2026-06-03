@@ -100,71 +100,109 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
       </section>
 
       {/* SECTION 2: Why it matters */}
-      <section className="py-10 md:py-14 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
-            <div className="md:col-span-4">
-              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
-              <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
-            </div>
-            <div className="md:col-span-8">
-              <div className="flex flex-col gap-6">
-                {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
-                  <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                    {para}
-                  </p>
-                )) : (
-                  <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                    {project.whyItMatters}
-                  </p>
-                )}
+      {projectId === 'projects-indonesia' ? (
+        <section className="py-16 px-6 bg-slate-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+              <div className="col-span-1">
+                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
+                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
+              </div>
+              <div className="col-span-3">
+                <div className="flex flex-col gap-6">
+                  {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
+                    <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                      {para}
+                    </p>
+                  )) : (
+                    <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                      {project.whyItMatters}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 2.5: Our Story */}
-      {'ourStory' in project && project.ourStory && (
-        <section className="py-10 md:py-14 bg-gray-50">
+        </section>
+      ) : (
+        <section className="py-10 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
               <div className="md:col-span-4">
-                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">Our Story</h2>
-                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">{('storyHeading' in project && project.storyHeading) ? (project as any).storyHeading : 'Over 15 years in Sumba'}</h3>
+                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
+                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
               </div>
               <div className="md:col-span-8">
-                {projectId === 'projects-indonesia' ? (
+                <div className="flex flex-col gap-6">
+                  {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
+                    <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                      {para}
+                    </p>
+                  )) : (
+                    <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                      {project.whyItMatters}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 2.5: Our Story */}
+      {'ourStory' in project && project.ourStory && (
+        projectId === 'projects-indonesia' ? (
+          <section className="py-16 px-6 bg-white">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+                <div className="col-span-1">
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">Our Story</h2>
+                  <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">
+                    {('storyHeading' in project && project.storyHeading) ? (project as any).storyHeading : 'Over 15 years in Sumba'}
+                  </h3>
+                </div>
+                <div className="col-span-3">
                   <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <div className="md:w-[55%] flex flex-col gap-6">
+                    <div className="md:w-[60%] flex flex-col gap-6">
                       {(project as any).ourStory.map((para: string, i: number) => (
                         <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
                           {para}
                         </p>
                       ))}
                     </div>
-                    <div className="md:w-[45%] w-full shrink-0">
+                    <div className="md:w-[40%] w-full shrink-0">
                       <img
                         src="/media/images/Sumba Home.JPG"
                         alt="Over 15 years in Sumba"
-                        className="w-full aspect-[4/3] object-cover rounded-xl shadow-md"
+                        className="w-full h-64 md:h-[280px] object-cover rounded-xl shadow-md"
                         loading="lazy"
                       />
                     </div>
                   </div>
-                ) : (
-                  <div className="flex flex-col gap-6">
-                    {(project as any).ourStory.map((para: string, i: number) => (
-                      <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-                )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : (
+          <section className="py-10 md:py-14 bg-gray-50">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
+                <div className="md:col-span-4">
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">Our Story</h2>
+                  <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">{('storyHeading' in project && project.storyHeading) ? (project as any).storyHeading : 'Over 15 years in Sumba'}</h3>
+                </div>
+                <div className="md:col-span-8 flex flex-col gap-6">
+                  {(project as any).ourStory.map((para: string, i: number) => (
+                    <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )
       )}
 
       {/* SECTION 3: What we do */}
@@ -343,41 +381,15 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
 
       {/* SECTION 6: What's next */}
       {project.nextSteps && (
-        <section className="py-10 md:py-14 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
-              <div className="md:col-span-4">
-                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Future</h2>
-                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">What's next</h3>
-              </div>
-              <div className="md:col-span-8">
-                {projectId === 'projects-indonesia' ? (
-                  <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <div className="md:w-[45%] w-full shrink-0">
-                      <img
-                        src="/media/images/Sumbaproject.png"
-                        alt="What's next"
-                        className="w-full aspect-[4/3] object-cover rounded-xl shadow-md"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="md:w-[55%] flex flex-col gap-8">
-                      <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed whitespace-pre-wrap">
-                        {project.nextSteps}
-                      </p>
-                      {project.nextStepsList && (
-                        <ul className="space-y-5">
-                          {project.nextStepsList.map((step, i) => (
-                            <li key={i} className="flex gap-4">
-                              <div className="mt-1.5 shrink-0"><CheckCircle2 className="w-5 h-5 text-primary" /></div>
-                              <span className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{step}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                ) : (
+        projectId === 'projects-indonesia' ? (
+          <section className="py-16 px-6 bg-white">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+                <div className="col-span-1">
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Future</h2>
+                  <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">What's next</h3>
+                </div>
+                <div className="col-span-3">
                   <div className="space-y-8">
                     <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed whitespace-pre-wrap">
                       {project.nextSteps}
@@ -393,11 +405,39 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
                       </ul>
                     )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : (
+          <section className="py-10 md:py-14 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
+                <div className="md:col-span-4">
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Future</h2>
+                  <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">What's next</h3>
+                </div>
+                <div className="md:col-span-8">
+                  <div className="space-y-8">
+                    <p className="text-lg md:text-xl text-gray-600 font-display font-medium leading-relaxed whitespace-pre-wrap">
+                      {project.nextSteps}
+                    </p>
+                    {project.nextStepsList && (
+                      <ul className="space-y-5">
+                        {project.nextStepsList.map((step, i) => (
+                          <li key={i} className="flex gap-4">
+                            <div className="mt-1.5 shrink-0"><CheckCircle2 className="w-5 h-5 text-primary" /></div>
+                            <span className="text-base md:text-lg text-gray-600 font-display font-medium leading-relaxed">{step}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )
       )}
 
       {/* SECTION 7: Partners */}
