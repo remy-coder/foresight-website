@@ -71,21 +71,39 @@ export default function StoryPage({ storyId, onBack, onNavigate }: StoryPageProp
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1 }}
-          className="aspect-[4/3] md:aspect-[21/9] rounded-3xl md:rounded-[3rem] overflow-hidden shadow-2xl mb-12 md:mb-20 border border-gray-100"
-        >
-          <img
-            src={story.image1}
-            alt={`${story.name} Hero`}
-            className="w-full h-full object-cover"
-            loading="lazy"
-            width="1200"
-            height="500"
-          />
-        </motion.div>
+        {storyId === 'ezry-and-lodowyk' ? (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="w-full h-[320px] md:h-[480px] rounded-2xl overflow-hidden shadow-2xl mb-12 md:mb-20 border border-gray-100"
+          >
+            <img
+              src={story.image1}
+              alt={`${story.name} Hero`}
+              className="w-full h-full object-cover object-top"
+              loading="lazy"
+              width="1200"
+              height="500"
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="aspect-[4/3] md:aspect-[21/9] rounded-3xl md:rounded-[3rem] overflow-hidden shadow-2xl mb-12 md:mb-20 border border-gray-100"
+          >
+            <img
+              src={story.image1}
+              alt={`${story.name} Hero`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              width="1200"
+              height="500"
+            />
+          </motion.div>
+        )}
 
         <div className="prose prose-lg md:prose-xl max-w-none prose-p:font-display prose-p:font-medium prose-p:text-gray-600 prose-p:leading-relaxed mx-auto md:mx-0">
           <p>{story.p1}</p>
@@ -149,14 +167,16 @@ export default function StoryPage({ storyId, onBack, onNavigate }: StoryPageProp
           {story.p4 && <p>{story.p4}</p>}
 
           {/* Second image (shown between p3 and closing for standard stories, after p4 for extended) */}
-          <img
-            src={story.image2}
-            alt={`${story.name} Supportive`}
-            className="w-full rounded-3xl md:rounded-[2rem] shadow-2xl my-12 border border-gray-100 object-cover not-prose"
-            loading="lazy"
-            width="800"
-            height="600"
-          />
+          {story.image2 && storyId !== 'ezry-and-lodowyk' && (
+            <img
+              src={story.image2}
+              alt={`${story.name} Supportive`}
+              className="w-full rounded-3xl md:rounded-[2rem] shadow-2xl my-12 border border-gray-100 object-cover not-prose"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+          )}
 
           {story.p5 && <p>{story.p5}</p>}
 
