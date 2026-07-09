@@ -2,22 +2,22 @@ import { motion } from 'motion/react';
 import { FileText, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function ReportsPoliciesPage() {
-  const policies = [
-    'Foresight Conflict of Interest Policy',
-    'Foresight Complaints Policy',
-    'Foresight Child Protection Policy',
-    'Foresight Counter-terrorism Policy',
-    'Foresight Financial Management Policy',
-    'Foresight Gender Equity Policy',
-    'Foresight Whistle Blower Policy',
-    'Foresight Non-development Policy',
-    'Foresight Corruption and Fraud Prevention Policy',
-    'Foresight Constitution – 2020',
-    'Foresight Fundraising Policy',
-    'Foresight Code of Conduct',
-    'Foresight Transparency and Communication Policy',
-    'Foresight Prevention of Sexual Exploitation and Harassment Policy',
-    'Foresight Philosophy and Principles Policy'
+  const policies: { label: string; filename: string }[] = [
+    { label: 'Foresight Conflict of Interest Policy',                        filename: 'foresight-conflict-of-interest-policy.pdf' },
+    { label: 'Foresight Complaints Policy',                                  filename: 'foresight-complaints-policy.pdf' },
+    { label: 'Foresight Child Protection Policy',                            filename: 'foresight-child-protection-policy.pdf' },
+    { label: 'Foresight Counter-terrorism Policy',                           filename: 'foresight-counter-terrorism-policy.pdf' },
+    { label: 'Foresight Financial Management Policy',                        filename: 'foresight-financial-management-policy.pdf' },
+    { label: 'Foresight Gender Equity Policy',                               filename: 'foresight-gender-equity-policy.pdf' },
+    { label: 'Foresight Whistle Blower Policy',                              filename: 'foresight-whistle-blower-policy.pdf' },
+    { label: 'Foresight Non-development Policy',                             filename: 'foresight-non-development-policy.pdf' },
+    { label: 'Foresight Corruption and Fraud Prevention Policy',             filename: 'foresight-corruption-and-fraud-prevention-policy.pdf' },
+    { label: 'Foresight Constitution – 2020',                                filename: 'foresight-constitution-2020.pdf' },
+    { label: 'Foresight Fundraising Policy',                                 filename: 'foresight-fundraising-policy.pdf' },
+    { label: 'Foresight Code of Conduct',                                    filename: 'foresight-code-of-conduct.pdf' },
+    { label: 'Foresight Transparency and Communication Policy',              filename: 'foresight-transparency-and-communication-policy.pdf' },
+    { label: 'Foresight Prevention of Sexual Exploitation and Harassment Policy', filename: 'foresight-prevention-of-sexual-exploitation-and-harassment-policy.pdf' },
+    { label: 'Foresight Philosophy and Principles Policy',                   filename: 'foresight-philosophy-and-principles-policy.pdf' },
   ];
 
   return (
@@ -80,15 +80,15 @@ export default function ReportsPoliciesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {policies.map((policy) => (
                 <a
-                  key={policy}
-                  href={`/media/documents/${policy.toLowerCase().replace(/ – /g, '-').replace(/ /g, '-').replace(/[()]/g, '')}.pdf`}
+                  key={policy.label}
+                  href={`/media/documents/${policy.filename}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-4 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between group hover:bg-gray-50 hover:border-primary/20 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-4">
                     <ShieldCheck className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
-                    <span className="font-display font-bold text-gray-700 group-hover:text-gray-900 transition-colors uppercase text-[11px] tracking-widest">{policy}</span>
+                    <span className="font-display font-bold text-gray-700 group-hover:text-gray-900 transition-colors uppercase text-[11px] tracking-widest">{policy.label}</span>
                   </div>
                   <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-primary transition-all flex-shrink-0" />
                 </a>
