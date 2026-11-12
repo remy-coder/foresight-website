@@ -33,6 +33,7 @@ const LeadersPage = lazy(() => import('./pages/LeadersPage'));
 const VolunteerFormPage = lazy(() => import('./pages/VolunteerFormPage'));
 const PartnerFormPage = lazy(() => import('./pages/PartnerFormPage'));
 const LegacyGivingPage = lazy(() => import('./pages/LegacyGivingPage'));
+const ChristmasAppealPage = lazy(() => import('./pages/ChristmasAppealPage'));
 
 // Fallback component
 const LoadingFallback = () => (
@@ -73,7 +74,8 @@ export default function App() {
         '/contact': 'contact',
         '/donate': 'donate',
         '/reports-policies': 'reports-policies',
-        '/subscribe': 'subscribe'
+        '/subscribe': 'subscribe',
+        '/christmas-appeal': 'christmas-appeal'
       }).find(([p]) => p === path)?.[1] || 'home';
 
       if (path === '/where-we-work/australia') setSelectedProjectId('projects-australia');
@@ -122,7 +124,8 @@ export default function App() {
       partner: 'Partner With Us | Foresight Australia',
       'legacy-giving': 'Legacy Giving | Request Info Pack | Foresight Australia',
       contact: 'Contact Us | Foresight Australia Sydney Office',
-      donate: 'Donate Now | Give the Gift of Sight'
+      donate: 'Donate Now | Give the Gift of Sight',
+      'christmas-appeal': 'Christmas Appeal 2026 | Foresight Australia'
     };
 
     let title = pageTitles[currentPage] || 'Foresight Australia | Eradicating Avoidable Blindness';
@@ -304,7 +307,7 @@ export default function App() {
         </AnimatePresence>
       </nav>
 
-      <main className={`flex-1 ${currentPage !== 'home' ? 'pt-24 md:pt-[140px]' : ''}`}>
+      <main className={`flex-1 ${currentPage !== 'home' && currentPage !== 'christmas-appeal' ? 'pt-24 md:pt-[140px]' : ''}`}>
         <Suspense fallback={<LoadingFallback />}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -334,6 +337,7 @@ export default function App() {
               {currentPage === 'legacy-giving' && <LegacyGivingPage onNavigate={handleNavClick} />}
               {currentPage === 'contact' && <ContactPage />}
               {currentPage === 'donate' && <DonatePage onNavigate={handleNavClick} />}
+              {currentPage === 'christmas-appeal' && <ChristmasAppealPage onNavigate={handleNavClick} />}
               {currentPage === 'news' && <NewsPage onNavigate={handleNavClick} />}
               {currentPage === 'news-detail' && selectedArticleId && (
                 <NewsDetailPage 

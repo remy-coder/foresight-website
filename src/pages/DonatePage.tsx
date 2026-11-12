@@ -9,8 +9,10 @@ import {
   HelpCircle, 
   Globe, 
   History, 
-  Zap 
+  Zap,
+  Sparkles
 } from 'lucide-react';
+import { SHOW_CHRISTMAS_DONATE_CALLOUT } from '../constants';
 
 interface DonatePageProps {
   onNavigate?: (id: string) => void;
@@ -19,11 +21,23 @@ interface DonatePageProps {
 export default function DonatePage({ onNavigate }: DonatePageProps) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const tiers = [
-    { amount: '$35', title: 'The First Step', outcome: 'Provide a comprehensive eye screening for a child or adult in a remote community.' },
-    { amount: '$150', title: 'The Gift of Sight', outcome: 'Fund a cataract surgery and restore someone’s vision in under 30 minutes.' },
-    { amount: '$500', title: 'Train a Healer', outcome: 'Support the training of a local nurse or clinician, creating long-term impact.' },
-    { amount: '$2,500', title: 'Equip a Clinic', outcome: 'Help provide essential equipment to deliver ongoing eye care services.' }
+  const impactAreas = [
+    {
+      title: 'Eye Examinations & Screenings',
+      desc: 'Supporting outreach teams to detect refractive errors, cataracts, and eye conditions early in underserved communities.'
+    },
+    {
+      title: 'Glasses & Corrective Lenses',
+      desc: 'Providing prescription spectacles to children and adults so they can learn, work, and read clearly.'
+    },
+    {
+      title: 'Surgical Care & Referrals',
+      desc: 'Facilitating cataract procedures, surgical consumables, and coordinated patient referral pathways.'
+    },
+    {
+      title: 'Local Training & Equipment',
+      desc: 'Equipping partner clinics and mentoring local eye care nurses and health workers for long-term sustainability.'
+    }
   ];
 
   const transparencyCards = [
@@ -47,7 +61,7 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
   const faqs = [
     {
       question: 'Is my donation tax deductible?',
-      answer: 'Yes. Foresight Australia is a registered Australian charity with Deductible Gift Recipient (DGR) status. Donations over $2 are tax deductible for Australian residents.'
+      answer: 'Eligible donations of $2 or more to Foresight Australia are tax deductible in Australia. Your ability to claim depends on your individual circumstances.'
     },
     {
       question: 'Where does my money go?',
@@ -91,6 +105,32 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-[2.5rem] shadow-3xl border border-gray-100 p-6 md:p-12 relative z-10 -mt-20 md:-mt-24">
             
+            {SHOW_CHRISTMAS_DONATE_CALLOUT && (
+              <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-accent/10 border border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center shrink-0 text-accent">
+                    <Sparkles className="w-4 h-4 text-[#ff8c00]" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-display font-extrabold uppercase tracking-widest text-primary block">
+                      Christmas Appeal 2026
+                    </span>
+                    <p className="text-sm font-display font-bold text-gray-900 leading-snug">
+                      Our Christmas Appeal: help us reach $30,000 by 31 December
+                    </p>
+                  </div>
+                </div>
+                {onNavigate && (
+                  <button
+                    onClick={() => onNavigate('christmas-appeal')}
+                    className="shrink-0 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-xl font-display font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-sm"
+                  >
+                    View Appeal <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+            )}
+
             <div className="mb-10 text-center">
               {/* REMOVED TOGGLE - REPLACED WITH TEXT */}
               <p className="text-lg text-gray-700 font-display font-bold mb-8">
@@ -99,36 +139,31 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
               
               <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 mb-12 max-w-2xl mx-auto text-center">
                 <h4 className="font-display font-black uppercase tracking-widest text-xs mb-2 text-primary">
-                  Immediate Impact
+                  Where Your Support Goes
                 </h4>
                 <p className="text-sm text-gray-600 font-display font-medium leading-relaxed">
-                  Your gift provides immediate support for clinical screenings and sight-restoring surgeries for those in urgent need.
+                  Your gift can help support eye examinations, glasses, equipment, training and referrals across our partner programs.
                 </p>
               </div>
 
               <h4 className="text-gray-400 font-display font-black uppercase tracking-[0.2em] text-[10px] mb-8">
-                Examples of what your donation can help make possible
+                Key areas of impact made possible by your donations
               </h4>
             </div>
 
             {/* DONATION IMPACT CARDS (STATIC) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-12">
-              {tiers.map((tier) => (
+              {impactAreas.map((area, idx) => (
                 <div
-                  key={tier.amount}
-                  className="p-8 rounded-3xl border border-gray-100 bg-gray-50/30 text-left flex flex-col gap-3 transition-all"
+                  key={idx}
+                  className="p-8 rounded-3xl border border-gray-100 bg-gray-50/30 text-left flex flex-col gap-3 transition-all hover:bg-white hover:shadow-md"
                 >
-                  <div className="text-3xl md:text-4xl font-display font-black text-primary">
-                    {tier.amount}
-                  </div>
-                  <div>
-                    <span className="block font-display font-black uppercase tracking-widest text-[11px] text-gray-400 mb-1">
-                      {tier.title}
-                    </span>
-                    <p className="text-sm text-gray-600 font-display font-medium leading-normal">
-                      {tier.outcome}
-                    </p>
-                  </div>
+                  <span className="block font-display font-extrabold text-lg text-primary">
+                    {area.title}
+                  </span>
+                  <p className="text-sm text-gray-600 font-display font-medium leading-normal">
+                    {area.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -139,7 +174,7 @@ export default function DonatePage({ onNavigate }: DonatePageProps) {
                 Choose Your Program
               </h4>
               <p className="text-gray-700 font-display font-medium leading-relaxed">
-                You can choose your preferred program inside Donorbox, including the Sumba Eye Program, Solomon Islands, Australian Project, or all Foresight projects.
+                You can choose your preferred program inside Donorbox, including the Sumba Eye Program, Solomon Islands, Australian Project, or all Foresight projects. To direct your gift to Sumba, please select &lsquo;Sumba Eye Program&rsquo; in the donation form.
               </p>
             </div>
 

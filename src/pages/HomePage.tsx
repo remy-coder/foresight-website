@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Award, Target, Heart, Activity, Users, ShieldCheck, Quote, Globe } from 'lucide-react';
-import { IMPACT_STATS, PROJECTS, PARTNERS } from '../constants';
+import { IMPACT_STATS, PROJECTS, PARTNERS, SHOW_CHRISTMAS_BANNER } from '../constants';
+import ChristmasBanner from '../components/ChristmasBanner';
 
 interface HomePageProps {
   onNavigate: (id: string) => void;
@@ -24,7 +25,18 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10 w-full py-8 md:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-24 md:mt-0">
+          {SHOW_CHRISTMAS_BANNER && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-8 md:mb-12 mt-16 sm:mt-20 md:mt-0"
+            >
+              <ChristmasBanner onNavigate={onNavigate} className="px-0 sm:px-0 lg:px-0" />
+            </motion.div>
+          )}
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,7 +148,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <h3 className="text-2xl font-display font-extrabold text-gray-900 mb-3">Surgical Care</h3>
               <p className="text-primary font-display font-black uppercase tracking-widest text-[11px] mb-3">Direct Impact</p>
               <p className="text-gray-500 font-display font-medium leading-relaxed flex-1 text-lg">
-                Providing life-changing procedures to those who need them most, restoring sight and autonomy immediately.
+                Providing life-changing procedures to those who need them most, working to restore sight and independence.
               </p>
             </motion.div>
 
@@ -215,7 +227,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   "Sis, let's get our eyes checked. So you can get cool glasses like mine."
                 </p>
                 <p className="text-xl text-gray-600 font-display font-medium leading-relaxed mb-10">
-                  Sixteen-year-old Ezry had never complained about her vision. Blurry was simply how the world looked — until our team in West Sumba found a prescription of minus twelve. Her brother Lodowyk had brought her in. Now she can see her teacher from the back of the classroom.
+                  Sixteen-year-old Ezry had never complained about her vision — blurry was simply how the world looked. After her brother Lodowyk received glasses and was able to move to the back of his classroom, he brought Ezry to our clinic in West Sumba. Our team diagnosed a prescription of minus twelve and fitted her with glasses of her own.
                 </p>
                 <button
                   onClick={() => onNavigate('story-ezry-and-lodowyk')}
@@ -230,34 +242,50 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
 
-      {/* Stats Section - Bento Style */}
-      <section className="py-8 md:py-10 bg-[#FAFAFA] relative overflow-hidden">
+      {/* Impact Section */}
+      <section className="py-10 md:py-14 bg-[#FAFAFA] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-end mb-12 md:mb-16">
-            <div className="max-w-2xl">
-              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-2">Our Impact (2025)</h2>
-              <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">Measurable outcomes in sustainable eye care.</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center mb-10 md:mb-12">
+            <div className="lg:col-span-7">
+              <h2 className="text-primary font-display font-extrabold tracking-[0.3em] text-[11px] uppercase mb-2">Our Impact</h2>
+              <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4">
+                Measurable outcomes in sustainable eye care.
+              </h3>
+              <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed max-w-2xl">
+                We track our progress with rigorous data and factual reports, ensuring every contribution supports life-changing treatment and sustainable healthcare infrastructure.
+              </p>
             </div>
-            <p className="text-base md:text-lg text-gray-500 font-display font-medium leading-relaxed">
-              We track our progress with rigorous data and factual reports, ensuring every contribution supports life-changing treatment and sustainable healthcare infrastructure.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-            {IMPACT_STATS.map((stat, index) => (
+            <div className="lg:col-span-5">
               <motion.div
-                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="p-6 md:p-10 rounded-3xl md:rounded-5xl border border-gray-100 flex flex-col items-center text-center transition-all duration-500 shadow-sm hover:shadow-2xl bg-white"
+                className="p-8 md:p-10 rounded-3xl md:rounded-4xl border border-gray-100 bg-white shadow-xl flex flex-col items-center text-center"
               >
-                <div className="text-3xl md:text-6xl font-display font-black text-primary mb-4 md:mb-6 tracking-tighter">{stat.value}</div>
-                <div className="text-[11px] md:text-xs font-display font-black text-gray-400 uppercase tracking-[0.2em] leading-tight">{stat.label}</div>
+                <div className="text-4xl md:text-6xl font-display font-black text-primary mb-3 tracking-tighter">40+</div>
+                <div className="text-xs md:text-sm font-display font-black text-gray-800 uppercase tracking-[0.15em] leading-tight">Years of Sight Restoration</div>
+                <div className="text-[11px] font-display font-medium text-gray-400 mt-2">Cumulative since 1977 (as at 2026)</div>
+                <p className="text-xs text-gray-500 font-display font-medium mt-4 leading-relaxed">
+                  Founded in 1977 by Prof. Frank Billson AO and Gen. Paul Cullen AC to prevent and cure avoidable blindness through sustainable skills transfer.
+                </p>
               </motion.div>
-            ))}
+            </div>
+          </div>
+
+          {/* Trust & Registration Bar */}
+          <div className="p-6 bg-white rounded-2xl border border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+            <div className="flex items-center gap-3 text-center sm:text-left">
+              <ShieldCheck className="w-5 h-5 text-primary shrink-0" />
+              <p className="text-xs md:text-sm text-gray-600 font-display font-medium">
+                Foresight Australia is a registered Australian charity with Deductible Gift Recipient (DGR) status.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('reports-policies')}
+              className="shrink-0 text-xs font-display font-black uppercase tracking-widest text-primary hover:text-accent flex items-center gap-2 transition-colors"
+            >
+              View Reports & Policies <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>

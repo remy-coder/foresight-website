@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/sumba-eye-program",
+      "destination": "/where-we-work/sumba",
+      "permanent": true
+    },
+    {
+      "source": "/sumba-eye-program/",
+      "destination": "/where-we-work/sumba",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

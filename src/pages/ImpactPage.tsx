@@ -70,10 +70,6 @@ export default function ImpactPage({ onNavigate }: ImpactPageProps) {
               height="800"
               decoding="async"
             />
-            <div className="absolute -bottom-10 -right-10 glass p-4 md:p-8 rounded-[2rem] shadow-2xl">
-              <div className="text-2xl md:text-4xl font-display font-black text-primary tracking-tighter">100%</div>
-              <div className="text-[11px] font-black text-gray-400 uppercase tracking-[0.2em]">Vision Restored</div>
-            </div>
           </motion.div>
         </div>
 
@@ -117,7 +113,7 @@ export default function ImpactPage({ onNavigate }: ImpactPageProps) {
                 name: 'Cahara',
                 location: 'Sumba, Indonesia',
                 image: '/media/images/Cahara.png',
-                story: 'Ten-year-old Cahara was diagnosed with severe myopia. With her new glasses, her vision was instantly restored, allowing her to see the blackboard and thrive in school.'
+                story: 'Ten-year-old Cahara was diagnosed with severe myopia. When fitted with corrective lenses, she was able to clearly see the chalkboard, her teacher\'s smile, and the world around her.'
               },
               {
                 name: 'Kristin',

@@ -59,9 +59,9 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
               {projectId === 'projects-indonesia' && (
                 <div className="flex flex-wrap gap-8 md:gap-14">
                   {[
-                    { label: 'Screenings', value: '200,000+' },
-                    { label: 'Surgeries', value: '2,000+' },
-                    { label: 'Glasses', value: '25,000+' }
+                    { label: 'Patients Seen (Sept 2026)', value: '913' },
+                    { label: 'Glasses Provided (Sept 2026)', value: '928' },
+                    { label: 'Cataract Surgeries (Sept 2026)', value: '15' }
                   ].map((stat, i) => (
                     <div key={i}>
                       <div className="text-3xl md:text-5xl font-display font-black text-primary tracking-tighter">{stat.value}</div>
@@ -307,24 +307,27 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
         </div>
       </section>
 
-      {/* SECTION 4.2: Visit Update */}
-      {'visitUpdate' in project && project.visitUpdate && (
-        <section className="py-10 md:py-14 bg-white">
+      {/* SECTION 4.2: Visit Updates */}
+      {('visitUpdates' in project && Array.isArray((project as any).visitUpdates) 
+        ? (project as any).visitUpdates 
+        : (('visitUpdate' in project && project.visitUpdate) ? [(project as any).visitUpdate] : [])
+      ).map((update: any, updateIdx: number) => (
+        <section key={updateIdx} className={`py-10 md:py-14 ${updateIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
           <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
             <div className="mb-12 md:mb-16">
               <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">
-                {(project as any).visitUpdate.label}
+                {update.label}
               </h2>
               <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-                {(project as any).visitUpdate.heading}
+                {update.heading}
               </h3>
               <p className="text-lg md:text-xl text-gray-500 font-display font-medium mt-6 leading-relaxed">
-                {(project as any).visitUpdate.intro}
+                {update.intro}
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-              {(project as any).visitUpdate.stats.map((stat: any, i: number) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
+              {update.stats.map((stat: any, i: number) => (
                 <motion.div 
                   key={i} 
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -340,8 +343,8 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {(project as any).visitUpdate.blocks.map((block: any, i: number) => (
-                <div key={i} className="p-8 bg-gray-50 rounded-3xl border border-gray-100">
+              {update.blocks.map((block: any, i: number) => (
+                <div key={i} className="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm">
                   <h4 className="text-xl font-display font-extrabold text-gray-900 mb-4">{block.heading}</h4>
                   <p className="text-base text-gray-600 font-display font-medium leading-relaxed">{block.body}</p>
                 </div>
@@ -349,7 +352,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
             </div>
           </div>
         </section>
-      )}
+      ))}
 
       {/* SECTION 5: Milestones */}
       {'milestones' in project && (
@@ -556,6 +559,11 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
           >
             Donate to this project <ArrowRight className="w-5 h-5" />
           </button>
+          {projectId === 'projects-indonesia' && (
+            <p className="text-sm text-gray-500 font-display font-medium mt-4">
+              To direct your gift to Sumba, please select &lsquo;Sumba Eye Program&rsquo; in the donation form.
+            </p>
+          )}
         </div>
       </section>
     </div>
