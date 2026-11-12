@@ -123,7 +123,7 @@ export default function ChristmasAppealPage({ onNavigate }: ChristmasAppealPageP
       </section>
 
       {/* 3. LEAD STORY: A GIRL IN SUMBA */}
-      <section id="lead-story" className="py-12 md:py-20 bg-[#FAFAFA] scroll-mt-28 md:scroll-mt-36">
+      <section id="lead-story" className="py-12 md:py-20 bg-[#FAFAFA] scroll-mt-24 md:scroll-mt-[140px]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl md:rounded-[2.5rem] border border-gray-100 shadow-xl overflow-hidden p-6 sm:p-10 md:p-14">
             <div className="max-w-3xl mx-auto">
