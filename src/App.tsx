@@ -65,6 +65,9 @@ export default function App() {
         '/where-we-work/australia': 'projects',
         '/where-we-work/sumba': 'projects',
         '/where-we-work/solomon-islands': 'projects',
+        '/where-we-work/bangladesh': 'projects',
+        '/where-we-work/philippines': 'projects',
+        '/where-we-work/timor-leste': 'projects',
         '/stories': 'impact',
         '/get-involved': 'get-involved',
         '/get-involved/volunteer': 'volunteer',
@@ -81,6 +84,9 @@ export default function App() {
       if (path === '/where-we-work/australia') setSelectedProjectId('projects-australia');
       else if (path === '/where-we-work/sumba') setSelectedProjectId('projects-indonesia');
       else if (path === '/where-we-work/solomon-islands') setSelectedProjectId('projects-solomon-islands');
+      else if (path === '/where-we-work/bangladesh') setSelectedProjectId('projects-bangladesh');
+      else if (path === '/where-we-work/philippines') setSelectedProjectId('projects-philippines');
+      else if (path === '/where-we-work/timor-leste') setSelectedProjectId('projects-timor-leste');
       else if (path.startsWith('/stories/') && path !== '/stories') {
         setSelectedStoryId(path.replace('/stories/', ''));
         setCurrentPage('story');

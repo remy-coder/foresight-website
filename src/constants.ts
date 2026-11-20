@@ -254,11 +254,27 @@ export const PROJECTS = [
     location: 'Bangladesh',
     description: "Foresight was an early contributor to the establishment of the Chittagong Eye Infirmary and Training Complex.",
     image: "/media/images/Bangladesh home.png",
-    supportingImages: ["/media/images/Sumbaproject.png"],
+    supportingImages: ["/media/images/Bangladesh 2.PNG"],
     status: 'Legacy',
-    intro: "Founded in 1978, the Chittagong Eye Infirmary and Training Complex (CEITC) is one of Foresight's landmark projects.",
-    whatWeDid: "Foresight was an early contributor to the establishment of the Chittagong Eye Infirmary and Training Complex (CEITC), founded in 1978. Foresight's involvement helped lay the groundwork for what grew into a significant eye care institution in Bangladesh.\n\nForesight is no longer active in Bangladesh. This project is recognised as part of Foresight's legacy work.",
-    cta: 'Support our work in Bangladesh'
+    intro: "Founded in 1978, the Chittagong Eye Infirmary and Training Complex (CEITC) is one of Foresight's foundational landmark projects, establishing an enduring model for sustainable local eye care.",
+    whyItMatters: "In the late 1970s, avoidable blindness — particularly from cataract and nutritional deficiencies — was widespread across rural and regional Bangladesh, with few specialised ophthalmic facilities available outside the capital. Foresight's co-founders, Professor Frank Billson AO and Major General Paul Cullen AC, recognised that temporary overseas aid could not resolve the crisis: lasting change required training local surgeons and creating permanent infrastructure within Bangladesh.",
+    whatWeDo: "Foresight worked closely with local clinicians and community leaders to help establish the Chittagong Eye Infirmary and Training Complex (CEITC). Rather than relying on recurring foreign surgical teams, the initiative focused on equipping local healthcare providers with the surgical skills, diagnostic equipment, and clinical foundations needed to operate a world-class ophthalmic facility independently.",
+    achievements: [
+      'Co-founded and supported the early establishment of the Chittagong Eye Infirmary and Training Complex (CEITC) in 1978.',
+      'Trained local Bangladeshi ophthalmologists, ophthalmic nurses, and clinic technicians in modern surgical techniques.',
+      'Helped CEITC grow into one of South Asia’s premier non-governmental ophthalmic institutions, restoring sight to tens of thousands of patients annually.',
+      'Established Foresight’s core philosophy: building sustainable local clinical capacity rather than temporary intervention.'
+    ],
+    nextSteps: 'While Foresight is no longer active in Bangladesh, CEITC stands as a self-sustaining institution that continues to deliver high-quality ophthalmic care and training across the region. The project remains the cornerstone of Foresight’s legacy and the blueprint for our ongoing programs in Sumba, the Solomon Islands, and regional Australia.',
+    partnersHeading: 'A Foundation of Global Cooperation',
+    partnersText: 'The Chittagong Eye Infirmary was established through historic collaboration between Australian ophthalmic pioneers and dedicated Bangladeshi medical leaders.',
+    partners: [
+      'Chittagong Eye Infirmary and Training Complex (CEITC)',
+      'Bangladesh National Society for the Blind (BNSB)',
+      'Prof. Frank Billson AO & Gen. Paul Cullen AC'
+    ],
+    cta: 'Support our work',
+    ctaText: 'The sustainable model pioneered in Bangladesh guides everything we do today. Your support helps us replicate this success in Sumba, the Solomon Islands, and regional Australia.'
   },
   {
     id: 'projects-philippines',

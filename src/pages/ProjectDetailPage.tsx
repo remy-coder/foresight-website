@@ -100,54 +100,56 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
       </section>
 
       {/* SECTION 2: Why it matters */}
-      {projectId === 'projects-indonesia' ? (
-        <section className="py-16 px-6 bg-slate-50">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
-              <div className="col-span-1">
-                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
-                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
-              </div>
-              <div className="col-span-3">
-                <div className="flex flex-col gap-6">
-                  {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
-                    <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                      {para}
-                    </p>
-                  )) : (
-                    <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                      {project.whyItMatters}
-                    </p>
-                  )}
+      {project.whyItMatters && (
+        projectId === 'projects-indonesia' ? (
+          <section className="py-16 px-6 bg-slate-50">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+                <div className="col-span-1">
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
+                  <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
+                </div>
+                <div className="col-span-3">
+                  <div className="flex flex-col gap-6">
+                    {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
+                      <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                        {para}
+                      </p>
+                    )) : (
+                      <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                        {project.whyItMatters}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      ) : (
-        <section className="py-10 md:py-14 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
-              <div className="md:col-span-4">
-                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
-                <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
-              </div>
-              <div className="md:col-span-8">
-                <div className="flex flex-col gap-6">
-                  {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
-                    <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                      {para}
-                    </p>
-                  )) : (
-                    <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
-                      {project.whyItMatters}
-                    </p>
-                  )}
+          </section>
+        ) : (
+          <section className="py-10 md:py-14 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-start">
+                <div className="md:col-span-4">
+                  <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">The Challenge</h2>
+                  <h3 className="text-2xl md:text-3xl font-display font-extrabold text-gray-900 leading-tight">Why it matters</h3>
+                </div>
+                <div className="md:col-span-8">
+                  <div className="flex flex-col gap-6">
+                    {Array.isArray(project.whyItMatters) ? project.whyItMatters.map((para, i) => (
+                      <p key={i} className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                        {para}
+                      </p>
+                    )) : (
+                      <p className="text-base md:text-xl text-gray-600 font-display font-medium leading-relaxed">
+                        {project.whyItMatters}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )
       )}
 
       {/* SECTION 2.5: Our Story */}
@@ -206,20 +208,21 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
       )}
 
       {/* SECTION 3: What we do */}
-      <section className="py-10 md:py-14 bg-[#0F172A] text-white relative overflow-hidden rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[160px] rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
-            <div>
-              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-5">
-                {project.id === 'projects-indonesia' ? 'Our Approach' : 'Our Solution'}
-              </h2>
-              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-                {project.id === 'projects-indonesia' ? 'Our approach' : 'What we do'}
-              </h3>
-              <p className="text-base md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-10">
-                {project.whatWeDo}
-              </p>
+      {(project.whatWeDo || (project as any).whatWeDid) && (
+        <section className="py-10 md:py-14 bg-[#0F172A] text-white relative overflow-hidden rounded-[3rem] md:rounded-[4rem] mx-4 md:mx-10">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[160px] rounded-full"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
+              <div>
+                <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-5">
+                  {project.id === 'projects-indonesia' ? 'Our Approach' : 'Our Solution'}
+                </h2>
+                <h3 className="text-2xl md:text-4xl font-display font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+                  {project.id === 'projects-indonesia' ? 'Our approach' : 'What we do'}
+                </h3>
+                <p className="text-base md:text-xl text-gray-400 font-display font-medium leading-relaxed mb-10">
+                  {project.whatWeDo || (project as any).whatWeDid}
+                </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {('approachCards' in project && project.approachCards ? (project as any).approachCards : [{ icon: 'Target', label: "Clinical Care" }, { icon: 'Users', label: "Training" }]).map((feature: any, i: number) => {
                   let Icon = Target;
@@ -260,52 +263,55 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigate }: Pro
           </div>
         </div>
       </section>
+      )}
 
       {/* SECTION 4: Key achievements */}
-      <section className="py-10 md:py-14 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
-          <div className="mb-12 md:mb-16">
-            <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">
-              {project.id === 'projects-australia' ? 'Our Impact' : 'Our Progress'}
-            </h2>
-            <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-              {project.id === 'projects-australia' ? 'Our impact' : 'Key achievements'}
-            </h3>
-          </div>
-          {project.id === 'projects-solomon-islands' && project.supportingImages?.[1] && (
-            <div className="mb-12 md:mb-16 relative rounded-[3rem] overflow-hidden shadow-md aspect-[21/9] md:aspect-[3/1]">
-              <img 
-                src={project.supportingImages[1]} 
-                alt="Solomon Islands key achievements" 
-                className="w-full h-full object-cover" 
-                loading="lazy"
-                width="1200"
-                height="400"
-                decoding="async"
-              />
+      {project.achievements && project.achievements.length > 0 && (
+        <section className="py-10 md:py-14 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-4 lg:px-6">
+            <div className="mb-12 md:mb-16">
+              <h2 className="text-primary font-display font-black tracking-[0.4em] text-[11px] uppercase mb-3">
+                {project.id === 'projects-australia' ? 'Our Impact' : 'Our Progress'}
+              </h2>
+              <h3 className="text-2xl md:text-4xl font-display font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+                {project.id === 'projects-australia' ? 'Our impact' : 'Key achievements'}
+              </h3>
             </div>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {project.achievements.map((achievement, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="flex gap-8 group p-6 bg-gray-50 rounded-3xl border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-xl transition-all duration-500"
-              >
-                <div className="shrink-0 w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
-                <p className="text-lg text-gray-600 font-display font-medium leading-relaxed">
-                  {achievement}
-                </p>
-              </motion.div>
-            ))}
+            {project.id === 'projects-solomon-islands' && project.supportingImages?.[1] && (
+              <div className="mb-12 md:mb-16 relative rounded-[3rem] overflow-hidden shadow-md aspect-[21/9] md:aspect-[3/1]">
+                <img 
+                  src={project.supportingImages[1]} 
+                  alt="Solomon Islands key achievements" 
+                  className="w-full h-full object-cover" 
+                  loading="lazy"
+                  width="1200"
+                  height="400"
+                  decoding="async"
+                />
+              </div>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {project.achievements.map((achievement, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="flex gap-8 group p-6 bg-gray-50 rounded-3xl border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-xl transition-all duration-500"
+                >
+                  <div className="shrink-0 w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <p className="text-lg text-gray-600 font-display font-medium leading-relaxed">
+                    {achievement}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* SECTION 4.2: Visit Updates */}
       {('visitUpdates' in project && Array.isArray((project as any).visitUpdates) 

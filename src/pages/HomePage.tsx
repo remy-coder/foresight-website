@@ -15,7 +15,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <img
             src="/media/images/home-hero-sumba-consultation.png"
             alt="Eye care clinic"
-            className="w-full h-full object-cover object-center brightness-75"
+            className="w-full h-full object-cover object-[center_top] md:object-[60%_top] lg:object-[65%_top] brightness-75"
             referrerPolicy="no-referrer"
             fetchPriority="high"
             decoding="async"
@@ -30,7 +30,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-8 md:mb-12 mt-16 sm:mt-20 md:mt-0"
+              className="mb-4 md:mb-6 mt-10 sm:mt-14 md:mt-0 max-w-xl lg:max-w-2xl mr-auto"
             >
               <ChristmasBanner onNavigate={onNavigate} className="px-0 sm:px-0 lg:px-0" />
             </motion.div>
