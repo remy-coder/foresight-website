@@ -25,7 +25,8 @@ export const ID_MAP: Record<string, string> = {
   'terms-conditions': '/terms-conditions',
   'cookie-policy': '/cookie-policy',
   'subscribe': '/subscribe',
-  'christmas-appeal': '/christmas-appeal'
+  'christmas-appeal': '/christmas-appeal',
+  'news-global-summit-for-eye-health': '/news/global-summit-for-eye-health'
 };
 
 export const getUrlFromId = (id: string): string => {

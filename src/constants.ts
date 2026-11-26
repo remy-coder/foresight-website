@@ -534,11 +534,13 @@ export const PATIENT_STORIES: Record<string, any> = {
 };
 
 export interface NewsArticleContentBlock {
-  type: 'paragraph' | 'heading' | 'list' | 'cta';
+  type: 'paragraph' | 'heading' | 'list' | 'cta' | 'standfirst' | 'button' | 'sources';
+  level?: 'h2' | 'h3';
   text?: string;
   items?: string[];
   buttonText?: string;
   buttonAction?: string;
+  links?: { label: string; url: string }[];
 }
 
 export interface NewsArticle {
@@ -548,11 +550,155 @@ export interface NewsArticle {
   category: string;
   location?: string;
   image: string;
+  imageAlt?: string;
+  caption?: string;
   excerpt: string;
+  standfirst?: string;
+  metaTitle?: string;
+  metaDescription?: string;
   content: NewsArticleContentBlock[];
 }
 
 export const NEWS_ARTICLES: NewsArticle[] = [
+  {
+    id: 'global-summit-for-eye-health',
+    title: 'World leaders commit more than US$1 billion to end avoidable blindness',
+    metaTitle: 'World leaders commit US$1 billion to end avoidable blindness | Foresight Australia',
+    metaDescription: "At the first Global Summit for Eye Health, Indonesia committed US$600 million and Australia pledged to close the Indigenous eye health gap by 2035. Here's what it means for Foresight's work.",
+    date: '26 November 2026',
+    category: 'News',
+    image: '/media/images/Indigenous Australia.jpg',
+    imageAlt: 'A local health worker trains on eye examination equipment alongside a Foresight volunteer in West Sumba, Indonesia.',
+    caption: 'Local skills, local care: training in West Sumba, September 2026.',
+    excerpt: "At the first Global Summit for Eye Health, governments and organisations from around the world made around 200 commitments to bring eye care to the people who need it. Two of them matter directly to Foresight's work: Indonesia's and Australia's.",
+    standfirst: "At the first Global Summit for Eye Health, governments and organisations from around the world made around 200 commitments to bring eye care to the people who need it. Two of them matter directly to Foresight's work: Indonesia's and Australia's.",
+    content: [
+      {
+        type: 'paragraph',
+        text: "On 2 November 2026, the first Global Summit for Eye Health was held in St John's, Antigua and Barbuda, alongside the Commonwealth Heads of Government Meeting. It was hosted by the Government of Antigua and Barbuda, with Bangladesh, Guyana, Ireland and Nigeria as co-hosts. The World Health Organization was its technical partner, and it was organised by the International Agency for the Prevention of Blindness (IAPB)."
+      },
+      {
+        type: 'paragraph',
+        text: 'The Summit asked for something different from past meetings. Rather than general statements of support, it called for commitments that are specific, funded and time-bound. In the words of Antigua and Barbuda\'s UN Ambassador, Walton Webson, the aim was to move eye health "from paper to people".'
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        text: 'Why it matters'
+      },
+      {
+        type: 'paragraph',
+        text: 'Around the world, 1.1 billion people live with vision loss, and 90% of it could have been prevented or treated. The two biggest causes are among the simplest to fix: 161 million people have poor distance vision that glasses would correct, and 100 million have cataracts that have never been operated on.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Without significant investment, the number of people with vision loss is expected to reach 1.7 billion by 2050. The cost goes well beyond health. Sight loss takes an estimated US$411 billion out of the global economy each year, and uncorrected vision costs children 6.3 million years of schooling.'
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        text: 'What the Summit delivered'
+      },
+      {
+        type: 'paragraph',
+        text: 'More than 40 governments took part, and the Summit reached its goal of more than US$1 billion committed to eye screening, glasses and treatment. Around 200 commitments were made in total, 57 of them by governments.'
+      },
+      {
+        type: 'list',
+        items: [
+          "**Children and glasses:** 95 commitments focus on children's eye health and 88 on access to glasses.",
+          '**Services:** together, the pledges include 68 million pairs of glasses and 13 million cataract surgeries.',
+          "**A shared agreement:** 40 governments were among the 173 organisations that endorsed the St John's Global Compact for Eye Health."
+        ]
+      },
+      {
+        type: 'heading',
+        level: 'h3',
+        text: 'Indonesia: US$600 million'
+      },
+      {
+        type: 'paragraph',
+        text: 'Indonesia made one of the largest commitments: US$600 million to build eye health into primary care, vision centres, school health services and community health programs, reaching more than 50 million people by 2030. It builds on the national declaration Indonesia signed in October 2025 to expand access to affordable eye care and glasses.'
+      },
+      {
+        type: 'heading',
+        level: 'h3',
+        text: 'Australia: closing the gap by 2035'
+      },
+      {
+        type: 'paragraph',
+        text: 'The Australian Government pledged to close the gap in eye health between Aboriginal and Torres Strait Islander peoples and other Australians by 2035. Vision impairment is currently three times more common among Aboriginal and Torres Strait Islander peoples. The pledge also covers better access to vision services and support such as magnifiers, white canes and mobility training.'
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        text: 'What it means for Foresight'
+      },
+      {
+        type: 'paragraph',
+        text: "The Summit's message is one Foresight has acted on since 1977: lasting change comes when eye care is built into local health systems and delivered by local people. Foresight was also one of the first agencies to join the IAPB, the organisation that convened the Summit."
+      },
+      {
+        type: 'paragraph',
+        text: "**In Sumba, Indonesia**, Indonesia's commitment points the same way as our program. It focuses on primary care and school health, and from 2027 Foresight is concentrating its training on the doctors and nurses at local community health centres (puskesmas), the first stop for most families. In September 2026 our team saw 913 patients in West Sumba, provided 928 pairs of glasses and ran our first school screening pilot. National investment can help that work last between our visits."
+      },
+      {
+        type: 'paragraph',
+        text: "**In Griffith, NSW**, Foresight has worked since 2022 with the Murrumbidgee Local Health District and the Griffith Aboriginal Medical Service. Together we have trained 40 Aboriginal health workers, nurses and staff, and the waitlist at the Griffith Base Hospital eye clinic has fallen from 123 to 52. Australia's 2035 commitment recognises the need for exactly this kind of work, led locally and in partnership with Aboriginal communities."
+      },
+      {
+        type: 'paragraph',
+        text: "**In the Pacific**, including the Solomon Islands, the Summit gave Pacific nations a stronger voice: the Cook Islands' Health Minister served as the Summit's Pacific Ambassador, and Pacific leaders agreed a joint statement on eye health beforehand."
+      },
+      {
+        type: 'paragraph',
+        text: 'Commitments are only a start. As Pacific eye health leaders put it before the Summit, the real measure of success is what happens afterwards.'
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        text: 'Help turn commitments into care'
+      },
+      {
+        type: 'paragraph',
+        text: 'Governments can fund the systems. Turning those systems into trained nurses, screened children and restored sight still takes partners on the ground. This Christmas, Foresight aims to raise $30,000 for its work in Sumba and here in Australia.'
+      },
+      {
+        type: 'button',
+        buttonText: 'Support the Christmas Appeal',
+        buttonAction: '/christmas-appeal'
+      },
+      {
+        type: 'sources',
+        links: [
+          {
+            label: 'IAPB Vision Atlas',
+            url: 'https://visionatlas.iapb.org'
+          },
+          {
+            label: 'Vision Monday: World leaders commit $1 billion',
+            url: 'https://www.visionmonday.com/eyecare/article/world-leaders-at-global-summit-for-eye-health-commit-landmark-1-billion-to-tackle-avoidable-sight-loss-worldwide/'
+          },
+          {
+            label: 'Vision Monday: Summit delivers 200 commitments',
+            url: 'https://www.visionmonday.com/eyecare/article/historic-global-eye-health-summit-delivers-200-commitments-to-improve-vision-for-millions-of-people-worldwide/'
+          },
+          {
+            label: 'Ophthalmology Times: Turning pledges into eye care',
+            url: 'https://www.ophthalmologytimes.com/view/global-summit-eye-health-2026-turning-pledges-into-eye-care'
+          },
+          {
+            label: 'National Indigenous Times: Closing the gap in Indigenous eye health by 2035',
+            url: 'https://nit.com.au/03-11-2026/27302/federal-government-commits-to-closing-the-gap-in-indigenous-eye-health-by-2035-at-first-global-summit'
+          },
+          {
+            label: 'WHO Indonesia: Indonesia commits to affordable eye health services',
+            url: 'https://www.who.int/indonesia/news/detail/09-10-2025-indonesia-commits-to-improving-affordable-and-equitable-eye-health-services'
+          }
+        ]
+      }
+    ]
+  },
   {
     id: 'sumba-visit-2026',
     title: 'April 2026 Sumba Eye Program Visit: A Turning Point for Sustainable Eye Care in West Sumba',

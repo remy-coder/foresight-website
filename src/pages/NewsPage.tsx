@@ -41,7 +41,7 @@ export default function NewsPage({ onNavigate }: NewsPageProps) {
               <div className="aspect-[16/9] w-full relative overflow-hidden">
                 <img 
                   src={article.image} 
-                  alt={article.title} 
+                  alt={article.imageAlt || article.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   loading="lazy"
                   width="800"

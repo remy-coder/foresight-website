@@ -145,7 +145,7 @@ export default function App() {
     } else if (currentPage === 'news-detail' && selectedArticleId) {
       const article = NEWS_ARTICLES.find(a => a.id === selectedArticleId);
       if (article) {
-        title = `${article.title} | News | Foresight Australia`;
+        title = article.metaTitle || `${article.title} | News | Foresight Australia`;
       } else {
         title = 'News | Foresight Australia';
       }
